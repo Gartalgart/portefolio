@@ -25,8 +25,6 @@ export const facts = [
   { label: "Sites vitrine", value: `À partir de ${site.startingPrice}` },
 ];
 
-export const ticker = ["Site vitrine", "Application sur-mesure", "Refonte et SEO", "Maintenance", "Hauts-de-France", "Île-de-France", "À distance"];
-
 export const services = [
   {
     title: "Un site qui fait venir les clients",

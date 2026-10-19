@@ -16,7 +16,7 @@ const Linkedin = ({ size }: { size: number }) => (
 );
 
 const field =
-  "mt-1.5 w-full rounded-xl border border-line bg-surface-2 px-4 py-3 text-base outline-none transition placeholder:text-muted focus:border-accent";
+  "mt-1.5 w-full rounded-xl border border-line-strong bg-surface-2 px-4 py-3 text-base outline-none transition placeholder:text-muted focus:border-primary";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -33,18 +33,18 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-titre" className="px-4 py-24 md:px-6 md:py-32">
-      <div className="mx-auto max-w-[1320px] rounded-2xl border border-line bg-surface p-6 sm:p-10 md:p-16">
+    <section id="contact" aria-labelledby="contact-titre" className="px-5 py-24 md:px-8 md:py-32">
+      <div className="mx-auto max-w-[1320px] rounded-3xl border border-line bg-surface p-6 sm:p-10 md:p-16">
         <div className="grid gap-12 md:grid-cols-[1fr_1.1fr]">
           <div>
             <SectionHead
               id="contact-titre"
-              title="Poussez la porte."
+              title="Parlons de votre projet."
               intro={`Décrivez votre besoin en quelques lignes : je vous réponds avec une première idée et un ordre de prix. Les sites vitrine démarrent à ${site.startingPrice}.`}
             />
             <a
               href={site.calendly}
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-accent-fg transition hover:brightness-110"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-fg transition hover:brightness-110"
             >
               <CalendarCheck size={18} aria-hidden="true" />
               Réserver un appel de 15 min
@@ -83,7 +83,7 @@ export default function Contact() {
             </div>
             <button
               type="submit"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-line px-6 py-3 font-medium transition hover:border-accent hover:text-accent"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-line px-6 py-3 font-medium transition hover:border-primary hover:text-link"
             >
               <Send size={16} aria-hidden="true" /> Envoyer le message
             </button>

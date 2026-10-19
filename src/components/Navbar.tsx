@@ -20,8 +20,8 @@ export default function Navbar() {
         aria-label="Navigation principale"
         className="mx-auto flex max-w-[1320px] items-center justify-between rounded-full border border-line bg-[var(--glass)] py-2 pl-5 pr-2 backdrop-blur-xl"
       >
-        <a href="#" className="font-display text-base font-bold tracking-tight">
-          Rémy Denimal<span className="text-accent">.</span>
+        <a href="#" className="text-sm font-semibold tracking-tight">
+          Rémy Denimal<span className="text-link">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -38,7 +38,7 @@ export default function Navbar() {
           <ThemeToggle />
           <a
             href={site.calendly}
-            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-fg transition hover:brightness-110 sm:block"
+            className="hidden rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-fg transition hover:brightness-110 sm:block"
           >
             Réserver un appel
           </a>
@@ -63,13 +63,13 @@ export default function Navbar() {
           <ul>
             {nav.map((l) => (
               <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)} className="block rounded-2xl px-4 py-3 text-base hover:bg-accent-soft">
+                <a href={l.href} onClick={() => setOpen(false)} className="block rounded-2xl px-4 py-3 text-base hover:bg-surface-2">
                   {l.label}
                 </a>
               </li>
             ))}
             <li>
-              <a href={site.calendly} className="mt-2 block rounded-2xl bg-accent px-4 py-3 text-center font-medium text-accent-fg">
+              <a href={site.calendly} className="mt-2 block rounded-2xl bg-primary px-4 py-3 text-center font-medium text-primary-fg">
                 Réserver un appel
               </a>
             </li>
