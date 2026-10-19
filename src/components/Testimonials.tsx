@@ -5,8 +5,8 @@ import SectionHead from "./SectionHead";
 export default function Testimonials() {
   if (testimonials.length === 0) return null;
   return (
-    <section aria-labelledby="avis-titre" className="px-5 py-24 md:py-32">
-      <div className="mx-auto max-w-5xl">
+    <section aria-labelledby="avis-titre" className="px-4 py-24 md:px-6 md:py-32">
+      <div className="mx-auto max-w-[1320px]">
         <SectionHead id="avis-titre" title="Ils m'ont fait confiance" />
         <ul className="grid gap-4 md:grid-cols-3">
           {testimonials.map((t) => (

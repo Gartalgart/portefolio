@@ -1,27 +1,29 @@
 # DESIGN.md — Portfolio Rémy Denimal
 
-## Direction (validée)
-- **Mode** : Persuade. Un seul geste final : prendre contact.
-- **Base** : Linear (surfaces étagées, accent rare), Cal.com (cadres d'aperçu arrondis, air), Webdesign29 (bande de faits et lieu).
-- **Thème** : sombre par défaut + clair, choix mémorisé (`localStorage`).
-- **Accent** : ambre, réservé aux actions (boutons, liens, focus, sélection). Pas d'ambre décoratif.
+## Monde visuel : la devanture de boutique
+Le site est une façade de commerce. Public : artisans, commerçants, associations, mairies, qui reconnaissent immédiatement l'objet.
+- **Nuit (défaut)** : façade vert bouteille, enseigne néon ambre allumée, halo réel autour du tube.
+- **Jour** : façade plâtre, tubes éteints (verre coloré, sans halo). La bascule jour/nuit = enseigne allumée ou éteinte.
+- **Mode** : Experience. Le travail (les sites réels) mène la page.
+
+## Moments signature (un seul chacun)
+1. **Rideau métallique** : se lève au chargement du hero, en CSS pur, supprimé en mouvement réduit.
+2. **Enseigne néon** : « Rémy Denimal » en contour lumineux ; une seule lettre vacille.
+3. **Vitrines** : sur grand écran, le scroll vertical fait défiler les vitrines horizontalement ; chaque site se teste en direct (iframe à la demande). Secur-Feu interdit l'affichage en cadre (`X-Frame-Options`), il reste en capture + lien.
+4. **Bandeau lumineux** défilant ; **la carte** des services avec pointillés de menu et prix.
 
 ## Tokens (`src/app/globals.css`)
-`--bg --surface --surface-2 --fg --muted --line --accent --accent-fg --accent-soft --glass --shadow`.
-Aucune couleur en dur dans les composants.
-Élévation : une bordure 1px **ou** une ombre, jamais les deux. Rayons : 12 px (cadres internes), 16 px (cartes), pilules pour les petits contrôles.
+`--bg --surface --surface-2 --fg --muted --line --accent --accent-fg --tube --tube-glow --slat --awning-a/b --shadow`. Aucune couleur en dur.
+Le halo n'existe que sur le tube (`.neon`, `.neon-fill`) ; ailleurs, élévation par bordure ou ombre, jamais les deux.
 
 ## Typographie
-Geist (sans) ; Geist Mono uniquement pour l'URL dans les cadres d'aperçu. Titres `tracking-[-0.025em]`, `text-balance`, mesure du corps ≤ 60 ch. Pas de surtitres.
+Bricolage Grotesque (affichage, 800, tracking −0.035em) + Geist (texte) ; Geist Mono uniquement pour l'URL dans la fenêtre de navigateur.
 
-## Mouvement
-Un moment écrit : l'entrée du hero. Apparition au scroll uniquement sur la grille de projets. `prefers-reduced-motion` respecté.
-
-## Structure
-Navbar flottante (verre) → Hero + bande de faits → Projets (client / démonstration) → Services en liste avec prix → À propos (outils, zone, méthode) → Témoignages (masqués tant qu'il n'y a pas de vrai avis) → Contact → Footer.
-
-## Règles de contenu
-Aucun chiffre ou promesse non vérifié. Un projet est « client » seulement si confirmé (Secur-Feu, Save Toiture). Prix : « à partir de 1 000 € » pour un site vitrine ([À PRÉCISER] HT ou TTC).
+## Règles
+- Pas de surtitres, pas de bloc de gros chiffres, pas de dégradé de texte.
+- Aucun chiffre ou promesse non vérifié. « Projet client » = Secur-Feu et Save Toiture seulement.
+- Prix : « à partir de 1 000 € » (site vitrine) — [À PRÉCISER] HT ou TTC.
+- Accessibilité : thème AA dans les deux modes, mouvement réduit respecté, focus clavier ramène la vitrine à l'écran.
 
 ## À compléter (`src/lib/content.ts`)
-GitHub, LinkedIn, Calendly, email pro, domaine, stack réelle, avis clients, mentions légales.
+GitHub, LinkedIn, Calendly, email pro, domaine, stack réelle, avis clients (la section se masque tant qu'il n'y en a pas), mentions légales.

@@ -25,6 +25,8 @@ export const facts = [
   { label: "Sites vitrine", value: `À partir de ${site.startingPrice}` },
 ];
 
+export const ticker = ["Site vitrine", "Application sur-mesure", "Refonte et SEO", "Maintenance", "Hauts-de-France", "Île-de-France", "À distance"];
+
 export const services = [
   {
     title: "Un site qui fait venir les clients",
@@ -57,6 +59,7 @@ export const projects = [
     client: true,
     url: "https://secur-feu.com",
     host: "secur-feu.com",
+    live: false,
     problem: "Une entreprise technique dont l'offre était difficile à comprendre pour ses clients.",
     solution: "Un site professionnel qui détaille les prestations et inspire confiance dès l'arrivée.",
     tags: ["Site vitrine", "Accessibilité", "SEO"],
@@ -68,6 +71,7 @@ export const projects = [
     client: true,
     url: "https://save-toiture.vercel.app/",
     host: "save-toiture.vercel.app",
+    live: true,
     problem: "Un artisan qui perdait des demandes de devis faute d'un parcours simple et rassurant.",
     solution: "Un site orienté conversion : réalisations, zone d'intervention et demande de devis en un clic.",
     tags: ["Next.js", "Formulaire de devis", "SEO local"],
@@ -79,6 +83,7 @@ export const projects = [
     client: false,
     url: "https://maison-lea-coiffure.vercel.app/",
     host: "maison-lea-coiffure.vercel.app",
+    live: true,
     problem: "Un salon doit montrer ses prestations et ses tarifs sans que chaque cliente ait à appeler.",
     solution: "Un site élégant avec prestations, tarifs et prise de contact immédiate, pensé pour le mobile.",
     tags: ["Next.js", "Tailwind CSS", "SEO local"],
@@ -90,6 +95,7 @@ export const projects = [
     client: false,
     url: "https://braise-restaurant-plum.vercel.app/",
     host: "braise-restaurant-plum.vercel.app",
+    live: true,
     problem: "Un restaurant doit mettre en valeur sa carte et son ambiance avant même la première visite.",
     solution: "Une vitrine gourmande avec carte, galerie et réservation facilitée.",
     tags: ["Next.js", "Framer Motion", "Réservation"],

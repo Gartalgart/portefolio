@@ -18,9 +18,9 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-4 z-50 px-4">
       <nav
         aria-label="Navigation principale"
-        className="mx-auto flex max-w-5xl items-center justify-between rounded-full border border-line bg-[var(--glass)] py-2 pl-5 pr-2 backdrop-blur-xl"
+        className="mx-auto flex max-w-[1320px] items-center justify-between rounded-full border border-line bg-[var(--glass)] py-2 pl-5 pr-2 backdrop-blur-xl"
       >
-        <a href="#" className="text-sm font-semibold tracking-tight">
+        <a href="#" className="font-display text-base font-bold tracking-tight">
           Rémy Denimal<span className="text-accent">.</span>
         </a>
 
@@ -58,7 +58,7 @@ export default function Navbar() {
       {open && (
         <div
           id="menu-mobile"
-          className="mx-auto mt-2 max-w-5xl rounded-3xl border border-line bg-[var(--glass)] p-3 backdrop-blur-xl md:hidden"
+          className="mx-auto mt-2 max-w-[1320px] rounded-3xl border border-line bg-[var(--glass)] p-3 backdrop-blur-xl md:hidden"
         >
           <ul>
             {nav.map((l) => (

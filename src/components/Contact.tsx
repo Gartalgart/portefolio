@@ -33,13 +33,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-titre" className="px-5 py-20 md:py-28">
-      <div className="mx-auto max-w-5xl rounded-2xl border border-line bg-surface p-6 sm:p-10 md:p-14">
+    <section id="contact" aria-labelledby="contact-titre" className="px-4 py-24 md:px-6 md:py-32">
+      <div className="mx-auto max-w-[1320px] rounded-2xl border border-line bg-surface p-6 sm:p-10 md:p-16">
         <div className="grid gap-12 md:grid-cols-[1fr_1.1fr]">
           <div>
             <SectionHead
               id="contact-titre"
-              title="Parlons de votre projet"
+              title="Poussez la porte."
               intro={`Décrivez votre besoin en quelques lignes : je vous réponds avec une première idée et un ordre de prix. Les sites vitrine démarrent à ${site.startingPrice}.`}
             />
             <a
