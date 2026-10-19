@@ -1,0 +1,282 @@
+- generic [active] [ref=f2e1]:
+  - link "Aller au contenu principal" [ref=f2e2] [cursor=pointer]:
+    - /url: "#contenu"
+  - banner [ref=f2e3]:
+    - generic [ref=f2e4]:
+      - link "SAVE Étanchéité Toiture - Accueil" [ref=f2e5] [cursor=pointer]:
+        - /url: /
+        - img "SAVE Étanchéité Toiture" [ref=f2e6]
+      - navigation "Navigation principale" [ref=f2e7]:
+        - link "Accueil" [ref=f2e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=f2e9] [cursor=pointer]:
+          - /url: /services
+        - link "Réalisations" [ref=f2e10] [cursor=pointer]:
+          - /url: /realisations
+        - link "À propos" [ref=f2e11] [cursor=pointer]:
+          - /url: /a-propos
+        - link "Actualités" [ref=f2e12] [cursor=pointer]:
+          - /url: /actualites
+        - link "Contact" [ref=f2e13] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f2e14]:
+        - link "03 44 85 46 47" [ref=f2e15] [cursor=pointer]:
+          - /url: tel:+33344854647
+        - link "Devis gratuit" [ref=f2e18] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=f2e19]:
+    - generic [ref=f2e22]:
+      - generic [ref=f2e23]: 20 ans d'expérience
+      - heading "L'expert en étanchéité de toitures terrasses" [level=1] [ref=f2e24]
+      - paragraph [ref=f2e25]: Maintenance, réhabilitation, contrat d'entretien et sécurisation. Intervention rapide en Hauts-de-France et Île-de-France.
+      - generic [ref=f2e26]:
+        - link "Demander un devis gratuit" [ref=f2e27] [cursor=pointer]:
+          - /url: /contact
+        - link "03 44 85 46 47" [ref=f2e28] [cursor=pointer]:
+          - /url: tel:+33344854647
+      - list [ref=f2e31]:
+        - listitem [ref=f2e32]: Devis gratuit & sans engagement
+        - listitem [ref=f2e35]: Réponse sous 48h ouvrées
+        - listitem [ref=f2e38]: Équipes habilitées & certifiées
+    - generic [ref=f2e42]:
+      - generic [ref=f2e43]:
+        - heading "Expertise métier" [level=3] [ref=f2e47]
+        - paragraph [ref=f2e48]: 20 ans de savoir-faire en étanchéité bitumineuse, synthétique et résine.
+      - generic [ref=f2e49]:
+        - heading "Intervention rapide" [level=3] [ref=f2e53]
+        - paragraph [ref=f2e54]: "Équipes disponibles pour vos urgences : infiltrations, dégradations accidentelles."
+      - generic [ref=f2e55]:
+        - heading "Couverture régionale" [level=3] [ref=f2e60]
+        - paragraph [ref=f2e61]: Hauts-de-France et Île-de-France pour répondre à vos besoins en proximité.
+    - generic [ref=f2e63]:
+      - heading "Nos services" [level=2] [ref=f2e66]
+      - paragraph [ref=f2e68]: Quatre domaines d'expertise pour la pérennité de vos toitures terrasses.
+      - generic [ref=f2e71]:
+        - group "1 / 4" [ref=f2e72]:
+          - link [ref=f2e73] [cursor=pointer]:
+            - /url: /services#maintenance
+            - img "Maintenance" [ref=f2e74]
+            - generic [ref=f2e76]:
+              - heading "Maintenance" [level=3] [ref=f2e77]
+              - paragraph [ref=f2e79]: Diagnostic, audit et recherche de fuites sur tous types de complexes d'étanchéité.
+        - group "2 / 4" [ref=f2e80]:
+          - link [ref=f2e81] [cursor=pointer]:
+            - /url: /services#rehabilitation
+            - img "Réhabilitation & Travaux Neufs" [ref=f2e82]
+            - generic [ref=f2e84]:
+              - heading "Réhabilitation & Travaux Neufs" [level=3] [ref=f2e85]
+              - paragraph [ref=f2e87]: Toitures terrasses, bardages, éclairages zénithaux et désenfumage naturel.
+        - group "3 / 4" [ref=f2e88]:
+          - link [ref=f2e89] [cursor=pointer]:
+            - /url: /services#entretien
+            - img "Contrat d'Entretien" [ref=f2e90]
+            - generic [ref=f2e92]:
+              - heading "Contrat d'Entretien" [level=3] [ref=f2e93]
+              - paragraph [ref=f2e95]: Nettoyage annuel, rapport détaillé des anomalies et plan de repérage.
+        - group "4 / 4" [ref=f2e96]:
+          - link [ref=f2e97] [cursor=pointer]:
+            - /url: /services#securisation
+            - img "Sécurisation & Accès" [ref=f2e98]
+            - generic [ref=f2e100]:
+              - heading "Sécurisation & Accès" [level=3] [ref=f2e101]
+              - paragraph [ref=f2e103]: Garde-corps, lignes de vie, échelles à crinoline et passerelles conformes.
+      - link "Découvrir tous nos services" [ref=f2e105] [cursor=pointer]:
+        - /url: /services
+    - generic [ref=f2e107]:
+      - heading "Votre projet en 4 étapes" [level=2] [ref=f2e108]
+      - generic [ref=f2e110]:
+        - generic [ref=f2e111]:
+          - generic [ref=f2e112]: "1"
+          - heading "Prise de contact" [level=3] [ref=f2e113]
+          - paragraph [ref=f2e114]: Décrivez votre besoin par téléphone ou via notre formulaire. Réponse sous 48h ouvrées.
+        - generic [ref=f2e115]:
+          - generic [ref=f2e116]: "2"
+          - heading "Diagnostic sur site" [level=3] [ref=f2e117]
+          - paragraph [ref=f2e118]: Nous nous déplaçons pour analyser votre toiture et identifier précisément les désordres.
+        - generic [ref=f2e119]:
+          - generic [ref=f2e120]: "3"
+          - heading "Devis détaillé gratuit" [level=3] [ref=f2e121]
+          - paragraph [ref=f2e122]: Vous recevez un devis clair et personnalisé, sans engagement.
+        - generic [ref=f2e123]:
+          - generic [ref=f2e124]: "4"
+          - heading "Intervention & suivi" [level=3] [ref=f2e125]
+          - paragraph [ref=f2e126]: Nos équipes habilitées interviennent, avec rapport photos avant/après à l'appui.
+      - link "Lancer mon projet" [ref=f2e128] [cursor=pointer]:
+        - /url: /contact
+    - generic [ref=f2e130]:
+      - generic [ref=f2e131]:
+        - generic [ref=f2e132]: "0"
+        - paragraph [ref=f2e133]: Ans d'expérience
+      - generic [ref=f2e134]:
+        - generic [ref=f2e135]: "0"
+        - paragraph [ref=f2e136]: Domaines d'expertise
+      - generic [ref=f2e137]:
+        - generic [ref=f2e138]: "0"
+        - paragraph [ref=f2e139]: Régions couvertes
+      - generic [ref=f2e140]:
+        - generic [ref=f2e141]: 0+
+        - paragraph [ref=f2e142]: Habilitations
+    - generic [ref=f2e144]:
+      - heading "Nos habilitations & certifications" [level=2] [ref=f2e145]
+      - list [ref=f2e147]:
+        - listitem [ref=f2e148]:
+          - generic [ref=f2e152]: CACES Nacelle – R486
+        - listitem [ref=f2e153]:
+          - generic [ref=f2e157]: CACES Engin de chantier – R482
+        - listitem [ref=f2e158]:
+          - generic [ref=f2e162]: Travail en hauteur et port du harnais
+        - listitem [ref=f2e163]:
+          - generic [ref=f2e167]: Habilitation électrique HO / BO
+        - listitem [ref=f2e168]:
+          - generic [ref=f2e172]: Montage échafaudage
+        - listitem [ref=f2e173]:
+          - generic [ref=f2e177]: Manipulation extincteur
+        - listitem [ref=f2e178]:
+          - generic [ref=f2e182]: Secouriste du travail
+    - generic [ref=f2e184]:
+      - heading "À qui s'adressent nos services ?" [level=2] [ref=f2e185]
+      - generic [ref=f2e187]:
+        - heading "Industriels" [level=4] [ref=f2e192]
+        - heading "Gestionnaires de patrimoine" [level=4] [ref=f2e197]
+        - heading "Collectivités locales" [level=4] [ref=f2e202]
+        - heading "Particuliers" [level=4] [ref=f2e207]
+    - generic [ref=f2e209]:
+      - heading "Notre zone d'intervention" [level=2] [ref=f2e210]
+      - paragraph [ref=f2e212]: Basés à Margny-lès-Compiègne dans l'Oise, nous intervenons sur l'ensemble des Hauts-de-France et de l'Île-de-France.
+      - generic [ref=f2e213]:
+        - generic [ref=f2e214]:
+          - heading "Hauts-de-France" [level=3] [ref=f2e215]
+          - list [ref=f2e219]:
+            - listitem [ref=f2e220]: Compiègne
+            - listitem [ref=f2e222]: Margny-lès-Compiègne
+            - listitem [ref=f2e224]: Beauvais
+            - listitem [ref=f2e226]: Amiens
+            - listitem [ref=f2e228]: Saint-Quentin
+            - listitem [ref=f2e230]: Creil
+            - listitem [ref=f2e232]: Senlis
+            - listitem [ref=f2e234]: Noyon
+        - generic [ref=f2e236]:
+          - heading "Île-de-France" [level=3] [ref=f2e237]
+          - list [ref=f2e241]:
+            - listitem [ref=f2e242]: Paris
+            - listitem [ref=f2e244]: Roissy
+            - listitem [ref=f2e246]: Cergy-Pontoise
+            - listitem [ref=f2e248]: Saint-Denis
+            - listitem [ref=f2e250]: Meaux
+            - listitem [ref=f2e252]: Versailles
+            - listitem [ref=f2e254]: Évry
+            - listitem [ref=f2e256]: Melun
+      - paragraph [ref=f2e258]:
+        - text: Votre commune n'apparaît pas ?
+        - link "Contactez-nous" [ref=f2e259] [cursor=pointer]:
+          - /url: /contact
+        - text: — nous couvrons l'ensemble des deux régions.
+    - generic [ref=f2e261]:
+      - heading "Questions fréquentes" [level=2] [ref=f2e262]
+      - generic [ref=f2e264]:
+        - group [ref=f2e265]:
+          - generic "Intervenez-vous en urgence en cas de fuite ?" [ref=f2e266] [cursor=pointer]
+        - group [ref=f2e270]:
+          - generic "Le devis est-il vraiment gratuit ?" [ref=f2e271] [cursor=pointer]
+        - group [ref=f2e275]:
+          - generic "Sur quels types de toitures intervenez-vous ?" [ref=f2e276] [cursor=pointer]
+        - group [ref=f2e280]:
+          - generic "Que comprend un contrat d'entretien ?" [ref=f2e281] [cursor=pointer]
+        - group [ref=f2e285]:
+          - generic "Quelle est votre zone d'intervention ?" [ref=f2e286] [cursor=pointer]
+        - group [ref=f2e290]:
+          - generic "Travaillez-vous avec les particuliers ?" [ref=f2e291] [cursor=pointer]
+      - paragraph [ref=f2e295]:
+        - text: Une autre question ?
+        - link "Écrivez-nous" [ref=f2e296] [cursor=pointer]:
+          - /url: /contact
+        - text: ou appelez le
+        - link "03 44 85 46 47" [ref=f2e297] [cursor=pointer]:
+          - /url: tel:+33344854647
+        - text: .
+    - generic [ref=f2e299]:
+      - heading "Nos partenaires" [level=2] [ref=f2e300]
+      - generic [ref=f2e302]:
+        - img "Logo BMI SIPLAST"
+        - img "Logo SOPREMA"
+        - img "Logo TRIFLEX"
+        - img "Logo ROCKWOOL"
+        - img "Logo ISOVER"
+        - img "Logo KNAUF"
+        - img "Logo HILTI"
+        - img "Logo TRENOIS DECAMPS"
+    - generic [ref=f2e304]:
+      - heading "Un projet de toiture ? Parlons-en." [level=2] [ref=f2e305]
+      - paragraph [ref=f2e306]: Diagnostic gratuit, devis personnalisé, intervention rapide.
+      - generic [ref=f2e307]:
+        - link "Demander un devis" [ref=f2e308] [cursor=pointer]:
+          - /url: /contact
+        - link "03 44 85 46 47" [ref=f2e309] [cursor=pointer]:
+          - /url: tel:+33344854647
+  - contentinfo [ref=f2e310]:
+    - generic [ref=f2e311]:
+      - generic [ref=f2e312]:
+        - generic [ref=f2e313]:
+          - img "SAVE Étanchéité Toiture" [ref=f2e314]
+          - paragraph [ref=f2e315]: L'expert en étanchéité et maintenance de toitures terrasses depuis 20 ans.
+          - paragraph [ref=f2e316]:
+            - generic [ref=f2e317]: Zone d'intervention
+            - text: "Hauts-de-France & Île-de-France : Compiègne, Beauvais, Amiens, Creil, Senlis, Paris et sa région."
+        - generic [ref=f2e318]:
+          - heading "Nos services" [level=3] [ref=f2e319]
+          - list [ref=f2e320]:
+            - listitem [ref=f2e321]:
+              - link "Maintenance & recherche de fuites" [ref=f2e322] [cursor=pointer]:
+                - /url: /services#maintenance
+            - listitem [ref=f2e323]:
+              - link "Réhabilitation & travaux neufs" [ref=f2e324] [cursor=pointer]:
+                - /url: /services#rehabilitation
+            - listitem [ref=f2e325]:
+              - link "Contrat d'entretien" [ref=f2e326] [cursor=pointer]:
+                - /url: /services#entretien
+            - listitem [ref=f2e327]:
+              - link "Sécurisation & accès toitures" [ref=f2e328] [cursor=pointer]:
+                - /url: /services#securisation
+        - generic [ref=f2e329]:
+          - heading "Navigation" [level=3] [ref=f2e330]
+          - list [ref=f2e331]:
+            - listitem [ref=f2e332]:
+              - link "Accueil" [ref=f2e333] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f2e334]:
+              - link "Services" [ref=f2e335] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f2e336]:
+              - link "Réalisations" [ref=f2e337] [cursor=pointer]:
+                - /url: /realisations
+            - listitem [ref=f2e338]:
+              - link "À propos" [ref=f2e339] [cursor=pointer]:
+                - /url: /a-propos
+            - listitem [ref=f2e340]:
+              - link "Actualités" [ref=f2e341] [cursor=pointer]:
+                - /url: /actualites
+            - listitem [ref=f2e342]:
+              - link "Contact" [ref=f2e343] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f2e344]:
+          - heading "Contact" [level=3] [ref=f2e345]
+          - list [ref=f2e346]:
+            - listitem [ref=f2e347]:
+              - strong [ref=f2e348]: Benoît Parize
+            - listitem [ref=f2e349]:
+              - link "03 44 85 46 47" [ref=f2e350] [cursor=pointer]:
+                - /url: tel:+33344854647
+              - link "07 64 24 80 00" [ref=f2e351] [cursor=pointer]:
+                - /url: tel:+33764248000
+            - listitem [ref=f2e352]:
+              - link "contact@save-toiture.fr" [ref=f2e353] [cursor=pointer]:
+                - /url: mailto:contact@save-toiture.fr
+            - listitem [ref=f2e354]: 31 rue Jeanne Herveux 60280 Margny-lès-Compiègne
+            - listitem [ref=f2e355]:
+              - link "Demander un devis gratuit" [ref=f2e356] [cursor=pointer]:
+                - /url: /contact
+      - generic [ref=f2e359]:
+        - paragraph [ref=f2e360]: © 2026 SAVE Étanchéité Toiture. Tous droits réservés.
+        - paragraph [ref=f2e361]:
+          - link "Mentions légales" [ref=f2e362] [cursor=pointer]:
+            - /url: /mentions-legales

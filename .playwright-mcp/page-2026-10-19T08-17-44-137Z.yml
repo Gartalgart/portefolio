@@ -1,0 +1,220 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Maison Léa" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation "Navigation principale" [ref=e5]:
+        - link "Prestations" [ref=e6] [cursor=pointer]:
+          - /url: /prestations
+        - link "Galerie" [ref=e7] [cursor=pointer]:
+          - /url: /galerie
+        - link "Le salon" [ref=e8] [cursor=pointer]:
+          - /url: /a-propos
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: /contact
+        - link "Réserver" [ref=e10] [cursor=pointer]:
+          - /url: /reservation
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e14]:
+        - heading [level=1] [ref=e15]:
+          - generic [ref=e16]: Coupes,couleurs,culot.
+          - text: Coupes, couleurs, culot.
+        - generic [ref=e18]:
+          - img "Carré flou rose, vu de dos, sur fond rose" [ref=e23]
+          - paragraph [ref=e24]: Ouvre demain à 9 h
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - paragraph [ref=e27]: Un petit salon de la rue des Arts, à Lille, pour les coupes nettes et les couleurs qui se voient. Réservez en ligne, même quand le salon dort.
+            - link "Réserver un créneau" [ref=e28] [cursor=pointer]:
+              - /url: /reservation
+          - generic [ref=e30]:
+            - group "Prochains créneaux pour" [ref=e31]:
+              - generic [ref=e33]:
+                - button "Coupe femme" [pressed] [ref=e34]
+                - button "Balayage" [ref=e35]
+                - button "Coupe homme" [ref=e36]
+                - button "Brushing" [ref=e37]
+            - paragraph [ref=e38]: 1h · 45 €
+            - paragraph [ref=e40]: Recherche des disponibilités…
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - heading "Le travail, tiré en couleur" [level=2] [ref=e44]: Le travail,tiré en couleur
+          - paragraph [ref=e45]: "Chaque réalisation est imprimée en deux encres. Survolez-la : elle se recale et révèle sa vraie couleur."
+        - list [ref=e46]:
+          - listitem [ref=e47]:
+            - link "Balayage miel sur base châtain Couleurs" [ref=e48] [cursor=pointer]:
+              - /url: /galerie
+              - paragraph [ref=e53]:
+                - generic [ref=e54]: Balayage miel sur base châtain
+                - generic [ref=e55]: Couleurs
+          - listitem [ref=e56]:
+            - link "Carré long dégradé Coupes" [ref=e57] [cursor=pointer]:
+              - /url: /galerie
+              - paragraph [ref=e62]:
+                - generic [ref=e63]: Carré long dégradé
+                - generic [ref=e64]: Coupes
+          - listitem [ref=e65]:
+            - link "Chignon flou de mariée Coiffage" [ref=e66] [cursor=pointer]:
+              - /url: /galerie
+              - paragraph [ref=e71]:
+                - generic [ref=e72]: Chignon flou de mariée
+                - generic [ref=e73]: Coiffage
+          - listitem [ref=e74]:
+            - link "Soin restructurant cheveux abîmés Soins" [ref=e75] [cursor=pointer]:
+              - /url: /galerie
+              - paragraph [ref=e80]:
+                - generic [ref=e81]: Soin restructurant cheveux abîmés
+                - generic [ref=e82]: Soins
+          - listitem [ref=e83]:
+            - link "Rose pastel sur blond platine Couleurs" [ref=e84] [cursor=pointer]:
+              - /url: /galerie
+              - paragraph [ref=e89]:
+                - generic [ref=e90]: Rose pastel sur blond platine
+                - generic [ref=e91]: Couleurs
+          - listitem [ref=e92]:
+            - link "Carré arc-en-ciel Couleurs" [ref=e93] [cursor=pointer]:
+              - /url: /galerie
+              - paragraph [ref=e98]:
+                - generic [ref=e99]: Carré arc-en-ciel
+                - generic [ref=e100]: Couleurs
+        - link "Toute la galerie" [ref=e101] [cursor=pointer]:
+          - /url: /galerie
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - heading "Les tarifs, sans surprise" [level=2] [ref=e105]
+          - paragraph [ref=e106]: "Le prix affiché est le prix payé. La durée aussi : le calendrier ne vous propose que les créneaux assez longs pour votre prestation."
+          - link "Tous les tarifs" [ref=e107] [cursor=pointer]:
+            - /url: /prestations
+        - list [ref=e108]:
+          - listitem [ref=e109]:
+            - link "Coupe femme 45 € Coupes 1h" [ref=e110] [cursor=pointer]:
+              - /url: /reservation?service=coupe-femme
+              - generic [ref=e111]: Coupe femme
+              - generic [ref=e112]: 45 €
+              - generic [ref=e113]:
+                - generic [ref=e114]: Coupes
+                - generic [ref=e115]: 1h
+          - listitem [ref=e116]:
+            - link "Coupe homme 25 € Coupes 30 min" [ref=e117] [cursor=pointer]:
+              - /url: /reservation?service=coupe-homme
+              - generic [ref=e118]: Coupe homme
+              - generic [ref=e119]: 25 €
+              - generic [ref=e120]:
+                - generic [ref=e121]: Coupes
+                - generic [ref=e122]: 30 min
+          - listitem [ref=e123]:
+            - link "Coloration complète 85 € Couleurs 2h" [ref=e124] [cursor=pointer]:
+              - /url: /reservation?service=coloration-complete
+              - generic [ref=e125]: Coloration complète
+              - generic [ref=e126]: 85 €
+              - generic [ref=e127]:
+                - generic [ref=e128]: Couleurs
+                - generic [ref=e129]: 2h
+          - listitem [ref=e130]:
+            - link "Balayage 120 €96 € Couleurs 2h30 −20 % · Offre découverte balayage" [ref=e131] [cursor=pointer]:
+              - /url: /reservation?service=balayage
+              - generic [ref=e132]: Balayage
+              - generic [ref=e133]: 120 €96 €
+              - generic [ref=e134]:
+                - generic [ref=e135]: Couleurs
+                - generic [ref=e136]: 2h30
+                - generic [ref=e137]: −20 % · Offre découverte balayage
+          - listitem [ref=e138]:
+            - link "Brushing 35 € Coiffage 45 min" [ref=e139] [cursor=pointer]:
+              - /url: /reservation?service=brushing
+              - generic [ref=e140]: Brushing
+              - generic [ref=e141]: 35 €
+              - generic [ref=e142]:
+                - generic [ref=e143]: Coiffage
+                - generic [ref=e144]: 45 min
+          - listitem [ref=e145]:
+            - link "Coiffure événement 65 € Coiffage 1h15" [ref=e146] [cursor=pointer]:
+              - /url: /reservation?service=coiffure-evenement
+              - generic [ref=e147]: Coiffure événement
+              - generic [ref=e148]: 65 €
+              - generic [ref=e149]:
+                - generic [ref=e150]: Coiffage
+                - generic [ref=e151]: 1h15
+      - generic [ref=e153]:
+        - img "Coupe aux ciseaux, peigne rose à la main" [ref=e159]
+        - generic [ref=e160]:
+          - heading "Chez Léa Chez Léa" [level=2] [ref=e161]:
+            - generic [ref=e162]: Chez Léa
+            - text: Chez Léa
+          - paragraph [ref=e163]: "Un fauteuil, un bac, une seule coiffeuse : Léa. On prend le temps du diagnostic, on ose la couleur quand elle vous va, et on vous dit honnêtement quand elle ne vous va pas."
+          - paragraph [ref=e164]: 12 rue des Arts, 59000 Lille. Du mardi au samedi, uniquement sur rendez-vous. Confirmation immédiate et rappel la veille par e-mail.
+          - generic [ref=e165]:
+            - link "Découvrir le salon" [ref=e166] [cursor=pointer]:
+              - /url: /a-propos
+            - link "Venir au salon" [ref=e167] [cursor=pointer]:
+              - /url: /contact
+  - contentinfo [ref=e168]:
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - heading "Envie de couleur ?" [level=2] [ref=e172]
+        - paragraph [ref=e173]: "Le prochain créneau est déjà en ligne : choisissez la prestation, l'heure, c'est réservé. Rappel automatique la veille."
+        - link "Réserver un créneau" [ref=e174] [cursor=pointer]:
+          - /url: /reservation
+      - generic [ref=e175]:
+        - heading "Horaires" [level=2] [ref=e176]
+        - generic [ref=e177]:
+          - generic [ref=e178]:
+            - term [ref=e179]: Lundi
+            - definition [ref=e180]: Fermé
+          - generic [ref=e181]:
+            - term [ref=e182]: Mardi
+            - definition [ref=e183]: 09:00 – 18:00
+          - generic [ref=e184]:
+            - term [ref=e185]: Mercredi
+            - definition [ref=e186]: 09:00 – 18:00
+          - generic [ref=e187]:
+            - term [ref=e188]: Jeudi
+            - definition [ref=e189]: 09:00 – 18:00
+          - generic [ref=e190]:
+            - term [ref=e191]: Vendredi
+            - definition [ref=e192]: 09:00 – 18:00
+          - generic [ref=e193]:
+            - term [ref=e194]: Samedi
+            - definition [ref=e195]: 09:00 – 17:00
+          - generic [ref=e196]:
+            - term [ref=e197]: Dimanche
+            - definition [ref=e198]: Fermé
+      - generic [ref=e199]:
+        - heading "Le salon" [level=2] [ref=e200]
+        - generic [ref=e201]:
+          - paragraph [ref=e202]: 12 rue des Arts, 59000 Lille
+          - paragraph [ref=e203]:
+            - link "03 20 00 00 00" [ref=e204] [cursor=pointer]:
+              - /url: tel:+33320000000
+          - paragraph [ref=e205]:
+            - link "bonjour@maison-lea.fr" [ref=e206] [cursor=pointer]:
+              - /url: mailto:bonjour@maison-lea.fr
+          - paragraph [ref=e207]:
+            - link "Instagram" [ref=e208] [cursor=pointer]:
+              - /url: https://www.instagram.com/maisonlea.coiffure
+        - navigation "Liens du pied de page" [ref=e209]:
+          - list [ref=e210]:
+            - listitem [ref=e211]:
+              - link "Prestations & tarifs" [ref=e212] [cursor=pointer]:
+                - /url: /prestations
+            - listitem [ref=e213]:
+              - link "Galerie avant / après" [ref=e214] [cursor=pointer]:
+                - /url: /galerie
+            - listitem [ref=e215]:
+              - link "Réserver en ligne" [ref=e216] [cursor=pointer]:
+                - /url: /reservation
+            - listitem [ref=e217]:
+              - link "Le salon" [ref=e218] [cursor=pointer]:
+                - /url: /a-propos
+            - listitem [ref=e219]:
+              - link "Contact & accès" [ref=e220] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e221]:
+              - link "Crédits photo" [ref=e222] [cursor=pointer]:
+                - /url: /credits
+    - paragraph [aria-hidden] [ref=e223]: Maison Léa Maison Léa
+    - generic [ref=e224]:
+      - paragraph [ref=e225]: © 2026 Maison Léa · salon fictif, projet portfolio
+      - paragraph [ref=e226]: Photos d'illustration Unsplash, voir les crédits
+  - alert [ref=e227]

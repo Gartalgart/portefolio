@@ -1,0 +1,272 @@
+- generic [active] [ref=f4e1]:
+  - link "Aller au contenu" [ref=f4e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f4e3]:
+    - navigation "Navigation principale" [ref=f4e4]:
+      - link "Rémy Denimal." [ref=f4e5] [cursor=pointer]:
+        - /url: "#"
+      - list [ref=f4e6]:
+        - listitem [ref=f4e7]:
+          - link "Projets" [ref=f4e8] [cursor=pointer]:
+            - /url: "#projets"
+        - listitem [ref=f4e9]:
+          - link "Services" [ref=f4e10] [cursor=pointer]:
+            - /url: "#services"
+        - listitem [ref=f4e11]:
+          - link "À propos" [ref=f4e12] [cursor=pointer]:
+            - /url: "#apropos"
+        - listitem [ref=f4e13]:
+          - link "Contact" [ref=f4e14] [cursor=pointer]:
+            - /url: "#contact"
+      - generic [ref=f4e15]:
+        - button "Passer au thème clair" [ref=f4e16]
+        - link "Réserver un appel" [ref=f4e23] [cursor=pointer]:
+          - /url: https://calendly.com/
+  - main [ref=f4e24]:
+    - generic [ref=f4e26]:
+      - generic [ref=f4e27]:
+        - paragraph [ref=f4e28]: Disponible pour de nouvelles missions
+        - heading "Un site web qui vous amène de vrais clients, pas juste des visites." [level=1] [ref=f4e32]
+        - paragraph [ref=f4e33]: Je suis Rémy, développeur full-stack freelance. Je crée des sites et applications rapides, clairs et faciles à gérer pour les artisans, commerçants, TPE, associations et collectivités.
+        - generic [ref=f4e34]:
+          - link "Discuter de votre projet" [ref=f4e35] [cursor=pointer]:
+            - /url: "#contact"
+          - link "Voir mes réalisations" [ref=f4e38] [cursor=pointer]:
+            - /url: "#projets"
+        - list "Clients accompagnés" [ref=f4e39]:
+          - listitem [ref=f4e40]: Artisans
+          - listitem [ref=f4e42]: Commerçants
+          - listitem [ref=f4e44]: TPE / PME
+          - listitem [ref=f4e46]: Associations
+          - listitem [ref=f4e48]: Mairies & collectivités
+      - figure "Hauts-de-France · Télétravail" [ref=f4e51]:
+        - img "Portrait de Rémy Denimal, développeur freelance" [ref=f4e53]
+    - region [ref=f4e58]:
+      - generic [ref=f4e59]:
+        - generic [ref=f4e60]:
+          - paragraph [ref=f4e61]: Réalisations
+          - heading "Des sites en ligne, pensés pour leur activité" [level=2] [ref=f4e62]
+          - paragraph [ref=f4e63]: "Quatre projets concrets : le problème de départ, ce que j'ai mis en place."
+        - generic [ref=f4e64]:
+          - article [ref=f4e66]:
+            - generic [ref=f4e67]:
+              - generic [ref=f4e72]: maison-lea-coiffure.vercel.app
+              - img "Aperçu du site Maison Léa Coiffure" [ref=f4e73]
+            - generic [ref=f4e74]:
+              - paragraph [ref=f4e75]: Salon de coiffure
+              - heading "Maison Léa Coiffure" [level=3] [ref=f4e76]
+              - generic [ref=f4e77]:
+                - generic [ref=f4e78]:
+                  - term [ref=f4e79]: "Problème :"
+                  - definition [ref=f4e80]: "Un salon sans présence en ligne : les clientes appelaient pour connaître tarifs et disponibilités."
+                - generic [ref=f4e81]:
+                  - term [ref=f4e82]: "Solution :"
+                  - definition [ref=f4e83]: Un site élégant avec prestations, tarifs et prise de contact immédiate, pensé pour le mobile.
+              - list "Technologies" [ref=f4e84]:
+                - listitem [ref=f4e85]: Next.js
+                - listitem [ref=f4e86]: Tailwind CSS
+                - listitem [ref=f4e87]: SEO local
+              - link "Voir le site Maison Léa Coiffure (nouvel onglet)" [ref=f4e88] [cursor=pointer]:
+                - /url: https://maison-lea-coiffure.vercel.app/
+                - text: Voir le site
+                - generic [ref=f4e89]: Maison Léa Coiffure (nouvel onglet)
+          - article [ref=f4e94]:
+            - generic [ref=f4e95]:
+              - generic [ref=f4e100]: braise-restaurant-plum.vercel.app
+              - img "Aperçu du site Braise" [ref=f4e101]
+            - generic [ref=f4e102]:
+              - paragraph [ref=f4e103]: Restaurant
+              - heading "Braise" [level=3] [ref=f4e104]
+              - generic [ref=f4e105]:
+                - generic [ref=f4e106]:
+                  - term [ref=f4e107]: "Problème :"
+                  - definition [ref=f4e108]: Un restaurant dont la carte et l'ambiance n'étaient pas mises en valeur en ligne.
+                - generic [ref=f4e109]:
+                  - term [ref=f4e110]: "Solution :"
+                  - definition [ref=f4e111]: Une vitrine gourmande avec carte, galerie et réservation facilitée.
+              - list "Technologies" [ref=f4e112]:
+                - listitem [ref=f4e113]: Next.js
+                - listitem [ref=f4e114]: Framer Motion
+                - listitem [ref=f4e115]: Réservation
+              - link "Voir le site Braise (nouvel onglet)" [ref=f4e116] [cursor=pointer]:
+                - /url: https://braise-restaurant-plum.vercel.app/
+                - text: Voir le site
+                - generic [ref=f4e117]: Braise (nouvel onglet)
+          - article [ref=f4e122]:
+            - generic [ref=f4e123]:
+              - generic [ref=f4e128]: save-toiture.vercel.app
+              - img "Aperçu du site Save Toiture" [ref=f4e129]
+            - generic [ref=f4e130]:
+              - paragraph [ref=f4e131]: Couvreur / Artisan
+              - heading "Save Toiture" [level=3] [ref=f4e132]
+              - generic [ref=f4e133]:
+                - generic [ref=f4e134]:
+                  - term [ref=f4e135]: "Problème :"
+                  - definition [ref=f4e136]: Un artisan qui perdait des demandes de devis faute d'un parcours simple et rassurant.
+                - generic [ref=f4e137]:
+                  - term [ref=f4e138]: "Solution :"
+                  - definition [ref=f4e139]: "Un site orienté conversion : réalisations, zone d'intervention et demande de devis en un clic."
+              - list "Technologies" [ref=f4e140]:
+                - listitem [ref=f4e141]: Next.js
+                - listitem [ref=f4e142]: Formulaire devis
+                - listitem [ref=f4e143]: Performance
+              - link "Voir le site Save Toiture (nouvel onglet)" [ref=f4e144] [cursor=pointer]:
+                - /url: https://save-toiture.vercel.app/
+                - text: Voir le site
+                - generic [ref=f4e145]: Save Toiture (nouvel onglet)
+          - article [ref=f4e150]:
+            - generic [ref=f4e151]:
+              - generic [ref=f4e156]: secur-feu.com
+              - img "Aperçu du site Secur-Feu" [ref=f4e157]
+            - generic [ref=f4e158]:
+              - paragraph [ref=f4e159]: Sécurité incendie
+              - heading "Secur-Feu" [level=3] [ref=f4e160]
+              - generic [ref=f4e161]:
+                - generic [ref=f4e162]:
+                  - term [ref=f4e163]: "Problème :"
+                  - definition [ref=f4e164]: Une entreprise technique dont l'offre était difficile à comprendre pour les clients.
+                - generic [ref=f4e165]:
+                  - term [ref=f4e166]: "Solution :"
+                  - definition [ref=f4e167]: Un site professionnel qui détaille les prestations et inspire confiance dès l'arrivée.
+              - list "Technologies" [ref=f4e168]:
+                - listitem [ref=f4e169]: Site vitrine
+                - listitem [ref=f4e170]: Accessibilité
+                - listitem [ref=f4e171]: SEO
+              - link "Voir le site Secur-Feu (nouvel onglet)" [ref=f4e172] [cursor=pointer]:
+                - /url: https://secur-feu.com
+                - text: Voir le site
+                - generic [ref=f4e173]: Secur-Feu (nouvel onglet)
+    - region [ref=f4e177]:
+      - generic [ref=f4e178]:
+        - generic [ref=f4e179]:
+          - paragraph [ref=f4e180]: Services
+          - heading "Ce que je fais pour votre activité" [level=2] [ref=f4e181]
+          - paragraph [ref=f4e182]: "Pas une liste de technologies : des solutions qui répondent à un besoin précis."
+        - list [ref=f4e183]:
+          - listitem [ref=f4e184]:
+            - generic [ref=f4e185]:
+              - heading "Un site qui fait venir les clients" [level=3] [ref=f4e190]
+              - paragraph [ref=f4e191]: "Rapide, clair et bien référencé localement : vos horaires, vos prestations et un bouton d'appel visibles en deux secondes."
+          - listitem [ref=f4e192]:
+            - generic [ref=f4e193]:
+              - heading "Application web sur-mesure" [level=3] [ref=f4e200]
+              - paragraph [ref=f4e201]: "Réservation, devis en ligne, espace adhérents, back-office : des outils adaptés à votre activité plutôt qu'un abonnement de plus."
+          - listitem [ref=f4e202]:
+            - generic [ref=f4e203]:
+              - heading "Refonte, performance & SEO" [level=3] [ref=f4e208]
+              - paragraph [ref=f4e209]: Votre site est lent, daté ou introuvable ? Je le reprends, le modernise et le rends accessible, mobile et mieux placé sur Google.
+          - listitem [ref=f4e210]:
+            - generic [ref=f4e211]:
+              - heading "Accompagnement & maintenance" [level=3] [ref=f4e220]
+              - paragraph [ref=f4e221]: "Hébergement, mises à jour, petites évolutions : un interlocuteur unique qui répond, sans jargon."
+    - region [ref=f4e222]:
+      - generic [ref=f4e223]:
+        - generic [ref=f4e224]:
+          - paragraph [ref=f4e225]: À propos · Méthode
+          - heading "Des outils modernes, une façon de travailler simple" [level=2] [ref=f4e226]
+          - paragraph [ref=f4e227]: Basé dans les Hauts-de-France, je travaille aussi en Île-de-France et à distance.
+        - generic [ref=f4e228]:
+          - generic [ref=f4e229]:
+            - heading "Stack" [level=3] [ref=f4e230]
+            - list [ref=f4e231]:
+              - listitem [ref=f4e232]: TypeScript
+              - listitem [ref=f4e233]: Next.js
+              - listitem [ref=f4e234]: React
+              - listitem [ref=f4e235]: Tailwind CSS
+              - listitem [ref=f4e236]: Node.js
+              - listitem [ref=f4e237]: PostgreSQL
+              - listitem [ref=f4e238]: Docker
+              - listitem [ref=f4e239]: Vercel
+            - paragraph [ref=f4e240]: "Une stack JavaScript de bout en bout : un seul langage du design à la base de données, donc moins de friction et des coûts de maintenance réduits."
+          - generic [ref=f4e241]:
+            - heading "En chiffres" [level=3] [ref=f4e242]
+            - generic [ref=f4e243]:
+              - generic [ref=f4e244]:
+                - term [ref=f4e245]: sites en ligne
+                - definition [ref=f4e246]: "4"
+              - generic [ref=f4e247]:
+                - term [ref=f4e248]: chargement visé
+                - definition [ref=f4e249]: < 1 s
+              - generic [ref=f4e250]:
+                - term [ref=f4e251]: responsive
+                - definition [ref=f4e252]: 100 %
+          - generic [ref=f4e259]:
+            - heading "Communication claire" [level=3] [ref=f4e260]
+            - paragraph [ref=f4e261]: Un point régulier, des mots simples, aucune surprise sur le calendrier ou le budget.
+          - generic [ref=f4e268]:
+            - heading "Code propre & fiable" [level=3] [ref=f4e269]
+            - paragraph [ref=f4e270]: Un code lisible et maintenable, que n'importe quel développeur pourra reprendre.
+          - generic [ref=f4e279]:
+            - heading "Livraisons itératives" [level=3] [ref=f4e280]
+            - paragraph [ref=f4e281]: Vous voyez le site avancer chaque semaine et ajustez en cours de route.
+          - generic [ref=f4e291]:
+            - heading "Accessible & rapide" [level=3] [ref=f4e292]
+            - paragraph [ref=f4e293]: Mobile d'abord, navigation au clavier, bons scores Lighthouse.
+    - region [ref=f4e294]:
+      - generic [ref=f4e295]:
+        - generic [ref=f4e296]:
+          - paragraph [ref=f4e297]: Avis clients
+          - heading "Ils m'ont fait confiance" [level=2] [ref=f4e298]
+        - list [ref=f4e299]:
+          - listitem [ref=f4e300]:
+            - figure "Prénom Nom Gérant, Nom de l'entreprise" [ref=f4e302]:
+              - blockquote [ref=f4e306]: « Texte du premier témoignage client à insérer ici. »
+              - generic [ref=f4e307]:
+                - generic [ref=f4e308]: Prénom Nom
+                - text: Gérant, Nom de l'entreprise
+          - listitem [ref=f4e309]:
+            - figure "Prénom Nom Artisan, Nom de l'entreprise" [ref=f4e311]:
+              - blockquote [ref=f4e315]: « Texte du deuxième témoignage client à insérer ici. »
+              - generic [ref=f4e316]:
+                - generic [ref=f4e317]: Prénom Nom
+                - text: Artisan, Nom de l'entreprise
+          - listitem [ref=f4e318]:
+            - figure "Prénom Nom Responsable, association ou mairie" [ref=f4e320]:
+              - blockquote [ref=f4e324]: « Texte du troisième témoignage client à insérer ici. »
+              - generic [ref=f4e325]:
+                - generic [ref=f4e326]: Prénom Nom
+                - text: Responsable, association ou mairie
+    - region [ref=f4e327]:
+      - generic [ref=f4e329]:
+        - generic [ref=f4e330]:
+          - generic [ref=f4e331]:
+            - paragraph [ref=f4e332]: Contact
+            - heading "Parlons de votre projet" [level=2] [ref=f4e333]
+            - paragraph [ref=f4e334]: "Décrivez votre besoin en quelques lignes : je vous réponds sous 24 h, avec une première idée et un ordre de prix."
+          - link "Réserver un appel de 15 min" [ref=f4e335] [cursor=pointer]:
+            - /url: https://calendly.com/
+          - list [ref=f4e339]:
+            - listitem [ref=f4e340]:
+              - link "remy.denimal@gmail.com" [ref=f4e341] [cursor=pointer]:
+                - /url: mailto:remy.denimal@gmail.com
+            - listitem [ref=f4e345]:
+              - link "GitHub" [ref=f4e346] [cursor=pointer]:
+                - /url: https://github.com/
+            - listitem [ref=f4e349]:
+              - link "LinkedIn" [ref=f4e350] [cursor=pointer]:
+                - /url: https://www.linkedin.com/
+        - generic [ref=f4e353]:
+          - generic [ref=f4e354]:
+            - text: Nom
+            - textbox "Nom" [ref=f4e355]:
+              - /placeholder: Votre nom
+          - generic [ref=f4e356]:
+            - text: Email
+            - textbox "Email" [ref=f4e357]:
+              - /placeholder: vous@exemple.fr
+          - generic [ref=f4e358]:
+            - text: Votre projet
+            - textbox "Votre projet" [ref=f4e359]:
+              - /placeholder: Votre activité, ce que vous attendez du site, vos délais…
+          - button "Envoyer le message" [ref=f4e360]
+          - status [ref=f4e364]
+  - contentinfo [ref=f4e365]:
+    - generic [ref=f4e366]:
+      - paragraph [ref=f4e367]: © 2026 Rémy Denimal. Tous droits réservés.
+      - list [ref=f4e368]:
+        - listitem [ref=f4e369]:
+          - link "Mentions légales" [ref=f4e370] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=f4e371]:
+          - link "Confidentialité" [ref=f4e372] [cursor=pointer]:
+            - /url: "#"

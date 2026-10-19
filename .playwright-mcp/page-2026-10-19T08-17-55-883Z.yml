@@ -1,0 +1,280 @@
+- generic [ref=f3e3]:
+  - banner [ref=f3e4]:
+    - navigation [ref=f3e5]:
+      - link "SECUR FEU SECUR FEU" [ref=f3e6] [cursor=pointer]:
+        - /url: /
+        - img "SECUR FEU" [ref=f3e7]
+        - generic [ref=f3e8]: SECUR FEU
+      - generic [ref=f3e9]:
+        - link "Accueil" [ref=f3e10] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=f3e12] [cursor=pointer]:
+          - /url: /services
+        - link "Réalisations" [ref=f3e13] [cursor=pointer]:
+          - /url: /realisations
+        - link "À propos" [ref=f3e14] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=f3e15] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f3e16]:
+        - link "Devis gratuit" [ref=f3e18] [cursor=pointer]:
+          - /url: /contact
+        - link "Appeler SECUR FEU" [ref=f3e19] [cursor=pointer]:
+          - /url: tel:+33344232942
+          - generic [ref=f3e20]: 
+          - text: 03 44 23 29 42
+        - text: 
+  - main [ref=f3e21]:
+    - generic [ref=f3e22]:
+      - generic [ref=f3e23]:
+        - generic "Background animation video" [ref=f3e25]
+        - generic [ref=f3e27]:
+          - heading "SECUR-FEU Sécurité incendie à Margny-lès-Compiègne" [level=1] [ref=f3e28]
+          - paragraph [ref=f3e29]: Vente, installation et maintenance d'équipements de sécurité incendie depuis 2004
+          - generic [ref=f3e30]:
+            - link "Demander un devis gratuit" [ref=f3e31] [cursor=pointer]:
+              - /url: /contact
+            - link "Nos services" [ref=f3e32] [cursor=pointer]:
+              - /url: /services
+        - button "Restart video" [ref=f3e33] [cursor=pointer]
+      - generic [ref=f3e41]:
+        - generic [ref=f3e42]:
+          - heading "Expert en sécurité incendie depuis 2004" [level=2] [ref=f3e43]
+          - paragraph [ref=f3e44]: SECUR FEU est spécialisée dans la vente, l'installation et la maintenance d'équipements de sécurité incendie. Notre équipe qualifiée intervient dans tout le département du 60 et régions limitrophes.
+          - paragraph [ref=f3e45]:
+            - text: Nous vous accompagnons pour vous assurer la
+            - strong [ref=f3e46]: conformité réglementaire
+            - text: de vos installations et la
+            - strong [ref=f3e47]: sécurité
+            - text: de vos personnes et biens.
+          - link "En savoir plus" [ref=f3e48] [cursor=pointer]:
+            - /url: /about
+        - img "Facade SECUR FEU" [ref=f3e51]
+      - generic [ref=f3e56]:
+        - generic [ref=f3e57]:
+          - heading "CERTIFICATIONS & HABILITATIONS" [level=2] [ref=f3e58]
+          - paragraph [ref=f3e59]: La qualité de nos services repose sur une expertise reconnue et des habilitations à jour. En plus de nos certifications d'entreprise, nos techniciens possèdent toutes les habilitations nécessaires pour intervenir en toute sécurité et conformité.
+          - generic [ref=f3e60]:
+            - generic [ref=f3e62]:
+              - generic [ref=f3e63]: 
+              - generic [ref=f3e65]:
+                - heading "APSAD & NF Service" [level=3] [ref=f3e66]
+                - paragraph [ref=f3e67]: Certifications CNPP & AFNOR
+            - generic [ref=f3e69]:
+              - generic [ref=f3e70]: 
+              - generic [ref=f3e72]:
+                - heading "SST" [level=3] [ref=f3e73]
+                - paragraph [ref=f3e74]: Sauveteur Secouriste du Travail
+            - generic [ref=f3e76]:
+              - generic [ref=f3e77]: 
+              - generic [ref=f3e79]:
+                - heading "Habilitations Élec." [level=3] [ref=f3e80]
+                - paragraph [ref=f3e81]: Niveau BS / BE Manœuvre
+            - generic [ref=f3e83]:
+              - generic [ref=f3e84]: 
+              - generic [ref=f3e86]:
+                - heading "CACES R486" [level=3] [ref=f3e87]
+                - paragraph [ref=f3e88]: Conduite de nacelles (PEMP)
+            - generic [ref=f3e90]:
+              - generic [ref=f3e91]: 
+              - generic [ref=f3e93]:
+                - heading "AIPR" [level=3] [ref=f3e94]
+                - paragraph [ref=f3e95]: Intervention près des réseaux
+            - generic [ref=f3e97]:
+              - generic [ref=f3e98]: 
+              - generic [ref=f3e100]:
+                - heading "Travail en Hauteur" [level=3] [ref=f3e101]
+                - paragraph [ref=f3e102]: Port du harnais & échafaudages
+          - link "CONTACTEZ NOUS" [ref=f3e103] [cursor=pointer]:
+            - /url: /contact
+        - img "Certifications NF Service et APSAD" [ref=f3e107]
+      - generic [ref=f3e109]:
+        - generic [ref=f3e110]:
+          - heading "Nos services" [level=2] [ref=f3e111]
+          - paragraph [ref=f3e112]: Une gamme complète de solutions pour votre sécurité incendie
+        - generic [ref=f3e114]:
+          - generic [ref=f3e116]:
+            - generic [ref=f3e117] [cursor=pointer]:
+              - generic:
+                - heading "Extincteurs" [level=3]
+              - link "Voir le détail" [ref=f3e120]:
+                - /url: /services/extincteurs
+            - generic [ref=f3e121] [cursor=pointer]:
+              - generic:
+                - heading "Alarmes Incendie" [level=3]
+              - link "Voir le détail" [ref=f3e124]:
+                - /url: /services/alarmes
+            - generic [ref=f3e125] [cursor=pointer]:
+              - generic:
+                - heading "Désenfumage" [level=3]
+              - link "Voir le détail" [ref=f3e128]:
+                - /url: /services/desenfumage
+            - generic [ref=f3e129] [cursor=pointer]:
+              - generic:
+                - heading "Signalisation & RIA" [level=3]
+              - link "Voir le détail" [ref=f3e132]:
+                - /url: /services/signalisation
+            - generic [ref=f3e133] [cursor=pointer]:
+              - generic:
+                - heading "Maintenance" [level=3]
+              - link "Voir le détail" [ref=f3e136]:
+                - /url: /services/maintenance
+            - generic [ref=f3e137] [cursor=pointer]:
+              - generic:
+                - heading "Colonnes Sèches" [level=3]
+              - link "Voir le détail" [ref=f3e140]:
+                - /url: /services/colonnes-seches
+            - generic [ref=f3e141] [cursor=pointer]:
+              - generic:
+                - heading "Extincteurs" [level=3]
+              - link "Voir le détail" [ref=f3e144]:
+                - /url: /services/extincteurs
+            - generic [ref=f3e145] [cursor=pointer]:
+              - generic:
+                - heading "Alarmes Incendie" [level=3]
+              - link "Voir le détail" [ref=f3e148]:
+                - /url: /services/alarmes
+            - generic [ref=f3e149] [cursor=pointer]:
+              - generic:
+                - heading "Désenfumage" [level=3]
+              - link "Voir le détail" [ref=f3e152]:
+                - /url: /services/desenfumage
+            - generic [ref=f3e153] [cursor=pointer]:
+              - generic:
+                - heading "Signalisation & RIA" [level=3]
+              - link "Voir le détail" [ref=f3e156]:
+                - /url: /services/signalisation
+            - generic [ref=f3e157] [cursor=pointer]:
+              - generic:
+                - heading "Maintenance" [level=3]
+              - link "Voir le détail" [ref=f3e160]:
+                - /url: /services/maintenance
+            - generic [ref=f3e161] [cursor=pointer]:
+              - generic:
+                - heading "Colonnes Sèches" [level=3]
+              - link "Voir le détail" [ref=f3e164]:
+                - /url: /services/colonnes-seches
+          - generic [ref=f3e165]:
+            - button "←" [ref=f3e166] [cursor=pointer]
+            - button "→" [ref=f3e167] [cursor=pointer]
+        - link "Voir tous les services" [ref=f3e169] [cursor=pointer]:
+          - /url: /services
+      - generic [ref=f3e171]:
+        - heading "Pourquoi nous choisir ?" [level=2] [ref=f3e173]
+        - generic [ref=f3e174]:
+          - generic [ref=f3e176]:
+            - generic [ref=f3e177]: 
+            - heading "Intervention rapide" [level=3] [ref=f3e179]
+            - paragraph [ref=f3e180]: Nos équipes et véhicules équipés interviennent rapidement dans votre secteur.
+          - generic [ref=f3e182]:
+            - generic [ref=f3e183]: 
+            - heading "Conformité garantie" [level=3] [ref=f3e185]
+            - paragraph [ref=f3e186]: Nous assurons le respect de la réglementation incendie en vigueur.
+          - generic [ref=f3e188]:
+            - generic [ref=f3e189]: 
+            - heading "Équipe qualifiée" [level=3] [ref=f3e191]
+            - paragraph [ref=f3e192]: Professionnels certifiés et expérimentés à votre service.
+      - generic [ref=f3e195]:
+        - heading "Nos clients de confiance" [level=2] [ref=f3e196]
+        - generic [ref=f3e197]:
+          - img "Logo Mairie de Compiègne" [ref=f3e199]
+          - img "Logo Sanofi Aventis" [ref=f3e201]
+          - img "Logo Continental France" [ref=f3e203]
+          - img "Logo Arc Plateau Picard" [ref=f3e205]
+      - generic [ref=f3e209]:
+        - heading "Besoin d'une évaluation ?" [level=2] [ref=f3e210]
+        - paragraph [ref=f3e211]: Contactez-nous aujourd'hui pour une étude personnalisée de vos besoins en sécurité incendie
+        - generic [ref=f3e212]:
+          - link "Demander un devis gratuit" [ref=f3e214] [cursor=pointer]:
+            - /url: /contact
+          - link "Appeler directement" [ref=f3e216] [cursor=pointer]:
+            - /url: tel:+33344232942
+      - generic [ref=f3e220]:
+        - generic [ref=f3e221]:
+          - heading "Horaires & Accessibilité" [level=2] [ref=f3e222]
+          - paragraph [ref=f3e223]: Nous restons à votre disposition pour assurer votre sécurité incendie, que ce soit pour une urgence ou un conseil technique.
+        - generic [ref=f3e224]:
+          - generic [ref=f3e226]:
+            - generic [ref=f3e227]: 
+            - heading "En Semaine" [level=3] [ref=f3e229]
+            - paragraph [ref=f3e230]: Lundi au Vendredi
+            - generic [ref=f3e231]:
+              - generic [ref=f3e232]: 07h
+              - generic [ref=f3e233]: –
+              - generic [ref=f3e234]: 19h
+          - generic [ref=f3e236]:
+            - generic [ref=f3e238]: 
+            - heading "Weekend" [level=3] [ref=f3e240]
+            - paragraph [ref=f3e241]: Clients sous contrat
+            - generic [ref=f3e242]: Service 24h/24
+          - generic [ref=f3e246]:
+            - generic [ref=f3e247]: 
+            - heading "Accueil Bureau" [level=3] [ref=f3e249]
+            - paragraph [ref=f3e250]: Margny-lès-Compiègne
+            - generic [ref=f3e251]: Sur rendez-vous uniquement
+        - generic [ref=f3e253]:
+          - generic [ref=f3e254]: Contact Direct
+          - generic [ref=f3e255]:
+            - link " 03 44 23 29 42" [ref=f3e256] [cursor=pointer]:
+              - /url: tel:+33344232942
+              - generic [ref=f3e257]: 
+              - text: 03 44 23 29 42
+            - link " alain@secur-feu.fr" [ref=f3e260] [cursor=pointer]:
+              - /url: mailto:alain@secur-feu.fr
+              - generic [ref=f3e261]: 
+              - text: alain@secur-feu.fr
+  - contentinfo [ref=f3e263]:
+    - generic [ref=f3e264]:
+      - generic [ref=f3e265]:
+        - generic [ref=f3e266]:
+          - heading "SECUR FEU" [level=3] [ref=f3e267]
+          - paragraph [ref=f3e268]: Spécialiste de la sécurité incendie depuis 2004. Vente, installation et maintenance d'équipements de qualité.
+          - generic [ref=f3e269]:
+            - paragraph [ref=f3e270]: 2 avenue du 6ème RHC
+            - paragraph [ref=f3e271]: 60280 Margny-lès-Compiègne
+            - paragraph [ref=f3e272]: 03 44 23 29 42
+        - generic [ref=f3e273]:
+          - heading "Services" [level=4] [ref=f3e274]
+          - list [ref=f3e275]:
+            - listitem [ref=f3e276]:
+              - link "Extincteurs" [ref=f3e277] [cursor=pointer]:
+                - /url: /services/extincteurs
+            - listitem [ref=f3e278]:
+              - link "Désenfumage" [ref=f3e279] [cursor=pointer]:
+                - /url: /services/desenfumage
+            - listitem [ref=f3e280]:
+              - link "Alarmes incendie" [ref=f3e281] [cursor=pointer]:
+                - /url: /services/alarmes
+            - listitem [ref=f3e282]:
+              - link "Maintenance" [ref=f3e283] [cursor=pointer]:
+                - /url: /services/maintenance
+            - listitem [ref=f3e284]:
+              - link "Signalisation" [ref=f3e285] [cursor=pointer]:
+                - /url: /services/signalisation
+        - generic [ref=f3e286]:
+          - heading "Liens utiles" [level=4] [ref=f3e287]
+          - list [ref=f3e288]:
+            - listitem [ref=f3e289]:
+              - link "À propos de nous" [ref=f3e290] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f3e291]:
+              - link "Réalisations" [ref=f3e292] [cursor=pointer]:
+                - /url: /realisations
+            - listitem [ref=f3e293]:
+              - link "Nous contacter" [ref=f3e294] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f3e295]:
+          - heading "Légal" [level=4] [ref=f3e296]
+          - list [ref=f3e297]:
+            - listitem [ref=f3e298]:
+              - link "Mentions légales" [ref=f3e299] [cursor=pointer]:
+                - /url: /mentions-legales
+            - listitem [ref=f3e300]:
+              - link "Politique de confidentialité" [ref=f3e301] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=f3e302]:
+              - link "Contact email" [ref=f3e303] [cursor=pointer]:
+                - /url: mailto:alain@secur-feu.fr
+      - generic [ref=f3e305]:
+        - paragraph [ref=f3e306]: © 2026 SECUR FEU. Tous droits réservés.
+        - paragraph [ref=f3e307]: Créé avec passion pour votre sécurité
