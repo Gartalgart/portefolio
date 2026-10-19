@@ -6,6 +6,12 @@ Moderne, tech, très épuré (famille Vercel / Linear / Stripe). Le travail mont
 - **Moment signature** : trois vrais sites en fenêtres de navigateur 3D dans le hero, qui suivent la souris (`HeroStage`). Mouvement réduit : pose fixe.
 - **Projets** : grandes cartes qui s'empilent au scroll (sticky, CSS pur) ; chaque site se teste en direct (iframe à la demande). Secur-Feu interdit l'affichage en cadre (`X-Frame-Options`) : capture + lien.
 
+## Objet 3D (Blender)
+Section « Je modélise aussi en 3D » entre Projets et Services : un gyroscope (noyau bleu, trois anneaux chromés noirs, trois perles) modélisé dans Blender, exporté en GLB (425 Ko, `public/models/artefact.glb`), rendu avec Three.js.
+- Chargé en différé (visible à 300 px de l'écran) ; image de repli `public/images/artefact-poster.webp` si mouvement réduit ou sans WebGL.
+- Sources : `assets/3d/artefact.blend` (hors site publié) et le poster PNG. Le fichier Blender de l'utilisateur (scène « Scene », flacon) n'a pas été modifié.
+- Interaction : le pointeur incline l'objet, le glisser le fait tourner ; le rendu se met en pause hors écran.
+
 ## Tokens (`src/app/globals.css`)
 `--bg --surface --surface-2 --fg --muted --line --line-strong --primary --primary-fg --link --glass --shadow`. Aucune couleur en dur.
 Élévation : bordure 1px translucide **ou** ombre. Rayons : 12 px (fenêtres), 24 px (cartes), pilules pour boutons et étiquettes.
