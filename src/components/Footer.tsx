@@ -2,7 +2,7 @@ import { site } from "@/lib/content";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line px-5 py-8">
+    <footer className="night border-t border-line px-5 py-8">
       <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-3 text-sm text-muted sm:flex-row">
         <p>© {new Date().getFullYear()} {site.name}. Tous droits réservés.</p>
         <ul className="flex gap-5">

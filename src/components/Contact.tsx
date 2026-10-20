@@ -1,8 +1,8 @@
 "use client";
-import { CalendarCheck, Mail, Send } from "lucide-react";
+import { CalendarCheck, Check, Mail, Send } from "lucide-react";
 import { useState } from "react";
-import { site } from "@/lib/content";
-import SectionHead from "./SectionHead";
+import Image from "next/image";
+import { bookingHref, bookingReady, site } from "@/lib/content";
 
 const Github = ({ size }: { size: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -16,7 +16,16 @@ const Linkedin = ({ size }: { size: number }) => (
 );
 
 const field =
-  "mt-1.5 w-full rounded-xl border border-line-strong bg-surface-2 px-4 py-3 text-base outline-none transition placeholder:text-muted focus:border-primary";
+  "mt-1.5 w-full rounded-lg border border-line-strong bg-surface-2 px-4 py-3 text-base outline-none transition placeholder:text-muted focus:border-link";
+
+// Uniquement des engagements déjà confirmés (voir PRODUCT.md).
+const included = [
+  "Un seul interlocuteur, du devis à la maintenance",
+  "Un prix annoncé avant de commencer",
+  `Sites vitrine à partir de ${site.startingPrice}`,
+  "Pensé pour le mobile et pour Google",
+  "Hauts-de-France, Île-de-France ou à distance",
+];
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -27,70 +36,104 @@ export default function Contact() {
     e.preventDefault();
     const d = new FormData(e.currentTarget);
     const subject = encodeURIComponent(`Projet web — ${d.get("name")}`);
-    const body = encodeURIComponent(`${d.get("message")}\n\n${d.get("name")}\n${d.get("email")}`);
+    const body = encodeURIComponent(`${d.get("message")}
+
+${d.get("name")}
+${d.get("email")}`);
     window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-titre" className="px-5 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[1320px] rounded-3xl border border-line bg-surface p-6 sm:p-10 md:p-16">
-        <div className="grid gap-12 md:grid-cols-[1fr_1.1fr]">
-          <div>
-            <SectionHead
-              id="contact-titre"
-              title="Parlons de votre projet."
-              intro={`Décrivez votre besoin en quelques lignes : je vous réponds avec une première idée et un ordre de prix. Les sites vitrine démarrent à ${site.startingPrice}.`}
-            />
-            <a
-              href={site.calendly}
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-fg transition hover:brightness-110"
-            >
-              <CalendarCheck size={18} aria-hidden="true" />
-              Réserver un appel de 15 min
-            </a>
-            <ul className="mt-8 space-y-3 text-muted">
+    <section id="contact" aria-labelledby="contact-titre" className="night px-5 py-24 md:px-8 md:py-32">
+      <div className="mx-auto max-w-[1320px]">
+        <h2 id="contact-titre" className="display text-balance text-[clamp(3rem,7vw,6rem)]">
+          Poussez la porte.
+        </h2>
+        <p className="mt-5 max-w-[52ch] text-pretty text-lg text-muted">
+          Décrivez votre besoin en quelques lignes ou réservez un appel de 15 minutes : je vous réponds avec une première idée et un
+          ordre de prix.
+        </p>
+
+        <div className="mt-14 grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+          {/* Note papier : toujours en couleurs « jour », même sur fond de nuit. */}
+          <div className="paper -rotate-1 p-7 text-[#0c1a3a] [--surface:#fbf8f1] [--line:rgba(12,26,58,0.12)] md:p-9">
+            <p className="text-2xl font-bold tracking-[-0.02em]">Ce qui est compris</p>
+            <ul className="mt-5 space-y-3">
+              {included.map((i) => (
+                <li key={i} className="flex gap-3">
+                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-[3px] bg-[#1f4fd6] text-white">
+                    <Check size={13} strokeWidth={3} aria-hidden="true" />
+                  </span>
+                  {i}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-7 flex items-center gap-3 border-t border-[rgba(12,26,58,0.15)] pt-5">
+              <Image src="/images/profile.jpg" alt="" width={80} height={80} className="h-10 w-10 rounded-full object-cover object-top" />
+              <span>
+                <span className="block font-bold">{site.name}</span>
+                <span className="block text-sm text-[#4a5672]">{site.role}</span>
+              </span>
+            </p>
+            <ul className="mt-6 space-y-2 text-[#4a5672]">
               <li>
-                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-3 hover:text-fg">
+                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-3 hover:text-[#0c1a3a] hover:underline">
                   <Mail size={18} aria-hidden="true" /> {site.email}
                 </a>
               </li>
-              <li>
-                <a href={site.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 hover:text-fg">
+              <li className="flex gap-5">
+                <a href={site.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#0c1a3a]">
                   <Github size={18} /> GitHub
                 </a>
-              </li>
-              <li>
-                <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 hover:text-fg">
+                <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#0c1a3a]">
                   <Linkedin size={18} /> LinkedIn
                 </a>
               </li>
             </ul>
           </div>
 
-          <form onSubmit={onSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="text-sm font-medium">Nom</label>
-              <input id="name" name="name" required autoComplete="name" className={field} placeholder="Votre nom" />
-            </div>
-            <div>
-              <label htmlFor="email" className="text-sm font-medium">Email</label>
-              <input id="email" name="email" type="email" required autoComplete="email" className={field} placeholder="vous@exemple.fr" />
-            </div>
-            <div>
-              <label htmlFor="message" className="text-sm font-medium">Votre projet</label>
-              <textarea id="message" name="message" required rows={5} className={field} placeholder="Votre activité, ce que vous attendez du site, vos délais…" />
-            </div>
-            <button
-              type="submit"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-line px-6 py-3 font-medium transition hover:border-primary hover:text-link"
-            >
-              <Send size={16} aria-hidden="true" /> Envoyer le message
-            </button>
-            <p role="status" className="min-h-5 text-sm text-muted">
-              {sent && "Votre messagerie s'ouvre pour finaliser l'envoi."}
-            </p>
-          </form>
+          <div className="space-y-10">
+            {bookingReady ? (
+              <div className="overflow-hidden rounded-xl border border-line bg-white">
+                <iframe src={site.calendly} title="Réserver un appel de 15 minutes" loading="lazy" className="h-[640px] w-full" />
+              </div>
+            ) : (
+              <a
+                href={bookingHref}
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-fg transition hover:brightness-110"
+              >
+                <CalendarCheck size={18} aria-hidden="true" />
+                Réserver un appel de 15 min
+              </a>
+            )}
+
+            <form onSubmit={onSubmit} className="space-y-4" aria-label="Écrire un message">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="text-sm font-semibold">Nom</label>
+                  <input id="name" name="name" required autoComplete="name" className={field} placeholder="Votre nom" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="text-sm font-semibold">Email</label>
+                  <input id="email" name="email" type="email" required autoComplete="email" className={field} placeholder="vous@exemple.fr" />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="message" className="text-sm font-semibold">Votre projet</label>
+                <textarea id="message" name="message" required rows={5} className={field} placeholder="Votre activité, ce que vous attendez du site, vos délais…" />
+              </div>
+              <button
+                type="submit"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-line-strong px-6 py-3 font-semibold transition hover:border-link hover:text-link"
+              >
+                <Send size={16} aria-hidden="true" /> Envoyer le message
+              </button>
+              <p role="status" className="min-h-5 text-sm text-muted">
+                {sent && "Votre messagerie s'ouvre pour finaliser l'envoi."}
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </section>

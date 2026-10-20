@@ -10,7 +10,7 @@ export default function BrowserWindow({ host, children, className = "" }: { host
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
         </span>
-        <span className="min-w-0 flex-1 truncate rounded-md bg-bg px-3 py-1 text-center font-mono text-[11px] text-muted">{host}</span>
+        <span className="min-w-0 flex-1 truncate rounded-md bg-bg px-3 py-1 text-center text-[11px] text-muted">{host}</span>
       </div>
       <div className="relative aspect-[16/10] bg-surface-2">{children}</div>
     </div>

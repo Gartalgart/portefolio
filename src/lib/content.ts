@@ -11,19 +11,23 @@ export const site = {
   startingPrice: "1 000 €", // site vitrine. [À PRÉCISER] HT ou TTC
 };
 
+// Le calendrier ne s'affiche que lorsqu'un vrai lien de réservation est renseigné.
+export const bookingReady = !/^https:\/\/calendly\.com\/?$/.test(site.calendly);
+// Sans lien de réservation, « Réserver un appel » ouvre un email pré-rempli.
+export const bookingHref = bookingReady
+  ? site.calendly
+  : `mailto:${site.email}?subject=${encodeURIComponent("Appel de 15 min pour mon projet")}`;
+
 export const nav = [
-  { href: "#projets", label: "Projets" },
+  { href: "#projets", label: "Réalisations" },
   { href: "#services", label: "Services" },
+  { href: "#methode", label: "Méthode" },
   { href: "#apropos", label: "À propos" },
-  { href: "#contact", label: "Contact" },
+  { href: "#faq", label: "FAQ" },
 ];
 
-// Bande de faits sous le hero : uniquement des éléments vrais et vérifiables.
-export const facts = [
-  { label: "Zone", value: "Hauts-de-France, Île-de-France, à distance" },
-  { label: "Interlocuteur", value: "Un seul, du devis à la maintenance" },
-  { label: "Sites vitrine", value: `À partir de ${site.startingPrice}` },
-];
+// Hero raconté au scroll : le site s'allume étape par étape.
+export const heroSteps = ["Invisible.", "Trouvé.", "Choisi.", "Contacté."];
 
 export const services = [
   {
@@ -53,6 +57,7 @@ export const audiences = ["artisans", "commerçants", "TPE/PME", "associations",
 export const projects = [
   {
     name: "Secur-Feu",
+    color: "#b42318", // couleur de la vitrine (texte blanc, contraste AA vérifié)
     category: "Sécurité incendie",
     client: true,
     url: "https://secur-feu.com",
@@ -65,6 +70,7 @@ export const projects = [
   },
   {
     name: "Save Toiture",
+    color: "#b8500b", // couleur de la vitrine (texte blanc, contraste AA vérifié)
     category: "Étanchéité et toiture",
     client: true,
     url: "https://save-toiture.vercel.app/",
@@ -77,6 +83,7 @@ export const projects = [
   },
   {
     name: "Maison Léa Coiffure",
+    color: "#a3245f", // couleur de la vitrine (texte blanc, contraste AA vérifié)
     category: "Salon de coiffure",
     client: false,
     url: "https://maison-lea-coiffure.vercel.app/",
@@ -89,6 +96,7 @@ export const projects = [
   },
   {
     name: "Braise",
+    color: "#3b1d12", // couleur de la vitrine (texte blanc, contraste AA vérifié)
     category: "Restaurant",
     client: false,
     url: "https://braise-restaurant-plum.vercel.app/",
@@ -107,8 +115,45 @@ export const stack = ["TypeScript", "Next.js", "React", "Tailwind CSS", "Node.js
 export const method = [
   { title: "Communication claire", text: "Un point régulier, des mots simples, aucune surprise sur le calendrier ou le budget." },
   { title: "Code propre et fiable", text: "Un code lisible et maintenable, que n'importe quel développeur pourra reprendre." },
-  { title: "Livraisons par étapes", text: "Vous voyez le site avancer et vous ajustez en cours de route." },
   { title: "Accessible et rapide", text: "Pensé d'abord pour le mobile, utilisable au clavier, léger à charger." },
+];
+
+// Frise « Comment ça se passe ». Pas de durée tant qu'elle n'est pas confirmée.
+export const steps = [
+  { title: "Appel découverte", text: "15 minutes pour comprendre votre activité, vos clients et ce que le site doit leur faire faire." },
+  { title: "Devis clair", text: "Un prix annoncé avant de commencer, avec ce qui est inclus noir sur blanc." },
+  { title: "Maquette", text: "Vous voyez votre site avant qu'il soit développé et vous validez la direction." },
+  { title: "Développement", text: "Le site prend vie. Vous suivez l'avancée sur une adresse de test." },
+  { title: "Vos retours", text: "On ajuste les textes, les photos et les détails ensemble." },
+  { title: "Mise en ligne", text: "Nom de domaine, hébergement, fiche Google : tout est branché." },
+  { title: "Suivi", text: "Mises à jour et petites évolutions, avec le même interlocuteur." },
+];
+
+export const faq = [
+  {
+    q: "Combien coûte un site ?",
+    a: `Un site vitrine démarre à ${site.startingPrice}. Une application sur-mesure ou une refonte se chiffre sur devis. Dans tous les cas, le prix est annoncé avant de commencer.`,
+  },
+  {
+    q: "Combien de temps faut-il pour créer mon site ?",
+    a: "Cela dépend du nombre de pages et des contenus à préparer. Le délai est fixé ensemble et écrit dans le devis.",
+  },
+  {
+    q: "Qui s'occupe de mon site après la mise en ligne ?",
+    a: "Moi. Hébergement, mises à jour et petites évolutions : vous gardez le même interlocuteur du devis à la maintenance.",
+  },
+  {
+    q: "Mon site sera-t-il visible sur Google ?",
+    a: "Chaque site est construit pour être bien référencé localement : pages rapides, textes structurés, fiche Google reliée. Personne ne peut honnêtement garantir une place précise, mais tout est fait pour que vos clients vous trouvent.",
+  },
+  {
+    q: "Pourrai-je modifier mon site moi-même ?", // [À CONFIRMER] selon les projets
+    a: "Si vous le souhaitez, on prévoit dès le devis un moyen simple de changer vos textes, vos photos ou vos horaires.",
+  },
+  {
+    q: "Je ne suis pas près de chez vous, est-ce possible ?",
+    a: "Oui. Je travaille en Hauts-de-France, en Île-de-France et à distance : un appel ou une visio suffit pour avancer.",
+  },
 ];
 
 // [À REMPLACER] Ajoutez ici de vrais avis clients : la section n'apparaît que s'il y en a.
