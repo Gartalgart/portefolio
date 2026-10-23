@@ -3,10 +3,10 @@ import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScro
 import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import { heroSteps, site } from "@/lib/content";
-import HeroScene from "./HeroScene";
+import ShopVideo from "./ShopVideo";
 
 /*
-  Hero raconté au scroll : le visiteur fait défiler, le site fictif s'allume
+  Hero raconté au scroll : le visiteur fait défiler, la boutique filmée s'allume puis se remplit
   (Invisible → Trouvé → Choisi → Contacté). En mouvement réduit, l'état final est affiché d'emblée.
 */
 export default function Hero() {
@@ -61,7 +61,7 @@ export default function Hero() {
           <div className="sticky top-0 flex h-svh flex-col justify-center gap-10 pt-16 motion-reduce:static motion-reduce:h-auto motion-reduce:pb-24 motion-reduce:pt-6">
             <div className="flex items-start gap-4">
               <div className="min-w-0 flex-1">
-                <HeroScene step={step} />
+                <ShopVideo progress={scrollYProgress} className="aspect-[4/3] sm:aspect-video" />
               </div>
               {!reduce && (
                 <ol className="hidden flex-col gap-2 pt-10 sm:flex" aria-hidden="true">
@@ -94,7 +94,7 @@ export default function Hero() {
             </div>
 
             <p className="-mt-6 text-xs text-muted">
-              {step === 0 && !reduce ? "Faites défiler pour allumer le site. " : ""}Exemple illustré : Atelier Morel est une entreprise fictive.
+              {step === 0 && !reduce ? "Faites défiler pour allumer la boutique. " : ""}Images d&apos;illustration générées par IA.
             </p>
           </div>
         </div>
