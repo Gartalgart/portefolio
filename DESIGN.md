@@ -30,7 +30,10 @@ Inspirée de seen-agency.fr : **la nuit qui s'allume, puis le jour**. Le site ra
 - Contour (`.outline-text`) : trait `clamp(1.5px, 0.035em, 3px)` + remplissage couleur du fond (`paint-order`) pour masquer les chevauchements de la police variable.
 
 ## Objet 3D (Blender)
-Gyroscope (`public/models/artefact.glb`, 425 Ko) dans un panneau de nuit entre Projets et Services. Chargé en différé, image de repli si mouvement réduit ou sans WebGL. Source : `assets/3d/artefact.blend`.
+Boutique miniature (`Boutique3D`, `public/models/boutique.glb`, 1,9 Mo / ~465 Ko gzippé) dans un panneau de nuit entre Projets et Services : façade bleue, store rayé, vitrine garnie, lampadaire, vélo, terrasse, ~770 pièces jointes par matériau (31 maillages).
+- La nuit s'allume à l'arrivée à l'écran : lampadaire qui grésille, lampes d'enseigne, boutique, étage, lucarne (émission des matériaux `Ampoule_*`, `Lumiere_Etage`, `Lumiere_Lucarne` + lumières ponctuelles sur les repères `Lumiere_*`). Un bouton « Éteindre / Allumer les lumières » rejoue la séquence.
+- Glisser fait tourner, le pointeur incline ; l'enseigne drapeau (`Enseigne_Drapeau`) se balance. Ombres de la lune et du lampadaire, halo (bloom) sur les ampoules.
+- Chargé en différé, image de repli `boutique-poster.webp` (rendu EEVEE) si mouvement réduit ou sans WebGL. Source : `assets/3d/boutique.blend` (objets séparés ; l'export joint par matériau).
 
 ## Règles
 - Tout vient des tokens de `globals.css`. Exceptions assumées : les illustrations fictives (mini-site, vieux site, carte de recherche) et les couleurs des projets.

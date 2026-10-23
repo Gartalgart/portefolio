@@ -1,4 +1,4 @@
-import Artefact3D from "./Artefact3D";
+import Boutique3D from "./Boutique3D";
 
 export default function Modeling3D() {
   return (
@@ -9,14 +9,14 @@ export default function Modeling3D() {
             Je modélise aussi en 3D.
           </h2>
           <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-muted">
-            Cet objet a été modélisé dans Blender, exporté en 425 Ko et s&apos;affiche en temps réel dans votre navigateur. Glissez
-            dessus pour le faire tourner.
+            Cette boutique a été construite pièce par pièce dans Blender : façade, store rayé, vitrine garnie, vélo, terrasse. Plus de
+            700 éléments, éclairés en temps réel dans votre navigateur. Glissez dessus pour en faire le tour.
           </p>
           <p className="mt-4 max-w-[46ch] text-muted">
             Produits, packagings, scènes d&apos;ambiance : la 3D peut donner du relief à votre site vitrine.
           </p>
         </div>
-        <Artefact3D />
+        <Boutique3D />
       </div>
     </section>
   );
