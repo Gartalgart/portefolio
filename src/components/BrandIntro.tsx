@@ -114,11 +114,11 @@ export default function BrandIntro() {
         m.lookAt(0, 0, 0);
         studio.add(m);
       };
-      panel(14, 3, "#ffffff", 2.2, [0, 7, 2]); // boîte à lumière au-dessus
-      panel(16, 10, "#2c4fae", 0.75, [0, 0.5, 8]); // grand fond bleu derrière le visiteur : la teinte des faces
-      panel(1.1, 10, "#ffffff", 2.6, [3.2, 0, 7]); // fine bande blanche : le reflet qui balaie
-      panel(8, 8, "#1f4fd6", 2.4, [-7, -1, 2]); // mur bleu d'action
-      panel(6, 6, "#7fa6ff", 1.6, [7, -2, -3]); // bleu clair en contre
+      panel(14, 3, "#ffffff", 1.4, [0, 7, 2]); // boîte à lumière au-dessus
+      panel(16, 10, "#2c4fae", 0.55, [0, 0.5, 8]); // grand fond bleu derrière le visiteur : la teinte des faces
+      panel(1.1, 10, "#ffffff", 1.6, [3.2, 0, 7]); // fine bande blanche : le reflet qui balaie
+      panel(8, 8, "#1f4fd6", 1.6, [-7, -1, 2]); // mur bleu d'action
+      panel(6, 6, "#7fa6ff", 1.1, [7, -2, -3]); // bleu clair en contre
       panel(16, 6, "#0d1a3d", 1, [0, -6, 6]); // sol bleu nuit devant
       const pmrem = new THREE.PMREMGenerator(renderer);
       const envMap = pmrem.fromScene(studio, 0.03).texture;
@@ -137,7 +137,7 @@ export default function BrandIntro() {
             void main(){
               vec2 p = vPos / vec2(7.0, 2.6);
               float g = exp(-dot(p, p) * 2.2);
-              vec3 col = uNight + uGlow * g * 0.09 * uFade;
+              vec3 col = uNight + uGlow * g * 0.06 * uFade;
               col += (hash(gl_FragCoord.xy) - 0.5) / 255.0;
               gl_FragColor = vec4(col, 1.0);
               #include <colorspace_fragment>
@@ -256,7 +256,7 @@ export default function BrandIntro() {
       scene.add(word);
 
       const composer = compact ? null : new EffectComposer(renderer);
-      const bloom = compact ? null : new UnrealBloomPass(new THREE.Vector2(1, 1), 0.38, 0.5, 0.9);
+      const bloom = compact ? null : new UnrealBloomPass(new THREE.Vector2(1, 1), 0.18, 0.4, 0.95);
       if (composer && bloom) {
         composer.addPass(new RenderPass(scene, camera));
         composer.addPass(bloom);
@@ -335,7 +335,7 @@ export default function BrandIntro() {
 
         const fade = Math.min(1, t / 1.2);
         (glow.material as import("three").ShaderMaterial).uniforms.uFade.value = fade * (1 - scroll * 0.7);
-        (dust.material as import("three").PointsMaterial).opacity = fade * 0.55;
+        (dust.material as import("three").PointsMaterial).opacity = fade * 0.35;
         dust.rotation.y = t * 0.012;
         dust.position.y = Math.sin(t * 0.2) * 0.08;
 
