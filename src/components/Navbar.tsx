@@ -46,7 +46,7 @@ export default function Navbar() {
         className="flex items-center justify-between border-b border-line bg-[var(--glass)] px-5 py-3 backdrop-blur-xl transition-colors duration-300 md:px-8"
       >
         <a href="#" className="display text-2xl text-fg">
-          Rémy Denimal<span className="text-link">.</span>
+          {site.brand}<span className="text-link">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 lg:flex">

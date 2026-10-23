@@ -1,5 +1,6 @@
 // Tout le contenu éditable est ici. Les valeurs marquées [À COMPLÉTER] sont à confirmer.
 export const site = {
+  brand: "RD-Solutions", // logo, titre de l'onglet, partages
   name: "Rémy Denimal",
   role: "Développeur Full-Stack Freelance",
   url: "https://rd-solutions.fr",

@@ -7,7 +7,7 @@ const body = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-body", di
 // Axe de largeur chargé pour obtenir la version condensée des titres.
 const title = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-title", display: "swap", axes: ["wdth", "opsz"] });
 
-const pageTitle = `${site.name} — ${site.role}`;
+const pageTitle = `${site.brand} — ${site.role}`;
 const description =
   "Je conçois des sites et applications web rapides et clairs pour les artisans, commerçants, TPE, associations et mairies. Hauts-de-France, Île-de-France et télétravail.";
 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: pageTitle,
     description,
     url: site.url,
-    siteName: site.name,
+    siteName: site.brand,
     locale: "fr_FR",
     type: "website",
     images: [{ url: "/images/profile.jpg", width: 800, height: 993, alt: site.name }],

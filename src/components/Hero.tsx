@@ -1,7 +1,6 @@
 "use client";
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import { useRef, useState } from "react";
 import { heroSteps, site } from "@/lib/content";
 import HeroScene from "./HeroScene";
@@ -25,18 +24,7 @@ export default function Hero() {
     <section aria-labelledby="hero-titre" className="night relative">
       <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:grid lg:h-[340svh] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 motion-reduce:lg:h-auto">
         <div className="pb-6 pt-32 lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:pb-0 lg:pt-16">
-          <p className="inline-flex items-center gap-3 self-start rounded-full border border-line py-1.5 pl-1.5 pr-4 text-sm text-muted">
-            <Image src="/images/profile.jpg" alt="" width={72} height={72} className="h-7 w-7 rounded-full object-cover object-top" />
-            <span className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2" aria-hidden="true">
-                <span className="ping absolute inline-flex h-full w-full rounded-full bg-emerald-400" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
-              Disponible pour de nouvelles missions
-            </span>
-          </p>
-
-          <h2 id="hero-titre" className="display mt-7 text-[clamp(3rem,5.6vw,5.25rem)]">
+          <h2 id="hero-titre" className="display text-[clamp(3rem,5.6vw,5.25rem)]">
             Votre activité existe.
             <span className="outline-text block text-fg">
               Sur internet, elle est éteinte.

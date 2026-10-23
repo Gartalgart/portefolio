@@ -117,9 +117,6 @@ a { text-underline-offset: 4px; }
   box-shadow: var(--shadow);
 }
 
-@keyframes ping-dot { 0% { transform: scale(1); opacity: .7 } 80%,100% { transform: scale(2.6); opacity: 0 } }
-.ping { animation: ping-dot 1.8s cubic-bezier(0,0,.2,1) infinite; }
-
 /* Invitation à défiler sous le nom 3D : un trait qui descend. */
 @keyframes scroll-cue { 0% { transform: translateY(-100%) } 100% { transform: translateY(200%) } }
 .scroll-cue { animation: scroll-cue 1.6s cubic-bezier(.65,0,.35,1) infinite; }
@@ -133,6 +130,6 @@ details > summary::-webkit-details-marker { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .ping, .scroll-cue { animation: none; }
+  .scroll-cue { animation: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
