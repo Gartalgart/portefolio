@@ -4,7 +4,7 @@ export const site = {
   name: "Rémy Denimal",
   role: "Développeur Full-Stack Freelance",
   url: "https://rd-solutions.fr",
-  email: "remy.denimal@gmail.com", // [À CONFIRMER] email pro
+  email: "contact@rd-solutions.fr",
   github: "https://github.com/", // [À COMPLÉTER]
   linkedin: "https://www.linkedin.com/", // [À COMPLÉTER]
   calendly: "https://calendly.com/", // [À COMPLÉTER] lien de prise de RDV

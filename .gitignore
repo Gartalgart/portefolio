@@ -5,3 +5,7 @@ next-env.d.ts
 *.tsbuildinfo
 design-audit
 assets/3d/*.blend1
+.env*.local
+
+.vercel
+.env*

@@ -1,8 +1,9 @@
 "use client";
 import { CalendarCheck, Check, Mail, Send } from "lucide-react";
-import { useState } from "react";
+import { useActionState } from "react";
 import Image from "next/image";
 import { bookingHref, bookingReady, site } from "@/lib/content";
+import { sendContact, type ContactState } from "@/app/actions";
 
 const Github = ({ size }: { size: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -28,21 +29,7 @@ const included = [
 ];
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
-
-  // Site statique : le formulaire ouvre le client mail du visiteur.
-  // Pour un envoi direct, brancher un service (Formspree, Resend...) ici.
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const d = new FormData(e.currentTarget);
-    const subject = encodeURIComponent(`Projet web — ${d.get("name")}`);
-    const body = encodeURIComponent(`${d.get("message")}
-
-${d.get("name")}
-${d.get("email")}`);
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setSent(true);
-  };
+  const [state, action, pending] = useActionState<ContactState, FormData>(sendContact, { status: "idle" });
 
   return (
     <section id="contact" aria-labelledby="contact-titre" className="night px-5 py-24 md:px-8 md:py-32">
@@ -108,7 +95,8 @@ ${d.get("email")}`);
               </a>
             )}
 
-            <form onSubmit={onSubmit} className="space-y-4" aria-label="Écrire un message">
+            <form action={action} className="space-y-4" aria-label="Écrire un message">
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="text-sm font-semibold">Nom</label>
@@ -125,12 +113,14 @@ ${d.get("email")}`);
               </div>
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-line-strong px-6 py-3 font-semibold transition hover:border-link hover:text-link"
+                disabled={pending}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-line-strong px-6 py-3 font-semibold transition hover:border-link hover:text-link disabled:opacity-60"
               >
-                <Send size={16} aria-hidden="true" /> Envoyer le message
+                <Send size={16} aria-hidden="true" /> {pending ? "Envoi en cours…" : "Envoyer le message"}
               </button>
               <p role="status" className="min-h-5 text-sm text-muted">
-                {sent && "Votre messagerie s'ouvre pour finaliser l'envoi."}
+                {state.status === "ok" && "Merci, votre message est bien parti. Je vous réponds rapidement."}
+                {state.status === "error" && state.message}
               </p>
             </form>
           </div>
