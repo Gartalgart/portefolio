@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import BrandIntro from "@/components/BrandIntro";
 import Hero from "@/components/Hero";
 import BeforeAfter from "@/components/BeforeAfter";
 import Projects from "@/components/Projects";
@@ -22,6 +23,7 @@ export default function Home() {
       </a>
       <Navbar />
       <main id="main">
+        <BrandIntro />
         <Hero />
         <BeforeAfter />
         <Projects />

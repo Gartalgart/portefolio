@@ -36,12 +36,12 @@ export default function Hero() {
             </span>
           </p>
 
-          <h1 id="hero-titre" className="display mt-7 text-[clamp(3rem,5.6vw,5.25rem)]">
+          <h2 id="hero-titre" className="display mt-7 text-[clamp(3rem,5.6vw,5.25rem)]">
             Votre activité existe.
             <span className="outline-text block text-fg">
               Sur internet, elle est éteinte.
             </span>
-          </h1>
+          </h2>
 
           <p className="mt-7 max-w-[46ch] text-pretty text-lg leading-relaxed text-muted">
             Je crée votre site, je le rends visible sur Google et je m&apos;en occupe ensuite. Le but : que ceux qui vous cherchent vous

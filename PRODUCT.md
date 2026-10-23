@@ -16,10 +16,11 @@ Portfolio d'un développeur full-stack freelance (Rémy Denimal) dont le but est
 Ce qu'un voisin ne peut pas copier tel quel (confirmé) : un seul interlocuteur du devis à la maintenance, proximité Hauts-de-France / Île-de-France, tarifs lisibles et sans surprise.
 
 ## Capabilities and Constraints
+- Domaine : rd-solutions.fr.
 - Site statique Next.js (export), contenu centralisé dans `src/lib/content.ts`.
 - Thème sombre par défaut avec bascule clair.
 - Formulaire en `mailto:` (pas de backend) ; envoi direct à brancher plus tard.
-- Décisions ouvertes : GitHub, LinkedIn, Calendly, email pro, domaine final, stack réelle, mentions légales, grille de tarifs.
+- Décisions ouvertes : GitHub, LinkedIn, Calendly, email pro, stack réelle, mentions légales, grille de tarifs.
 
 ## Brand Commitments
 Nom : Rémy Denimal. Accent ambre (choix de l'utilisateur). Photo : `public/images/profile.jpg` (pull vert, sourire).

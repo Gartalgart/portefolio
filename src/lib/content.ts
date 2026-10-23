@@ -2,7 +2,7 @@
 export const site = {
   name: "Rémy Denimal",
   role: "Développeur Full-Stack Freelance",
-  url: "https://remy-denimal.fr", // [À COMPLÉTER] domaine final
+  url: "https://rd-solutions.fr",
   email: "remy.denimal@gmail.com", // [À CONFIRMER] email pro
   github: "https://github.com/", // [À COMPLÉTER]
   linkedin: "https://www.linkedin.com/", // [À COMPLÉTER]

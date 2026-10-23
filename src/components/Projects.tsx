@@ -118,9 +118,10 @@ export default function Projects() {
         </div>
       </div>
 
+      {/* relative : les textes sr-only (position absolue) des cartes restent dans la galerie au lieu d'élargir la page. */}
       <ul
         ref={rail}
-        className="rail mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(1.25rem,calc((100vw_-_1320px)/2_+_2rem))] pb-4 [scroll-padding-inline:max(1.25rem,calc((100vw_-_1320px)/2_+_2rem))]"
+        className="rail relative mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(1.25rem,calc((100vw_-_1320px)/2_+_2rem))] pb-4 [scroll-padding-inline:max(1.25rem,calc((100vw_-_1320px)/2_+_2rem))]"
       >
         {projects.map((p) => (
           <li key={p.name} className="flex">
