@@ -121,6 +121,36 @@ a { text-underline-offset: 4px; }
 @keyframes scroll-cue { 0% { transform: translateY(-100%) } 100% { transform: translateY(200%) } }
 .scroll-cue { animation: scroll-cue 1.6s cubic-bezier(.65,0,.35,1) infinite; }
 
+/* Brouillard sur la vidéo du hero : bruit fractal qui dérive lentement, percé par la lampe torche
+   (--x, --y, --r posés par ShopVideo sur le cadre). */
+.fog {
+  background: color-mix(in srgb, var(--night) 84%, transparent);
+  -webkit-mask-image: radial-gradient(circle at var(--x) var(--y), transparent 0, transparent calc(var(--r) * 0.35), #000 var(--r));
+  mask-image: radial-gradient(circle at var(--x) var(--y), transparent 0, transparent calc(var(--r) * 0.35), #000 var(--r));
+}
+.fog::before,
+.fog::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.47 0 0 0 0 0.58 0 0 0 1.6 -0.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  background-size: 480px;
+  opacity: 0.55;
+  animation: fog-drift 38s linear infinite;
+}
+.fog::after {
+  background-size: 760px;
+  opacity: 0.35;
+  animation-duration: 64s;
+  animation-direction: reverse;
+}
+@keyframes fog-drift { to { transform: translate3d(12%, -4%, 0) } }
+/* Faisceau de la lampe : éclaire la vidéo sombre sous le halo. */
+.torch {
+  background: radial-gradient(circle at var(--x) var(--y), rgb(255 222 170 / 0.5), rgb(255 222 170 / 0.16) calc(var(--r) * 0.6), transparent var(--r));
+  mix-blend-mode: screen;
+}
+
 /* Galerie horizontale : défilement natif, barre de défilement discrète. */
 .rail { scrollbar-width: none; }
 .rail::-webkit-scrollbar { display: none; }
@@ -130,6 +160,6 @@ details > summary::-webkit-details-marker { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .scroll-cue { animation: none; }
+  .scroll-cue, .fog::before, .fog::after { animation: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }

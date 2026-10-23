@@ -1,23 +1,59 @@
 "use client";
-import { type MotionValue, useReducedMotion } from "framer-motion";
+import { type MotionValue, motion, useReducedMotion, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const SRC = "/videos/boutique.mp4";
 // La boutique reste éteinte un instant avant que la vidéo démarre, et pleine à la fin.
 const HOLD_START = 0.06;
 const HOLD_END = 0.94;
+// Le brouillard est dissipé à cette part du défilement.
+const FOG_END = 0.55;
 
 /*
   Boutique filmée en plan fixe : `progress` (0 → 1) fait avancer la vidéo image par image
   (rue sombre → vitrine allumée → boutique bondée). La vidéo est chargée en entier (blob)
   à l'approche, sinon chaque saut de lecture attend le réseau.
-  En mouvement réduit : image finale fixe.
+  Un brouillard la recouvre au départ : la souris y perce une lampe torche, le scroll le dissipe.
+  En mouvement réduit : image finale fixe, sans brouillard.
 */
 export default function ShopVideo({ progress, className = "" }: { progress: MotionValue<number>; className?: string }) {
   const reduce = useReducedMotion();
   const frame = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
+  const torch = useRef({ x: 0, y: 0, on: false });
   const [src, setSrc] = useState<string>();
+  const fogOpacity = useTransform(progress, [0, FOG_END], [1, 0]);
+
+  // Lampe torche : le halo suit la souris avec un léger retard et s'ouvre ou se referme en douceur.
+  useEffect(() => {
+    const el = frame.current;
+    if (reduce || !el) return;
+    let raf = 0;
+    let x = 0;
+    let y = 0;
+    let r = 0;
+    const tick = () => {
+      const t = torch.current;
+      const goal = t.on ? Math.max(120, el.offsetWidth * 0.24) : 0;
+      // Halo fermé : il se rouvre directement sous la souris au lieu de glisser depuis l'ancienne position.
+      const k = r < 2 ? 1 : 0.2;
+      x += (t.x - x) * k;
+      y += (t.y - y) * k;
+      r += (goal - r) * 0.12;
+      el.style.setProperty("--x", `${x}px`);
+      el.style.setProperty("--y", `${y}px`);
+      el.style.setProperty("--r", `${r}px`);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [reduce]);
+
+  const move = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse") return;
+    const box = e.currentTarget.getBoundingClientRect();
+    torch.current = { x: e.clientX - box.left, y: e.clientY - box.top, on: true };
+  };
 
   // Téléchargement anticipé, une seule fois, quand la vidéo approche de l'écran.
   useEffect(() => {
@@ -68,7 +104,12 @@ export default function ShopVideo({ progress, className = "" }: { progress: Moti
   }, [src, progress]);
 
   return (
-    <div ref={frame} className={`relative overflow-hidden rounded-2xl border border-line bg-night shadow-[var(--shadow)] ${className}`}>
+    <div
+      ref={frame}
+      onPointerMove={move}
+      onPointerLeave={() => (torch.current.on = false)}
+      className={`relative overflow-hidden rounded-2xl border border-line bg-night shadow-[var(--shadow)] ${className}`}
+    >
       {reduce ? (
         <img src="/images/boutique-fin.webp" alt="" className="absolute inset-0 size-full object-cover" />
       ) : (
@@ -83,6 +124,12 @@ export default function ShopVideo({ progress, className = "" }: { progress: Moti
           tabIndex={-1}
           className="absolute inset-0 size-full object-cover"
         />
+      )}
+      {!reduce && (
+        <motion.div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ opacity: fogOpacity }}>
+          <div className="torch absolute inset-0" />
+          <div className="fog absolute inset-0 overflow-hidden" />
+        </motion.div>
       )}
     </div>
   );
