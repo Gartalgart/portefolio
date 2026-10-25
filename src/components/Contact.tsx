@@ -44,35 +44,35 @@ export default function Contact() {
 
         <div className="mt-14 grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           {/* Note papier : toujours en couleurs « jour », même sur fond de nuit. */}
-          <div className="paper -rotate-1 p-7 text-[#0c1a3a] [--surface:#fbf8f1] [--line:rgba(12,26,58,0.12)] md:p-9">
+          <div className="paper day -rotate-1 p-7 md:p-9">
             <p className="text-2xl font-bold tracking-[-0.02em]">Ce qui est compris</p>
             <ul className="mt-5 space-y-3">
               {included.map((i) => (
                 <li key={i} className="flex gap-3">
-                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-[3px] bg-[#1f4fd6] text-white">
+                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-[3px] bg-primary text-primary-fg">
                     <Check size={13} strokeWidth={3} aria-hidden="true" />
                   </span>
                   {i}
                 </li>
               ))}
             </ul>
-            <p className="mt-7 flex items-center gap-3 border-t border-[rgba(12,26,58,0.15)] pt-5">
+            <p className="mt-7 flex items-center gap-3 border-t border-line pt-5">
               <Image src="/images/profile.jpg" alt="" width={80} height={80} className="h-10 w-10 rounded-full object-cover object-top" />
               <span>
                 <span className="block font-bold">{site.name}</span>
-                <span className="block text-sm text-[#4a5672]">{site.role}</span>
+                <span className="block text-sm text-muted">{site.role}</span>
               </span>
             </p>
-            <ul className="mt-6 space-y-2 text-[#4a5672]">
+            <ul className="mt-6 space-y-2 text-muted">
               <li>
-                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-3 hover:text-[#0c1a3a] hover:underline">
+                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-3 py-1 hover:text-fg hover:underline">
                   <Mail size={18} aria-hidden="true" /> {site.email}
                 </a>
               </li>
               {socials.length > 0 && (
                 <li className="flex gap-5">
                   {socials.map((s) => (
-                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 py-1 hover:text-[#0c1a3a]">
+                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 py-1 hover:text-fg">
                       {s.label === "GitHub" ? <Github size={18} /> : <Linkedin size={18} />} {s.label}
                       <span className="sr-only"> (nouvel onglet)</span>
                     </a>
@@ -98,6 +98,7 @@ export default function Contact() {
             )}
 
             <form action={action} className="space-y-4" aria-label="Écrire un message">
+              <p className="text-sm text-muted">Les trois champs sont nécessaires pour vous répondre.</p>
               <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -120,7 +121,8 @@ export default function Contact() {
               >
                 <Send size={16} aria-hidden="true" /> {pending ? "Envoi en cours…" : "Envoyer le message"}
               </button>
-              <p role="status" className="min-h-5 text-sm text-muted">
+              {/* Une erreur est annoncée tout de suite (alert), la confirmation sans interrompre (status). */}
+              <p role={state.status === "error" ? "alert" : "status"} className="min-h-5 text-sm text-muted">
                 {state.status === "ok" && "Merci, votre message est bien parti. Je vous réponds rapidement."}
                 {state.status === "error" && state.message}
               </p>

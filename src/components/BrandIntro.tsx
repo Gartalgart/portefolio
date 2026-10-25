@@ -78,6 +78,9 @@ export default function BrandIntro() {
 
     let stop = () => {};
     let cancelled = false;
+    // Rend la main au navigateur entre deux étapes lourdes : le travail est découpé en tâches courtes
+    // au lieu d'une seule qui bloque le défilement et les clics.
+    const breathe = () => new Promise<void>((r) => setTimeout(r, 0));
 
     (async () => {
       const [THREE, { GLTFLoader }, { EffectComposer }, { RenderPass }, { UnrealBloomPass }, { OutputPass }] = await Promise.all([
@@ -129,9 +132,11 @@ export default function BrandIntro() {
       panel(8, 8, "#1f4fd6", 1.6, [-7, -1, 2]); // mur bleu d'action
       panel(6, 6, "#7fa6ff", 1.1, [7, -2, -3]); // bleu clair en contre
       panel(16, 6, "#0d1a3d", 1, [0, -6, 6]); // sol bleu nuit devant
+      await breathe();
       const pmrem = new THREE.PMREMGenerator(renderer);
       const envMap = pmrem.fromScene(studio, 0.03).texture;
       scene.environment = envMap;
+      await breathe();
 
       // Halo bleu derrière le nom (grain léger pour éviter les bandes).
       const glow = new THREE.Mesh(
@@ -219,14 +224,16 @@ export default function BrandIntro() {
         const delay = ((c.x - bounds.min.x) / size.x) * 0.45 + Math.random() * 0.25;
         const r = [delay, Math.random(), Math.random(), Math.random()];
         const p = g.attributes.position, n = g.attributes.normal;
+        // Écritures directes (pas de tableau alloué par sommet) : la fusion reste courte sur mobile.
         for (let k = 0; k < p.count; k++, v++) {
-          pos.set([p.getX(k), p.getY(k), p.getZ(k)], v * 3);
-          nor.set([n.getX(k), n.getY(k), n.getZ(k)], v * 3);
-          off.set([c.x, c.y, c.z], v * 3);
-          from.set([fx, fy, fz], v * 3);
-          to.set([tx, ty, tz], v * 3);
-          axis.set([a.x, a.y, a.z], v * 3);
-          rnd.set(r, v * 4);
+          const o = v * 3, q = v * 4;
+          pos[o] = p.getX(k); pos[o + 1] = p.getY(k); pos[o + 2] = p.getZ(k);
+          nor[o] = n.getX(k); nor[o + 1] = n.getY(k); nor[o + 2] = n.getZ(k);
+          off[o] = c.x; off[o + 1] = c.y; off[o + 2] = c.z;
+          from[o] = fx; from[o + 1] = fy; from[o + 2] = fz;
+          to[o] = tx; to[o + 1] = ty; to[o + 2] = tz;
+          axis[o] = a.x; axis[o + 1] = a.y; axis[o + 2] = a.z;
+          rnd[q] = r[0]; rnd[q + 1] = r[1]; rnd[q + 2] = r[2]; rnd[q + 3] = r[3];
         }
         const base = v - p.count;
         if (g.index) for (let k = 0; k < g.index.count; k++) index[ii++] = base + g.index.getX(k);
@@ -263,6 +270,14 @@ export default function BrandIntro() {
       const word = new THREE.Mesh(geo, material);
       word.frustumCulled = false;
       scene.add(word);
+      // Compilation des shaders en parallèle quand le pilote le permet, au lieu de figer la première image.
+      await breathe();
+      await renderer.compileAsync(scene, camera);
+      if (cancelled) {
+        renderer.dispose();
+        renderer.domElement.remove();
+        return;
+      }
 
       const composer = compact ? null : new EffectComposer(renderer);
       const bloom = compact ? null : new UnrealBloomPass(new THREE.Vector2(1, 1), 0.18, 0.4, 0.95);

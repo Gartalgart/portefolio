@@ -55,6 +55,21 @@
   color-scheme: dark;
 }
 
+/* `.day` : les couleurs du jour, quel que soit le thème ou la section. Pour une note papier ou un
+   bouton posés sur la nuit ou sur une vitrine colorée. Pas de fond imposé : `.paper` ou la carte le donnent. */
+.day {
+  --bg: #f3eee4;
+  --surface: #fbf8f1;
+  --surface-2: #ebe4d6;
+  --fg: #0c1a3a;
+  --muted: #4a5672;
+  --line: rgba(12, 26, 58, 0.12);
+  --line-strong: rgba(12, 26, 58, 0.26);
+  --link: #1f4fd6;
+  color: var(--fg);
+  color-scheme: light;
+}
+
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);

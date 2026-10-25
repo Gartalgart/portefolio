@@ -10,25 +10,27 @@ export default function Navbar() {
   const [onNight, setOnNight] = useState(true);
 
   useEffect(() => {
-    let raf = 0;
-    const check = () => {
-      raf = 0;
-      const header = document.getElementById("barre");
-      if (header) header.style.pointerEvents = "none";
-      const below = document.elementFromPoint(window.innerWidth / 2, 72);
-      if (header) header.style.pointerEvents = "";
-      setOnNight(!!below?.closest(".night"));
+    // Une bande de 1 px juste sous la barre (y = 72) : dès qu'une zone de nuit la traverse, la barre
+    // prend ses couleurs. Observé par le navigateur, sans sonder le DOM à chaque défilement.
+    let io: IntersectionObserver | undefined;
+    const under = new Set<Element>();
+    const observe = () => {
+      io?.disconnect();
+      under.clear();
+      io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) e.isIntersecting ? under.add(e.target) : under.delete(e.target);
+          setOnNight(under.size > 0);
+        },
+        { rootMargin: `-72px 0px -${Math.max(0, window.innerHeight - 73)}px 0px` },
+      );
+      document.querySelectorAll(".night:not(#barre)").forEach((el) => io?.observe(el));
     };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(check);
-    };
-    check();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    observe();
+    window.addEventListener("resize", observe);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(raf);
+      io?.disconnect();
+      window.removeEventListener("resize", observe);
     };
   }, []);
 
@@ -63,13 +65,13 @@ export default function Navbar() {
           <ThemeToggle />
           <a
             href={bookingHref}
-            className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-fg transition hover:brightness-110 sm:block"
+            className="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-fg transition hover:brightness-110 sm:block"
           >
             Réserver un appel
           </a>
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-full border border-line-strong text-fg lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-full border border-line-strong text-fg lg:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}

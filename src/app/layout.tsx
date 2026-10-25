@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     siteName: site.brand,
     locale: "fr_FR",
     type: "website",
-    images: [{ url: "/images/profile.jpg", width: 800, height: 993, alt: site.name }],
+    // L'image de partage vient de src/app/opengraph-image.tsx (1200 × 630).
   },
-  twitter: { card: "summary_large_image", title: pageTitle, description, images: ["/images/profile.jpg"] },
+  twitter: { card: "summary_large_image", title: pageTitle, description },
 };
 
 export const viewport: Viewport = {

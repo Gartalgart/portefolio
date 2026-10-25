@@ -20,6 +20,8 @@ Inspirée de seen-agency.fr : **la nuit qui s'allume, puis le jour**. Le site ra
 
 ## Composants
 - **Note papier** (`.paper`) : fond `--surface`, ombre douce, légèrement de travers (rotation ≤ 1°). Méthode, FAQ, photo, « Ce qui est compris ».
+- **Jour forcé** (`.day`) : remappe les tokens sur les couleurs du jour quel que soit le thème, miroir de `.night`, sans fond imposé. Pour une note papier posée sur la nuit (Contact, dernière vitrine). Sur une vitrine colorée, un bouton blanc utilise `text-night`.
+- **Image de partage** (`src/app/opengraph-image.tsx`, 1200 × 630, générée au build) : le nom en dégradé chromé sur la nuit, accroche et zone, police Space Grotesk Bold.
 - **Étiquette** (`.tag`) : sticker vert-citron, sur les cartes uniquement (statut, prix, étape), jamais en surtitre de section.
 - **Frise méthode** (`Method`) : 7 étapes, chacune signée du même visage (un seul interlocuteur).
 - **FAQ** (`Faq`) : `<details>` natifs.
@@ -41,6 +43,8 @@ Boutique miniature (`Boutique3D`, `public/models/boutique.glb`, 1,9 Mo / ~465 Ko
 ## Règles
 - Tout vient des tokens de `globals.css`. Exceptions assumées : les illustrations fictives (mini-site, vieux site, carte de recherche) et les couleurs des projets.
 - Pas de surtitre, pas de bloc de gros chiffres. Un mouvement par zone.
+- Cibles tactiles d'au moins 44 px pour les boutons de la barre ; les liens de texte ont un `py` qui les amène à 36 px au moins.
+- Toute boucle d'animation (`requestAnimationFrame`) s'arrête hors écran ou au repos : scène 3D, vidéo, lampe torche. La barre détecte les zones de nuit par `IntersectionObserver`, jamais en sondant le DOM au défilement.
 - Aucun chiffre ou promesse non vérifié ; tout exemple est signalé comme fictif. « Projet client » = Secur-Feu et Save Toiture seulement.
 - Prix : « à partir de 1 000 € » (site vitrine) — [À PRÉCISER] HT ou TTC.
 

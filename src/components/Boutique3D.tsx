@@ -327,14 +327,18 @@ export default function Boutique3D() {
         />
       </div>
       {ready && (
-        <button
-          type="button"
-          onClick={() => toggle.current()}
-          aria-pressed={lit}
-          className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-muted backdrop-blur transition-colors hover:border-white/40 hover:text-white"
-        >
-          {lit ? "Éteindre les lumières" : "Allumer les lumières"}
-        </button>
+        <>
+          <button
+            type="button"
+            onClick={() => toggle.current()}
+            aria-pressed={lit}
+            className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full border border-white/20 bg-white/5 px-4 py-2.5 text-sm text-muted backdrop-blur transition-colors hover:border-white/40 hover:text-white"
+          >
+            {lit ? "Éteindre les lumières" : "Allumer les lumières"}
+          </button>
+          {/* La consigne n'apparaît que lorsque la scène répond vraiment (pas en image fixe). */}
+          <p className="mt-3 text-center text-sm text-muted">Glissez pour en faire le tour.</p>
+        </>
       )}
     </div>
   );

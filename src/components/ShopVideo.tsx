@@ -25,34 +25,42 @@ export default function ShopVideo({ progress, className = "" }: { progress: Moti
   const fogOpacity = useTransform(progress, [0, FOG_END], [1, 0]);
 
   // Lampe torche : le halo suit la souris avec un léger retard et s'ouvre ou se referme en douceur.
+  // La boucle ne tourne que pendant que le halo bouge : relancée au mouvement, arrêtée une fois refermé.
+  const wake = useRef<() => void>(() => {});
   useEffect(() => {
     const el = frame.current;
     if (reduce || !el) return;
     let raf = 0;
-    let x = 0;
-    let y = 0;
-    let r = 0;
+    const p = { x: 0, y: 0, r: 0 };
     const tick = () => {
+      raf = 0;
       const t = torch.current;
       const goal = t.on ? Math.max(120, el.offsetWidth * 0.24) : 0;
       // Halo fermé : il se rouvre directement sous la souris au lieu de glisser depuis l'ancienne position.
-      const k = r < 2 ? 1 : 0.2;
-      x += (t.x - x) * k;
-      y += (t.y - y) * k;
-      r += (goal - r) * 0.12;
-      el.style.setProperty("--x", `${x}px`);
-      el.style.setProperty("--y", `${y}px`);
-      el.style.setProperty("--r", `${r}px`);
-      raf = requestAnimationFrame(tick);
+      const k = p.r < 2 ? 1 : 0.2;
+      p.x += (t.x - p.x) * k;
+      p.y += (t.y - p.y) * k;
+      p.r += (goal - p.r) * 0.12;
+      if (!t.on && p.r < 0.5) p.r = 0;
+      el.style.setProperty("--x", `${p.x}px`);
+      el.style.setProperty("--y", `${p.y}px`);
+      el.style.setProperty("--r", `${p.r}px`);
+      if (t.on || p.r > 0) raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    wake.current = () => {
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+    return () => {
+      cancelAnimationFrame(raf);
+      wake.current = () => {};
+    };
   }, [reduce]);
 
   const move = (e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType !== "mouse") return;
     const box = e.currentTarget.getBoundingClientRect();
     torch.current = { x: e.clientX - box.left, y: e.clientY - box.top, on: true };
+    wake.current();
   };
 
   // Téléchargement une seule fois, quand le visiteur a commencé à descendre dans l'intro (le hero
@@ -85,14 +93,19 @@ export default function ShopVideo({ progress, className = "" }: { progress: Moti
   }, [reduce]);
 
   // Lissage : la vidéo rattrape la position du scroll au lieu de sauter d'une image à l'autre.
+  // La boucle est suspendue dès que le cadre sort de l'écran.
   useEffect(() => {
     const v = video.current;
-    if (!src || !v) return;
+    const el = frame.current;
+    if (!src || !v || !el) return;
     // iOS n'autorise le déplacement dans la vidéo qu'après un premier play().
     v.play().then(() => v.pause()).catch(() => {});
     let raf = 0;
     let current = 0;
+    let visible = false;
     const tick = () => {
+      raf = 0;
+      if (!visible) return;
       if (v.duration) {
         const p = Math.min(1, Math.max(0, (progress.get() - HOLD_START) / (HOLD_END - HOLD_START)));
         current += (p * (v.duration - 0.05) - current) * 0.18;
@@ -100,15 +113,25 @@ export default function ShopVideo({ progress, className = "" }: { progress: Moti
       }
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !raf) raf = requestAnimationFrame(tick);
+    });
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+    };
   }, [src, progress]);
 
   return (
     <div
       ref={frame}
       onPointerMove={move}
-      onPointerLeave={() => (torch.current.on = false)}
+      onPointerLeave={() => {
+        torch.current.on = false;
+        wake.current();
+      }}
       className={`relative overflow-hidden rounded-2xl border border-line bg-night shadow-[var(--shadow)] ${className}`}
     >
       {reduce ? (

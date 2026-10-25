@@ -10,7 +10,7 @@ export default function Modeling3D() {
           </h2>
           <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-muted">
             Cette boutique a été construite pièce par pièce dans Blender : façade, store rayé, vitrine garnie, vélo, terrasse. Plus de
-            700 éléments, éclairés en temps réel dans votre navigateur. Glissez dessus pour en faire le tour.
+            700 éléments, éclairés en temps réel dans votre navigateur.
           </p>
           <p className="mt-4 max-w-[46ch] text-muted">
             Produits, packagings, scènes d&apos;ambiance : la 3D peut donner du relief à votre site vitrine.

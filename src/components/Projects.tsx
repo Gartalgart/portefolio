@@ -47,7 +47,7 @@ function Vitrine({ p }: { p: Project }) {
             <button
               type="button"
               onClick={() => setLive((v) => !v)}
-              className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0c1a3a] shadow-lg transition hover:bg-tag"
+              className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-night shadow-lg transition hover:bg-tag"
             >
               {live ? <Undo2 size={15} aria-hidden="true" /> : <Play size={15} aria-hidden="true" />}
               {live ? "Revenir à l'image" : "Tester en direct"}
@@ -76,7 +76,7 @@ function Vitrine({ p }: { p: Project }) {
           href={p.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full border border-white/70 px-4 py-2 text-sm font-semibold transition hover:bg-white hover:text-[#0c1a3a]"
+          className="inline-flex items-center gap-1.5 rounded-full border border-white/70 px-4 py-2.5 text-sm font-semibold transition hover:bg-white hover:text-night"
         >
           {p.host}
           <span className="sr-only"> (nouvel onglet)</span>
@@ -130,7 +130,7 @@ export default function Projects() {
         ))}
         <li className="flex">
           <article className={`${card} night items-center justify-center gap-8 text-center`} aria-labelledby="projet-suivant">
-            <div className="paper -rotate-2 px-8 py-7 text-fg [--surface:#fbf8f1] [--fg:#0c1a3a] [--muted:#4a5672]">
+            <div className="paper day -rotate-2 px-8 py-7">
               <p id="projet-suivant" className="display text-4xl">Emplacement disponible</p>
               <p className="mt-2 text-sm font-semibold text-primary">La prochaine vitrine, c&apos;est la vôtre.</p>
             </div>

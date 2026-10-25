@@ -16,18 +16,19 @@ Portfolio d'un développeur full-stack freelance (Rémy Denimal) dont le but est
 Ce qu'un voisin ne peut pas copier tel quel (confirmé) : un seul interlocuteur du devis à la maintenance, proximité Hauts-de-France / Île-de-France, tarifs lisibles et sans surprise.
 
 ## Capabilities and Constraints
-- Domaine : rd-solutions.fr.
-- Site statique Next.js (export), contenu centralisé dans `src/lib/content.ts`.
-- Thème sombre par défaut avec bascule clair.
-- Formulaire en `mailto:` (pas de backend) ; envoi direct à brancher plus tard.
-- Décisions ouvertes : GitHub, LinkedIn, Calendly, email pro, stack réelle, mentions légales, grille de tarifs.
+- Domaine : rd-solutions.fr, email pro contact@rd-solutions.fr.
+- Site Next.js (App Router) déployé avec ses actions serveur ; contenu centralisé dans `src/lib/content.ts`.
+- Thème jour (papier crème) par défaut, hero et contact de nuit ; thème sombre en option, mémorisé.
+- Formulaire envoyé par email via Resend (`src/app/actions.ts`, variable `RESEND_API_KEY`). « Réserver un appel » ouvre un email tant que le lien Calendly n'est pas renseigné.
+- Pages `/mentions-legales` et `/confidentialite` en place ; forme juridique, SIRET et adresse restent à renseigner dans `legal` (`content.ts`).
+- Décisions ouvertes : GitHub, LinkedIn, Calendly, stack réelle, HT ou TTC du prix d'appel, hébergeur et durée de conservation à confirmer.
 
 ## Brand Commitments
-Nom : Rémy Denimal. Accent ambre (choix de l'utilisateur). Photo : `public/images/profile.jpg` (pull vert, sourire).
+Nom : Rémy Denimal, marque RD-Solutions. Direction validée le 20/10/2026 (voir `DESIGN.md`) : la nuit bleu profond qui s'allume, puis le jour papier crème ; un seul bleu d'action, vert-citron réservé aux étiquettes. Photo : `public/images/profile.jpg` (pull vert, sourire).
 
 ## Evidence on Hand
-- 4 sites en ligne avec aperçus : Maison Léa Coiffure, Braise, Save Toiture, Secur-Feu (`public/images/projects/`).
-- Statut mixte : certains sont de vrais clients, d'autres des maquettes. **Lesquels est une décision ouverte** : ne pas présenter un projet comme client tant que ce n'est pas confirmé.
+- 4 sites en ligne avec aperçus (`public/images/projects/`) : Secur-Feu et Save Toiture sont des projets clients (confirmé), Maison Léa Coiffure et Braise des démonstrations, signalées comme telles.
+- La boutique du hero (« Atelier Morel ») et le « vieux site » de l'avant/après sont fictifs ; les images de la boutique filmée sont générées par IA et la page le dit.
 - Aucun témoignage réel à ce jour : ne rien fabriquer.
 - Aucune statistique mesurée. Retirés : « < 1 s » et « 100 % responsive ». « Réponse sous 24 h » seulement si l'utilisateur la confirme.
 
