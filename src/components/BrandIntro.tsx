@@ -409,7 +409,7 @@ export default function BrandIntro() {
   }, []);
 
   return (
-    <section ref={track} aria-labelledby="intro-titre" className="night relative h-[200svh] motion-reduce:h-svh">
+    <section ref={track} aria-labelledby="intro-titre" className="night relative h-[140svh] motion-reduce:h-svh">
       <div className="sticky top-0 h-svh overflow-hidden">
         <h1 id="intro-titre" className="sr-only">
           rd-solutions : {site.name}, développeur web freelance

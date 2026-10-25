@@ -8,7 +8,7 @@ Inspirée de seen-agency.fr : **la nuit qui s'allume, puis le jour**. Le site ra
 - Thème sombre en option (bascule mémorisée) : le jour passe en bleu nuit `#0a1226`.
 
 ## Moments signature
-0. **Intro 3D « rd-solutions »** (`BrandIntro`, premier écran, validée le 2026-10-23) : le nom en chrome bleuté (Space Grotesk Bold), découpé en fragments dans Blender. Les fragments arrivent de la nuit et s'assemblent (~2,8 s, vague de gauche à droite, reflet blanc qui balaie), s'écartent autour du curseur, puis se dispersent vers le visiteur au défilement (section de 200svh, canvas collant). Nom seul à l'écran + « Défiler ». Un seul `<h1>` (masqué visuellement) porte le nom ; le hero raconté passe en `<h2>`.
+0. **Intro 3D « rd-solutions »** (`BrandIntro`, premier écran, validée le 2026-10-23) : le nom en chrome bleuté (Space Grotesk Bold), découpé en fragments dans Blender. Les fragments arrivent de la nuit et s'assemblent (~2,8 s, vague de gauche à droite, reflet blanc qui balaie), s'écartent autour du curseur, puis se dispersent vers le visiteur au défilement (section de 140svh, canvas collant). Nom seul à l'écran + « Défiler ». Un seul `<h1>` (masqué visuellement) porte le nom ; le hero raconté passe en `<h2>`.
    - Ordinateur : `rd-desktop.glb` (192 fragments, ~320 Ko gzippé), verni + halo (bloom). Écran étroit ou portrait : `rd-mobile.glb` sur deux lignes (« rd- / solutions », 144 fragments), sans verni ni halo.
    - Tout le mouvement est dans le vertex shader (un seul appel de rendu) ; rendu suspendu hors écran.
    - Avant que la scène soit prête : le nom « éteint » (`.outline-text`, trait `--line-strong`), présent dès le HTML, qui s'efface quand les fragments arrivent. Le modèle est préchargé depuis `<head>` (script inline, même condition d'écran que `compact`). Si la scène n'est pas prête après 2,5 s, l'image fixe prend le relais puis s'efface au démarrage.
@@ -43,6 +43,7 @@ Boutique miniature (`Boutique3D`, `public/models/boutique.glb`, 1,9 Mo / ~465 Ko
 ## Règles
 - Tout vient des tokens de `globals.css`. Exceptions assumées : les illustrations fictives (mini-site, vieux site, carte de recherche) et les couleurs des projets.
 - Pas de surtitre, pas de bloc de gros chiffres. Un mouvement par zone.
+- Pistes de défilement (raccourcies le 2026-10-25) : intro 140svh, hero 240svh sur grand écran (piste vidéo 200svh sur mobile), avant/après 180svh. Les Réalisations arrivent au sixième écran (5,6 à 1440 × 900, 6,1 à 375 × 812) au lieu du neuvième.
 - Cibles tactiles d'au moins 44 px pour les boutons de la barre ; les liens de texte ont un `py` qui les amène à 36 px au moins.
 - Toute boucle d'animation (`requestAnimationFrame`) s'arrête hors écran ou au repos : scène 3D, vidéo, lampe torche. La barre détecte les zones de nuit par `IntersectionObserver`, jamais en sondant le DOM au défilement.
 - Aucun chiffre ou promesse non vérifié ; tout exemple est signalé comme fictif. « Projet client » = Secur-Feu et Save Toiture seulement.

@@ -22,7 +22,7 @@ export default function Hero() {
 
   return (
     <section aria-labelledby="hero-titre" className="night relative">
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:grid lg:h-[340svh] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 motion-reduce:lg:h-auto">
+      <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:grid lg:h-[240svh] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 motion-reduce:lg:h-auto">
         <div className="pb-6 pt-32 lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:pb-0 lg:pt-16">
           <h2 id="hero-titre" className="display text-[clamp(3rem,5.6vw,5.25rem)]">
             Votre activité existe.
@@ -57,7 +57,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div ref={track} className="h-[240svh] lg:h-auto motion-reduce:h-auto">
+        <div ref={track} className="h-[200svh] lg:h-auto motion-reduce:h-auto">
           <div className="sticky top-0 flex h-svh flex-col justify-center gap-10 pt-16 motion-reduce:static motion-reduce:h-auto motion-reduce:pb-24 motion-reduce:pt-6">
             <div className="flex items-start gap-4">
               <div className="min-w-0 flex-1">

@@ -73,7 +73,7 @@ export default function BeforeAfter() {
 
   return (
     <section aria-labelledby="avant-apres-titre">
-      <div ref={track} className="h-[260svh] motion-reduce:h-auto">
+      <div ref={track} className="h-[180svh] motion-reduce:h-auto">
         <div className="sticky top-0 flex h-svh items-center motion-reduce:static motion-reduce:h-auto motion-reduce:py-24">
           <div className="mx-auto grid w-full max-w-[1320px] items-center gap-8 px-5 md:px-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-16">
             <div>
