@@ -5,11 +5,36 @@ export const site = {
   role: "Développeur Full-Stack Freelance",
   url: "https://rd-solutions.fr",
   email: "contact@rd-solutions.fr",
-  github: "https://github.com/", // [À COMPLÉTER]
-  linkedin: "https://www.linkedin.com/", // [À COMPLÉTER]
+  // [À COMPLÉTER] Les liens vides ne sont pas affichés : rien ne renvoie vers une page d'accueil générique.
+  github: "",
+  linkedin: "",
   calendly: "https://calendly.com/", // [À COMPLÉTER] lien de prise de RDV
   location: "Hauts-de-France · Île-de-France · à distance",
   startingPrice: "1 000 €", // site vitrine. [À PRÉCISER] HT ou TTC
+};
+
+// Réseaux affichés dans Contact : seulement ceux qui ont un vrai lien.
+export const socials = [
+  { label: "GitHub", href: site.github },
+  { label: "LinkedIn", href: site.linkedin },
+].filter((s) => s.href);
+
+// Pages légales (pied de page). Les valeurs [À COMPLÉTER] s'affichent telles quelles tant qu'elles ne sont pas renseignées.
+export const legalPages = [
+  { href: "/mentions-legales", label: "Mentions légales" },
+  { href: "/confidentialite", label: "Confidentialité" },
+];
+export const legal = {
+  updated: "25 octobre 2026",
+  publisher: site.name, // éditeur et directeur de la publication
+  status: "[À COMPLÉTER] forme juridique (ex. entrepreneur individuel)",
+  siret: "[À COMPLÉTER] numéro SIRET",
+  address: "[À COMPLÉTER] adresse professionnelle",
+  // [À CONFIRMER] hébergeur réel du site
+  host: { name: "Vercel Inc.", address: "440 N Barranca Ave #4133, Covina, CA 91723, États-Unis", url: "https://vercel.com" },
+  // Prestataire qui achemine les messages du formulaire (voir src/app/actions.ts).
+  mailer: { name: "Resend, Inc.", url: "https://resend.com/legal/privacy-policy" },
+  retention: "trois ans après notre dernier échange", // [À CONFIRMER] durée de conservation des demandes sans suite
 };
 
 // Le calendrier ne s'affiche que lorsqu'un vrai lien de réservation est renseigné.

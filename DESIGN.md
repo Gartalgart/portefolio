@@ -11,9 +11,10 @@ Inspirée de seen-agency.fr : **la nuit qui s'allume, puis le jour**. Le site ra
 0. **Intro 3D « rd-solutions »** (`BrandIntro`, premier écran, validée le 2026-10-23) : le nom en chrome bleuté (Space Grotesk Bold), découpé en fragments dans Blender. Les fragments arrivent de la nuit et s'assemblent (~2,8 s, vague de gauche à droite, reflet blanc qui balaie), s'écartent autour du curseur, puis se dispersent vers le visiteur au défilement (section de 200svh, canvas collant). Nom seul à l'écran + « Défiler ». Un seul `<h1>` (masqué visuellement) porte le nom ; le hero raconté passe en `<h2>`.
    - Ordinateur : `rd-desktop.glb` (192 fragments, ~320 Ko gzippé), verni + halo (bloom). Écran étroit ou portrait : `rd-mobile.glb` sur deux lignes (« rd- / solutions », 144 fragments), sans verni ni halo.
    - Tout le mouvement est dans le vertex shader (un seul appel de rendu) ; rendu suspendu hors écran.
+   - Avant que la scène soit prête : le nom « éteint » (`.outline-text`, trait `--line-strong`), présent dès le HTML, qui s'efface quand les fragments arrivent. Le modèle est préchargé depuis `<head>` (script inline, même condition d'écran que `compact`). Si la scène n'est pas prête après 2,5 s, l'image fixe prend le relais puis s'efface au démarrage.
    - Mouvement réduit, pas de WebGL ou échec de chargement : image fixe `rd-solutions.webp` / `rd-solutions-mobile.webp` (rendu Cycles).
    - Source : `assets/3d/rd-solutions.blend` (collections `D` et `M`, studio de panneaux lumineux), police `assets/3d/fonts/SpaceGrotesk-Bold.ttf` (OFL). Fond du canvas = `--night` exact (pas de courbe de tons) pour se fondre dans la section suivante.
-1. **Hero raconté au scroll** (`Hero`, `HeroScene`) : un site fictif (« Atelier Morel », signalé comme exemple) s'allume en 4 étapes, avec un mot géant en contour : Invisible → Trouvé → Choisi → Contacté (rempli en bleu). Mouvement réduit : état final directement.
+1. **Hero raconté au scroll** (`Hero`, `ShopVideo`) : une boutique filmée en plan fixe (images générées par IA, signalées) s'allume puis se remplit au fil du défilement, avec un mot géant en contour : Invisible → Trouvé → Choisi → Contacté (rempli en bleu). Vidéo `public/videos/boutique.mp4` : 1280 × 720, 12 i/s, 20 s, ~1,4 Mo (H.264 crf 31, image clé chaque seconde pour le défilement image par image) ; source non compressée dans `assets/video/`. Téléchargée seulement quand le visiteur descend dans l'intro (hero à moins d'un demi-écran). Mouvement réduit : état final directement.
 2. **Avant / après** (`BeforeAfter`) : un vieux site fictif est remplacé par Maison Léa au fil du défilement (masque `clip-path`). Mouvement réduit : curseur.
 3. **Vitrines** (`Projects`) : galerie horizontale (scroll-snap natif + flèches), une carte aux couleurs de chaque projet (`color` dans `content.ts`, texte blanc AA). Sites testables en direct. Dernière carte : « Emplacement disponible ».
 
@@ -23,6 +24,8 @@ Inspirée de seen-agency.fr : **la nuit qui s'allume, puis le jour**. Le site ra
 - **Frise méthode** (`Method`) : 7 étapes, chacune signée du même visage (un seul interlocuteur).
 - **FAQ** (`Faq`) : `<details>` natifs.
 - **Réservation** : `bookingReady` / `bookingHref` dans `content.ts`. Sans vrai lien Calendly, « Réserver un appel » ouvre un email pré-rempli ; avec un lien, le calendrier s'intègre dans Contact.
+- **Réseaux** : `socials` dans `content.ts` ne liste que les liens renseignés ; rien ne pointe vers une page d'accueil générique.
+- **Pages de lecture** (`LegalPage`) : `/mentions-legales` et `/confidentialite`. En-tête réduit (logo + « Retour au site », pas d'ancres), colonne de 68 ch sur le papier du jour, `h2` en gras simple, pied de page de nuit. Contenu dans `legal` (`content.ts`), valeurs `[À COMPLÉTER]` affichées telles quelles.
 
 ## Typographie
 - Titres : **Bricolage Grotesque** condensée (`.display` : 800, `font-stretch: 75%`, interligne 0,92).
@@ -42,4 +45,4 @@ Boutique miniature (`Boutique3D`, `public/models/boutique.glb`, 1,9 Mo / ~465 Ko
 - Prix : « à partir de 1 000 € » (site vitrine) — [À PRÉCISER] HT ou TTC.
 
 ## À compléter (`src/lib/content.ts`)
-Lien Calendly, GitHub, LinkedIn, email pro, stack réelle, avis clients (section masquée tant qu'il n'y en a pas), mentions légales, réponse FAQ « modifier mon site moi-même » [À CONFIRMER].
+Lien Calendly, GitHub, LinkedIn (masqués tant qu'ils sont vides), stack réelle, avis clients (section masquée tant qu'il n'y en a pas), mentions légales (`legal` : forme juridique, SIRET, adresse ; hébergeur et durée de conservation à confirmer), réponse FAQ « modifier mon site moi-même » [À CONFIRMER].

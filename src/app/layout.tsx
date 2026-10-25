@@ -37,6 +37,9 @@ export const viewport: Viewport = {
 
 // Jour par défaut (le hero reste de nuit) ; le choix du visiteur est mémorisé.
 const themeScript = `try{var t=localStorage.getItem('theme')||'light';document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='light'}`;
+// Le modèle du nom 3D part dès le HTML, sans attendre three.js : même condition d'écran que
+// `compact` dans BrandIntro, et pas de mouvement réduit (l'image fixe suffit alors).
+const preloadScript = `if(!matchMedia('(prefers-reduced-motion: reduce)').matches){var c=innerWidth<768||innerHeight>innerWidth*1.1,l=document.createElement('link');l.rel='preload';l.as='fetch';l.crossOrigin='anonymous';l.href=c?'/models/rd-mobile.glb':'/models/rd-desktop.glb';document.head.appendChild(l)}`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -54,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" data-theme="light" suppressHydrationWarning className={`${body.variable} ${title.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: preloadScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>{children}</body>

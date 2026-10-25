@@ -57,6 +57,15 @@ export default function BrandIntro() {
   const cue = useRef<HTMLDivElement>(null);
   // "poster" : image fixe (mouvement réduit, pas de WebGL) ; "live" : la scène tourne.
   const [mode, setMode] = useState<"wait" | "live" | "poster">("wait");
+  // Réseau lent : si la scène n'est pas prête après quelques secondes, l'image fixe prend la place
+  // du nom éteint, puis s'efface quand la scène démarre.
+  const [slow, setSlow] = useState(false);
+
+  useEffect(() => {
+    if (mode !== "wait") return;
+    const id = window.setTimeout(() => setSlow(true), 2500);
+    return () => window.clearTimeout(id);
+  }, [mode]);
 
   useEffect(() => {
     const el = box.current;
@@ -391,16 +400,25 @@ export default function BrandIntro() {
           rd-solutions : {site.name}, développeur web freelance
         </h1>
 
+        {/* Nom « éteint » (contour seul, comme le mot du hero) : visible dès le HTML, avant que la
+            scène 3D soit chargée, puis il s'efface quand les fragments arrivent. */}
+        <p
+          aria-hidden="true"
+          className={`display outline-text pointer-events-none absolute inset-0 grid place-items-center whitespace-nowrap text-[clamp(2.75rem,14vw,15rem)] transition-opacity duration-700 [--stroke:var(--line-strong)] ${mode === "wait" && !slow ? "opacity-100" : "opacity-0"}`}
+        >
+          rd-solutions
+        </p>
+
         <div ref={box} className="absolute inset-0" />
 
-        {mode === "poster" && (
+        {(mode === "poster" || slow) && (
           <picture>
             <source media="(max-width: 767px)" srcSet="/images/rd-solutions-mobile.webp" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/rd-solutions.webp"
               alt=""
-              className="absolute inset-0 m-auto w-[86%] max-w-[1400px] md:w-[78%]"
+              className={`pointer-events-none absolute inset-0 m-auto w-[86%] max-w-[1400px] transition-opacity duration-1000 md:w-[78%] ${mode === "live" ? "opacity-0" : "opacity-100"}`}
             />
           </picture>
         )}

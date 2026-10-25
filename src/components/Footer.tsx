@@ -1,4 +1,5 @@
-import { site } from "@/lib/content";
+import Link from "next/link";
+import { legalPages, site } from "@/lib/content";
 
 export default function Footer() {
   return (
@@ -6,9 +7,13 @@ export default function Footer() {
       <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-3 text-sm text-muted sm:flex-row">
         <p>© {new Date().getFullYear()} {site.name}. Tous droits réservés.</p>
         <ul className="flex gap-5">
-          {/* [À COMPLÉTER] créer les pages légales (SIRET, hébergeur, RGPD) */}
-          <li><a href="#" className="hover:text-fg">Mentions légales</a></li>
-          <li><a href="#" className="hover:text-fg">Confidentialité</a></li>
+          {legalPages.map((p) => (
+            <li key={p.href}>
+              <Link href={p.href} className="inline-block py-2 hover:text-fg">
+                {p.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </footer>

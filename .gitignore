@@ -9,3 +9,6 @@ assets/3d/*.blend1
 
 .vercel
 .env*
+
+# Traces du serveur Playwright MCP
+.playwright-mcp

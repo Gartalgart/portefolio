@@ -55,7 +55,8 @@ export default function ShopVideo({ progress, className = "" }: { progress: Moti
     torch.current = { x: e.clientX - box.left, y: e.clientY - box.top, on: true };
   };
 
-  // Téléchargement anticipé, une seule fois, quand la vidéo approche de l'écran.
+  // Téléchargement une seule fois, quand le visiteur a commencé à descendre dans l'intro (le hero
+  // est à moins d'un demi-écran) : rien n'est demandé tant que le nom 3D se charge.
   useEffect(() => {
     if (reduce || !frame.current) return;
     let url: string | undefined;
@@ -73,7 +74,7 @@ export default function ShopVideo({ progress, className = "" }: { progress: Moti
           })
           .catch(() => !cancelled && setSrc(SRC));
       },
-      { rootMargin: "150% 0px" },
+      { rootMargin: "50% 0px" },
     );
     io.observe(frame.current);
     return () => {

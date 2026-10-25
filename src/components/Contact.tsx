@@ -2,7 +2,7 @@
 import { CalendarCheck, Check, Mail, Send } from "lucide-react";
 import { useActionState } from "react";
 import Image from "next/image";
-import { bookingHref, bookingReady, site } from "@/lib/content";
+import { bookingHref, bookingReady, site, socials } from "@/lib/content";
 import { sendContact, type ContactState } from "@/app/actions";
 
 const Github = ({ size }: { size: number }) => (
@@ -69,14 +69,16 @@ export default function Contact() {
                   <Mail size={18} aria-hidden="true" /> {site.email}
                 </a>
               </li>
-              <li className="flex gap-5">
-                <a href={site.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#0c1a3a]">
-                  <Github size={18} /> GitHub
-                </a>
-                <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#0c1a3a]">
-                  <Linkedin size={18} /> LinkedIn
-                </a>
-              </li>
+              {socials.length > 0 && (
+                <li className="flex gap-5">
+                  {socials.map((s) => (
+                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 py-1 hover:text-[#0c1a3a]">
+                      {s.label === "GitHub" ? <Github size={18} /> : <Linkedin size={18} />} {s.label}
+                      <span className="sr-only"> (nouvel onglet)</span>
+                    </a>
+                  ))}
+                </li>
+              )}
             </ul>
           </div>
 
