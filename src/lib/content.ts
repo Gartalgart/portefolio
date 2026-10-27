@@ -2,7 +2,7 @@
 export const site = {
   brand: "RD-Solutions", // logo, titre de l'onglet, partages
   name: "Rémy Denimal",
-  role: "Développeur Full-Stack Freelance",
+  role: "Créateur de sites internet",
   url: "https://rd-solutions.fr",
   email: "contact@rd-solutions.fr",
   // [À COMPLÉTER] Les liens vides ne sont pas affichés : rien ne renvoie vers une page d'accueil générique.
@@ -25,12 +25,12 @@ export const legalPages = [
   { href: "/confidentialite", label: "Confidentialité" },
 ];
 export const legal = {
-  updated: "25 octobre 2026",
+  updated: "27 octobre 2026",
   publisher: site.name, // éditeur et directeur de la publication
   status: "[À COMPLÉTER] forme juridique (ex. entrepreneur individuel)",
   siret: "[À COMPLÉTER] numéro SIRET",
   address: "[À COMPLÉTER] adresse professionnelle",
-  // [À CONFIRMER] hébergeur réel du site
+  // Hébergeur vérifié le 27/10/2026 (en-tête « Server: Vercel » sur rd-solutions.fr).
   host: { name: "Vercel Inc.", address: "440 N Barranca Ave #4133, Covina, CA 91723, États-Unis", url: "https://vercel.com" },
   // Prestataire qui achemine les messages du formulaire (voir src/app/actions.ts).
   mailer: { name: "Resend, Inc.", url: "https://resend.com/legal/privacy-policy" },
@@ -52,8 +52,8 @@ export const nav = [
   { href: "#faq", label: "FAQ" },
 ];
 
-// Hero raconté au scroll : le site s'allume étape par étape.
-export const heroSteps = ["Invisible.", "Trouvé.", "Choisi.", "Contacté."];
+// Ce qui est écrit sur la porte arrière, en abrégé, dans le premier écran.
+export const offers = ["Sites vitrines", "Applications", "Refontes", "Maintenance"];
 
 export const services = [
   {
@@ -92,7 +92,7 @@ export const projects = [
     problem: "Une entreprise technique dont l'offre était difficile à comprendre pour ses clients.",
     solution: "Un site professionnel qui détaille les prestations et inspire confiance dès l'arrivée.",
     tags: ["Site vitrine", "Accessibilité", "SEO"],
-    image: "/images/projects/secur-feu.webp",
+    image: "/images/projects/secur-feu-camionnette.webp",
   },
   {
     name: "Save Toiture",
@@ -104,7 +104,7 @@ export const projects = [
     live: true,
     problem: "Un artisan qui perdait des demandes de devis faute d'un parcours simple et rassurant.",
     solution: "Un site orienté conversion : réalisations, zone d'intervention et demande de devis en un clic.",
-    tags: ["Next.js", "Formulaire de devis", "SEO local"],
+    tags: ["Formulaire de devis", "Zone d'intervention", "SEO local"],
     image: "/images/projects/save-toiture.webp",
   },
   {
@@ -117,7 +117,7 @@ export const projects = [
     live: true,
     problem: "Un salon doit montrer ses prestations et ses tarifs sans que chaque cliente ait à appeler.",
     solution: "Un site élégant avec prestations, tarifs et prise de contact immédiate, pensé pour le mobile.",
-    tags: ["Next.js", "Tailwind CSS", "SEO local"],
+    tags: ["Prestations et tarifs", "Pensé mobile", "SEO local"],
     image: "/images/projects/maison-lea.webp",
   },
   {
@@ -130,12 +130,12 @@ export const projects = [
     live: true,
     problem: "Un restaurant doit mettre en valeur sa carte et son ambiance avant même la première visite.",
     solution: "Une vitrine gourmande avec carte, galerie et réservation facilitée.",
-    tags: ["Next.js", "Framer Motion", "Réservation"],
+    tags: ["Carte", "Galerie", "Réservation"],
     image: "/images/projects/braise.webp",
   },
 ];
 
-// [À COMPLÉTER] stack réelle
+// Stack technique : plus affichée sur le site depuis la refonte du 27/10/2026 (public non technique).
 export const stack = ["TypeScript", "Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL", "Docker", "Vercel"];
 
 export const method = [

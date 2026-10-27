@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#0b0a08"/><text x="16" y="22.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="#f59e0b">R</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Monogramme RD-Solutions : « RD » en lettrage large et lourd, vinyle rouge sur carrosserie, liseré de livrée. -->
+  <rect width="64" height="64" fill="#f4f3ee"/>
+  <rect y="52" width="64" height="8" fill="#c8361b"/>
+  <rect y="61" width="64" height="3" fill="#1d2125"/>
+  <path fill="#c8361b" fill-rule="evenodd" d="M3 8h17a10 10 0 0 1 3.4 19.4L28 44H18.6l-3.9-15.5H12V44H3Zm9 7.5v6h7a3 3 0 0 0 0-6Z"/>
+  <path fill="#c8361b" fill-rule="evenodd" d="M31 8h13a15 18 0 0 1 0 36H31Zm9 8v20h3.5a7 10 0 0 0 0-20Z"/>
+</svg>

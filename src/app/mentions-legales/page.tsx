@@ -36,22 +36,21 @@ export default function MentionsLegales() {
       <section aria-labelledby="propriete">
         <h2 id="propriete">Propriété intellectuelle</h2>
         <p>
-          Les textes, la mise en page, les modèles 3D et le code de ce site sont la propriété de {site.name}, sauf mention contraire.
+          Les textes, la mise en page et le code de ce site sont la propriété de {site.name}, sauf mention contraire.
           Toute reproduction sans accord écrit est interdite.
         </p>
         <p>
           Les sites présentés dans la section Réalisations appartiennent à leurs propriétaires respectifs. Les projets signalés
-          « Démonstration » (Maison Léa Coiffure, Braise) et la boutique « Atelier Morel » sont des exemples fictifs créés pour
-          illustrer le travail ; les images de la boutique filmée dans l&apos;accueil sont générées par intelligence artificielle.
+          « Démonstration » (Maison Léa Coiffure, Braise) sont des exemples fictifs créés pour illustrer le travail.
         </p>
       </section>
 
       <section aria-labelledby="credits">
         <h2 id="credits">Crédits</h2>
         <ul>
-          <li>Polices : Bricolage Grotesque, Schibsted Grotesk et Space Grotesk, sous licence SIL Open Font License.</li>
+          <li>Police : Archivo, sous licence SIL Open Font License.</li>
           <li>Icônes : Lucide, sous licence ISC.</li>
-          <li>Site conçu et développé par {site.name} avec Next.js et Three.js.</li>
+          <li>Site conçu et développé par {site.name} avec Next.js.</li>
         </ul>
       </section>
 

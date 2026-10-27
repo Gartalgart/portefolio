@@ -1,102 +1,95 @@
-"use client";
-import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useRef, useState } from "react";
-import { heroSteps, site } from "@/lib/content";
-import ShopVideo from "./ShopVideo";
+import { bookingHref, offers, site } from "@/lib/content";
 
 /*
-  Hero raconté au scroll : le visiteur fait défiler, la boutique filmée s'allume puis se remplit
-  (Invisible → Trouvé → Choisi → Contacté). En mouvement réduit, l'état final est affiché d'emblée.
+  Premier écran : le flanc du véhicule. Le nom en lettrage rouge sur toute la largeur (film de pose
+  qui se décolle une fois), le métier et la zone, les prestations comme sur la porte arrière, le
+  macaron prix. La bande de livrée, puis l'action et l'email lettrés à l'échelle d'un panneau.
+  Sur téléphone : nom, métier, zone, bouton et macaron, puis prestations. Tout est lisible sans script.
 */
-export default function Hero() {
-  const reduce = useReducedMotion();
-  const track = useRef<HTMLDivElement>(null);
-  const [scrolled, setScrolled] = useState(0);
-  const { scrollYProgress } = useScroll({ target: track, offset: ["start start", "end end"] });
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => setScrolled(Math.min(heroSteps.length - 1, Math.floor(v * heroSteps.length))));
-
-  const step = reduce ? heroSteps.length - 1 : scrolled;
-  const last = step === heroSteps.length - 1;
-
+function Macaron({ className }: { className: string }) {
   return (
-    <section aria-labelledby="hero-titre" className="night relative">
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:grid lg:h-[240svh] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 motion-reduce:lg:h-auto">
-        <div className="pb-6 pt-32 lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:pb-0 lg:pt-16">
-          <h2 id="hero-titre" className="display text-[clamp(3rem,5.6vw,5.25rem)]">
-            Votre activité existe.
-            <span className="outline-text block text-fg">
-              Sur internet, elle est éteinte.
+    <p className={`shrink-0 place-content-center rounded-full border-[5px] border-anthracite text-center ${className}`}>
+      <span className="text-xs font-bold uppercase tracking-[0.06em] lg:text-sm">Site vitrine dès</span>
+      <span className="lettrage-etroit tabular mt-1 block text-[1.9rem] text-vinyle lg:text-[2.6rem]">{site.startingPrice}</span>
+    </p>
+  );
+}
+
+// Sans propriété display : chaque bouton choisit la sienne (inline-flex ou hidden md:inline-flex).
+const cta = "items-center gap-3 whitespace-nowrap bg-vinyle py-4 font-bold text-white transition-colors hover:bg-vinyle-fonce";
+
+export default function Hero() {
+  const [first, last] = site.name.split(" ");
+  return (
+    <section aria-labelledby="titre">
+      <div className="mx-auto w-full max-w-[1360px] px-5 pb-8 pt-8 md:px-8 md:pb-9 md:pt-10">
+        <div className="flex items-start justify-between gap-10">
+          <h1 id="titre">
+            <span className="relative inline-block">
+              <span className="lettrage block text-[clamp(3.4rem,11.2vw,9.6rem)] text-vinyle">
+                {first}
+                <br />
+                {last}
+              </span>
+              <span className="film" aria-hidden="true" />
             </span>
-          </h2>
-
-          <p className="mt-7 max-w-[46ch] text-pretty text-lg leading-relaxed text-muted">
-            Je crée votre site, je le rends visible sur Google et je m&apos;en occupe ensuite. Le but : que ceux qui vous cherchent vous
-            trouvent, puis qu&apos;ils vous appellent.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-fg transition hover:brightness-110"
-            >
-              Discuter de votre projet
-              <ArrowRight size={18} className="transition group-hover:translate-x-0.5" aria-hidden="true" />
-            </a>
-            <a
-              href="#projets"
-              className="inline-flex items-center justify-center rounded-full border border-line-strong px-7 py-3.5 font-semibold transition hover:bg-surface-2"
-            >
-              Voir mes réalisations
-            </a>
-          </div>
-
-          <p className="mt-7 text-sm text-muted">
-            {site.name} · développeur web freelance · {site.location}
-          </p>
+            <span className="lettrage mt-5 block text-[clamp(1.5rem,3vw,2.6rem)] text-anthracite md:mt-7">Création de sites internet</span>
+          </h1>
+          <Macaron className="mt-4 hidden h-44 w-44 lg:grid" />
         </div>
 
-        <div ref={track} className="h-[200svh] lg:h-auto motion-reduce:h-auto">
-          <div className="sticky top-0 flex h-svh flex-col justify-center gap-10 pt-16 motion-reduce:static motion-reduce:h-auto motion-reduce:pb-24 motion-reduce:pt-6">
-            <div className="flex items-start gap-4">
-              <div className="min-w-0 flex-1">
-                <ShopVideo progress={scrollYProgress} className="aspect-[4/3] sm:aspect-video" />
-              </div>
-              {!reduce && (
-                <ol className="hidden flex-col gap-2 pt-10 sm:flex" aria-hidden="true">
-                  {heroSteps.map((w, i) => (
-                    <li
-                      key={w}
-                      className="w-1 rounded-full bg-fg transition-all duration-500"
-                      style={{ height: i === step ? 28 : 6, opacity: i === step ? 1 : 0.3 }}
-                    />
-                  ))}
-                </ol>
-              )}
-            </div>
+        <div className="mt-4 grid gap-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10">
+          <p className="text-lg font-semibold uppercase tracking-[0.04em] text-muted md:text-xl">{site.location}</p>
 
-            <p className="sr-only">{heroSteps.join(" ")}</p>
-            <div className="relative h-[clamp(4.5rem,11vw,8.5rem)] overflow-hidden" aria-hidden="true">
-              <AnimatePresence mode="popLayout" initial={false}>
-                <motion.p
-                  key={heroSteps[step]}
-                  className={`display absolute inset-x-0 top-0 whitespace-nowrap text-[clamp(4rem,10vw,8rem)] ${last ? "text-link" : "outline-text"}`}
-                  style={last ? undefined : { ["--stroke" as string]: "var(--muted)" }}
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "-100%", opacity: 0 }}
-                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  {heroSteps[step]}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-
-            <p className="-mt-6 text-xs text-muted">
-              {step === 0 && !reduce ? "Faites défiler pour allumer la boutique. " : ""}Images d&apos;illustration générées par IA.
-            </p>
+          {/* Téléphone : l'action avant les prestations, avec le macaron à côté. */}
+          <div className="flex items-center justify-between gap-4 md:hidden">
+            <a href={bookingHref} className={`${cta} inline-flex px-5 text-base`}>
+              Réserver un appel
+              <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />
+            </a>
+            <Macaron className="grid h-[8.5rem] w-[8.5rem] px-3" />
           </div>
+
+          {/* Porte arrière : la liste des prestations, lettrée. */}
+          <div className="flex gap-4">
+            <span className="w-2 shrink-0 bg-vinyle" aria-hidden="true" />
+            <ul
+              aria-label="Prestations"
+              className="lettrage-etroit grid grid-cols-2 gap-x-6 gap-y-1 text-[clamp(1.35rem,2.2vw,1.9rem)] text-anthracite"
+            >
+              {offers.map((o) => (
+                <li key={o}>{o}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bande de livrée. */}
+      <div aria-hidden="true">
+        <div className="h-9 bg-vinyle md:h-12" />
+        <div className="mt-1.5 h-2 bg-anthracite" />
+      </div>
+
+      <div className="mx-auto grid w-full max-w-[1360px] items-center gap-6 px-5 py-8 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10 md:px-8 md:py-9">
+        <p className="max-w-[52ch] text-pretty text-lg leading-relaxed md:text-xl">
+          Je crée votre site, je le rends visible sur Google et je m&apos;en occupe ensuite. Un seul interlocuteur, du devis à la
+          maintenance.
+          <span className="mt-2 hidden font-bold md:block lg:hidden">Site vitrine dès {site.startingPrice}.</span>
+        </p>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+          <a href={bookingHref} className={`${cta} hidden px-7 text-lg md:inline-flex`}>
+            Réserver un appel de 15 min
+            <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />
+          </a>
+          {/* L'email lettré comme sur un utilitaire : la deuxième inscription après le nom. */}
+          <a
+            href={`mailto:${site.email}`}
+            className="lettrage-etroit py-1 text-[clamp(1.5rem,2.3vw,2.1rem)] normal-case text-anthracite underline decoration-vinyle decoration-[3px] underline-offset-[0.18em] hover:text-vinyle"
+          >
+            {site.email}
+          </a>
         </div>
       </div>
     </section>

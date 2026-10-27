@@ -45,12 +45,12 @@ export default function Confidentialite() {
       <section aria-labelledby="cookies">
         <h2 id="cookies">Cookies et mesure d&apos;audience</h2>
         <p>
-          Ce site ne dépose aucun cookie de suivi et n&apos;utilise aucun outil de mesure d&apos;audience. Votre préférence de thème
-          (clair ou sombre) est mémorisée dans votre navigateur, sur votre appareil seulement, et n&apos;est transmise à personne.
+          Ce site ne dépose aucun cookie et n&apos;utilise aucun outil de mesure d&apos;audience. Rien n&apos;est mémorisé dans votre
+          navigateur.
         </p>
         <p>
-          Dans la section Réalisations, le bouton « Tester en direct » charge le site choisi dans un cadre : ce site tiers applique
-          alors sa propre politique de cookies.
+          Les liens de la section Réalisations ouvrent les sites présentés dans un nouvel onglet : chacun applique alors sa propre
+          politique de cookies.
           {bookingReady && " Le calendrier de réservation est fourni par Calendly, qui applique également la sienne."}
         </p>
       </section>

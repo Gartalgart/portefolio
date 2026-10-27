@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T12:00:00Z",
+  "title": "Design System: RD-Solutions",
+  "extensions": {
+    "colorMeta": {
+      "vinyle": { "role": "primary", "displayName": "Vinyle rouge", "canonical": "#c8361b", "tonalRamp": ["#3b0f07", "#5e180b", "#84220f", "#a92c15", "#c8361b", "#e0705a", "#f0ab9c", "#fbe3dc"] },
+      "vinyle-fonce": { "role": "primary", "displayName": "Vinyle foncé", "canonical": "#a92c15", "tonalRamp": ["#2e0b05", "#4f1309", "#731c0d", "#a92c15", "#c4523a", "#da8a77", "#ecbfb3", "#f9e8e3"] },
+      "anthracite": { "role": "neutral", "displayName": "Anthracite", "canonical": "#1d2125", "tonalRamp": ["#0d0f11", "#1d2125", "#33393f", "#4a5158", "#6b737b", "#9299a0", "#c3c8cc", "#eceef0"] },
+      "jante": { "role": "neutral", "displayName": "Gris jante", "canonical": "#565d64", "tonalRamp": ["#1f2225", "#343a3f", "#464c52", "#565d64", "#767d84", "#9ba1a7", "#c5c9cd", "#eceef0"] },
+      "carrosserie": { "role": "neutral", "displayName": "Carrosserie", "canonical": "#f4f3ee", "tonalRamp": ["#3a3934", "#5c5a52", "#807e74", "#a5a398", "#c8c6bc", "#e2e0d7", "#f4f3ee", "#fbfbf8"] },
+      "tole": { "role": "neutral", "displayName": "Tôle", "canonical": "#ffffff", "tonalRamp": ["#333333", "#555555", "#777777", "#999999", "#bbbbbb", "#dddddd", "#f2f2f2", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Lettrage (nom)", "purpose": "Le nom en vinyle rouge du premier écran ; largeur 112% sous 48rem, 125% au-dessus." },
+      "headline": { "displayName": "Lettrage (titres)", "purpose": "Titres de section, titre des pages légales, marque." },
+      "title": { "displayName": "Lettrage étroit", "purpose": "Intitulés de service, d'arrêt, de valeur ; prestations ; email lettré." },
+      "body": { "displayName": "Texte", "purpose": "Chapôs et paragraphes, 52 à 62ch." },
+      "label": { "displayName": "Mention de panneau", "purpose": "Libellés Pour / Besoin / Travaux / Par, cachets, libellés de cases." },
+      "chiffre": { "displayName": "Chiffres épinglés", "purpose": "Prix, numéros d'arrêt, montants." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "film-pose", "value": "1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards", "purpose": "Le film de transfert se décolle une fois du nom au chargement (clip-path inset vers la droite). Masqué sous prefers-reduced-motion." },
+      { "name": "transition-couleur", "value": "color/background-color 150ms", "purpose": "Survol des boutons et liens : changement de couleur seul, aucun déplacement." },
+      { "name": "faq-plus", "value": "transform 200ms", "purpose": "Le signe plus de la FAQ tourne de 45° à l'ouverture." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "40rem" },
+      { "name": "md", "value": "48rem" },
+      { "name": "lg", "value": "64rem" },
+      { "name": "xl", "value": "80rem" }
+    ],
+    "focus": { "value": "outline: 3px solid var(--vinyle); outline-offset: 3px", "zoneVinyle": "outline-color: #ffffff" },
+    "zoneVinyle": {
+      "selector": ".vinyle",
+      "remap": { "--bg": "var(--vinyle)", "--fg": "#ffffff", "--muted": "#ffe9e2", "--line": "#ffffff", "--line-soft": "rgba(255,255,255,0.4)", "--accent": "var(--anthracite)", "--accent-fg": "#ffffff" }
+    }
+  },
+  "components": [
+    {
+      "name": "Bouton principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Toute action de réservation ou d'envoi : aplat vinyle, angles droits.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Réserver un appel de 15 min <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; background: var(--vinyle, #c8361b); color: #ffffff; padding: 16px 28px; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 1.125rem; text-decoration: none; border-radius: 0; transition: background-color 150ms; } .ds-btn-primary:hover { background: var(--vinyle-fonce, #a92c15); } .ds-btn-primary:focus-visible { outline: 3px solid var(--vinyle, #c8361b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Bouton en zone vinyle",
+      "kind": "button",
+      "refersTo": "button-zone-vinyle",
+      "description": "L'action posée sur la zone rouge du contact : anthracite, s'inverse en blanc au survol.",
+      "html": "<div class=\"ds-zone\"><a class=\"ds-btn-zone\" href=\"#\">Réserver un appel de 15 min</a></div>",
+      "css": ".ds-zone { background: #c8361b; padding: 32px; } .ds-btn-zone { display: inline-flex; align-items: center; gap: 12px; background: #1d2125; color: #ffffff; padding: 16px 28px; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 1.125rem; text-decoration: none; transition: background-color 150ms, color 150ms; } .ds-btn-zone:hover { background: #ffffff; color: #1d2125; } .ds-btn-zone:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Case du bon de demande",
+      "kind": "input",
+      "refersTo": "input-case",
+      "description": "Champ de formulaire comme une case de carnet de bons ; la bordure passe en vinyle au focus.",
+      "html": "<label class=\"ds-case\"><span class=\"ds-case-label\">Nom</span><input class=\"ds-case-input\" placeholder=\"Votre nom\"></label>",
+      "css": ".ds-case { display: block; border: 3px solid #1d2125; background: #ffffff; padding: 10px 16px 12px; color: #1d2125; transition: border-color 150ms; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-case:focus-within { border-color: #c8361b; } .ds-case-label { display: block; font-weight: 800; font-stretch: 75%; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1; font-size: 0.875rem; color: #565d64; } .ds-case-input { margin-top: 6px; width: 100%; background: transparent; border: 0; outline: none; font: inherit; font-size: 1.125rem; color: #1d2125; caret-color: #c8361b; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Plaque collante carrosserie, filet bas de 3px, marque lettrée et action rouge.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">RD-Solutions</a><ul class=\"ds-nav-links\"><li><a href=\"#\">Réalisations</a></li><li><a href=\"#\">Services</a></li><li><a href=\"#\">Contact</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Réserver un appel</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px; padding: 0 32px; background: #f4f3ee; border-bottom: 3px solid #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-nav-brand { font-weight: 900; font-stretch: 125%; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; font-size: 1.5rem; color: #1d2125; text-decoration: none; } .ds-nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; } .ds-nav-links a { padding: 8px 0; font-weight: 600; color: #1d2125; text-decoration: none; text-decoration-color: #c8361b; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-nav-links a:hover { text-decoration-line: underline; } .ds-nav-cta { background: #c8361b; color: #ffffff; padding: 12px 20px; font-weight: 700; text-decoration: none; transition: background-color 150ms; } .ds-nav-cta:hover { background: #a92c15; } .ds-nav a:focus-visible { outline: 3px solid #c8361b; outline-offset: 3px; }"
+    },
+    {
+      "name": "Cachets de statut",
+      "kind": "chip",
+      "refersTo": "cachet-client",
+      "description": "Statut d'une réalisation lisible par la forme : aplat plein pour un client, pointillé pour une démonstration.",
+      "html": "<div class=\"ds-cachets\"><span class=\"ds-cachet ds-cachet-client\">Projet client</span><span class=\"ds-cachet ds-cachet-demo\">Démonstration</span></div>",
+      "css": ".ds-cachets { display: flex; gap: 16px; background: #1d2125; padding: 12px 20px; } .ds-cachet { display: inline-block; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1; font-size: 0.875rem; color: #ffffff; } .ds-cachet-client { background: #c8361b; padding: 6px 10px; } .ds-cachet-demo { border: 2px dashed #ffffff; padding: 4px 10px; }"
+    },
+    {
+      "name": "Panneau de chantier",
+      "kind": "card",
+      "refersTo": "panneau-chantier",
+      "description": "Une réalisation : plaque tôle bordée de 3px, en-tête anthracite, liste Pour / Besoin / Travaux / Par.",
+      "html": "<article class=\"ds-panneau\"><header class=\"ds-panneau-tete\"><span>Chantier web</span><span class=\"ds-panneau-cachet\">Projet client</span></header><dl class=\"ds-panneau-dl\"><dt>Pour</dt><dd><strong>Boulangerie Martin</strong></dd><dt>Besoin</dt><dd>Être trouvée sur Google par les gens du quartier.</dd><dt>Travaux</dt><dd>Site vitrine, horaires, fiche Google.</dd><dt>Par</dt><dd>RD-Solutions</dd></dl><footer class=\"ds-panneau-pied\"><a href=\"#\">Voir le site</a></footer></article>",
+      "css": ".ds-panneau { border: 3px solid #1d2125; background: #ffffff; color: #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; max-width: 520px; } .ds-panneau-tete { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #1d2125; color: #ffffff; padding: 12px 20px; font-weight: 800; font-stretch: 75%; text-transform: uppercase; letter-spacing: 0.06em; font-size: 1.125rem; } .ds-panneau-cachet { background: #c8361b; padding: 6px 10px; font-size: 0.875rem; letter-spacing: 0.01em; } .ds-panneau-dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 20px; padding: 24px 20px; margin: 0; } .ds-panneau-dl dt { font-weight: 800; font-stretch: 75%; text-transform: uppercase; font-size: 0.875rem; color: #565d64; padding-top: 2px; } .ds-panneau-dl dd { margin: 0; line-height: 1.625; } .ds-panneau-pied { border-top: 1px solid rgba(29, 33, 37, 0.18); padding: 16px 20px; } .ds-panneau-pied a { font-weight: 700; color: #1d2125; text-decoration: underline; text-decoration-color: #c8361b; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-panneau-pied a:hover { color: #c8361b; } .ds-panneau-pied a:focus-visible { outline: 3px solid #c8361b; outline-offset: 3px; }"
+    },
+    {
+      "name": "Macaron prix",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Le prix d'appel cerclé, une des trois formes rondes autorisées.",
+      "html": "<p class=\"ds-macaron\"><span class=\"ds-macaron-l\">Site vitrine dès</span><span class=\"ds-macaron-p\">1 000 €</span></p>",
+      "css": ".ds-macaron { display: grid; place-content: center; width: 176px; height: 176px; margin: 0; border: 5px solid #1d2125; border-radius: 9999px; text-align: center; color: #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; background: #f4f3ee; } .ds-macaron-l { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; } .ds-macaron-p { display: block; margin-top: 4px; font-size: 2.6rem; font-weight: 800; font-stretch: 75%; text-transform: uppercase; line-height: 1; color: #c8361b; font-variant-numeric: tabular-nums lining-nums; }"
+    },
+    {
+      "name": "Arrêt de la tournée",
+      "kind": "custom",
+      "refersTo": "arret-tournee",
+      "description": "Étape numérotée sur la route de la méthode.",
+      "html": "<div class=\"ds-tournee\"><span class=\"ds-route\"></span><span class=\"ds-arret\">1</span><span class=\"ds-arret\">2</span><span class=\"ds-arret\">3</span></div>",
+      "css": ".ds-tournee { position: relative; display: flex; justify-content: space-between; padding: 0 24px; background: #ffffff; } .ds-route { position: absolute; left: 24px; right: 24px; top: 22px; height: 6px; background: #1d2125; } .ds-arret { position: relative; display: grid; place-items: center; width: 50px; height: 50px; border: 3px solid #1d2125; border-radius: 9999px; background: #c8361b; color: #ffffff; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 900; font-stretch: 125%; font-size: 1.25rem; line-height: 0.9; font-variant-numeric: tabular-nums lining-nums; }"
+    },
+    {
+      "name": "Bande de livrée",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Bande pleine largeur qui structure le premier écran : aplat rouge, jour de carrosserie, bande anthracite.",
+      "html": "<div class=\"ds-livree\" aria-hidden=\"true\"><div class=\"ds-livree-rouge\"></div><div class=\"ds-livree-noire\"></div></div>",
+      "css": ".ds-livree { background: #f4f3ee; } .ds-livree-rouge { height: 48px; background: #c8361b; } .ds-livree-noire { margin-top: 6px; height: 8px; background: #1d2125; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le lettrage d'utilitaire",
+    "overview": "Le site se lit comme le flanc lettré d'une camionnette d'artisan : le nom en vinyle rouge géant, le métier, la zone, les prestations et le contact, lisibles à vingt mètres. Tout vient de cet objet : la carrosserie blanc cassé comme fond, le vinyle découpé pour les capitales larges et lourdes, la bande de livrée qui structure, les filets épais, le macaron prix cerclé. Chaque section reprend une pièce du véhicule ou de son métier : panneaux de chantier pour les réalisations, portes arrière pour les services, tournée numérotée pour la méthode, portière conducteur pour l'à-propos, bon de demande pour le contact.\n\nLa densité est celle d'un affichage, pas d'une brochure : peu de mots, très gros, posés à plat. Le système est plat et graphique, sans profondeur simulée ; la hiérarchie passe par la taille du lettrage, l'épaisseur des filets (3px anthracite) et l'aplat rouge. Thème clair seul : un véhicule se lit en plein jour (décision du 27/10/2026, pas de bascule de thème). Pas de 3D, pas de vidéo, pas de numéro de téléphone affiché pour l'instant.\n\nRejets confirmés : le portfolio de développeur (titre + photo + trois cartes, mode sombre technique), les ombres douces, les cartes arrondies, les dégradés.",
+    "keyCharacteristics": [
+      "Une seule famille (Archivo variable) déclinée sur l'axe de largeur : large pour le lettrage, normale pour le texte, étroite pour les panneaux.",
+      "Vinyle rouge réservé au nom, à l'action et à la bande de livrée.",
+      "Filets anthracite de 3px partout, angles droits partout sauf trois exceptions nommées.",
+      "Statuts lisibles par la forme, jamais par la couleur seule.",
+      "Un seul mouvement signature : le film de pose qui se décolle une fois au chargement."
+    ],
+    "rules": [
+      { "name": "The Zone Vinyle Rule", "body": "Une zone entièrement rouge se déclare par la classe `.vinyle`, qui remappe les rôles : texte et filets blancs, secondaire rosé, action anthracite, focus blanc. Les composants ne savent rien de leur fond ; on ne recolore jamais un composant à la main pour le poser sur le rouge.", "section": "colors" },
+      { "name": "The Vinyle Rare Rule", "body": "Le rouge sert le nom, l'action et la livrée. Il ne sert jamais de décor de fond pour une carte ou un bloc de texte en dehors de la zone contact.", "section": "colors" },
+      { "name": "The Couleur Seule Rule", "body": "Un statut ne repose jamais sur la couleur seule : la forme (aplat plein contre contour pointillé) porte la différence.", "section": "colors" },
+      { "name": "The Trois Largeurs Rule", "body": "On ne charge pas de seconde famille : la variété vient de l'axe de largeur d'Archivo (125, 100, 75) et du poids (900, 800, 400-700).", "section": "typography" },
+      { "name": "The Chiffre Épinglé Rule", "body": "Prix, numéros d'arrêt et montants sont en chiffres tabulaires et alignés (`tnum`, `lnum`).", "section": "typography" },
+      { "name": "The Deux-Points Rule", "body": "En titre, une espace insécable précède le deux-points (« Au volant : moi »).", "section": "typography" },
+      { "name": "The Plat-Vinyle Rule", "body": "Pas d'ombre, pas de dégradé sur une surface, une carte ou un bouton. Seul le film de pose, qui imite un matériau translucide en train de se décoller, porte une ombre de bord et un liseré intérieur ; ils disparaissent avec lui.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do poser chaque nouvelle surface comme une plaque tôle bordée de 3px anthracite sur la carrosserie, angles droits.",
+      "Do réserver le vinyle au nom, à l'action, à la bande de livrée et aux repères d'ordre (arrêts, prix).",
+      "Do déclarer une zone rouge par `.vinyle` et laisser les rôles se remapper.",
+      "Do distinguer un statut par la forme (aplat plein contre pointillé), en plus de la couleur.",
+      "Do composer les titres en lettrage large 900 et les mentions en lettrage étroit 800, avec chiffres tabulaires pour tout montant ou numéro.",
+      "Do tirer chaque nouvelle section d'une pièce ou d'un document du métier (panneau, porte, bon, tournée).",
+      "Do garder le film de pose comme seul mouvement d'entrée, et son absence sous mouvement réduit."
+    ],
+    "donts": [
+      "Don't ajouter d'ombre portée, de dégradé ou de flou sur une surface ou un bouton.",
+      "Don't arrondir un angle en dehors du macaron, des arrêts et de la vitre de portière.",
+      "Don't réintroduire de thème sombre, de bascule de thème, de 3D ou de vidéo.",
+      "Don't bâtir une section en grille de cartes à icône (le portfolio de développeur en trois cartes).",
+      "Don't poser de surtitre en petites capitales au-dessus d'un titre de section.",
+      "Don't charger une seconde famille de caractères.",
+      "Don't afficher de numéro de téléphone tant qu'il n'est pas fourni."
+    ]
+  }
+}

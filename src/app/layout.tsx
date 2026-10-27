@@ -1,15 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Schibsted_Grotesk } from "next/font/google";
+import { Archivo } from "next/font/google";
 import { site } from "@/lib/content";
 import "./globals.css";
 
-const body = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-body", display: "swap" });
-// Axe de largeur chargé pour obtenir la version condensée des titres.
-const title = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-title", display: "swap", axes: ["wdth", "opsz"] });
+// Une seule famille, trois largeurs : large pour le lettrage, normale pour le texte, étroite pour les panneaux.
+const archivo = Archivo({ subsets: ["latin"], variable: "--font-archivo", display: "swap", axes: ["wdth"] });
 
-const pageTitle = `${site.brand} — ${site.role}`;
+const pageTitle = `${site.brand} — Création de sites internet pour artisans, commerces et collectivités`;
 const description =
-  "Je conçois des sites et applications web rapides et clairs pour les artisans, commerçants, TPE, associations et mairies. Hauts-de-France, Île-de-France et télétravail.";
+  "Rémy Denimal crée, référence et suit les sites internet des artisans, commerçants, TPE, associations et mairies. Hauts-de-France, Île-de-France et à distance. Sites vitrines dès 1 000 €.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -29,17 +28,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#070d1c" },
-    { media: "(prefers-color-scheme: dark)", color: "#070d1c" },
-  ],
+  themeColor: "#f4f3ee",
 };
-
-// Jour par défaut (le hero reste de nuit) ; le choix du visiteur est mémorisé.
-const themeScript = `try{var t=localStorage.getItem('theme')||'light';document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='light'}`;
-// Le modèle du nom 3D part dès le HTML, sans attendre three.js : même condition d'écran que
-// `compact` dans BrandIntro, et pas de mouvement réduit (l'image fixe suffit alors).
-const preloadScript = `if(!matchMedia('(prefers-reduced-motion: reduce)').matches){var c=innerWidth<768||innerHeight>innerWidth*1.1,l=document.createElement('link');l.rel='preload';l.as='fetch';l.crossOrigin='anonymous';l.href=c?'/models/rd-mobile.glb':'/models/rd-desktop.glb';document.head.appendChild(l)}`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -54,10 +44,8 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" data-theme="light" suppressHydrationWarning className={`${body.variable} ${title.variable}`}>
+    <html lang="fr" className={archivo.variable}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <script dangerouslySetInnerHTML={{ __html: preloadScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>{children}</body>

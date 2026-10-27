@@ -2,37 +2,13 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { bookingHref, nav, site } from "@/lib/content";
-import ThemeToggle from "./ThemeToggle";
 
+/*
+  Barre du haut : la plaque du véhicule, blanche, filet anthracite épais. Sur mobile, le menu
+  s'ouvre en dessous et une barre d'appel reste collée en bas de l'écran (voir CallBar).
+*/
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  // La barre prend les couleurs de la nuit tant qu'elle passe au-dessus d'une section sombre.
-  const [onNight, setOnNight] = useState(true);
-
-  useEffect(() => {
-    // Une bande de 1 px juste sous la barre (y = 72) : dès qu'une zone de nuit la traverse, la barre
-    // prend ses couleurs. Observé par le navigateur, sans sonder le DOM à chaque défilement.
-    let io: IntersectionObserver | undefined;
-    const under = new Set<Element>();
-    const observe = () => {
-      io?.disconnect();
-      under.clear();
-      io = new IntersectionObserver(
-        (entries) => {
-          for (const e of entries) e.isIntersecting ? under.add(e.target) : under.delete(e.target);
-          setOnNight(under.size > 0);
-        },
-        { rootMargin: `-72px 0px -${Math.max(0, window.innerHeight - 73)}px 0px` },
-      );
-      document.querySelectorAll(".night:not(#barre)").forEach((el) => io?.observe(el));
-    };
-    observe();
-    window.addEventListener("resize", observe);
-    return () => {
-      io?.disconnect();
-      window.removeEventListener("resize", observe);
-    };
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -42,63 +18,54 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header id="barre" className={`fixed inset-x-0 top-0 z-50 ${onNight ? "night !bg-transparent" : ""}`}>
-      <nav
-        aria-label="Navigation principale"
-        className="flex items-center justify-between border-b border-line bg-[var(--glass)] px-5 py-3 backdrop-blur-xl transition-colors duration-300 md:px-8"
-      >
-        <a href="#" className="display text-2xl text-fg">
-          {site.brand}<span className="text-link">.</span>
+    <header className="sticky top-0 z-50 border-b-[3px] border-anthracite bg-carrosserie">
+      <nav aria-label="Navigation principale" className="mx-auto flex h-16 max-w-[1360px] items-center justify-between gap-6 px-5 md:px-8">
+        <a href="#" className="lettrage text-xl text-anthracite md:text-2xl">
+          {site.brand}
         </a>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {nav.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="rounded-full px-3 py-1.5 text-sm font-semibold text-muted transition hover:text-fg">
+              <a href={l.href} className="py-2 font-semibold text-anthracite decoration-vinyle hover:underline">
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
+        <div className="flex items-center gap-3">
           <a
             href={bookingHref}
-            className="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-fg transition hover:brightness-110 sm:block"
+            className="hidden bg-vinyle px-5 py-3 font-bold text-white transition-colors hover:bg-vinyle-fonce sm:block"
           >
             Réserver un appel
           </a>
           <button
             type="button"
-            className="grid h-11 w-11 place-items-center rounded-full border border-line-strong text-fg lg:hidden"
+            className="grid h-11 w-11 place-items-center border-[3px] border-anthracite text-anthracite lg:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             onClick={() => setOpen((o) => !o)}
           >
-            {open ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+            {open ? <X size={20} strokeWidth={2.5} aria-hidden="true" /> : <Menu size={20} strokeWidth={2.5} aria-hidden="true" />}
           </button>
         </div>
       </nav>
 
       {open && (
-        <div id="menu-mobile" className="border-b border-line bg-bg px-5 pb-5 pt-2 lg:hidden">
+        <div id="menu-mobile" className="border-t-[3px] border-anthracite bg-carrosserie px-5 pb-6 pt-2 lg:hidden">
           <ul>
             {nav.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)} className="display block py-3 text-3xl text-fg">
+              <li key={l.href} className="border-b border-line-soft">
+                <a href={l.href} onClick={() => setOpen(false)} className="lettrage block py-4 text-2xl text-anthracite">
                   {l.label}
                 </a>
               </li>
             ))}
-            <li>
-              <a href={bookingHref} className="mt-3 block rounded-full bg-primary px-4 py-3 text-center font-semibold text-primary-fg">
-                Réserver un appel
-              </a>
-            </li>
           </ul>
-          <p className="mt-4 text-sm text-muted">{site.location}</p>
+          <p className="mt-5 text-muted">{site.location}</p>
         </div>
       )}
     </header>

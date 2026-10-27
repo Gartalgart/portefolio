@@ -3,13 +3,18 @@ import { legalPages, site } from "@/lib/content";
 
 export default function Footer() {
   return (
-    <footer className="night border-t border-line px-5 py-8">
-      <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-3 text-sm text-muted sm:flex-row">
-        <p>© {new Date().getFullYear()} {site.name}. Tous droits réservés.</p>
-        <ul className="flex gap-5">
+    <footer className="bg-anthracite px-5 pb-28 pt-10 text-white md:px-8 md:pb-10">
+      <div className="mx-auto flex max-w-[1360px] flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="lettrage text-2xl">{site.brand}</p>
+          <p className="mt-2 text-[#c9ced3]">
+            © {new Date().getFullYear()} {site.name} · {site.location}
+          </p>
+        </div>
+        <ul className="flex gap-6">
           {legalPages.map((p) => (
             <li key={p.href}>
-              <Link href={p.href} className="inline-block py-2 hover:text-fg">
+              <Link href={p.href} className="inline-block py-2 font-semibold underline decoration-vinyle hover:text-[#ffd9cf]">
                 {p.label}
               </Link>
             </li>
