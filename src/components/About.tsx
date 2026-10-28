@@ -18,10 +18,7 @@ export default function About() {
             sizes="(min-width: 1024px) 38vw, 100vw"
             className="aspect-[4/5] w-full rounded-tl-[72px] border-[3px] border-anthracite object-cover object-top"
           />
-          <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <span className="lettrage-etroit text-xl">{site.name}</span>
-            <span className="text-muted">{site.location}</span>
-          </figcaption>
+          <figcaption className="lettrage-etroit mt-4 text-xl">{site.name}</figcaption>
         </figure>
 
         <div className="lg:pt-6">
@@ -33,7 +30,7 @@ export default function About() {
             message qui se perd entre trois personnes.
           </p>
 
-          <ul className="mt-10 divide-y divide-line-soft border-y-[3px] border-anthracite">
+          <ul className="mt-10 space-y-1 border-y-[3px] border-anthracite py-3">
             {method.map((m) => (
               <li key={m.title} className="grid gap-1 py-5 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:gap-6">
                 <h3 className="lettrage-etroit text-lg">{m.title}</h3>

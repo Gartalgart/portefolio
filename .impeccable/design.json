@@ -8,7 +8,7 @@
       "vinyle-fonce": { "role": "primary", "displayName": "Vinyle foncé", "canonical": "#a92c15", "tonalRamp": ["#2e0b05", "#4f1309", "#731c0d", "#a92c15", "#c4523a", "#da8a77", "#ecbfb3", "#f9e8e3"] },
       "anthracite": { "role": "neutral", "displayName": "Anthracite", "canonical": "#1d2125", "tonalRamp": ["#0d0f11", "#1d2125", "#33393f", "#4a5158", "#6b737b", "#9299a0", "#c3c8cc", "#eceef0"] },
       "jante": { "role": "neutral", "displayName": "Gris jante", "canonical": "#565d64", "tonalRamp": ["#1f2225", "#343a3f", "#464c52", "#565d64", "#767d84", "#9ba1a7", "#c5c9cd", "#eceef0"] },
-      "carrosserie": { "role": "neutral", "displayName": "Carrosserie", "canonical": "#f4f3ee", "tonalRamp": ["#3a3934", "#5c5a52", "#807e74", "#a5a398", "#c8c6bc", "#e2e0d7", "#f4f3ee", "#fbfbf8"] },
+      "carrosserie": { "role": "neutral", "displayName": "Carrosserie", "canonical": "#f1f2f0", "tonalRamp": ["#3a3934", "#5c5a52", "#807e74", "#a5a398", "#c8c6bc", "#e2e0d7", "#f1f2f0", "#fbfbf8"] },
       "tole": { "role": "neutral", "displayName": "Tôle", "canonical": "#ffffff", "tonalRamp": ["#333333", "#555555", "#777777", "#999999", "#bbbbbb", "#dddddd", "#f2f2f2", "#ffffff"] }
     },
     "typographyMeta": {
@@ -68,7 +68,7 @@
       "refersTo": "nav",
       "description": "Plaque collante carrosserie, filet bas de 3px, marque lettrée et action rouge.",
       "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">RD-Solutions</a><ul class=\"ds-nav-links\"><li><a href=\"#\">Réalisations</a></li><li><a href=\"#\">Services</a></li><li><a href=\"#\">Contact</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Réserver un appel</a></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px; padding: 0 32px; background: #f4f3ee; border-bottom: 3px solid #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-nav-brand { font-weight: 900; font-stretch: 125%; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; font-size: 1.5rem; color: #1d2125; text-decoration: none; } .ds-nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; } .ds-nav-links a { padding: 8px 0; font-weight: 600; color: #1d2125; text-decoration: none; text-decoration-color: #c8361b; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-nav-links a:hover { text-decoration-line: underline; } .ds-nav-cta { background: #c8361b; color: #ffffff; padding: 12px 20px; font-weight: 700; text-decoration: none; transition: background-color 150ms; } .ds-nav-cta:hover { background: #a92c15; } .ds-nav a:focus-visible { outline: 3px solid #c8361b; outline-offset: 3px; }"
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px; padding: 0 32px; background: #f1f2f0; border-bottom: 3px solid #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-nav-brand { font-weight: 900; font-stretch: 125%; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; font-size: 1.5rem; color: #1d2125; text-decoration: none; } .ds-nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; } .ds-nav-links a { padding: 8px 0; font-weight: 600; color: #1d2125; text-decoration: none; text-decoration-color: #c8361b; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-nav-links a:hover { text-decoration-line: underline; } .ds-nav-cta { background: #c8361b; color: #ffffff; padding: 12px 20px; font-weight: 700; text-decoration: none; transition: background-color 150ms; } .ds-nav-cta:hover { background: #a92c15; } .ds-nav a:focus-visible { outline: 3px solid #c8361b; outline-offset: 3px; }"
     },
     {
       "name": "Cachets de statut",
@@ -92,7 +92,7 @@
       "refersTo": null,
       "description": "Le prix d'appel cerclé, une des trois formes rondes autorisées.",
       "html": "<p class=\"ds-macaron\"><span class=\"ds-macaron-l\">Site vitrine dès</span><span class=\"ds-macaron-p\">1 000 €</span></p>",
-      "css": ".ds-macaron { display: grid; place-content: center; width: 176px; height: 176px; margin: 0; border: 5px solid #1d2125; border-radius: 9999px; text-align: center; color: #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; background: #f4f3ee; } .ds-macaron-l { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; } .ds-macaron-p { display: block; margin-top: 4px; font-size: 2.6rem; font-weight: 800; font-stretch: 75%; text-transform: uppercase; line-height: 1; color: #c8361b; font-variant-numeric: tabular-nums lining-nums; }"
+      "css": ".ds-macaron { display: grid; place-content: center; width: 176px; height: 176px; margin: 0; border: 5px solid #1d2125; border-radius: 9999px; text-align: center; color: #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; background: #f1f2f0; } .ds-macaron-l { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; } .ds-macaron-p { display: block; margin-top: 4px; font-size: 2.6rem; font-weight: 800; font-stretch: 75%; text-transform: uppercase; line-height: 1; color: #c8361b; font-variant-numeric: tabular-nums lining-nums; }"
     },
     {
       "name": "Arrêt de la tournée",
@@ -108,7 +108,7 @@
       "refersTo": null,
       "description": "Bande pleine largeur qui structure le premier écran : aplat rouge, jour de carrosserie, bande anthracite.",
       "html": "<div class=\"ds-livree\" aria-hidden=\"true\"><div class=\"ds-livree-rouge\"></div><div class=\"ds-livree-noire\"></div></div>",
-      "css": ".ds-livree { background: #f4f3ee; } .ds-livree-rouge { height: 48px; background: #c8361b; } .ds-livree-noire { margin-top: 6px; height: 8px; background: #1d2125; }"
+      "css": ".ds-livree { background: #f1f2f0; } .ds-livree-rouge { height: 48px; background: #c8361b; } .ds-livree-noire { margin-top: 6px; height: 8px; background: #1d2125; }"
     }
   ],
   "narrative": {

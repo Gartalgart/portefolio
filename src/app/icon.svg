@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <!-- Monogramme RD-Solutions : « RD » en lettrage large et lourd, vinyle rouge sur carrosserie, liseré de livrée. -->
-  <rect width="64" height="64" fill="#f4f3ee"/>
+  <rect width="64" height="64" fill="#f1f2f0"/>
   <rect y="52" width="64" height="8" fill="#c8361b"/>
   <rect y="61" width="64" height="3" fill="#1d2125"/>
   <path fill="#c8361b" fill-rule="evenodd" d="M3 8h17a10 10 0 0 1 3.4 19.4L28 44H18.6l-3.9-15.5H12V44H3Zm9 7.5v6h7a3 3 0 0 0 0-6Z"/>

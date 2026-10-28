@@ -10,8 +10,12 @@ import { bookingHref, offers, site } from "@/lib/content";
 function Macaron({ className }: { className: string }) {
   return (
     <p className={`shrink-0 place-content-center rounded-full border-[5px] border-anthracite text-center ${className}`}>
-      <span className="text-xs font-bold uppercase tracking-[0.06em] lg:text-sm">Site vitrine dès</span>
-      <span className="lettrage-etroit tabular mt-1 block text-[1.9rem] text-vinyle lg:text-[2.6rem]">{site.startingPrice}</span>
+      <span className="lettrage-etroit tabular block text-[1.9rem] text-vinyle lg:text-[2.6rem]">{site.startingPrice}</span>
+      <span className="mt-1 text-sm font-bold leading-tight lg:text-base">
+        prix de départ
+        <br />
+        du site vitrine
+      </span>
     </p>
   );
 }
@@ -25,9 +29,9 @@ export default function Hero() {
     <section aria-labelledby="titre">
       <div className="mx-auto w-full max-w-[1360px] px-5 pb-8 pt-8 md:px-8 md:pb-9 md:pt-10">
         <div className="flex items-start justify-between gap-10">
-          <h1 id="titre">
+          <h1 id="titre" className="lettrage text-[clamp(3.4rem,11.2vw,9.6rem)]">
             <span className="relative inline-block">
-              <span className="lettrage block text-[clamp(3.4rem,11.2vw,9.6rem)] text-vinyle">
+              <span className="block text-vinyle">
                 {first}
                 <br />
                 {last}
@@ -40,7 +44,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-4 grid gap-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10">
-          <p className="text-lg font-semibold uppercase tracking-[0.04em] text-muted md:text-xl">{site.location}</p>
+          <p className="text-base font-semibold uppercase tracking-[0.02em] text-muted sm:text-lg sm:tracking-[0.04em] md:text-xl">{site.location}</p>
 
           {/* Téléphone : l'action avant les prestations, avec le macaron à côté. */}
           <div className="flex items-center justify-between gap-4 md:hidden">

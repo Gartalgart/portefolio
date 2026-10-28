@@ -6,7 +6,7 @@ colors:
   vinyle-fonce: "#a92c15"
   anthracite: "#1d2125"
   jante: "#565d64"
-  carrosserie: "#f4f3ee"
+  carrosserie: "#f1f2f0"
   tole: "#ffffff"
 typography:
   display:
@@ -172,7 +172,7 @@ Conteneur unique de 1360px centré, gouttières de 20px sur mobile et 32px dès 
 
 Le premier écran est une composition de flanc : nom à gauche et macaron à droite (macaron visible dès 64rem, à côté du bouton sur mobile), puis zone et prestations derrière un filet rouge de 8px, puis la bande de livrée pleine largeur (aplat rouge de 36px, 48px dès 48rem ; 6px de carrosserie ; bande anthracite de 8px), puis texte d'accroche, bouton et email lettré. Sur mobile, l'action passe avant les prestations.
 
-Grilles : deux colonnes égales pour les réalisations et les portes arrière dès 48rem ; 5/7 pour à-propos et contact, 4/7 pour la FAQ dès 64rem ; tournée en sept colonnes dès 80rem, verticale en dessous. Sur mobile, une barre d'appel fixée en bas (bouton rouge « Réserver un appel » + lien « Écrire ») ; le pied de page réserve la place en dessous (112px).
+Grilles : deux colonnes égales pour les réalisations et les portes arrière dès 48rem ; 5/7 pour à-propos et contact, 4/7 pour la FAQ dès 64rem ; tournée en sept colonnes dès 80rem, verticale en dessous. Sur mobile, une barre d'appel fixée en bas (bouton rouge « Réserver un appel » + lien « Écrire »), qui glisse en place une fois le premier écran passé et s'efface sur la section contact, pour ne jamais couvrir l'email lettré ni le formulaire ; le pied de page réserve la place en dessous (112px).
 
 ## Elevation & Depth
 
@@ -183,7 +183,7 @@ Système plat : aucune ombre portée, aucune élévation. La profondeur se lit p
 
 ## Shapes
 
-Angles droits partout. Trois exceptions seulement, chacune tirée du véhicule : le macaron prix (cercle, bordure 5px anthracite), les arrêts de la tournée (cercles de 50px), le coin supérieur gauche du portrait arrondi à 72px comme une vitre de portière. Les bordures sont pleines et épaisses : 3px anthracite pour les contours, les filets de section et les règles de FAQ ; 1px translucide (anthracite à 18%) pour les séparations internes d'une même plaque. Le pointillé de 2 à 3px signale ce qui n'est pas encore réel : la démonstration, le prochain panneau à venir.
+Angles droits partout. Trois exceptions seulement, chacune tirée du véhicule : le macaron prix (cercle, bordure 5px anthracite), les arrêts de la tournée (cercles de 50px), le coin supérieur gauche du portrait arrondi à 72px comme une vitre de portière. Les bordures sont pleines et épaisses : 3px anthracite pour les contours, les filets de section et les règles de FAQ . Aucun filet fin : à l'intérieur d'une même plaque, les éléments se séparent par l'espacement ou par un aplat de carrosserie (pied des panneaux de chantier). Le pointillé de 2 à 3px signale ce qui n'est pas encore réel : la démonstration, le prochain panneau à venir.
 
 ## Components
 

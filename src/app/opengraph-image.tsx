@@ -18,7 +18,7 @@ export default async function Image() {
   const [first, last] = site.name.toUpperCase().split(" ");
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: "#f4f3ee", fontFamily: "Archivo" }}>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: "#f1f2f0", fontFamily: "Archivo" }}>
         <div style={{ display: "flex", flexDirection: "column", padding: "56px 72px 0", flex: 1 }}>
           <div style={{ display: "flex", flexDirection: "column", fontSize: 150, fontWeight: 900, lineHeight: 0.88, color: "#c8361b", letterSpacing: -2 }}>
             <span>{first}</span>

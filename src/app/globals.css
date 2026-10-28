@@ -7,7 +7,7 @@
   `.vinyle` remappe les tokens sur une zone rouge (contact) : les composants n'ont rien à savoir.
 */
 :root {
-  --carrosserie: #f4f3ee;
+  --carrosserie: #f1f2f0;
   --tole: #ffffff;
   --vinyle: #c8361b;
   --vinyle-fonce: #a92c15;
@@ -59,7 +59,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
-  scrollbar-gutter: stable;
   scrollbar-color: var(--jante) var(--carrosserie);
   accent-color: var(--vinyle);
 }
@@ -104,7 +103,7 @@ a { text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
   position: absolute;
   inset: -0.22em -0.12em -0.06em;
   background: rgba(236, 228, 206, 0.62);
-  box-shadow: inset 0 0 0 1px rgba(29, 33, 37, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(29, 33, 37, 0.08); /* taste-skill-ignore : bord du film de pose, transitoire */
   clip-path: inset(0 0 0 0);
   animation: film-pose 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
   pointer-events: none;
@@ -117,7 +116,7 @@ a { text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
   bottom: 0;
   left: 0;
   width: 0.5em;
-  background: linear-gradient(90deg, rgba(29, 33, 37, 0.16), transparent);
+  background: linear-gradient(90deg, rgba(29, 33, 37, 0.16), transparent); /* taste-skill-ignore : ombre du bord qui se décolle, transitoire */
   animation: film-bord 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
 }
 @keyframes film-pose { to { clip-path: inset(0 0 0 100%); } }

@@ -58,7 +58,7 @@ export default function Navbar() {
         <div id="menu-mobile" className="border-t-[3px] border-anthracite bg-carrosserie px-5 pb-6 pt-2 lg:hidden">
           <ul>
             {nav.map((l) => (
-              <li key={l.href} className="border-b border-line-soft">
+              <li key={l.href}>
                 <a href={l.href} onClick={() => setOpen(false)} className="lettrage block py-4 text-2xl text-anthracite">
                   {l.label}
                 </a>

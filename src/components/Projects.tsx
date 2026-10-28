@@ -64,7 +64,7 @@ export default function Projects() {
                   <dd>{site.brand}</dd>
                 </dl>
 
-                <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-line-soft px-5 py-4 md:px-6">
+                <footer className="flex flex-wrap items-center justify-between gap-3 bg-carrosserie px-5 py-4 md:px-6">
                   <ul className="flex flex-wrap gap-x-3 gap-y-1 text-sm font-semibold text-muted" aria-label="Ce que contient le site">
                     {p.tags.map((t) => (
                       <li key={t}>{t}</li>

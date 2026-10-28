@@ -19,3 +19,6 @@ assets/3d/*.blend1
 .impeccable/build
 .impeccable/hook.cache.json
 .impeccable/config.local.json
+
+# Taste Skill : captures et rapports d'inspection (travail local)
+.taste-skill

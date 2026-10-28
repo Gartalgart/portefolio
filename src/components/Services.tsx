@@ -23,12 +23,13 @@ export default function Services() {
           {services.map((s, i) => {
             const left = i < 2;
             const secondRow = i === 1 || i === 3;
-            const mobileTop = i === 0 ? "" : i === 2 ? "border-t-[3px] border-t-anthracite" : "border-t border-t-line-soft";
-            const mdTop = secondRow ? "md:border-t md:border-t-line-soft" : "md:border-t-0";
+            // Entre les deux portes, la jointure épaisse ; à l'intérieur d'une porte, l'espacement suffit.
+            const mobileTop = i === 2 ? "border-t-[3px] border-t-anthracite" : "";
+            const mdTop = "md:border-t-0";
             return (
               <li
                 key={s.title}
-                className={`px-6 py-8 md:px-10 md:py-10 ${mobileTop} ${mdTop} ${left ? "md:border-r-[3px] md:border-r-anthracite" : ""} ${mdOrder[i]}`}
+                className={`px-6 py-8 md:px-10 ${secondRow ? "md:pb-10 md:pt-4" : "md:pb-4 md:pt-10"} ${mobileTop} ${mdTop} ${left ? "md:border-r-[3px] md:border-r-anthracite" : ""} ${mdOrder[i]}`}
               >
                 <h3 className="lettrage-etroit text-[clamp(1.6rem,2.6vw,2.2rem)]">{s.title}</h3>
                 <p className="mt-4 max-w-[48ch] leading-relaxed text-muted">{s.text}</p>
