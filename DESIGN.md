@@ -110,7 +110,7 @@ components:
 
 **Creative North Star: "Le lettrage d'utilitaire"**
 
-Le site se lit comme le flanc lettré d'une camionnette d'artisan : le nom en vinyle rouge géant, le métier, la zone, les prestations et le contact, lisibles à vingt mètres. Tout vient de cet objet : la carrosserie blanc cassé comme fond, le vinyle découpé pour les capitales larges et lourdes, la bande de livrée qui structure, les filets épais, le macaron prix cerclé. Chaque section reprend une pièce du véhicule ou de son métier : panneaux de chantier pour les réalisations, portes arrière pour les services, tournée numérotée pour la méthode, portière conducteur pour l'à-propos, bon de demande pour le contact.
+Le site se lit comme le flanc lettré d'une camionnette d'artisan : le nom en vinyle rouge géant, le métier, la zone, les prestations et le contact, lisibles à vingt mètres. Tout vient de cet objet : la carrosserie blanc cassé comme fond, le vinyle découpé pour les capitales larges et lourdes, la bande de livrée qui structure, les filets épais, le macaron cerclé. Chaque section reprend une pièce du véhicule ou de son métier : panneaux de chantier pour les réalisations, portes arrière pour les services, tournée numérotée pour la méthode, portière conducteur pour l'à-propos, bon de demande pour le contact.
 
 La densité est celle d'un affichage, pas d'une brochure : peu de mots, très gros, posés à plat. Le système est plat et graphique, sans profondeur simulée ; la hiérarchie passe par la taille du lettrage, l'épaisseur des filets (3px anthracite) et l'aplat rouge. Thème clair seul : un véhicule se lit en plein jour (décision du 27/10/2026, pas de bascule de thème). Pas de 3D, pas de vidéo, pas de numéro de téléphone affiché pour l'instant.
 
@@ -128,7 +128,7 @@ Rejets confirmés : le portfolio de développeur (titre + photo + trois cartes, 
 Une carrosserie claire, un vinyle rouge vermillon, un anthracite de pneu : la palette d'un utilitaire lettré, rien de plus.
 
 ### Primary
-- **Vinyle rouge** (vinyle) : le nom en lettrage géant, chaque bouton d'action, la bande de livrée, le filet vertical des prestations, les arrêts de la tournée, le cachet « Projet client », les prix des services et le fond entier de la zone contact. Contraste 4,73 sur carrosserie ; texte blanc sur vinyle 5,25.
+- **Vinyle rouge** (vinyle) : le nom en lettrage géant, chaque bouton d'action, la bande de livrée, le filet vertical des prestations, les arrêts de la tournée, le cachet « Projet client », le « Un seul » du macaron et le fond entier de la zone contact. Contraste 4,73 sur carrosserie ; texte blanc sur vinyle 5,25.
 - **Vinyle foncé** (vinyle-fonce) : survol des boutons rouges et texte d'erreur du formulaire.
 
 ### Neutral
@@ -162,7 +162,7 @@ Une carrosserie claire, un vinyle rouge vermillon, un anthracite de pneu : la pa
 ### Named Rules
 **The Trois Largeurs Rule.** On ne charge pas de seconde famille : la variété vient de l'axe de largeur d'Archivo (125, 100, 75) et du poids (900, 800, 400-700).
 
-**The Chiffre Épinglé Rule.** Prix, numéros d'arrêt et montants sont en chiffres tabulaires et alignés (`tnum`, `lnum`).
+**The Chiffre Épinglé Rule.** Les numéros d'arrêt sont en chiffres tabulaires et alignés (`tnum`, `lnum`). Aucun prix ni montant n'apparaît sur le site (décision du 28/10/2026).
 
 **The Deux-Points Rule.** En titre, une espace insécable précède le deux-points (« Au volant : moi »).
 
@@ -183,7 +183,7 @@ Système plat : aucune ombre portée, aucune élévation. La profondeur se lit p
 
 ## Shapes
 
-Angles droits partout. Trois exceptions seulement, chacune tirée du véhicule : le macaron prix (cercle, bordure 5px anthracite), les arrêts de la tournée (cercles de 50px), le coin supérieur gauche du portrait arrondi à 72px comme une vitre de portière. Les bordures sont pleines et épaisses : 3px anthracite pour les contours, les filets de section et les règles de FAQ . Aucun filet fin : à l'intérieur d'une même plaque, les éléments se séparent par l'espacement ou par un aplat de carrosserie (pied des panneaux de chantier). Le pointillé de 2 à 3px signale ce qui n'est pas encore réel : la démonstration, le prochain panneau à venir.
+Angles droits partout. Trois exceptions seulement, chacune tirée du véhicule : le macaron « Un seul interlocuteur » (cercle, bordure 5px anthracite), les arrêts de la tournée (cercles de 50px), le coin supérieur gauche du portrait arrondi à 72px comme une vitre de portière. Les bordures sont pleines et épaisses : 3px anthracite pour les contours, les filets de section et les règles de FAQ . Aucun filet fin : à l'intérieur d'une même plaque, les éléments se séparent par l'espacement ou par un aplat de carrosserie (pied des panneaux de chantier). Le pointillé de 2 à 3px signale ce qui n'est pas encore réel : la démonstration, le prochain panneau à venir.
 
 ## Components
 
@@ -209,7 +209,7 @@ Texte anthracite gras souligné en vinyle (2 à 3px, décalage 0,2em), qui passe
 - **Suite:** un panneau pointillé de 3px « Le prochain panneau peut porter votre nom » avec un bouton rouge ferme la série.
 
 ### Portes arrière (services)
-Une plaque tôle unique, bordée de 3px, coupée en deux portes par une jointure de 3px ; les deux portes partagent les mêmes rangées pour que leurs filets s'alignent. Une poignée (15 x 64px, bordure 3px, fond carrosserie) est posée sur la jointure dès 48rem. Chaque prix est souligné au-dessus d'un filet vinyle de 3px, en chiffres tabulaires.
+Une plaque tôle unique, bordée de 3px, coupée en deux portes par une jointure de 3px ; les deux portes partagent les mêmes rangées pour que leurs filets s'alignent. Une poignée (15 x 64px, bordure 3px, fond carrosserie) est posée sur la jointure dès 48rem. Chaque porte porte deux prestations, titre lettré et description, sans prix.
 
 ### La tournée (méthode)
 Une route anthracite de 6px, horizontale dès 80rem, verticale en dessous ; sept arrêts circulaires de 50px (vinyle, bordure 3px anthracite, numéro blanc en lettrage tabulaire).
@@ -238,7 +238,7 @@ Au chargement, un film de transfert translucide crème couvre le nom puis se dé
 
 ### Do:
 - **Do** poser chaque nouvelle surface comme une plaque tôle bordée de 3px anthracite sur la carrosserie, angles droits.
-- **Do** réserver le vinyle au nom, à l'action, à la bande de livrée et aux repères d'ordre (arrêts, prix).
+- **Do** réserver le vinyle au nom, à l'action, à la bande de livrée et aux repères d'ordre (arrêts).
 - **Do** déclarer une zone rouge par `.vinyle` et laisser les rôles se remapper.
 - **Do** distinguer un statut par la forme (aplat plein contre pointillé), en plus de la couleur.
 - **Do** composer les titres en lettrage large 900 et les mentions en lettrage étroit 800, avec chiffres tabulaires pour tout montant ou numéro.
@@ -256,4 +256,4 @@ Au chargement, un film de transfert translucide crème couvre le nom puis se dé
 
 ## À compléter
 
-Éléments en attente, listés dans INFOS-A-FOURNIR.md : lien Calendly, GitHub, LinkedIn, champs des mentions légales, mention HT/TTC des prix, une réponse de FAQ, vrais témoignages (la section reste masquée tant qu'aucun avis n'est renseigné).
+Éléments en attente, listés dans INFOS-A-FOURNIR.md : lien Calendly, GitHub, LinkedIn, champs des mentions légales, régime de TVA pour les mentions légales, une réponse de FAQ, vrais témoignages (la section reste masquée tant qu'aucun avis n'est renseigné).

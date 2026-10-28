@@ -10,7 +10,6 @@ export const site = {
   linkedin: "",
   calendly: "https://calendly.com/", // [À COMPLÉTER] lien de prise de RDV
   location: "Hauts-de-France · Île-de-France · à distance",
-  startingPrice: "1 000 €", // site vitrine. [À PRÉCISER] HT ou TTC
 };
 
 // Réseaux affichés dans Contact : seulement ceux qui ont un vrai lien.
@@ -59,22 +58,18 @@ export const services = [
   {
     title: "Un site qui fait venir les clients",
     text: "Rapide, clair et bien référencé localement : vos horaires, vos prestations et un bouton d'appel visibles en deux secondes.",
-    price: `À partir de ${site.startingPrice}`,
   },
   {
     title: "Application web sur-mesure",
     text: "Réservation, devis en ligne, espace adhérents, back-office : des outils adaptés à votre activité plutôt qu'un abonnement de plus.",
-    price: "Sur devis",
   },
   {
     title: "Refonte, performance et SEO",
     text: "Votre site est lent, daté ou introuvable ? Je le reprends, le modernise et le rends accessible, mobile et mieux placé sur Google.",
-    price: "Sur devis",
   },
   {
     title: "Accompagnement et maintenance",
     text: "Hébergement, mises à jour, petites évolutions : un interlocuteur unique qui répond, sans jargon.",
-    price: "Sur devis",
   },
 ];
 
@@ -158,7 +153,7 @@ export const steps = [
 export const faq = [
   {
     q: "Combien coûte un site ?",
-    a: `Un site vitrine démarre à ${site.startingPrice}. Une application sur-mesure ou une refonte se chiffre sur devis. Dans tous les cas, le prix est annoncé avant de commencer.`,
+    a: "Cela dépend de ce dont votre activité a besoin : le nombre de pages, les fonctions, les contenus à préparer. Après un appel de 15 minutes, je vous envoie un devis détaillé : le prix est annoncé avant de commencer, avec ce qui est inclus.",
   },
   {
     q: "Combien de temps faut-il pour créer mon site ?",

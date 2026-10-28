@@ -4,17 +4,17 @@ import { bookingHref, offers, site } from "@/lib/content";
 /*
   Premier écran : le flanc du véhicule. Le nom en lettrage rouge sur toute la largeur (film de pose
   qui se décolle une fois), le métier et la zone, les prestations comme sur la porte arrière, le
-  macaron prix. La bande de livrée, puis l'action et l'email lettrés à l'échelle d'un panneau.
+  macaron « un seul interlocuteur ». La bande de livrée, puis l'action et l'email lettrés à l'échelle d'un panneau.
   Sur téléphone : nom, métier, zone, bouton et macaron, puis prestations. Tout est lisible sans script.
 */
 function Macaron({ className }: { className: string }) {
   return (
     <p className={`shrink-0 place-content-center rounded-full border-[5px] border-anthracite text-center ${className}`}>
-      <span className="lettrage-etroit tabular block text-[1.9rem] text-vinyle lg:text-[2.6rem]">{site.startingPrice}</span>
+      <span className="lettrage-etroit block text-[1.6rem] leading-none text-vinyle lg:text-[2.05rem]">Un seul</span>
       <span className="mt-1 text-sm font-bold leading-tight lg:text-base">
-        prix de départ
+        interlocuteur,
         <br />
-        du site vitrine
+        du devis au suivi
       </span>
     </p>
   );
@@ -80,7 +80,6 @@ export default function Hero() {
         <p className="max-w-[52ch] text-pretty text-lg leading-relaxed md:text-xl">
           Je crée votre site, je le rends visible sur Google et je m&apos;en occupe ensuite. Un seul interlocuteur, du devis à la
           maintenance.
-          <span className="mt-2 hidden font-bold md:block lg:hidden">Site vitrine dès {site.startingPrice}.</span>
         </p>
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
           <a href={bookingHref} className={`${cta} hidden px-7 text-lg md:inline-flex`}>

@@ -8,7 +8,6 @@ import { sendContact, type ContactState } from "@/app/actions";
 const included = [
   "Un seul interlocuteur, du devis à la maintenance",
   "Un prix annoncé avant de commencer",
-  `Sites vitrines à partir de ${site.startingPrice}`,
   "Pensé pour le mobile et pour Google",
   "Hauts-de-France, Île-de-France ou à distance",
 ];

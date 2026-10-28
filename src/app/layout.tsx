@@ -8,7 +8,7 @@ const archivo = Archivo({ subsets: ["latin"], variable: "--font-archivo", displa
 
 const pageTitle = `${site.brand} — Création de sites internet pour artisans, commerces et collectivités`;
 const description =
-  "Rémy Denimal crée, référence et suit les sites internet des artisans, commerçants, TPE, associations et mairies. Hauts-de-France, Île-de-France et à distance. Sites vitrines dès 1 000 €.";
+  "Rémy Denimal crée, référence et suit les sites internet des artisans, commerçants, TPE, associations et mairies. Hauts-de-France, Île-de-France et à distance.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

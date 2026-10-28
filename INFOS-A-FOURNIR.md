@@ -19,7 +19,7 @@ Contexte : le site publié sur rd-solutions.fr n'a pas encore de pages Mentions 
 4. **Durée de conservation des demandes restées sans suite** (proposition : trois ans après le dernier échange) :
    > Réponse :
 
-5. **TVA** : franchise en base (« TVA non applicable, art. 293 B du CGI ») ou assujetti ? Le prix « à partir de 1 000 € » est-il HT ou TTC ?
+5. **TVA** : franchise en base (« TVA non applicable, art. 293 B du CGI ») ou assujetti ? (Pour les mentions légales seulement : aucun prix n'est plus affiché sur le site.)
    > Réponse :
 
 ## Contenu du site (non bloquant)

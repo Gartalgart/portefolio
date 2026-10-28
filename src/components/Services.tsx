@@ -33,7 +33,6 @@ export default function Services() {
               >
                 <h3 className="lettrage-etroit text-[clamp(1.6rem,2.6vw,2.2rem)]">{s.title}</h3>
                 <p className="mt-4 max-w-[48ch] leading-relaxed text-muted">{s.text}</p>
-                <p className="tabular mt-5 inline-block border-t-[3px] border-vinyle pt-2 text-lg font-extrabold text-vinyle">{s.price}</p>
               </li>
             );
           })}
