@@ -9,17 +9,34 @@ export default function About() {
   return (
     <section id="apropos" aria-labelledby="apropos-titre" className="border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-[1360px] gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
-        <figure className="border-[3px] border-anthracite bg-tole p-4 md:p-5">
-          <Image
-            src="/images/profile.jpg"
-            alt={`Portrait de ${site.name}`}
-            width={800}
-            height={993}
-            sizes="(min-width: 1024px) 38vw, 100vw"
-            className="aspect-[4/5] w-full rounded-tl-[72px] border-[3px] border-anthracite object-cover object-top"
-          />
-          <figcaption className="lettrage-etroit mt-4 text-xl">{site.name}</figcaption>
-        </figure>
+        {site.photo ? (
+          <figure className="border-[3px] border-anthracite bg-tole p-4 md:p-5">
+            <Image
+              src={site.photo}
+              alt={`Portrait de ${site.name}`}
+              width={800}
+              height={1000}
+              sizes="(min-width: 1024px) 38vw, 100vw"
+              className="aspect-[4/5] w-full rounded-tl-[72px] border-[3px] border-anthracite object-cover object-top"
+            />
+            <figcaption className="lettrage-etroit mt-4 text-xl">{site.name}</figcaption>
+          </figure>
+        ) : (
+          // Sans portrait : la portière porte le lettrage de l'artisan (nom, métier, zone, contact).
+          <div className="self-start border-[3px] border-anthracite bg-tole p-4 md:p-5">
+            <div className="flex flex-col gap-6 rounded-tl-[72px] border-[3px] border-anthracite bg-carrosserie px-6 pb-7 pt-16 md:px-8 md:pt-20">
+              <p className="lettrage text-balance text-[clamp(2.2rem,4.6vw,4rem)] leading-[0.95]">{site.name}</p>
+              <p className="lettrage-etroit text-xl text-vinyle md:text-2xl">{site.role}</p>
+              <p className="border-t-[3px] border-anthracite pt-5 font-semibold leading-relaxed">
+                {site.location}
+                <br />
+                <a href={`mailto:${site.email}`} className="underline decoration-vinyle hover:text-vinyle">
+                  {site.email}
+                </a>
+              </p>
+            </div>
+          </div>
+        )}
 
         <div className="lg:pt-6">
           <h2 id="apropos-titre" className="lettrage text-balance text-[clamp(2.4rem,5.4vw,4.6rem)]">

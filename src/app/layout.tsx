@@ -38,7 +38,7 @@ const jsonLd = {
   jobTitle: site.role,
   url: site.url,
   email: site.email,
-  image: `${site.url}/images/profile.jpg`,
+  ...(site.photo ? { image: `${site.url}${site.photo}` } : {}),
   areaServed: ["Hauts-de-France", "Île-de-France"],
 };
 

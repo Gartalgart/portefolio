@@ -23,12 +23,12 @@ export default function Projects() {
             Chantiers livrés
           </h2>
           <p className="max-w-[52ch] text-pretty text-lg leading-relaxed text-muted">
-            Quatre sites en ligne, à ouvrir et à tester. Chaque panneau dit le besoin de départ, ce que j&apos;ai mis en place, et
+            Douze sites et applications, à ouvrir et à tester. Chaque panneau dit le besoin de départ, ce que j&apos;ai mis en place, et
             s&apos;il s&apos;agit d&apos;un vrai client ou d&apos;une démonstration.
           </p>
         </div>
 
-        <ul className="mt-12 grid gap-8 md:mt-16 md:grid-cols-2 md:gap-10">
+        <ul className="mt-12 grid gap-8 md:mt-16 md:grid-cols-2 md:gap-10 xl:grid-cols-3">
           {projects.map((p) => (
             <li key={p.name}>
               <article aria-labelledby={`chantier-${p.host}`} className="flex h-full flex-col border-[3px] border-anthracite bg-tole">
