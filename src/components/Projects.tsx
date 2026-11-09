@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { bookingHref, projects, site } from "@/lib/content";
+import { quoteHref, projects, site } from "@/lib/content";
 
 /*
   Réalisations : un panneau de chantier par site. Le statut se lit par la forme du cachet
@@ -88,8 +88,8 @@ export default function Projects() {
 
         <p className="mt-12 flex flex-wrap items-center justify-between gap-6 border-[3px] border-dashed border-anthracite px-6 py-6 md:px-8">
           <span className="lettrage text-[clamp(1.4rem,3vw,2.2rem)]">Le prochain panneau peut porter votre nom.</span>
-          <a href={bookingHref} className="bg-vinyle px-6 py-3.5 font-bold text-white transition-colors hover:bg-vinyle-fonce">
-            Réserver un appel
+          <a href={quoteHref} className="bg-vinyle px-6 py-3.5 font-bold text-white transition-colors hover:bg-vinyle-fonce">
+            Demander un devis gratuit
           </a>
         </p>
       </div>

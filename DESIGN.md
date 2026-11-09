@@ -134,7 +134,7 @@ Une carrosserie claire, un vinyle rouge vermillon, un anthracite de pneu : la pa
 ### Neutral
 - **Anthracite** (anthracite) : texte courant, tous les filets et bordures, en-têtes des panneaux de chantier et du bon de demande, bande fine de la livrée, pied de page, bouton d'action dans la zone rouge. Contraste 14,6 sur carrosserie.
 - **Gris jante** (jante) : texte secondaire (chapôs de section, descriptions, libellés `dt` des panneaux, libellés des cases du formulaire). Contraste 6,0 sur carrosserie.
-- **Carrosserie** (carrosserie) : fond de page, barre de navigation, barre d'appel mobile, fond du bon de demande, `theme-color` du navigateur.
+- **Carrosserie** (carrosserie) : fond de page, barre de navigation, barre « Devis gratuit » mobile, fond du bon de demande, `theme-color` du navigateur.
 - **Tôle** (tole) : panneaux posés sur la carrosserie (panneaux de chantier, portes arrière, cadre du portrait, cases du formulaire) et fond plein des sections Méthode et FAQ ; aussi le blanc du texte sur rouge et sur anthracite.
 
 ### Named Rules
@@ -172,7 +172,7 @@ Conteneur unique de 1360px centré, gouttières de 20px sur mobile et 32px dès 
 
 Le premier écran est une composition de flanc : nom à gauche et macaron à droite (macaron visible dès 64rem, à côté du bouton sur mobile), puis zone et prestations derrière un filet rouge de 8px, puis la bande de livrée pleine largeur (aplat rouge de 36px, 48px dès 48rem ; 6px de carrosserie ; bande anthracite de 8px), puis texte d'accroche, bouton et email lettré. Sur mobile, l'action passe avant les prestations.
 
-Grilles : deux colonnes égales pour les réalisations et les portes arrière dès 48rem ; 5/7 pour à-propos et contact, 4/7 pour la FAQ dès 64rem ; tournée en sept colonnes dès 80rem, verticale en dessous. Sur mobile, une barre d'appel fixée en bas (bouton rouge « Réserver un appel » + lien « Écrire »), qui glisse en place une fois le premier écran passé et s'efface sur la section contact, pour ne jamais couvrir l'email lettré ni le formulaire ; le pied de page réserve la place en dessous (112px).
+Grilles : deux colonnes égales pour les réalisations et les portes arrière dès 48rem ; 5/7 pour à-propos et contact, 4/7 pour la FAQ dès 64rem ; tournée en sept colonnes dès 80rem, verticale en dessous. Sur mobile, une barre fixée en bas (bouton rouge « Devis gratuit » + lien « Écrire »), qui glisse en place une fois le premier écran passé et s'efface sur la section contact, pour ne jamais couvrir l'email lettré ni le formulaire ; le pied de page réserve la place en dessous (112px).
 
 ## Elevation & Depth
 
@@ -226,7 +226,7 @@ Portrait 4/5 dans un cadre tôle bordé de 3px, avec la vitre arrondie à 72px e
 `details` natifs séparés par des règles de 3px anthracite, question en gras 800, signe plus vinyle qui tourne de 45° à l'ouverture.
 
 ### Navigation
-Plaque carrosserie collante de 64px, filet bas de 3px. Marque en lettrage à gauche, liens gras soulignés en vinyle au survol dès 64rem, bouton rouge « Réserver un appel » dès 40rem. Menu mobile : bouton carré bordé de 3px, liste en lettrage 1.5rem séparée par des filets fins. Les pages légales reprennent la plaque avec un simple lien « Retour au site ».
+Plaque carrosserie collante de 64px, filet bas de 3px. Marque en lettrage à gauche, liens gras soulignés en vinyle au survol dès 64rem, bouton rouge « Devis gratuit » dès 40rem. Menu mobile : bouton carré bordé de 3px, liste en lettrage 1.5rem séparée par des filets fins. Les pages légales reprennent la plaque avec un simple lien « Retour au site ».
 
 ### Pied de page
 Aplat anthracite, marque en lettrage blanc, liens légaux soulignés en vinyle.
@@ -256,4 +256,4 @@ Au chargement, un film de transfert translucide crème couvre le nom puis se dé
 
 ## À compléter
 
-Éléments en attente, listés dans INFOS-A-FOURNIR.md : lien Calendly, GitHub, LinkedIn, champs des mentions légales, régime de TVA pour les mentions légales, une réponse de FAQ, vrais témoignages (la section reste masquée tant qu'aucun avis n'est renseigné).
+Éléments en attente, listés dans INFOS-A-FOURNIR.md : GitHub, LinkedIn, champs des mentions légales, régime de TVA pour les mentions légales, une réponse de FAQ, vrais témoignages (la section reste masquée tant qu'aucun avis n'est renseigné).

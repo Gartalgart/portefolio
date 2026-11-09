@@ -1,11 +1,11 @@
 "use client";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { bookingHref, nav, site } from "@/lib/content";
+import { quoteHref, nav, site } from "@/lib/content";
 
 /*
   Barre du haut : la plaque du véhicule, blanche, filet anthracite épais. Sur mobile, le menu
-  s'ouvre en dessous et une barre d'appel reste collée en bas de l'écran (voir CallBar).
+  s'ouvre en dessous et une barre « Devis gratuit » reste collée en bas de l'écran (voir CallBar).
 */
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -36,10 +36,10 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href={bookingHref}
+            href={quoteHref}
             className="hidden bg-vinyle px-5 py-3 font-bold text-white transition-colors hover:bg-vinyle-fonce sm:block"
           >
-            Réserver un appel
+            Devis gratuit
           </a>
           <button
             type="button"

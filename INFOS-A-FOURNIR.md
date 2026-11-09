@@ -24,8 +24,7 @@ Contexte : le site publié sur rd-solutions.fr n'a pas encore de pages Mentions 
 
 ## Contenu du site (non bloquant)
 
-6. **Lien de réservation** Calendly ou Cal.com pour l'appel de 15 min (sinon le bouton ouvre un email) :
-   > Réponse :
+6. ~~**Lien de réservation**~~ : plus nécessaire, la réservation d'appel est remplacée par un email « Devis gratuit » (09/11/2026).
 
 7. **GitHub et LinkedIn** (masqués tant qu'ils sont vides) :
    > Réponse :

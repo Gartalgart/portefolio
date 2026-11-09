@@ -1,7 +1,7 @@
-import { bookingHref, steps } from "@/lib/content";
+import { quoteHref, steps } from "@/lib/content";
 
 /*
-  Méthode : une tournée en sept arrêts numérotés, du premier appel au suivi. Le numéro porte
+  Méthode : une tournée en sept arrêts numérotés, de la demande au suivi. Le numéro porte
   l'ordre des étapes, c'est une information. Sur grand écran la route est horizontale, sinon verticale.
 */
 export default function Method() {
@@ -12,7 +12,7 @@ export default function Method() {
           La tournée
         </h2>
         <p className="mt-5 max-w-[52ch] text-pretty text-lg leading-relaxed text-muted">
-          Sept arrêts du premier appel à la mise en ligne, et le même conducteur du début à la fin. Vous savez toujours où en est
+          Sept arrêts de votre demande à la mise en ligne, et le même conducteur du début à la fin. Vous savez toujours où en est
           votre site.
         </p>
 
@@ -33,8 +33,8 @@ export default function Method() {
         </ol>
 
         <p className="mt-14 xl:mt-16">
-          <a href={bookingHref} className="inline-block bg-vinyle px-6 py-3.5 font-bold text-white transition-colors hover:bg-vinyle-fonce">
-            Premier arrêt&nbsp;: réserver l&apos;appel
+          <a href={quoteHref} className="inline-block bg-vinyle px-6 py-3.5 font-bold text-white transition-colors hover:bg-vinyle-fonce">
+            Premier arrêt&nbsp;: demander un devis gratuit
           </a>
         </p>
       </div>

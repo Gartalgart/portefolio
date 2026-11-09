@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
-import { bookingReady, legal, site } from "@/lib/content";
+import { legal, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: `Confidentialité — ${site.brand}`,
@@ -51,7 +51,6 @@ export default function Confidentialite() {
         <p>
           Les liens de la section Réalisations ouvrent les sites présentés dans un nouvel onglet : chacun applique alors sa propre
           politique de cookies.
-          {bookingReady && " Le calendrier de réservation est fourni par Calendly, qui applique également la sienne."}
         </p>
       </section>
 

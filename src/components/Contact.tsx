@@ -1,13 +1,13 @@
 "use client";
 import { ArrowRight, Check, Mail } from "lucide-react";
 import { useActionState } from "react";
-import { bookingHref, bookingReady, site, socials } from "@/lib/content";
+import { site, socials } from "@/lib/content";
 import { sendContact, type ContactState } from "@/app/actions";
 
 // Uniquement des engagements déjà confirmés (voir PRODUCT.md).
 const included = [
   "Un seul interlocuteur, du devis à la maintenance",
-  "Un prix annoncé avant de commencer",
+  "Un devis gratuit, avec le prix annoncé avant de commencer",
   "Pensé pour le mobile et pour Google",
   "Hauts-de-France, Île-de-France ou à distance",
 ];
@@ -29,19 +29,9 @@ export default function Contact() {
         <div className="mt-10 grid gap-14 lg:mt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
           <div>
             <p className=" max-w-[46ch] text-pretty text-lg leading-relaxed">
-              Décrivez votre besoin en quelques lignes ou réservez un appel de 15 minutes : je vous réponds avec une première idée et un
-              ordre de prix.
+              Décrivez votre besoin en quelques lignes, par ce bon de demande ou par email : je vous réponds avec un devis gratuit, sans
+              engagement.
             </p>
-
-            {!bookingReady && (
-              <a
-                href={bookingHref}
-                className="mt-8 inline-flex items-center gap-3 bg-anthracite px-7 py-4 text-lg font-bold text-white transition-colors hover:bg-white hover:text-anthracite"
-              >
-                Réserver un appel de 15 min
-                <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />
-              </a>
-            )}
 
             <h3 className="lettrage-etroit mt-12 text-xl">Ce qui est compris</h3>
             <ul className="mt-4 space-y-3 border-t-[3px] border-white pt-5">
@@ -79,12 +69,6 @@ export default function Contact() {
           </div>
 
           <div className="space-y-10">
-            {bookingReady && (
-              <div className="border-[3px] border-anthracite bg-white">
-                <iframe src={site.calendly} title="Réserver un appel de 15 minutes" loading="lazy" className="h-[640px] w-full" />
-              </div>
-            )}
-
             {/* Bon de demande : des cases comme sur un carnet de bons, sur la tôle blanche. */}
             <form action={action} aria-label="Écrire un message" className="border-[3px] border-anthracite bg-carrosserie text-anthracite">
               <p className="lettrage-etroit flex items-center justify-between gap-4 bg-anthracite px-5 py-3 text-lg tracking-[0.06em] text-white">
@@ -118,7 +102,7 @@ export default function Contact() {
                   disabled={pending}
                   className="inline-flex w-full items-center justify-center gap-3 bg-vinyle px-6 py-4 text-lg font-bold text-white transition-colors hover:bg-vinyle-fonce disabled:cursor-wait disabled:opacity-70"
                 >
-                  {pending ? "Envoi en cours…" : "Envoyer la demande"}
+                  {pending ? "Envoi en cours…" : "Demander mon devis gratuit"}
                   {!pending && <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />}
                 </button>
                 {/* Une erreur est annoncée tout de suite (alert), la confirmation sans interrompre (status). */}

@@ -8,7 +8,6 @@ export const site = {
   // [À COMPLÉTER] Les liens vides ne sont pas affichés : rien ne renvoie vers une page d'accueil générique.
   github: "",
   linkedin: "",
-  calendly: "https://calendly.com/", // [À COMPLÉTER] lien de prise de RDV
   location: "Hauts-de-France · Île-de-France · à distance",
   // Portrait de « À propos » (4:5, ex. "/images/profile.jpg" dans public/). Vide : un panneau lettré le remplace.
   photo: "",
@@ -38,12 +37,19 @@ export const legal = {
   retention: "trois ans après notre dernier échange", // [À CONFIRMER] durée de conservation des demandes sans suite
 };
 
-// Le calendrier ne s'affiche que lorsqu'un vrai lien de réservation est renseigné.
-export const bookingReady = !/^https:\/\/calendly\.com\/?$/.test(site.calendly);
-// Sans lien de réservation, « Réserver un appel » ouvre un email pré-rempli.
-export const bookingHref = bookingReady
-  ? site.calendly
-  : `mailto:${site.email}?subject=${encodeURIComponent("Appel de 15 min pour mon projet")}`;
+// « Devis gratuit » : pas d'appel à réserver, le visiteur écrit un email déjà préparé.
+const quoteBody = [
+  "Bonjour,",
+  "",
+  "Je souhaite recevoir un devis gratuit pour mon projet.",
+  "",
+  "Mon activité : ",
+  "Ce que j'attends du site : ",
+  "Mes délais : ",
+  "",
+  "Merci,",
+].join("\n");
+export const quoteHref = `mailto:${site.email}?subject=${encodeURIComponent("Demande de devis gratuit")}&body=${encodeURIComponent(quoteBody)}`;
 
 export const nav = [
   { href: "#projets", label: "Réalisations" },
@@ -240,8 +246,8 @@ export const method = [
 
 // Frise « Comment ça se passe ». Pas de durée tant qu'elle n'est pas confirmée.
 export const steps = [
-  { title: "Appel découverte", text: "15 minutes pour comprendre votre activité, vos clients et ce que le site doit leur faire faire." },
-  { title: "Devis clair", text: "Un prix annoncé avant de commencer, avec ce qui est inclus noir sur blanc." },
+  { title: "Votre demande", text: "Vous m'écrivez votre activité et ce que le site doit faire faire à vos clients. Je reviens vers vous avec mes questions." },
+  { title: "Devis gratuit", text: "Un prix annoncé avant de commencer, avec ce qui est inclus noir sur blanc." },
   { title: "Maquette", text: "Vous voyez votre site avant qu'il soit développé et vous validez la direction." },
   { title: "Développement", text: "Le site prend vie. Vous suivez l'avancée sur une adresse de test." },
   { title: "Vos retours", text: "On ajuste les textes, les photos et les détails ensemble." },
@@ -252,7 +258,7 @@ export const steps = [
 export const faq = [
   {
     q: "Combien coûte un site ?",
-    a: "Cela dépend de ce dont votre activité a besoin : le nombre de pages, les fonctions, les contenus à préparer. Après un appel de 15 minutes, je vous envoie un devis détaillé : le prix est annoncé avant de commencer, avec ce qui est inclus.",
+    a: "Cela dépend de ce dont votre activité a besoin : le nombre de pages, les fonctions, les contenus à préparer. Écrivez-moi votre besoin et je vous envoie un devis gratuit et détaillé : le prix est annoncé avant de commencer, avec ce qui est inclus.",
   },
   {
     q: "Combien de temps faut-il pour créer mon site ?",
@@ -272,7 +278,7 @@ export const faq = [
   },
   {
     q: "Je ne suis pas près de chez vous, est-ce possible ?",
-    a: "Oui. Je travaille en Hauts-de-France, en Île-de-France et à distance : un appel ou une visio suffit pour avancer.",
+    a: "Oui. Je travaille en Hauts-de-France, en Île-de-France et à distance : tout peut se faire par email ou en visio.",
   },
 ];
 

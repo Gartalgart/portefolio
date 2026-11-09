@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { bookingHref, offers, site } from "@/lib/content";
+import { quoteHref, offers, site } from "@/lib/content";
 
 /*
   Premier écran : le flanc du véhicule. Le nom en lettrage rouge sur toute la largeur (film de pose
@@ -48,8 +48,8 @@ export default function Hero() {
 
           {/* Téléphone : l'action avant les prestations, avec le macaron à côté. */}
           <div className="flex items-center justify-between gap-4 md:hidden">
-            <a href={bookingHref} className={`${cta} inline-flex px-5 text-base`}>
-              Réserver un appel
+            <a href={quoteHref} className={`${cta} inline-flex px-5 text-base`}>
+              Devis gratuit
               <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />
             </a>
             <Macaron className="grid h-[8.5rem] w-[8.5rem] px-3" />
@@ -82,8 +82,8 @@ export default function Hero() {
           maintenance.
         </p>
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-          <a href={bookingHref} className={`${cta} hidden px-7 text-lg md:inline-flex`}>
-            Réserver un appel de 15 min
+          <a href={quoteHref} className={`${cta} hidden px-7 text-lg md:inline-flex`}>
+            Demander un devis gratuit
             <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />
           </a>
           {/* L'email lettré comme sur un utilitaire : la deuxième inscription après le nom. */}

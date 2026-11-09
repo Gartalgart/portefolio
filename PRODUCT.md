@@ -10,7 +10,7 @@ web
 Dirigeants et responsables de petites structures : artisans, commerçants, TPE/PME, associations, mairies et collectivités. Ils ne sont pas techniques, cherchent un prestataire fiable pour créer ou refondre leur site, et jugent surtout sur la clarté, la confiance et la proximité. Zone : Hauts-de-France, Île-de-France, télétravail.
 
 ## Product Purpose
-Portfolio d'un développeur full-stack freelance (Rémy Denimal) dont le but est de convertir un visiteur en prise de contact : formulaire ou appel de 15 min. Succès = une demande de projet qualifiée.
+Portfolio d'un développeur full-stack freelance (Rémy Denimal) dont le but est de convertir un visiteur en prise de contact : formulaire ou email de demande de devis gratuit. Succès = une demande de projet qualifiée.
 
 ## Positioning
 Ce qu'un voisin ne peut pas copier tel quel (confirmé) : un seul interlocuteur du devis à la maintenance, proximité Hauts-de-France / Île-de-France, prix annoncé dans le devis avant de commencer, sans surprise.
@@ -19,10 +19,10 @@ Ce qu'un voisin ne peut pas copier tel quel (confirmé) : un seul interlocuteur 
 - Domaine : rd-solutions.fr, email pro contact@rd-solutions.fr.
 - Site Next.js (App Router) déployé avec ses actions serveur ; contenu centralisé dans `src/lib/content.ts`.
 - Thème clair seul, pas de bascule de thème (décision du 27/10/2026). Pas de 3D ni de vidéo.
-- Formulaire envoyé par email via Resend (`src/app/actions.ts`, variable `RESEND_API_KEY`). « Réserver un appel » ouvre un email tant que le lien Calendly n'est pas renseigné.
+- Formulaire envoyé par email via Resend (`src/app/actions.ts`, variable `RESEND_API_KEY`). « Devis gratuit » ouvre un email pré-rempli (`quoteHref` dans `src/lib/content.ts`) : plus de réservation d'appel (décision du 09/11/2026).
 - Pages `/mentions-legales` et `/confidentialite` en place ; forme juridique, SIRET et adresse restent à renseigner dans `legal` (`content.ts`).
-- Aucun prix ni montant affiché sur le site (décision du 28/10/2026) : le prix se donne dans le devis, après l'appel.
-- Décisions ouvertes : GitHub, LinkedIn, Calendly, régime de TVA pour les mentions légales, durée de conservation à confirmer. Hébergeur confirmé : Vercel.
+- Aucun prix ni montant affiché sur le site (décision du 28/10/2026) : le prix se donne dans le devis gratuit, envoyé par email.
+- Décisions ouvertes : GitHub, LinkedIn, régime de TVA pour les mentions légales, durée de conservation à confirmer. Hébergeur confirmé : Vercel.
 
 ## Brand Commitments
 Nom : Rémy Denimal, marque RD-Solutions. Direction validée le 27/10/2026 (voir `DESIGN.md`) : « lettrage d'utilitaire », le site se lit comme le flanc lettré d'une camionnette d'artisan. Pas de numéro de téléphone affiché pour l'instant. Photo : `public/images/profile.jpg` (pull vert, sourire).
