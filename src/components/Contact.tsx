@@ -34,7 +34,7 @@ export default function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-titre" className="vinyle border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[1360px]">
-        <h2 id="contact-titre" className="lettrage text-balance text-[clamp(2rem,5.6vw,5rem)]">
+        <h2 id="contact-titre" className="lettrage text-balance text-[clamp(1.8rem,5.6vw,5rem)]">
           Demande d&apos;intervention
         </h2>
         <div className="mt-10 grid gap-14 lg:mt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">

@@ -89,16 +89,15 @@ export default function Projects() {
   return (
     <section id="projets" aria-labelledby="projets-titre" className="border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[1360px]">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
-          <h2 id="projets-titre" className="lettrage text-balance text-[clamp(2.4rem,6vw,5rem)]">
-            Réalisations
-          </h2>
-          <p className="max-w-[52ch] text-pretty text-lg leading-relaxed text-muted">
-            {projects.length} sites et applications, à ouvrir et à tester : {clients} projets clients et {demos} démonstrations. Une
-            démonstration est un site complet, construit autour d&apos;un client fictif pour montrer ce que je sais faire ; chaque
-            panneau le signale.
-          </p>
-        </div>
+        {/* Titre d'un seul mot, insécable : il prend toute la largeur, le texte passe dessous (comme Services et Méthode). */}
+        <h2 id="projets-titre" className="lettrage text-[clamp(2rem,6vw,5rem)]">
+          Réalisations
+        </h2>
+        <p className="mt-5 max-w-[52ch] text-pretty text-lg leading-relaxed text-muted">
+          {projects.length} sites et applications, à ouvrir et à tester : {clients} projets clients et {demos} démonstrations. Une
+          démonstration est un site complet, construit autour d&apos;un client fictif pour montrer ce que je sais faire ; chaque
+          panneau le signale.
+        </p>
 
         <ul className={`mt-12 md:mt-16 ${grid}`}>
           {first.map((p) => (
