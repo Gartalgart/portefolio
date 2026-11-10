@@ -233,6 +233,17 @@ export const projects = [
     tags: ["Boutique en ligne", "Conseil par exposition", "Panier"],
     image: "/images/projects/rebord.webp",
   },
+  {
+    name: "Yummy Nouilles",
+    category: "Restaurant de ramen",
+    client: false,
+    url: "https://yummy-nouilles-omega.vercel.app/",
+    host: "yummy-nouilles-omega.vercel.app",
+    problem: "Un restaurant de nouilles à trois adresses, dont les clients ne trouvaient ni la carte ni le bon numéro pour réserver.",
+    solution: "Un site à forte personnalité avec la carte complète et ses prix, les trois adresses et une demande de réservation par restaurant.",
+    tags: ["Carte et prix", "Trois adresses", "Réservation"],
+    image: "/images/projects/yummy-nouilles.webp",
+  },
 ];
 
 export const method = [
