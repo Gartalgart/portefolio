@@ -19,13 +19,13 @@ Ce qu'un voisin ne peut pas copier tel quel (confirmé) : un seul interlocuteur 
 - Domaine : rd-solutions.fr, email pro contact@rd-solutions.fr.
 - Site Next.js (App Router) déployé avec ses actions serveur ; contenu centralisé dans `src/lib/content.ts`.
 - Thème clair seul, pas de bascule de thème (décision du 27/10/2026). Pas de 3D ni de vidéo.
-- Formulaire envoyé par email via Resend (`src/app/actions.ts`, variable `RESEND_API_KEY`). « Devis gratuit » ouvre un email pré-rempli (`quoteHref` dans `src/lib/content.ts`) : plus de réservation d'appel (décision du 09/11/2026).
+- Formulaire envoyé par email via Resend (`src/app/actions.ts`, variable `RESEND_API_KEY`). « Devis gratuit » mène au formulaire (`quoteHref` = `#contact`) ; l'email pré-rempli (`quoteMailHref`) reste proposé en second choix, car un lien mailto ne fait rien sans messagerie configurée (décision du 10/11/2026). Pas de réservation d'appel (décision du 09/11/2026).
 - Pages `/mentions-legales` et `/confidentialite` en place ; forme juridique, SIRET et adresse restent à renseigner dans `legal` (`content.ts`).
 - Aucun prix ni montant affiché sur le site (décision du 28/10/2026) : le prix se donne dans le devis gratuit, envoyé par email.
 - Décisions ouvertes : GitHub, LinkedIn, régime de TVA pour les mentions légales, durée de conservation à confirmer. Hébergeur confirmé : Vercel.
 
 ## Brand Commitments
-Nom : Rémy Denimal, marque RD-Solutions. Direction validée le 27/10/2026 (voir `DESIGN.md`) : « lettrage d'utilitaire », le site se lit comme le flanc lettré d'une camionnette d'artisan. Pas de numéro de téléphone affiché pour l'instant. Photo : `public/images/profile.jpg` (pull vert, sourire).
+Nom : Rémy Denimal, marque RD-Solutions. Direction validée le 27/10/2026 (voir `DESIGN.md`) : « lettrage d'utilitaire », le site se lit comme le flanc lettré d'une camionnette d'artisan. Pas de numéro de téléphone affiché pour l'instant (reconfirmé le 10/11/2026). Photo : `public/images/profile.webp` (portrait 4:5, pull sombre, lunettes rondes), affichée dans « À propos » depuis le 10/11/2026.
 
 ## Evidence on Hand
 - 4 sites en ligne avec aperçus (`public/images/projects/`) : Secur-Feu et Save Toiture sont des projets clients (confirmé), Maison Léa Coiffure et Braise des démonstrations, signalées comme telles.

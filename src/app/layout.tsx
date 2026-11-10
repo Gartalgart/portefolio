@@ -33,13 +33,15 @@ export const viewport: Viewport = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: site.name,
-  jobTitle: site.role,
+  // Une activité de service locale plutôt qu'une simple personne : c'est ce que Google lit pour la recherche locale.
+  "@type": "ProfessionalService",
+  name: site.brand,
+  description,
   url: site.url,
   email: site.email,
   ...(site.photo ? { image: `${site.url}${site.photo}` } : {}),
   areaServed: ["Hauts-de-France", "Île-de-France"],
+  founder: { "@type": "Person", name: site.name, jobTitle: site.role },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

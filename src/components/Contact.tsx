@@ -105,6 +105,12 @@ export default function Contact() {
                   {pending ? "Envoi en cours…" : "Demander mon devis gratuit"}
                   {!pending && <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />}
                 </button>
+                <p className="text-sm leading-relaxed text-jante">
+                  Votre nom, votre email et votre message servent uniquement à vous répondre.{" "}
+                  <a href="/confidentialite" className="font-semibold text-anthracite underline decoration-vinyle hover:text-vinyle">
+                    Confidentialité
+                  </a>
+                </p>
                 {/* Une erreur est annoncée tout de suite (alert), la confirmation sans interrompre (status). */}
                 <p
                   role={state.status === "error" ? "alert" : "status"}

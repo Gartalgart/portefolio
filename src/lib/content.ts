@@ -10,7 +10,7 @@ export const site = {
   linkedin: "",
   location: "Hauts-de-France · Île-de-France · à distance",
   // Portrait de « À propos » (4:5, ex. "/images/profile.jpg" dans public/). Vide : un panneau lettré le remplace.
-  photo: "",
+  photo: "/images/profile.webp",
 };
 
 // Réseaux affichés dans Contact : seulement ceux qui ont un vrai lien.
@@ -27,9 +27,12 @@ export const legalPages = [
 export const legal = {
   updated: "27 octobre 2026",
   publisher: site.name, // éditeur et directeur de la publication
-  status: "[À COMPLÉTER] forme juridique (ex. entrepreneur individuel)",
-  siret: "[À COMPLÉTER] numéro SIRET",
-  address: "[À COMPLÉTER] adresse professionnelle",
+  // Micro-entrepreneur (confirmé le 10/11/2026) : la mention « EI » suit le nom dans les mentions légales.
+  status: "Entrepreneur individuel (EI), sous le régime de la micro-entreprise",
+  siret: "131 478 620 00019", // fourni le 10/11/2026, clé de contrôle vérifiée
+  // Commune seule, choix du 10/11/2026 : l'adresse complète (domicile familial) n'est pas publiée.
+  // Pas strictement conforme à la LCEN : à remplacer par une adresse de domiciliation dès qu'il y en a une.
+  address: "Blincourt (60), adresse complète communiquée sur demande",
   // Hébergeur vérifié le 27/10/2026 (en-tête « Server: Vercel » sur rd-solutions.fr).
   host: { name: "Vercel Inc.", address: "440 N Barranca Ave #4133, Covina, CA 91723, États-Unis", url: "https://vercel.com" },
   // Prestataire qui achemine les messages du formulaire (voir src/app/actions.ts).
@@ -37,7 +40,9 @@ export const legal = {
   retention: "trois ans après notre dernier échange", // [À CONFIRMER] durée de conservation des demandes sans suite
 };
 
-// « Devis gratuit » : pas d'appel à réserver, le visiteur écrit un email déjà préparé.
+// « Devis gratuit » mène au formulaire (envoyé par Resend) : un lien mailto ne fait rien chez un visiteur sans
+// messagerie configurée. L'email déjà préparé reste proposé en second choix (quoteMailHref).
+export const quoteHref = "#contact";
 const quoteBody = [
   "Bonjour,",
   "",
@@ -49,7 +54,7 @@ const quoteBody = [
   "",
   "Merci,",
 ].join("\n");
-export const quoteHref = `mailto:${site.email}?subject=${encodeURIComponent("Demande de devis gratuit")}&body=${encodeURIComponent(quoteBody)}`;
+export const quoteMailHref = `mailto:${site.email}?subject=${encodeURIComponent("Demande de devis gratuit")}&body=${encodeURIComponent(quoteBody)}`;
 
 export const nav = [
   { href: "#projets", label: "Réalisations" },
@@ -86,12 +91,10 @@ export const audiences = ["artisans", "commerçants", "TPE/PME", "associations",
 export const projects = [
   {
     name: "Secur-Feu",
-    color: "#b42318", // couleur de la vitrine (texte blanc, contraste AA vérifié)
     category: "Sécurité incendie",
     client: true,
     url: "https://secur-feu.com",
     host: "secur-feu.com",
-    live: false,
     problem: "Une entreprise technique dont l'offre était difficile à comprendre pour ses clients.",
     solution: "Un site professionnel qui détaille les prestations et inspire confiance dès l'arrivée.",
     tags: ["Site vitrine", "Accessibilité", "SEO"],
@@ -99,12 +102,10 @@ export const projects = [
   },
   {
     name: "Save Toiture",
-    color: "#b8500b", // couleur de la vitrine (texte blanc, contraste AA vérifié)
     category: "Étanchéité et toiture",
     client: true,
     url: "https://save-toiture.vercel.app/",
     host: "save-toiture.vercel.app",
-    live: true,
     problem: "Un artisan qui perdait des demandes de devis faute d'un parcours simple et rassurant.",
     solution: "Un site orienté conversion : réalisations, zone d'intervention et demande de devis en un clic.",
     tags: ["Formulaire de devis", "Zone d'intervention", "SEO local"],
@@ -112,12 +113,10 @@ export const projects = [
   },
   {
     name: "Maison Léa Coiffure",
-    color: "#a3245f", // couleur de la vitrine (texte blanc, contraste AA vérifié)
     category: "Salon de coiffure",
     client: false,
     url: "https://maison-lea-coiffure.vercel.app/",
     host: "maison-lea-coiffure.vercel.app",
-    live: true,
     problem: "Un salon doit montrer ses prestations et ses tarifs sans que chaque cliente ait à appeler.",
     solution: "Un site élégant avec prestations, tarifs et prise de contact immédiate, pensé pour le mobile.",
     tags: ["Prestations et tarifs", "Pensé mobile", "SEO local"],
@@ -125,12 +124,10 @@ export const projects = [
   },
   {
     name: "Braise",
-    color: "#3b1d12", // couleur de la vitrine (texte blanc, contraste AA vérifié)
     category: "Restaurant",
     client: false,
     url: "https://braise-restaurant-plum.vercel.app/",
     host: "braise-restaurant-plum.vercel.app",
-    live: true,
     problem: "Un restaurant doit mettre en valeur sa carte et son ambiance avant même la première visite.",
     solution: "Une vitrine gourmande avec carte, galerie et réservation facilitée.",
     tags: ["Carte", "Galerie", "Réservation"],
@@ -143,7 +140,6 @@ export const projects = [
     client: false,
     url: "https://cabinet-medical-theta.vercel.app/fr",
     host: "cabinet-medical-theta.vercel.app",
-    live: true,
     problem: "Six praticiens, un secrétariat débordé par le téléphone et des patients qui ne savent pas qui consulter.",
     solution: "Un site rassurant avec prise de rendez-vous en ligne sans compte, et un outil de gestion pour le secrétariat.",
     tags: ["Rendez-vous en ligne", "Espace secrétariat", "Français / anglais"],
@@ -155,7 +151,6 @@ export const projects = [
     client: false,
     url: "https://kaolin-ceramique.vercel.app/",
     host: "kaolin-ceramique.vercel.app",
-    live: true,
     problem: "Une céramiste qui vendait au marché et par messages, et avait déjà vendu deux fois la même pièce.",
     solution: "Une boutique en ligne avec un stock exact pièce par pièce, le paiement, le suivi de commande et un espace atelier.",
     tags: ["Boutique en ligne", "Stock en temps réel", "Suivi de commande"],
@@ -167,7 +162,6 @@ export const projects = [
     client: false,
     url: "https://rustine-repair-cafe.vercel.app/",
     host: "rustine-repair-cafe.vercel.app",
-    live: true,
     problem: "Un repair café qui n'avait qu'une page Facebook : personne ne savait quand venir, et les adhésions se faisaient sur papier.",
     solution: "Un site qui affiche le prochain atelier tout seul, avec adhésion, don et inscription des bénévoles en ligne.",
     tags: ["Agenda automatique", "Adhésion et dons", "Bénévolat"],
@@ -179,7 +173,6 @@ export const projects = [
     client: false,
     url: "https://matos-location.vercel.app/",
     host: "matos-location.vercel.app",
-    live: true,
     problem: "Des artisans dont le matériel coûteux dort au dépôt, et qui se le prêtent par téléphone, sans planning ni caution.",
     solution: "Une plateforme de location avec carte autour du chantier, caution, messagerie et aucune double réservation possible.",
     tags: ["Carte et recherche", "Réservations", "Messagerie"],
@@ -191,7 +184,6 @@ export const projects = [
     client: false,
     url: "https://portfolio-photographe-gilt.vercel.app/",
     host: "portfolio-photographe-gilt.vercel.app",
-    live: true,
     problem: "Une photographe dont le travail était écrasé par Instagram, avec des demandes reçues en messages privés incomplets.",
     solution: "Une galerie qui met les photos en valeur, un formulaire de réservation de séance et une boutique de tirages.",
     tags: ["Galerie", "Réservation de séance", "Vente de tirages"],
@@ -203,7 +195,6 @@ export const projects = [
     client: false,
     url: "https://releve-dashboard.vercel.app/",
     host: "releve-dashboard.vercel.app",
-    live: true,
     problem: "Une PME dont les chiffres étaient éparpillés entre trois outils, et un rapport mensuel fait au copier-coller.",
     solution: "Un tableau de bord qui réunit ventes, trafic et activité sur une page, compare les périodes et exporte en PDF.",
     tags: ["Tableau de bord", "Exports PDF et Excel", "Accès par rôle"],
@@ -215,7 +206,6 @@ export const projects = [
     client: false,
     url: "https://binome-rd.vercel.app/",
     host: "binome-rd.vercel.app",
-    live: true,
     problem: "Montrer qu'une petite équipe peut avoir son propre outil de travail partagé, pas seulement un site vitrine.",
     solution: "Une liste de tâches partagée : ce qu'écrit l'un apparaît à l'instant chez l'autre, avec comptes et invitations.",
     tags: ["Temps réel", "Comptes et partage", "Application web"],
@@ -227,16 +217,12 @@ export const projects = [
     client: false,
     url: "https://allure-training.vercel.app/",
     host: "allure-training.vercel.app",
-    live: true,
     problem: "Un sportif dont les séances étaient éparpillées entre deux applications et un tableur.",
     solution: "Une application Android et web qui note une séance en une minute, calcule les records et marche sans réseau.",
     tags: ["Application Android", "Hors ligne", "Synchronisation"],
     image: "/images/projects/allure.webp",
   },
 ];
-
-// Stack technique : plus affichée sur le site depuis la refonte du 27/10/2026 (public non technique).
-export const stack = ["TypeScript", "Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL", "Docker", "Vercel"];
 
 export const method = [
   { title: "Communication claire", text: "Un point régulier, des mots simples, aucune surprise sur le calendrier ou le budget." },

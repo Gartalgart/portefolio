@@ -10,7 +10,7 @@ export default function About() {
     <section id="apropos" aria-labelledby="apropos-titre" className="border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-[1360px] gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
         {site.photo ? (
-          <figure className="border-[3px] border-anthracite bg-tole p-4 md:p-5">
+          <figure className="self-start border-[3px] border-anthracite bg-tole p-4 md:p-5">
             <Image
               src={site.photo}
               alt={`Portrait de ${site.name}`}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LegalPage from "@/components/LegalPage";
-import { legal, site } from "@/lib/content";
+import { legal, projects, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: `Mentions légales — ${site.brand}`,
@@ -15,7 +15,7 @@ export default function MentionsLegales() {
       <section aria-labelledby="editeur">
         <h2 id="editeur">Éditeur du site</h2>
         <ul>
-          <li>{legal.publisher}, {site.role.toLowerCase()}</li>
+          <li>{legal.publisher} EI, {site.role.toLowerCase()}</li>
           <li>{legal.status}</li>
           <li>SIRET : {legal.siret}</li>
           <li>Adresse : {legal.address}</li>
@@ -41,7 +41,8 @@ export default function MentionsLegales() {
         </p>
         <p>
           Les sites présentés dans la section Réalisations appartiennent à leurs propriétaires respectifs. Les projets signalés
-          « Démonstration » (Maison Léa Coiffure, Braise) sont des exemples fictifs créés pour illustrer le travail.
+          « Démonstration » ({projects.filter((p) => !p.client).map((p) => p.name).join(", ")}) sont des exemples fictifs créés
+          pour illustrer le travail.
         </p>
       </section>
 

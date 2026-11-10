@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { quoteHref } from "@/lib/content";
+import { quoteHref, quoteMailHref } from "@/lib/content";
 
 /*
   Sur téléphone, l'action reste à portée de pouce : une barre collée en bas de l'écran.
@@ -34,8 +34,8 @@ export default function CallBar() {
       <a href={quoteHref} tabIndex={show ? 0 : -1} className="bg-vinyle px-5 py-4 text-center text-lg font-bold text-white">
         Devis gratuit
       </a>
-      <a href="#contact" tabIndex={show ? 0 : -1} className="grid place-items-center px-5 font-bold text-anthracite underline decoration-vinyle">
-        Écrire
+      <a href={quoteMailHref} tabIndex={show ? 0 : -1} className="grid place-items-center px-5 font-bold text-anthracite underline decoration-vinyle">
+        Email
       </a>
     </div>
   );
