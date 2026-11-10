@@ -1,6 +1,6 @@
 "use client";
 import { ArrowRight, Check, Mail } from "lucide-react";
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { site, socials } from "@/lib/content";
 import { sendContact, type ContactState } from "@/app/actions";
 
@@ -19,6 +19,17 @@ const input = "mt-1.5 w-full bg-transparent text-lg text-anthracite outline-none
 
 export default function Contact() {
   const [state, action, pending] = useActionState<ContactState, FormData>(sendContact, { status: "idle" });
+
+  // Anti-spam : le temps passé devant le formulaire est joint à l'envoi (durée, pas heure : l'horloge du visiteur n'importe pas).
+  const shownAt = useRef(0);
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, []);
+  const send = (data: FormData) => {
+    // Tant que l'heure d'affichage n'est pas posée (envoi rejoué avant la fin du chargement), la durée vaut zéro.
+    data.set("elapsed", String(shownAt.current ? Date.now() - shownAt.current : 0));
+    action(data);
+  };
 
   return (
     <section id="contact" aria-labelledby="contact-titre" className="vinyle border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
@@ -70,7 +81,7 @@ export default function Contact() {
 
           <div className="space-y-10">
             {/* Bon de demande : des cases comme sur un carnet de bons, sur la tôle blanche. */}
-            <form action={action} aria-label="Écrire un message" className="border-[3px] border-anthracite bg-carrosserie text-anthracite">
+            <form action={send}aria-label="Écrire un message" className="border-[3px] border-anthracite bg-carrosserie text-anthracite">
               <p className="lettrage-etroit flex items-center justify-between gap-4 bg-anthracite px-5 py-3 text-lg tracking-[0.06em] text-white">
                 Bon de demande
                 <span className="text-sm font-semibold normal-case tracking-normal">Les trois cases sont nécessaires</span>
@@ -80,17 +91,18 @@ export default function Contact() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className={cell}>
                     <span className={label}>Nom</span>
-                    <input name="name" required autoComplete="name" className={input} placeholder="Votre nom" />
+                    <input name="name" defaultValue={state.values?.name} required autoComplete="name" className={input} placeholder="Votre nom" />
                   </label>
                   <label className={cell}>
                     <span className={label}>Email</span>
-                    <input name="email" type="email" required autoComplete="email" className={input} placeholder="vous@exemple.fr" />
+                    <input name="email" type="email" defaultValue={state.values?.email} required autoComplete="email" className={input} placeholder="vous@exemple.fr" />
                   </label>
                 </div>
                 <label className={cell}>
                   <span className={label}>Votre projet</span>
                   <textarea
                     name="message"
+                    defaultValue={state.values?.message}
                     required
                     rows={6}
                     className={`${input} resize-y`}
