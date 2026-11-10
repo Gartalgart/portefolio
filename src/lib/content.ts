@@ -222,6 +222,17 @@ export const projects = [
     tags: ["Application Android", "Hors ligne", "Synchronisation"],
     image: "/images/projects/allure.webp",
   },
+  {
+    name: "Rebord",
+    category: "Boutique de plantes",
+    client: false,
+    url: "https://rebord.vercel.app/",
+    host: "rebord.vercel.app",
+    problem: "Une boutique de plantes dont les clients choisissent au coup de cœur, puis voient la plante dépérir à la mauvaise fenêtre.",
+    solution: "Une boutique qui part de l'exposition de la fenêtre et du rythme d'arrosage pour montrer les plantes qui y vivront, avec panier et commande.",
+    tags: ["Boutique en ligne", "Conseil par exposition", "Panier"],
+    image: "/images/projects/rebord.webp",
+  },
 ];
 
 export const method = [
