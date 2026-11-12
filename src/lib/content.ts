@@ -8,6 +8,7 @@ export const site = {
   // [À COMPLÉTER] Les liens vides ne sont pas affichés : rien ne renvoie vers une page d'accueil générique.
   github: "",
   linkedin: "",
+  fiverr: "https://www.fiverr.com/remy_denimal", // profil vendeur, en ligne depuis le 12/11/2026
   location: "Hauts-de-France · Île-de-France · à distance",
   // Portrait de « À propos » (4:5, ex. "/images/profile.jpg" dans public/). Vide : un panneau lettré le remplace.
   photo: "/images/profile.webp",
@@ -17,6 +18,7 @@ export const site = {
 export const socials = [
   { label: "GitHub", href: site.github },
   { label: "LinkedIn", href: site.linkedin },
+  { label: "Profil Fiverr", href: site.fiverr },
 ].filter((s) => s.href);
 
 // Pages légales (pied de page). Les valeurs [À COMPLÉTER] s'affichent telles quelles tant qu'elles ne sont pas renseignées.
