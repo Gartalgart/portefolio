@@ -8,7 +8,7 @@ export const site = {
   // [À COMPLÉTER] Les liens vides ne sont pas affichés : rien ne renvoie vers une page d'accueil générique.
   github: "",
   linkedin: "",
-  fiverr: "https://www.fiverr.com/remy_denimal", // profil vendeur, en ligne depuis le 12/11/2026
+  fiverr: "", // lien retiré le 16/11/2026
   location: "Hauts-de-France · Île-de-France · à distance",
   // Portrait de « À propos » (4:5, ex. "/images/profile.jpg" dans public/). Vide : un panneau lettré le remplace.
   photo: "/images/profile.webp",
