@@ -80,7 +80,7 @@ export const services = [
   },
   {
     title: "Refonte, performance et SEO",
-    text: "Votre site est lent, daté ou introuvable ? Je le reprends, le modernise et le rends accessible, mobile et mieux placé sur Google.",
+    text: "Votre site est lent, daté ou introuvable ? Il est repris, modernisé et rendu accessible, adapté au mobile et mieux placé sur Google.",
   },
   {
     title: "Accompagnement et maintenance",
@@ -256,11 +256,11 @@ export const method = [
 
 // Frise « Comment ça se passe ». Pas de durée tant qu'elle n'est pas confirmée.
 export const steps = [
-  { title: "Votre demande", text: "Vous m'écrivez votre activité et ce que le site doit faire faire à vos clients. Je reviens vers vous avec mes questions." },
+  { title: "Votre demande", text: "Vous décrivez votre activité et ce que le site doit faire faire à vos clients. Quelques questions en retour suffisent à cadrer le projet." },
   { title: "Devis gratuit", text: "Un prix annoncé avant de commencer, avec ce qui est inclus noir sur blanc." },
   { title: "Maquette", text: "Vous voyez votre site avant qu'il soit développé et vous validez la direction." },
   { title: "Développement", text: "Le site prend vie. Vous suivez l'avancée sur une adresse de test." },
-  { title: "Vos retours", text: "On ajuste les textes, les photos et les détails ensemble." },
+  { title: "Vos retours", text: "Les textes, les photos et les détails sont ajustés avec vous." },
   { title: "Mise en ligne", text: "Nom de domaine, hébergement, fiche Google : tout est branché." },
   { title: "Suivi", text: "Mises à jour et petites évolutions, avec le même interlocuteur." },
 ];
@@ -268,7 +268,7 @@ export const steps = [
 export const faq = [
   {
     q: "Combien coûte un site ?",
-    a: "Cela dépend de ce dont votre activité a besoin : le nombre de pages, les fonctions, les contenus à préparer. Écrivez-moi votre besoin et je vous envoie un devis gratuit et détaillé : le prix est annoncé avant de commencer, avec ce qui est inclus.",
+    a: "Cela dépend de ce dont votre activité a besoin : le nombre de pages, les fonctions, les contenus à préparer. Décrivez votre besoin et vous recevez un devis gratuit et détaillé : le prix est annoncé avant de commencer, avec ce qui est inclus.",
   },
   {
     q: "Combien de temps faut-il pour créer mon site ?",
@@ -276,7 +276,7 @@ export const faq = [
   },
   {
     q: "Qui s'occupe de mon site après la mise en ligne ?",
-    a: "Moi. Hébergement, mises à jour et petites évolutions : vous gardez le même interlocuteur du devis à la maintenance.",
+    a: "RD-Solutions. Hébergement, mises à jour et petites évolutions : vous gardez le même interlocuteur du devis à la maintenance.",
   },
   {
     q: "Mon site sera-t-il visible sur Google ?",
@@ -284,11 +284,11 @@ export const faq = [
   },
   {
     q: "Pourrai-je modifier mon site moi-même ?", // [À CONFIRMER] selon les projets
-    a: "Si vous le souhaitez, on prévoit dès le devis un moyen simple de changer vos textes, vos photos ou vos horaires.",
+    a: "Si vous le souhaitez, un moyen simple de changer vos textes, vos photos ou vos horaires est prévu dès le devis.",
   },
   {
     q: "Je ne suis pas près de chez vous, est-ce possible ?",
-    a: "Oui. Je travaille en Hauts-de-France, en Île-de-France et à distance : tout peut se faire par email ou en visio.",
+    a: "Oui. RD-Solutions intervient en Hauts-de-France, en Île-de-France et à distance : tout peut se faire par email ou en visio.",
   },
 ];
 

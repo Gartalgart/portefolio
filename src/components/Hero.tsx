@@ -24,12 +24,13 @@ function Macaron({ className }: { className: string }) {
 const cta = "items-center gap-3 whitespace-nowrap bg-vinyle py-4 font-bold text-white transition-colors hover:bg-vinyle-fonce";
 
 export default function Hero() {
-  const [first, last] = site.name.split(" ");
+  // « RD- » puis « Solutions » : la marque lettrée sur deux lignes, coupée après le trait d'union.
+  const [first, last] = site.brand.split(/(?<=-)/);
   return (
     <section aria-labelledby="titre">
       <div className="mx-auto w-full max-w-[1360px] px-5 pb-8 pt-8 md:px-8 md:pb-9 md:pt-10">
         <div className="flex items-start justify-between gap-10">
-          <h1 id="titre" className="lettrage text-[clamp(3.4rem,11.2vw,9.6rem)]">
+          <h1 id="titre" className="lettrage text-[clamp(2.2rem,11vw,5.2rem)] lg:text-[clamp(5.2rem,8.8vw,8.4rem)]">
             <span className="relative inline-block">
               <span className="block text-vinyle">
                 {first}
@@ -78,7 +79,7 @@ export default function Hero() {
 
       <div className="mx-auto grid w-full max-w-[1360px] items-center gap-6 px-5 py-8 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10 md:px-8 md:py-9">
         <p className="max-w-[52ch] text-pretty text-lg leading-relaxed md:text-xl">
-          Je crée votre site, je le rends visible sur Google et je m&apos;en occupe ensuite. Un seul interlocuteur, du devis à la
+          {site.brand} crée votre site, le rend visible sur Google et en assure le suivi. Un seul interlocuteur, du devis à la
           maintenance.
         </p>
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3">

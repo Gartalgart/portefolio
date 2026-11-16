@@ -13,7 +13,7 @@ export default function Services() {
     <section id="services" aria-labelledby="services-titre" className="border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[1360px]">
         <h2 id="services-titre" className="lettrage text-balance text-[clamp(2.4rem,6vw,5rem)]">
-          Ce que je fais
+          Prestations
         </h2>
         <p className="mt-5 max-w-[52ch] text-pretty text-lg leading-relaxed text-muted">
           Quatre prestations, un prix annoncé avant de commencer, et la même personne pour chacune.

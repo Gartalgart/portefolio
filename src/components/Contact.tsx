@@ -40,7 +40,7 @@ export default function Contact() {
         <div className="mt-10 grid gap-14 lg:mt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
           <div>
             <p className=" max-w-[46ch] text-pretty text-lg leading-relaxed">
-              Décrivez votre besoin en quelques lignes, par ce bon de demande ou par email : je vous réponds avec un devis gratuit, sans
+              Décrivez votre besoin en quelques lignes, par ce bon de demande ou par email : vous recevez en retour un devis gratuit, sans
               engagement.
             </p>
 
@@ -128,7 +128,7 @@ export default function Contact() {
                   role={state.status === "error" ? "alert" : "status"}
                   className={`min-h-6 font-semibold ${state.status === "error" ? "text-vinyle-fonce" : "text-anthracite"}`}
                 >
-                  {state.status === "ok" && "Merci, votre demande est bien partie. Je vous réponds rapidement."}
+                  {state.status === "ok" && "Merci, votre demande est bien partie. Une réponse vous est envoyée rapidement."}
                   {state.status === "error" && state.message}
                 </p>
               </div>

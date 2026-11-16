@@ -7,7 +7,7 @@ import { site } from "@/lib/content";
   Image de partage (LinkedIn, WhatsApp, Facebook, X) : le flanc du véhicule, comme le premier écran.
   Générée au build, en 1200 × 630. Police : Archivo (OFL, paquet @fontsource/archivo).
 */
-export const alt = `${site.name} — création de sites internet, ${site.location}`;
+export const alt = `${site.brand} — création de sites internet, ${site.location}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,7 +15,7 @@ const fontFile = (w: number) => readFile(path.join(process.cwd(), `node_modules/
 
 export default async function Image() {
   const [black, bold] = await Promise.all([fontFile(900), fontFile(800)]);
-  const [first, last] = site.name.toUpperCase().split(" ");
+  const [first, last] = site.brand.toUpperCase().split(/(?<=-)/);
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: "#f1f2f0", fontFamily: "Archivo" }}>

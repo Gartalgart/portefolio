@@ -27,7 +27,7 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
   // ou sans exécuter le script qui la mesure. Personne n'écrit son projet aussi vite.
   const elapsed = Number(formData.get("elapsed"));
   if (!Number.isFinite(elapsed) || elapsed < MIN_FILL_MS) {
-    return { status: "error", values, message: `L'envoi a été trop rapide. Patientez quelques secondes et renvoyez, ou écrivez-moi à ${site.email}.` };
+    return { status: "error", values, message: `L'envoi a été trop rapide. Patientez quelques secondes et renvoyez, ou écrivez à ${site.email}.` };
   }
 
   if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -53,7 +53,7 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
 
   if (error) {
     console.error("Resend:", error);
-    return { status: "error", values, message: `L'envoi a échoué. Écrivez-moi directement à ${site.email}.` };
+    return { status: "error", values, message: `L'envoi a échoué. Écrivez directement à ${site.email}.` };
   }
   return { status: "ok" };
 }

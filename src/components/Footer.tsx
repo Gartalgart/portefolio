@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <p className="lettrage text-2xl">{site.brand}</p>
           <p className="mt-2 text-[#c9ced3]">
-            © {new Date().getFullYear()} {site.name} · {site.location}
+            © {new Date().getFullYear()} {site.brand} · {site.location}
           </p>
         </div>
         <ul className="flex gap-6">

@@ -19,7 +19,9 @@ export default function About() {
               sizes="(min-width: 1024px) 38vw, 100vw"
               className="aspect-[4/5] w-full rounded-tl-[72px] border-[3px] border-anthracite object-cover object-top"
             />
-            <figcaption className="lettrage-etroit mt-4 text-xl">{site.name}</figcaption>
+            <figcaption className="lettrage-etroit mt-4 text-xl">
+              {site.name}, fondateur de {site.brand}
+            </figcaption>
           </figure>
         ) : (
           // Sans portrait : la portière porte le lettrage de l'artisan (nom, métier, zone, contact).
@@ -40,11 +42,11 @@ export default function About() {
 
         <div className="lg:pt-6">
           <h2 id="apropos-titre" className="lettrage text-balance text-[clamp(2.4rem,5.4vw,4.6rem)]">
-            Au volant : moi
+            Un seul au volant
           </h2>
           <p className="mt-6 max-w-[56ch] text-pretty text-lg leading-relaxed md:text-xl">
-            Je conçois, développe et maintiens moi-même chaque site. Un seul interlocuteur, du devis à la maintenance : pas de
-            message qui se perd entre trois personnes.
+            {site.brand}, c&apos;est {site.name}, développeur indépendant. Chaque site est conçu, développé et maintenu par la même personne, du devis à la maintenance : pas de
+            message qui se perd entre trois interlocuteurs.
           </p>
 
           <ul className="mt-10 space-y-1 border-y-[3px] border-anthracite py-3">

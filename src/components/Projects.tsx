@@ -95,7 +95,7 @@ export default function Projects() {
         </h2>
         <p className="mt-5 max-w-[52ch] text-pretty text-lg leading-relaxed text-muted">
           {projects.length} sites et applications, à ouvrir et à tester : {clients} projets clients et {demos} démonstrations. Une
-          démonstration est un site complet, construit autour d&apos;un client fictif pour montrer ce que je sais faire ; chaque
+          démonstration est un site complet, construit autour d&apos;un client fictif pour montrer le savoir-faire de {site.brand} ; chaque
           panneau le signale.
         </p>
 
