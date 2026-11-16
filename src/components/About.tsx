@@ -2,63 +2,59 @@ import Image from "next/image";
 import { method, site } from "@/lib/content";
 
 /*
-  À propos : la portière conducteur. Le portrait cadré grand dans la vitre (coin supérieur arrondi,
-  comme une fenêtre de portière), et à côté qui conduit le projet.
+  À propos : le portrait à gauche, à droite qui conduit le projet. C'est le seul endroit de la page
+  où le fondateur est nommé : la preuve concrète du « seul interlocuteur ».
 */
 export default function About() {
   return (
-    <section id="apropos" aria-labelledby="apropos-titre" className="border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
-      <div className="mx-auto grid max-w-[1360px] gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
+    <section id="apropos" aria-labelledby="apropos-titre" className="mx-auto max-w-[1296px] px-5 py-20 md:px-12 md:py-32">
+      <div className="grid items-center gap-x-20 gap-y-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         {site.photo ? (
-          <figure className="self-start border-[3px] border-anthracite bg-tole p-4 md:p-5">
+          <figure className="max-w-[420px]">
             <Image
               src={site.photo}
               alt={`Portrait de ${site.name}`}
               width={800}
               height={1000}
-              sizes="(min-width: 1024px) 38vw, 100vw"
-              className="aspect-[4/5] w-full rounded-tl-[72px] border-[3px] border-anthracite object-cover object-top"
+              sizes="(min-width: 768px) 38vw, 100vw"
+              className="aspect-[4/5] w-full rounded-tuile object-cover object-top"
             />
-            <figcaption className="lettrage-etroit mt-4 text-xl">
+            <figcaption className="mt-3 text-sm text-muted">
               {site.name}, fondateur de {site.brand}
             </figcaption>
           </figure>
         ) : (
-          // Sans portrait : la portière porte le lettrage de l'artisan (nom, métier, zone, contact).
-          <div className="self-start border-[3px] border-anthracite bg-tole p-4 md:p-5">
-            <div className="flex flex-col gap-6 rounded-tl-[72px] border-[3px] border-anthracite bg-carrosserie px-6 pb-7 pt-16 md:px-8 md:pt-20">
-              <p className="lettrage text-balance text-[clamp(2.2rem,4.6vw,4rem)] leading-[0.95]">{site.name}</p>
-              <p className="lettrage-etroit text-xl text-vinyle md:text-2xl">{site.role}</p>
-              <p className="border-t-[3px] border-anthracite pt-5 font-semibold leading-relaxed">
-                {site.location}
-                <br />
-                <a href={`mailto:${site.email}`} className="underline decoration-vinyle hover:text-vinyle">
-                  {site.email}
-                </a>
-              </p>
-            </div>
+          // Sans portrait : une tuile brume porte le nom, le métier, la zone et le contact.
+          <div className="flex aspect-[4/5] max-w-[420px] flex-col justify-end gap-3 rounded-tuile bg-brume p-8">
+            <p className="titre text-3xl">{site.name}</p>
+            <p className="text-muted">{site.role}</p>
+            <p className="text-muted">{site.location}</p>
+            <a href={`mailto:${site.email}`} className="lien">
+              {site.email}
+            </a>
           </div>
         )}
 
-        <div className="lg:pt-6">
-          <h2 id="apropos-titre" className="lettrage text-balance text-[clamp(2.4rem,5.4vw,4.6rem)]">
-            Un seul au volant
+        <div>
+          <h2 id="apropos-titre" className="titre text-[clamp(2rem,4.2vw,3.2rem)]">
+            Un seul interlocuteur.
           </h2>
-          <p className="mt-6 max-w-[56ch] text-pretty text-lg leading-relaxed md:text-xl">
-            {site.brand}, c&apos;est {site.name}, développeur indépendant. Chaque site est conçu, développé et maintenu par la même personne, du devis à la maintenance : pas de
-            message qui se perd entre trois interlocuteurs.
+          <p className="mt-5 max-w-[52ch] text-pretty text-lg text-muted md:text-xl">
+            {site.brand}, c&apos;est {site.name}, développeur indépendant. Chaque site est conçu, développé et maintenu par la même
+            personne, du devis à la maintenance : pas de message qui se perd entre trois interlocuteurs.
           </p>
-
-          <ul className="mt-10 space-y-1 border-y-[3px] border-anthracite py-3">
-            {method.map((m) => (
-              <li key={m.title} className="grid gap-1 py-5 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:gap-6">
-                <h3 className="lettrage-etroit text-lg">{m.title}</h3>
-                <p className="leading-relaxed text-muted">{m.text}</p>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-4 text-muted">{site.location}</p>
         </div>
       </div>
+
+      <ul className="mt-14 grid gap-x-12 border-t border-filet md:mt-20 md:grid-cols-3">
+        {method.map((m) => (
+          <li key={m.title} className="border-b border-filet py-6 md:border-b-0">
+            <h3 className="titre text-xl">{m.title}</h3>
+            <p className="mt-2 max-w-[40ch] text-pretty text-muted">{m.text}</p>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

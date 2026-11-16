@@ -49,7 +49,7 @@ export default function MentionsLegales() {
       <section aria-labelledby="credits">
         <h2 id="credits">Crédits</h2>
         <ul>
-          <li>Police : Archivo, sous licence SIL Open Font License.</li>
+          <li>Police : Hanken Grotesk, sous licence SIL Open Font License.</li>
           <li>Icônes : Lucide, sous licence ISC.</li>
           <li>Site conçu et développé par {site.name} avec Next.js.</li>
         </ul>

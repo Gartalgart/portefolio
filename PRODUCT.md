@@ -25,11 +25,11 @@ Ce qu'un voisin ne peut pas copier tel quel (confirmé) : un seul interlocuteur 
 - Décisions ouvertes : GitHub, LinkedIn, régime de TVA pour les mentions légales, durée de conservation à confirmer. Hébergeur confirmé : Vercel.
 
 ## Brand Commitments
-Nom : Rémy Denimal, marque RD-Solutions. Direction validée le 27/10/2026 (voir `DESIGN.md`) : « lettrage d'utilitaire », le site se lit comme le flanc lettré d'une camionnette d'artisan. Pas de numéro de téléphone affiché pour l'instant (reconfirmé le 10/11/2026). Photo : `public/images/profile.webp` (portrait 4:5, pull sombre, lunettes rondes), affichée dans « À propos » depuis le 10/11/2026.
+Marque : RD-Solutions. Le site parle au nom de la marque, en tournures neutres, sans « je » ni « nous » (décision du 16/11/2026) ; le fondateur, Rémy Denimal, n'est nommé que dans « À propos » et les mentions légales. Direction validée le 16/11/2026 (voir `DESIGN.md`) : « vitrine », minimaliste, beaucoup de blanc, palette bleu-gris imposée (#FFFFFF, #F1F3F5, #6C7A89, #2C3E50, #1A252F), les sites livrés montrés en grand. Elle remplace le « lettrage d'utilitaire » du 27/10/2026. Pas de numéro de téléphone affiché pour l'instant (reconfirmé le 10/11/2026). Photo : `public/images/profile.webp` (portrait 4:5, pull sombre, lunettes rondes), affichée dans « À propos » depuis le 10/11/2026.
 
 ## Evidence on Hand
-- 4 sites en ligne avec aperçus (`public/images/projects/`) : Secur-Feu et Save Toiture sont des projets clients (confirmé), Maison Léa Coiffure et Braise des démonstrations, signalées comme telles.
-- La boutique du hero (« Atelier Morel ») et le « vieux site » de l'avant/après sont fictifs ; les images de la boutique filmée sont générées par IA et la page le dit.
+- 14 sites et applications en ligne avec aperçus (`public/images/projects/`, liste dans `src/lib/content.ts`) : Secur-Feu et Save Toiture sont des projets clients (confirmé), les 12 autres des démonstrations autour de clients fictifs, signalées comme telles.
+- Le premier écran montre l'aperçu du site Secur-Feu (projet client).
 - Aucun témoignage réel à ce jour : ne rien fabriquer.
 - Aucune statistique mesurée. Retirés : « < 1 s » et « 100 % responsive ». « Réponse sous 24 h » seulement si l'utilisateur la confirme.
 

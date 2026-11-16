@@ -1,152 +1,164 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-27T12:00:00Z",
+  "generatedAt": "2026-11-16T12:00:00Z",
   "title": "Design System: RD-Solutions",
   "extensions": {
     "colorMeta": {
-      "vinyle": { "role": "primary", "displayName": "Vinyle rouge", "canonical": "#c8361b", "tonalRamp": ["#3b0f07", "#5e180b", "#84220f", "#a92c15", "#c8361b", "#e0705a", "#f0ab9c", "#fbe3dc"] },
-      "vinyle-fonce": { "role": "primary", "displayName": "Vinyle foncé", "canonical": "#a92c15", "tonalRamp": ["#2e0b05", "#4f1309", "#731c0d", "#a92c15", "#c4523a", "#da8a77", "#ecbfb3", "#f9e8e3"] },
-      "anthracite": { "role": "neutral", "displayName": "Anthracite", "canonical": "#1d2125", "tonalRamp": ["#0d0f11", "#1d2125", "#33393f", "#4a5158", "#6b737b", "#9299a0", "#c3c8cc", "#eceef0"] },
-      "jante": { "role": "neutral", "displayName": "Gris jante", "canonical": "#565d64", "tonalRamp": ["#1f2225", "#343a3f", "#464c52", "#565d64", "#767d84", "#9ba1a7", "#c5c9cd", "#eceef0"] },
-      "carrosserie": { "role": "neutral", "displayName": "Carrosserie", "canonical": "#f1f2f0", "tonalRamp": ["#3a3934", "#5c5a52", "#807e74", "#a5a398", "#c8c6bc", "#e2e0d7", "#f1f2f0", "#fbfbf8"] },
-      "tole": { "role": "neutral", "displayName": "Tôle", "canonical": "#ffffff", "tonalRamp": ["#333333", "#555555", "#777777", "#999999", "#bbbbbb", "#dddddd", "#f2f2f2", "#ffffff"] }
+      "nuit": { "role": "primary", "displayName": "Bleu nuit", "canonical": "#1a252f", "tonalRamp": ["#0d1319", "#1a252f", "#2f4152", "#486178", "#6c869d", "#9bafc0", "#cbd6df", "#eef2f5"] },
+      "marine": { "role": "primary", "displayName": "Marine", "canonical": "#2c3e50", "tonalRamp": ["#111a23", "#1e2b39", "#2c3e50", "#44607a", "#6a87a2", "#9ab0c4", "#cad6e1", "#eef2f6"] },
+      "ardoise": { "role": "neutral", "displayName": "Ardoise", "canonical": "#6c7a89", "tonalRamp": ["#1c2228", "#333d47", "#4b5865", "#6c7a89", "#8e9aa7", "#b1bac4", "#d4dae0", "#f0f2f4"] },
+      "ardoise-texte": { "role": "neutral", "displayName": "Ardoise texte", "canonical": "#55626f", "tonalRamp": ["#1a2026", "#2e3740", "#414c57", "#55626f", "#7b8793", "#a3adb7", "#ccd3d9", "#eff1f3"] },
+      "ardoise-sur-nuit": { "role": "neutral", "displayName": "Ardoise sur nuit", "canonical": "#a9b4bf", "tonalRamp": ["#1e242a", "#39434d", "#566370", "#778492", "#a9b4bf", "#c3cbd3", "#dde2e6", "#f3f5f6"] },
+      "filet": { "role": "neutral", "displayName": "Filet", "canonical": "#dde1e5", "tonalRamp": ["#20252a", "#3d454d", "#5c6670", "#7f8a94", "#a5aeb6", "#c4cad0", "#dde1e5", "#f4f5f7"] },
+      "brume": { "role": "neutral", "displayName": "Brume", "canonical": "#f1f3f5", "tonalRamp": ["#22272c", "#414a53", "#626d78", "#87929c", "#aeb6be", "#d0d6db", "#f1f3f5", "#f9fafb"] },
+      "blanc": { "role": "neutral", "displayName": "Blanc", "canonical": "#ffffff", "tonalRamp": ["#333333", "#555555", "#777777", "#999999", "#bbbbbb", "#dddddd", "#f2f2f2", "#ffffff"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Lettrage (nom)", "purpose": "Le nom en vinyle rouge du premier écran ; largeur 112% sous 48rem, 125% au-dessus." },
-      "headline": { "displayName": "Lettrage (titres)", "purpose": "Titres de section, titre des pages légales, marque." },
-      "title": { "displayName": "Lettrage étroit", "purpose": "Intitulés de service, d'arrêt, de valeur ; prestations ; email lettré." },
-      "body": { "displayName": "Texte", "purpose": "Chapôs et paragraphes, 52 à 62ch." },
-      "label": { "displayName": "Mention de panneau", "purpose": "Libellés Pour / Besoin / Travaux / Par, cachets, libellés de cases." },
-      "chiffre": { "displayName": "Chiffres épinglés", "purpose": "Numéros d'arrêt. Aucun prix affiché." }
+      "display": { "displayName": "Phrase du premier écran", "purpose": "Le h1 centré de l'accueil, 14ch au plus." },
+      "headline": { "displayName": "Titre de section", "purpose": "Titres centrés ; clamp(2rem, 4.2vw, 3.2rem) en colonne, jusqu'à 4rem pour le contact et les pages légales." },
+      "title": { "displayName": "Intitulé", "purpose": "Prestations, étapes, engagements, noms de tuile, menu mobile." },
+      "lead": { "displayName": "Chapô", "purpose": "La phrase en ardoise texte sous un titre de section, 40 à 52ch." },
+      "body": { "displayName": "Texte", "purpose": "Texte courant, 44 à 62ch, 68ch sur les pages légales." },
+      "label": { "displayName": "Libellé", "purpose": "Libellés de champ ; légendes et pied de page à la même taille en graisse normale." },
+      "chiffre": { "displayName": "Numéro d'étape", "purpose": "Numéros tabulaires à deux chiffres de la méthode." }
     },
-    "shadows": [],
+    "shadows": [
+      { "name": "apercu-premier-ecran", "value": "0 30px 80px -20px rgb(26 37 47 / 0.35)", "purpose": "Sous la capture du site en vedette dans le premier écran." },
+      { "name": "apercu-tuile", "value": "0 24px 60px -18px rgb(0 0 0 / 0.4)", "purpose": "Sous la capture posée au bas d'une tuile de réalisation." }
+    ],
     "motion": [
-      { "name": "film-pose", "value": "1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards", "purpose": "Le film de transfert se décolle une fois du nom au chargement (clip-path inset vers la droite). Masqué sous prefers-reduced-motion." },
-      { "name": "transition-couleur", "value": "color/background-color 150ms", "purpose": "Survol des boutons et liens : changement de couleur seul, aucun déplacement." },
-      { "name": "faq-plus", "value": "transform 200ms", "purpose": "Le signe plus de la FAQ tourne de 45° à l'ouverture." }
+      { "name": "bouton-survol", "value": "background-color 0.2s ease", "purpose": "Survol des boutons : changement de fond seul, aucun déplacement." },
+      { "name": "transition-couleur", "value": "color/background-color 150ms", "purpose": "Survol des liens de barre, du bouton de menu et du bouton dépliant." },
+      { "name": "signe-ouverture", "value": "transform 200ms", "purpose": "Le plus de la FAQ tourne de 45°, le chevron du bouton dépliant de 180°." },
+      { "name": "barre-action", "value": "transform 300ms ease-out", "purpose": "La barre d'action mobile glisse depuis le bas ; sans transition sous prefers-reduced-motion." },
+      { "name": "defilement", "value": "scroll-behavior: smooth", "purpose": "Défilement doux vers les ancres ; automatique sous prefers-reduced-motion." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "40rem" },
       { "name": "md", "value": "48rem" },
-      { "name": "lg", "value": "64rem" },
-      { "name": "xl", "value": "80rem" }
+      { "name": "lg", "value": "64rem" }
     ],
-    "focus": { "value": "outline: 3px solid var(--vinyle); outline-offset: 3px", "zoneVinyle": "outline-color: #ffffff" },
-    "zoneVinyle": {
-      "selector": ".vinyle",
-      "remap": { "--bg": "var(--vinyle)", "--fg": "#ffffff", "--muted": "#ffe9e2", "--line": "#ffffff", "--line-soft": "rgba(255,255,255,0.4)", "--accent": "var(--anthracite)", "--accent-fg": "#ffffff" }
-    }
+    "focus": { "value": "outline: 2px solid var(--marine); outline-offset: 3px; border-radius: 4px", "surNuit": "outline-color: var(--blanc)" },
+    "surNuit": {
+      "selector": ".sur-nuit",
+      "remap": { "color": "var(--blanc)", "--muted": "var(--ardoise-sur-nuit)", "--line": "rgb(255 255 255 / 0.16)" }
+    },
+    "translucence": [
+      { "name": "barre-haut", "value": "background: rgb(255 255 255 / 0.8); backdrop-filter: blur(16px) saturate(1.5)", "purpose": "Barre de navigation collante." },
+      { "name": "barre-action", "value": "background: rgb(255 255 255 / 0.85); backdrop-filter: blur(16px)", "purpose": "Barre d'action mobile fixée en bas." }
+    ]
   },
   "components": [
     {
-      "name": "Bouton principal",
+      "name": "Bouton",
       "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Toute action de réservation ou d'envoi : aplat vinyle, angles droits.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#\">Réserver un appel de 15 min <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; background: var(--vinyle, #c8361b); color: #ffffff; padding: 16px 28px; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 1.125rem; text-decoration: none; border-radius: 0; transition: background-color 150ms; } .ds-btn-primary:hover { background: var(--vinyle-fonce, #a92c15); } .ds-btn-primary:focus-visible { outline: 3px solid var(--vinyle, #c8361b); outline-offset: 3px; }"
+      "refersTo": "bouton",
+      "description": "Toute action : pastille pleine bleu nuit, marine au survol.",
+      "html": "<a class=\"ds-bouton\" href=\"#\">Demander un devis gratuit</a>",
+      "css": ".ds-bouton { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; padding: 0.8em 1.45em; border-radius: 999px; background: var(--nuit, #1a252f); color: var(--blanc, #ffffff); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; font-weight: 600; white-space: nowrap; text-decoration: none; transition: background-color 0.2s ease; } .ds-bouton:hover { background: var(--marine, #2c3e50); } .ds-bouton:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; }"
     },
     {
-      "name": "Bouton en zone vinyle",
+      "name": "Bouton dépliant",
       "kind": "button",
-      "refersTo": "button-zone-vinyle",
-      "description": "L'action posée sur la zone rouge du contact : anthracite, s'inverse en blanc au survol.",
-      "html": "<div class=\"ds-zone\"><a class=\"ds-btn-zone\" href=\"#\">Réserver un appel de 15 min</a></div>",
-      "css": ".ds-zone { background: #c8361b; padding: 32px; } .ds-btn-zone { display: inline-flex; align-items: center; gap: 12px; background: #1d2125; color: #ffffff; padding: 16px 28px; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 1.125rem; text-decoration: none; transition: background-color 150ms, color 150ms; } .ds-btn-zone:hover { background: #ffffff; color: #1d2125; } .ds-btn-zone:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }"
+      "refersTo": "bouton-depliant",
+      "description": "Ouvre le reste des réalisations : pastille brume, chevron qui se retourne.",
+      "html": "<details class=\"ds-depliant\"><summary>Voir les 8 autres réalisations <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></summary></details>",
+      "css": ".ds-depliant > summary { list-style: none; display: flex; width: fit-content; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; background: var(--brume, #f1f3f5); color: var(--nuit, #1a252f); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-weight: 600; cursor: pointer; transition: background-color 150ms; } .ds-depliant > summary::-webkit-details-marker { display: none; } .ds-depliant > summary:hover { background: var(--filet, #dde1e5); } .ds-depliant > summary svg { transition: transform 200ms; } .ds-depliant[open] > summary svg { transform: rotate(180deg); } .ds-depliant > summary:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; }"
     },
     {
-      "name": "Case du bon de demande",
+      "name": "Lien d'action",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Action secondaire : texte demi-gras marine, souligné au survol, flèche à la suite.",
+      "html": "<a class=\"ds-lien\" href=\"#\">Voir les réalisations <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-lien { display: inline-flex; align-items: center; gap: 0.35em; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; font-weight: 600; color: var(--marine, #2c3e50); text-decoration: none; text-underline-offset: 0.2em; } .ds-lien:hover { text-decoration: underline; } .ds-lien:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Tuile de réalisation (nuit)",
+      "kind": "card",
+      "refersTo": "tuile-nuit",
+      "description": "Un site livré montré en grand : nom, statut écrit, une phrase, un lien, l'aperçu coupé par le bas.",
+      "html": "<article class=\"ds-tuile ds-tuile-nuit\"><h3 class=\"ds-tuile-titre\">Save Toiture</h3><p class=\"ds-tuile-statut\">Couvreur · projet client</p><p class=\"ds-tuile-texte\">Un site clair qui présente les travaux et permet de demander un devis.</p><a class=\"ds-tuile-lien\" href=\"#\">Voir le site <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a><div class=\"ds-tuile-apercu\"></div></article>",
+      "css": ".ds-tuile { display: flex; flex-direction: column; align-items: center; overflow: hidden; border-radius: 16px; padding: 64px 48px 0; text-align: center; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.55; } .ds-tuile-nuit { background: var(--nuit, #1a252f); color: var(--blanc, #ffffff); } .ds-tuile-titre { margin: 0; font-size: clamp(1.8rem, 3.4vw, 2.9rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; text-wrap: balance; } .ds-tuile-statut { margin: 8px 0 0; font-size: 1.05rem; color: var(--ardoise-sur-nuit, #a9b4bf); } .ds-tuile-texte { margin: 14px 0 0; max-width: 44ch; } .ds-tuile-lien { display: inline-flex; align-items: center; gap: 0.35em; margin-top: 16px; font-weight: 600; color: var(--blanc, #ffffff); text-decoration: none; text-underline-offset: 0.2em; } .ds-tuile-lien:hover { text-decoration: underline; } .ds-tuile-lien:focus-visible { outline: 2px solid var(--blanc, #ffffff); outline-offset: 3px; border-radius: 4px; } .ds-tuile-apercu { width: 100%; max-width: 880px; aspect-ratio: 16 / 10; margin-top: 48px; border-radius: 12px 12px 0 0; background: var(--brume, #f1f3f5); box-shadow: 0 24px 60px -18px rgb(0 0 0 / 0.4); }"
+    },
+    {
+      "name": "Tuile brume",
+      "kind": "card",
+      "refersTo": "tuile-brume",
+      "description": "Tuile claire : réalisations du damier, petites tuiles dépliées, méthode, avis.",
+      "html": "<article class=\"ds-tuile-brume\"><h3 class=\"ds-tuile-brume-titre\">Maison Léa Coiffure</h3><p class=\"ds-tuile-brume-statut\">Salon de coiffure · démonstration</p></article>",
+      "css": ".ds-tuile-brume { border-radius: 16px; padding: 36px 24px; background: var(--brume, #f1f3f5); color: var(--nuit, #1a252f); text-align: center; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-tuile-brume-titre { margin: 0; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; } .ds-tuile-brume-statut { margin: 8px 0 0; font-size: 0.95rem; line-height: 1.55; color: var(--ardoise-texte, #55626f); }"
+    },
+    {
+      "name": "Lignes à filets",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Prestations et étapes en liste : un filet de 1px ouvre chaque ligne, numéro tabulaire pour les étapes.",
+      "html": "<ol class=\"ds-lignes\"><li><span class=\"ds-lignes-num\">01</span><div><h3>Votre demande</h3><p>Vous décrivez votre activité et ce que vous attendez du site.</p></div></li><li><span class=\"ds-lignes-num\">02</span><div><h3>Le devis gratuit</h3><p>Le prix est annoncé avant de commencer.</p></div></li></ol>",
+      "css": ".ds-lignes { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--filet, #dde1e5); color: var(--nuit, #1a252f); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.55; } .ds-lignes li { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 16px; padding: 24px 0; border-top: 1px solid var(--filet, #dde1e5); } .ds-lignes-num { padding-top: 2px; font-weight: 600; font-variant-numeric: tabular-nums lining-nums; color: var(--ardoise-texte, #55626f); } .ds-lignes h3 { margin: 0; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; } .ds-lignes p { margin: 6px 0 0; max-width: 52ch; color: var(--ardoise-texte, #55626f); }"
+    },
+    {
+      "name": "Champ",
       "kind": "input",
-      "refersTo": "input-case",
-      "description": "Champ de formulaire comme une case de carnet de bons ; la bordure passe en vinyle au focus.",
-      "html": "<label class=\"ds-case\"><span class=\"ds-case-label\">Nom</span><input class=\"ds-case-input\" placeholder=\"Votre nom\"></label>",
-      "css": ".ds-case { display: block; border: 3px solid #1d2125; background: #ffffff; padding: 10px 16px 12px; color: #1d2125; transition: border-color 150ms; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-case:focus-within { border-color: #c8361b; } .ds-case-label { display: block; font-weight: 800; font-stretch: 75%; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1; font-size: 0.875rem; color: #565d64; } .ds-case-input { margin-top: 6px; width: 100%; background: transparent; border: 0; outline: none; font: inherit; font-size: 1.125rem; color: #1d2125; caret-color: #c8361b; }"
+      "refersTo": "champ",
+      "description": "Champ du formulaire : cellule brume, libellé au-dessus, anneau marine à la saisie.",
+      "html": "<label class=\"ds-champ\"><span class=\"ds-champ-libelle\">Nom</span><input class=\"ds-champ-saisie\" placeholder=\"Votre nom\"></label>",
+      "css": ".ds-champ { display: block; max-width: 360px; border-radius: 12px; padding: 10px 16px 12px; background: var(--brume, #f1f3f5); box-shadow: 0 0 0 1px transparent; transition: box-shadow 150ms; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-champ:focus-within { box-shadow: 0 0 0 2px var(--marine, #2c3e50); } .ds-champ-libelle { display: block; font-size: 0.875rem; font-weight: 600; color: var(--ardoise-texte, #55626f); } .ds-champ-saisie { margin-top: 4px; width: 100%; padding: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 1.125rem; color: var(--nuit, #1a252f); caret-color: var(--marine, #2c3e50); }"
+    },
+    {
+      "name": "Question de FAQ",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Accordéon natif entre filets de 1px, signe plus ardoise qui tourne à l'ouverture.",
+      "html": "<details class=\"ds-faq\"><summary>Combien coûte un site ? <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg></summary><p>Le prix est annoncé dans le devis gratuit, avant de commencer.</p></details>",
+      "css": ".ds-faq { border-top: 1px solid var(--filet, #dde1e5); border-bottom: 1px solid var(--filet, #dde1e5); color: var(--nuit, #1a252f); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-faq > summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 0; font-size: 1.25rem; font-weight: 600; cursor: pointer; } .ds-faq > summary::-webkit-details-marker { display: none; } .ds-faq > summary svg { flex-shrink: 0; color: var(--ardoise, #6c7a89); transition: transform 200ms; } .ds-faq[open] > summary svg { transform: rotate(45deg); } .ds-faq > summary:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; border-radius: 4px; } .ds-faq p { margin: 0; max-width: 62ch; padding-bottom: 24px; font-size: 1.0625rem; line-height: 1.55; color: var(--ardoise-texte, #55626f); }"
     },
     {
       "name": "Navigation",
       "kind": "nav",
       "refersTo": "nav",
-      "description": "Plaque collante carrosserie, filet bas de 3px, marque lettrée et action rouge.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">RD-Solutions</a><ul class=\"ds-nav-links\"><li><a href=\"#\">Réalisations</a></li><li><a href=\"#\">Services</a></li><li><a href=\"#\">Contact</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Réserver un appel</a></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px; padding: 0 32px; background: #f1f2f0; border-bottom: 3px solid #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-nav-brand { font-weight: 900; font-stretch: 125%; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; font-size: 1.5rem; color: #1d2125; text-decoration: none; } .ds-nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; } .ds-nav-links a { padding: 8px 0; font-weight: 600; color: #1d2125; text-decoration: none; text-decoration-color: #c8361b; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-nav-links a:hover { text-decoration-line: underline; } .ds-nav-cta { background: #c8361b; color: #ffffff; padding: 12px 20px; font-weight: 700; text-decoration: none; transition: background-color 150ms; } .ds-nav-cta:hover { background: #a92c15; } .ds-nav a:focus-visible { outline: 3px solid #c8361b; outline-offset: 3px; }"
-    },
-    {
-      "name": "Cachets de statut",
-      "kind": "chip",
-      "refersTo": "cachet-client",
-      "description": "Statut d'une réalisation lisible par la forme : aplat plein pour un client, pointillé pour une démonstration.",
-      "html": "<div class=\"ds-cachets\"><span class=\"ds-cachet ds-cachet-client\">Projet client</span><span class=\"ds-cachet ds-cachet-demo\">Démonstration</span></div>",
-      "css": ".ds-cachets { display: flex; gap: 16px; background: #1d2125; padding: 12px 20px; } .ds-cachet { display: inline-block; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1; font-size: 0.875rem; color: #ffffff; } .ds-cachet-client { background: #c8361b; padding: 6px 10px; } .ds-cachet-demo { border: 2px dashed #ffffff; padding: 4px 10px; }"
-    },
-    {
-      "name": "Panneau de chantier",
-      "kind": "card",
-      "refersTo": "panneau-chantier",
-      "description": "Une réalisation : plaque tôle bordée de 3px, en-tête anthracite, liste Pour / Besoin / Travaux / Par.",
-      "html": "<article class=\"ds-panneau\"><header class=\"ds-panneau-tete\"><span>Chantier web</span><span class=\"ds-panneau-cachet\">Projet client</span></header><dl class=\"ds-panneau-dl\"><dt>Pour</dt><dd><strong>Boulangerie Martin</strong></dd><dt>Besoin</dt><dd>Être trouvée sur Google par les gens du quartier.</dd><dt>Travaux</dt><dd>Site vitrine, horaires, fiche Google.</dd><dt>Par</dt><dd>RD-Solutions</dd></dl><footer class=\"ds-panneau-pied\"><a href=\"#\">Voir le site</a></footer></article>",
-      "css": ".ds-panneau { border: 3px solid #1d2125; background: #ffffff; color: #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; max-width: 520px; } .ds-panneau-tete { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #1d2125; color: #ffffff; padding: 12px 20px; font-weight: 800; font-stretch: 75%; text-transform: uppercase; letter-spacing: 0.06em; font-size: 1.125rem; } .ds-panneau-cachet { background: #c8361b; padding: 6px 10px; font-size: 0.875rem; letter-spacing: 0.01em; } .ds-panneau-dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 20px; padding: 24px 20px; margin: 0; } .ds-panneau-dl dt { font-weight: 800; font-stretch: 75%; text-transform: uppercase; font-size: 0.875rem; color: #565d64; padding-top: 2px; } .ds-panneau-dl dd { margin: 0; line-height: 1.625; } .ds-panneau-pied { border-top: 1px solid rgba(29, 33, 37, 0.18); padding: 16px 20px; } .ds-panneau-pied a { font-weight: 700; color: #1d2125; text-decoration: underline; text-decoration-color: #c8361b; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-panneau-pied a:hover { color: #c8361b; } .ds-panneau-pied a:focus-visible { outline: 3px solid #c8361b; outline-offset: 3px; }"
-    },
-    {
-      "name": "Macaron",
-      "kind": "custom",
-      "refersTo": null,
-      "description": "L'autocollant cerclé « Un seul interlocuteur », une des trois formes rondes autorisées.",
-      "html": "<p class=\"ds-macaron\"><span class=\"ds-macaron-p\">Un seul</span><span class=\"ds-macaron-l\">interlocuteur, du devis au suivi</span></p>",
-      "css": ".ds-macaron { display: grid; place-content: center; width: 176px; height: 176px; margin: 0; border: 5px solid #1d2125; border-radius: 9999px; text-align: center; color: #1d2125; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; background: #f1f2f0; } .ds-macaron-l { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; } .ds-macaron-p { display: block; margin-top: 4px; font-size: 2.6rem; font-weight: 800; font-stretch: 75%; text-transform: uppercase; line-height: 1; color: #c8361b; font-variant-numeric: tabular-nums lining-nums; }"
-    },
-    {
-      "name": "Arrêt de la tournée",
-      "kind": "custom",
-      "refersTo": "arret-tournee",
-      "description": "Étape numérotée sur la route de la méthode.",
-      "html": "<div class=\"ds-tournee\"><span class=\"ds-route\"></span><span class=\"ds-arret\">1</span><span class=\"ds-arret\">2</span><span class=\"ds-arret\">3</span></div>",
-      "css": ".ds-tournee { position: relative; display: flex; justify-content: space-between; padding: 0 24px; background: #ffffff; } .ds-route { position: absolute; left: 24px; right: 24px; top: 22px; height: 6px; background: #1d2125; } .ds-arret { position: relative; display: grid; place-items: center; width: 50px; height: 50px; border: 3px solid #1d2125; border-radius: 9999px; background: #c8361b; color: #ffffff; font-family: Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 900; font-stretch: 125%; font-size: 1.25rem; line-height: 0.9; font-variant-numeric: tabular-nums lining-nums; }"
-    },
-    {
-      "name": "Bande de livrée",
-      "kind": "custom",
-      "refersTo": null,
-      "description": "Bande pleine largeur qui structure le premier écran : aplat rouge, jour de carrosserie, bande anthracite.",
-      "html": "<div class=\"ds-livree\" aria-hidden=\"true\"><div class=\"ds-livree-rouge\"></div><div class=\"ds-livree-noire\"></div></div>",
-      "css": ".ds-livree { background: #f1f2f0; } .ds-livree-rouge { height: 48px; background: #c8361b; } .ds-livree-noire { margin-top: 6px; height: 8px; background: #1d2125; }"
+      "description": "Barre collante fine, blanche translucide, filet bas de 1px, pastille compacte à droite.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-marque\" href=\"#\">RD-Solutions</a><ul class=\"ds-nav-liens\"><li><a href=\"#\">Réalisations</a></li><li><a href=\"#\">Prestations</a></li><li><a href=\"#\">Contact</a></li></ul><a class=\"ds-nav-bouton\" href=\"#\">Devis gratuit</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 56px; padding: 0 48px; background: rgb(255 255 255 / 0.8); backdrop-filter: blur(16px) saturate(1.5); border-bottom: 1px solid var(--filet, #dde1e5); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-nav-marque { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.025em; color: var(--nuit, #1a252f); text-decoration: none; } .ds-nav-liens { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 0.9rem; } .ds-nav-liens a { padding: 8px 0; color: var(--ardoise-texte, #55626f); text-decoration: none; transition: color 150ms; } .ds-nav-liens a:hover { color: var(--nuit, #1a252f); } .ds-nav-bouton { display: inline-flex; align-items: center; padding: 0.5em 1.1em; border-radius: 999px; background: var(--nuit, #1a252f); color: var(--blanc, #ffffff); font-size: 0.9rem; font-weight: 600; white-space: nowrap; text-decoration: none; transition: background-color 0.2s ease; } .ds-nav-bouton:hover { background: var(--marine, #2c3e50); } .ds-nav a:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; border-radius: 4px; }"
     }
   ],
   "narrative": {
-    "northStar": "Le lettrage d'utilitaire",
-    "overview": "Le site se lit comme le flanc lettré d'une camionnette d'artisan : le nom en vinyle rouge géant, le métier, la zone, les prestations et le contact, lisibles à vingt mètres. Tout vient de cet objet : la carrosserie blanc cassé comme fond, le vinyle découpé pour les capitales larges et lourdes, la bande de livrée qui structure, les filets épais, le macaron cerclé. Chaque section reprend une pièce du véhicule ou de son métier : panneaux de chantier pour les réalisations, portes arrière pour les services, tournée numérotée pour la méthode, portière conducteur pour l'à-propos, bon de demande pour le contact.\n\nLa densité est celle d'un affichage, pas d'une brochure : peu de mots, très gros, posés à plat. Le système est plat et graphique, sans profondeur simulée ; la hiérarchie passe par la taille du lettrage, l'épaisseur des filets (3px anthracite) et l'aplat rouge. Thème clair seul : un véhicule se lit en plein jour (décision du 27/10/2026, pas de bascule de thème). Pas de 3D, pas de vidéo, pas de numéro de téléphone affiché pour l'instant.\n\nRejets confirmés : le portfolio de développeur (titre + photo + trois cartes, mode sombre technique), les ombres douces, les cartes arrondies, les dégradés.",
+    "northStar": "La vitrine",
+    "overview": "Le site est une vitrine : une phrase, une action, puis les sites livrés montrés en grand, un par tuile. La page est blanche ; ce qui s'y pose est une tuile pleine, brume, marine ou bleu nuit, aux coins de 16px, sans bordure. Chaque tuile de réalisation porte un nom, une ligne de statut, une phrase, un lien, et l'aperçu du site coupé par son bord bas, comme un objet posé derrière une vitre.\n\nLa densité est faible et l'air fait le travail : sections espacées de 80px sur mobile et de 128px au-delà, titres demi-gras serrés, texte secondaire en ardoise. Une seule famille de caractères, une seule famille de bleu-gris, aucune couleur d'accent : l'action se reconnaît à sa forme (une pastille bleu nuit), pas à une teinte. Thème clair seul, sans bascule. Ni 3D, ni vidéo, ni numéro de téléphone, ni prix affiché.\n\nRejets confirmés : le portfolio de développeur (photo, liste de technos, trois cartes d'icônes) et l'ancien monde « lettrage d'utilitaire » (rouge vermillon, capitales larges, filets épais), remplacé le 16/11/2026.",
     "keyCharacteristics": [
-      "Une seule famille (Archivo variable) déclinée sur l'axe de largeur : large pour le lettrage, normale pour le texte, étroite pour les panneaux.",
-      "Vinyle rouge réservé au nom, à l'action et à la bande de livrée.",
-      "Filets anthracite de 3px partout, angles droits partout sauf trois exceptions nommées.",
-      "Statuts lisibles par la forme, jamais par la couleur seule.",
-      "Un seul mouvement signature : le film de pose qui se décolle une fois au chargement."
+      "Page blanche, tuiles pleines brume, marine ou bleu nuit à coins de 16px, sans bordure ni ombre.",
+      "Une seule famille (Hanken Grotesk) : titres demi-gras serrés, texte normal.",
+      "Aucune couleur d'accent : cinq tons de bleu-gris, l'action est une pastille bleu nuit.",
+      "Les aperçus de sites sont les seules images de la page, et les seuls éléments à porter une ombre.",
+      "Filets fins de 1px pour les listes ; statut d'une réalisation toujours écrit en toutes lettres."
     ],
     "rules": [
-      { "name": "The Zone Vinyle Rule", "body": "Une zone entièrement rouge se déclare par la classe `.vinyle`, qui remappe les rôles : texte et filets blancs, secondaire rosé, action anthracite, focus blanc. Les composants ne savent rien de leur fond ; on ne recolore jamais un composant à la main pour le poser sur le rouge.", "section": "colors" },
-      { "name": "The Vinyle Rare Rule", "body": "Le rouge sert le nom, l'action et la livrée. Il ne sert jamais de décor de fond pour une carte ou un bloc de texte en dehors de la zone contact.", "section": "colors" },
-      { "name": "The Couleur Seule Rule", "body": "Un statut ne repose jamais sur la couleur seule : la forme (aplat plein contre contour pointillé) porte la différence.", "section": "colors" },
-      { "name": "The Trois Largeurs Rule", "body": "On ne charge pas de seconde famille : la variété vient de l'axe de largeur d'Archivo (125, 100, 75) et du poids (900, 800, 400-700).", "section": "typography" },
-      { "name": "The Chiffre Épinglé Rule", "body": "Les numéros d'arrêt sont en chiffres tabulaires et alignés (`tnum`, `lnum`). Aucun prix ni montant affiché.", "section": "typography" },
-      { "name": "The Deux-Points Rule", "body": "En titre, une espace insécable précède le deux-points (« Au volant : moi »).", "section": "typography" },
-      { "name": "The Plat-Vinyle Rule", "body": "Pas d'ombre, pas de dégradé sur une surface, une carte ou un bouton. Seul le film de pose, qui imite un matériau translucide en train de se décoller, porte une ombre de bord et un liseré intérieur ; ils disparaissent avec lui.", "section": "elevation" }
+      { "name": "The Sur-Nuit Rule", "body": "Une tuile sombre se déclare par la classe `.sur-nuit`, qui passe le texte en blanc et remappe le ton secondaire, le filet, le focus et la sélection. Les composants ne savent rien de leur fond. Une tuile blanche posée dans une zone sombre (le formulaire) rétablit elle-même les valeurs claires.", "section": "colors" },
+      { "name": "The Sans Accent Rule", "body": "Aucune teinte hors de la famille bleu-gris. L'action se distingue par sa forme pleine en pastille, jamais par une couleur vive.", "section": "colors" },
+      { "name": "The Ardoise Repère Rule", "body": "L'ardoise d'origine sert aux repères non textuels. Tout petit texte secondaire prend l'ardoise texte sur clair, l'ardoise sur nuit sur sombre.", "section": "colors" },
+      { "name": "The Statut Écrit Rule", "body": "Le statut d'une réalisation (« projet client » ou « démonstration ») est écrit en toutes lettres sous le nom ; il n'est jamais porté par la couleur de la tuile.", "section": "colors" },
+      { "name": "The Une Famille Rule", "body": "Une seule famille, Hanken Grotesk, pour le site comme pour l'image de partage. Trois graisses : 400 pour lire, 600 pour les titres, les boutons et les liens d'action, 700 pour la marque.", "section": "typography" },
+      { "name": "The Titre Rule", "body": "Tout titre passe par l'utilitaire `titre` : demi-gras, approche -0,025em, interligne 1,06, lignes équilibrées. Pas de capitales, pas de graisse plus lourde.", "section": "typography" },
+      { "name": "The Ombre d'Aperçu Rule", "body": "Seules les captures de sites portent une ombre : elle les détache comme un objet montré. Tuiles, boutons, champs et barres n'en portent jamais.", "section": "elevation" }
     ],
     "dos": [
-      "Do poser chaque nouvelle surface comme une plaque tôle bordée de 3px anthracite sur la carrosserie, angles droits.",
-      "Do réserver le vinyle au nom, à l'action, à la bande de livrée et aux repères d'ordre (arrêts).",
-      "Do déclarer une zone rouge par `.vinyle` et laisser les rôles se remapper.",
-      "Do distinguer un statut par la forme (aplat plein contre pointillé), en plus de la couleur.",
-      "Do composer les titres en lettrage large 900 et les mentions en lettrage étroit 800, avec chiffres tabulaires pour tout montant ou numéro.",
-      "Do tirer chaque nouvelle section d'une pièce ou d'un document du métier (panneau, porte, bon, tournée).",
-      "Do garder le film de pose comme seul mouvement d'entrée, et son absence sous mouvement réduit."
+      "Do poser chaque nouveau bloc fort comme une tuile pleine (brume, marine ou bleu nuit) aux coins de 16px, à 12px du bord de la fenêtre, sans bordure ni ombre.",
+      "Do déclarer une tuile sombre par `.sur-nuit` et laisser le ton secondaire, le filet et le focus se remapper.",
+      "Do composer tout titre avec `titre` (600, approche -0,025em, interligne 1,06), en casse normale.",
+      "Do prendre l'ardoise texte pour le texte secondaire sur clair et l'ardoise sur nuit sur sombre.",
+      "Do écrire le statut d'une réalisation en toutes lettres (« projet client », « démonstration »).",
+      "Do présenter une énumération en lignes séparées par un filet de 1px plutôt qu'en cartes.",
+      "Do garder les mouvements au changement de couleur, à la rotation d'un signe et au glissement de la barre d'action, tous coupés ou neutres sous mouvement réduit."
     ],
     "donts": [
-      "Don't ajouter d'ombre portée, de dégradé ou de flou sur une surface ou un bouton.",
-      "Don't arrondir un angle en dehors du macaron, des arrêts et de la vitre de portière.",
-      "Don't réintroduire de thème sombre, de bascule de thème, de 3D ou de vidéo.",
+      "Don't introduire de teinte hors de la famille bleu-gris, ni de couleur d'accent pour l'action.",
+      "Don't mettre d'ombre ailleurs que sous une capture de site, ni de dégradé sur une surface.",
+      "Don't border une tuile, ni épaissir un filet au-delà de 1px.",
+      "Don't composer de petit texte dans l'ardoise d'origine : elle n'atteint pas 4,5:1.",
+      "Don't charger une seconde famille de caractères, ni passer un titre en capitales.",
       "Don't bâtir une section en grille de cartes à icône (le portfolio de développeur en trois cartes).",
-      "Don't poser de surtitre en petites capitales au-dessus d'un titre de section.",
-      "Don't charger une seconde famille de caractères.",
-      "Don't afficher de numéro de téléphone tant qu'il n'est pas fourni."
+      "Don't réintroduire de thème sombre, de bascule de thème, de 3D ou de vidéo.",
+      "Don't afficher de numéro de téléphone, de prix ni de montant."
     ]
   }
 }

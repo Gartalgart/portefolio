@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import { site } from "@/lib/content";
 import "./globals.css";
 
-// Une seule famille, trois largeurs : large pour le lettrage, normale pour le texte, étroite pour les panneaux.
-const archivo = Archivo({ subsets: ["latin"], variable: "--font-archivo", display: "swap", axes: ["wdth"] });
+// Une seule famille pour les titres et le texte : la hiérarchie vient de la taille et de la graisse.
+const hanken = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-hanken", display: "swap" });
 
 const pageTitle = `${site.brand} — Création de sites internet pour artisans, commerces et collectivités`;
 const description =
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f1f2f0",
+  themeColor: "#ffffff",
 };
 
 const jsonLd = {
@@ -46,7 +46,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={archivo.variable}>
+    <html lang="fr" className={hanken.variable}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>

@@ -1,131 +1,109 @@
 @import "tailwindcss";
 
 /*
-  Univers « lettrage d'utilitaire » : le site se lit comme le flanc d'une camionnette d'artisan.
-  Carrosserie blanc cassé, vinyle rouge pour le nom et l'action, anthracite pour le texte,
-  gris jante pour les mentions. Thème clair seul : un véhicule se lit en plein jour.
-  `.vinyle` remappe les tokens sur une zone rouge (contact) : les composants n'ont rien à savoir.
+  Univers « vitrine » : beaucoup de blanc, une seule famille de bleu-gris, et les sites livrés montrés en grand.
+  Blanc pour la page, brume pour les tuiles claires, bleu nuit et marine pour les tuiles sombres et l'action.
+  Thème clair seul. `.sur-nuit` remappe les tons secondaires sur une zone sombre : les composants n'ont rien à savoir.
 */
 :root {
-  --carrosserie: #f1f2f0;
-  --tole: #ffffff;
-  --vinyle: #c8361b;
-  --vinyle-fonce: #a92c15;
-  --anthracite: #1d2125;
-  --jante: #565d64;
+  --blanc: #ffffff;
+  --brume: #f1f3f5;
+  --ardoise: #6c7a89;
+  --marine: #2c3e50;
+  --nuit: #1a252f;
+  /* Dérivés : l'ardoise d'origine (4,4:1 sur blanc) est trop claire pour du petit texte. */
+  --ardoise-texte: #55626f;
+  --ardoise-sur-nuit: #a9b4bf;
+  --filet: #dde1e5;
 
-  --bg: var(--carrosserie);
-  --surface: var(--tole);
-  --fg: var(--anthracite);
-  --muted: var(--jante);
-  --line: var(--anthracite);
-  --line-soft: rgba(29, 33, 37, 0.18);
-  --accent: var(--vinyle);
-  --accent-fg: #ffffff;
+  --muted: var(--ardoise-texte);
+  --line: var(--filet);
   color-scheme: light;
 }
 
-/* Zone entièrement vinyle rouge : texte blanc, filets blancs. */
-.vinyle {
-  --bg: var(--vinyle);
-  --fg: #ffffff;
-  --muted: #ffe9e2;
-  --line: #ffffff;
-  --line-soft: rgba(255, 255, 255, 0.4);
-  --accent: var(--anthracite);
-  --accent-fg: #ffffff;
-  background: var(--bg);
-  color: var(--fg);
+/* Zone sombre (tuile nuit ou marine) : texte blanc, tons secondaires éclaircis. */
+.sur-nuit {
+  --muted: var(--ardoise-sur-nuit);
+  --line: rgb(255 255 255 / 0.16);
+  color: var(--blanc);
 }
 
 @theme inline {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-fg: var(--fg);
+  --color-blanc: var(--blanc);
+  --color-brume: var(--brume);
+  --color-ardoise: var(--ardoise);
+  --color-marine: var(--marine);
+  --color-nuit: var(--nuit);
   --color-muted: var(--muted);
-  --color-line: var(--line);
-  --color-line-soft: var(--line-soft);
-  --color-accent: var(--accent);
-  --color-accent-fg: var(--accent-fg);
-  --color-vinyle: var(--vinyle);
-  --color-vinyle-fonce: var(--vinyle-fonce);
-  --color-anthracite: var(--anthracite);
-  --color-carrosserie: var(--carrosserie);
-  --color-jante: var(--jante);
-  --color-tole: var(--tole);
-  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --color-filet: var(--line);
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --radius-tuile: 16px;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
-  scrollbar-color: var(--jante) var(--carrosserie);
-  accent-color: var(--vinyle);
+  scroll-padding-top: 4.5rem;
+  scrollbar-color: var(--ardoise) var(--brume);
+  accent-color: var(--marine);
 }
 body {
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--blanc);
+  color: var(--nuit);
   font-family: var(--font-sans);
-  font-stretch: 100%;
+  font-size: 1.0625rem;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
-:focus-visible { outline: 3px solid var(--vinyle); outline-offset: 3px; }
-.vinyle :focus-visible { outline-color: #ffffff; }
-input, textarea { caret-color: var(--vinyle); }
-a { text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
-::selection { background: var(--anthracite); color: #ffffff; }
-.vinyle ::selection { background: #ffffff; color: var(--vinyle); }
+:focus-visible { outline: 2px solid var(--marine); outline-offset: 3px; border-radius: 4px; }
+.sur-nuit :focus-visible { outline-color: var(--blanc); }
+input, textarea { caret-color: var(--marine); }
+a { text-underline-offset: 0.2em; }
+::selection { background: var(--marine); color: var(--blanc); }
+.sur-nuit ::selection { background: var(--blanc); color: var(--nuit); }
 @utility tabular { font-variant-numeric: tabular-nums lining-nums; }
 
-/* Lettrage : capitales larges et lourdes, comme le vinyle découpé d'un utilitaire. */
-@utility lettrage {
-  font-weight: 900;
-  font-stretch: 112%;
-  @media (width >= 48rem) { font-stretch: 125%; }
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 0.9;
-}
-/* Lettrage étroit : panneaux de chantier, mentions de porte. */
-@utility lettrage-etroit {
-  font-weight: 800;
-  font-stretch: 75%;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 1;
+/* Titres : demi-gras, serrés, équilibrés sur leurs lignes. */
+@utility titre {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.06;
+  text-wrap: balance;
 }
 
-/*
-  Film de pose : au chargement, le film de transfert translucide se décolle une fois de droite
-  à gauche et laisse le nom posé. Le nom reste lisible à travers le film dès la première image.
-*/
-.film {
-  position: absolute;
-  inset: -0.22em -0.12em -0.06em;
-  background: rgba(236, 228, 206, 0.62);
-  box-shadow: inset 0 0 0 1px rgba(29, 33, 37, 0.08); /* taste-skill-ignore : bord du film de pose, transitoire */
-  clip-path: inset(0 0 0 0);
-  animation: film-pose 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
-  pointer-events: none;
+/* Bouton : pastille pleine. Bleu nuit sur fond clair, blanche sur fond sombre (`bouton-clair`). */
+@utility bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.8em 1.45em;
+  border-radius: 999px;
+  background: var(--nuit);
+  color: var(--blanc);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  &:hover { background: var(--marine); }
 }
-/* Le bord qui se décolle : une ombre portée qui suit la découpe. */
-.film::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 0.5em;
-  background: linear-gradient(90deg, rgba(29, 33, 37, 0.16), transparent); /* taste-skill-ignore : ombre du bord qui se décolle, transitoire */
-  animation: film-bord 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+@utility bouton-clair {
+  background: var(--blanc);
+  color: var(--nuit);
+  &:hover { background: var(--brume); }
 }
-@keyframes film-pose { to { clip-path: inset(0 0 0 100%); } }
-@keyframes film-bord { to { left: 100%; opacity: 0; } }
+/* Lien d'action : texte demi-gras, souligné au survol, flèche à la suite. */
+@utility lien {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-weight: 600;
+  color: var(--marine);
+  &:hover { text-decoration: underline; }
+  .sur-nuit & { color: var(--blanc); }
+}
 
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .film { display: none; }
 }

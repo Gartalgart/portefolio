@@ -60,7 +60,7 @@ export const quoteMailHref = `mailto:${site.email}?subject=${encodeURIComponent(
 
 export const nav = [
   { href: "#projets", label: "Réalisations" },
-  { href: "#services", label: "Services" },
+  { href: "#services", label: "Prestations" },
   { href: "#methode", label: "Méthode" },
   { href: "#apropos", label: "À propos" },
   { href: "#faq", label: "FAQ" },

@@ -1,259 +1,266 @@
 ---
 name: RD-Solutions
-description: Le site d'un artisan du web, lettré comme le flanc d'une camionnette d'artisan.
+description: Une vitrine blanche et bleu-gris où les sites livrés sont montrés en grand, un par tuile.
 colors:
-  vinyle: "#c8361b"
-  vinyle-fonce: "#a92c15"
-  anthracite: "#1d2125"
-  jante: "#565d64"
-  carrosserie: "#f1f2f0"
-  tole: "#ffffff"
+  nuit: "#1a252f"
+  marine: "#2c3e50"
+  ardoise: "#6c7a89"
+  ardoise-texte: "#55626f"
+  ardoise-sur-nuit: "#a9b4bf"
+  filet: "#dde1e5"
+  brume: "#f1f3f5"
+  blanc: "#ffffff"
 typography:
   display:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(3.4rem, 11.2vw, 9.6rem)"
-    fontWeight: 900
-    lineHeight: 0.9
-    letterSpacing: "-0.01em"
-    fontVariation: "'wdth' 125"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2.5rem, 6.6vw, 5.4rem)"
+    fontWeight: 600
+    lineHeight: 1.06
+    letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.4rem, 6vw, 5rem)"
-    fontWeight: 900
-    lineHeight: 0.9
-    letterSpacing: "-0.01em"
-    fontVariation: "'wdth' 125"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2rem, 4.6vw, 3.6rem)"
+    fontWeight: 600
+    lineHeight: 1.06
+    letterSpacing: "-0.025em"
   title:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.6rem, 2.6vw, 2.2rem)"
-    fontWeight: 800
-    lineHeight: 1
-    letterSpacing: "0.01em"
-    fontVariation: "'wdth' 75"
-  body:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(1.3rem, 2.2vw, 1.75rem)"
+    fontWeight: 600
+    lineHeight: 1.06
+    letterSpacing: "-0.025em"
+  lead:
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 400
-    lineHeight: 1.625
-    fontVariation: "'wdth' 100"
+    lineHeight: 1.55
+  body:
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.55
   label:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
-    fontWeight: 800
-    lineHeight: 1
-    letterSpacing: "0.01em"
-    fontVariation: "'wdth' 75"
+    fontWeight: 600
   chiffre:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.125rem"
-    fontWeight: 800
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 600
     fontFeature: "'tnum' 1, 'lnum' 1"
 rounded:
-  none: "0px"
-  vitre: "72px"
-  full: "9999px"
+  focus: "4px"
+  apercu: "12px"
+  tuile: "16px"
+  pastille: "999px"
 spacing:
+  marge-tuile: "12px"
   gouttiere-mobile: "20px"
-  gouttiere: "32px"
+  gouttiere: "48px"
   section-mobile: "80px"
-  section: "112px"
-  conteneur: "1360px"
+  section: "128px"
+  conteneur-tuile: "1200px"
+  conteneur: "1296px"
 components:
-  button-primary:
-    backgroundColor: "{colors.vinyle}"
-    textColor: "{colors.tole}"
-    rounded: "{rounded.none}"
-    padding: "16px 28px"
-  button-primary-hover:
-    backgroundColor: "{colors.vinyle-fonce}"
-    textColor: "{colors.tole}"
-  button-zone-vinyle:
-    backgroundColor: "{colors.anthracite}"
-    textColor: "{colors.tole}"
-    rounded: "{rounded.none}"
-    padding: "16px 28px"
-  button-zone-vinyle-hover:
-    backgroundColor: "{colors.tole}"
-    textColor: "{colors.anthracite}"
-  input-case:
-    backgroundColor: "{colors.tole}"
-    textColor: "{colors.anthracite}"
-    rounded: "{rounded.none}"
+  bouton:
+    backgroundColor: "{colors.nuit}"
+    textColor: "{colors.blanc}"
+    rounded: "{rounded.pastille}"
+    padding: "0.8em 1.45em"
+  bouton-hover:
+    backgroundColor: "{colors.marine}"
+    textColor: "{colors.blanc}"
+  bouton-depliant:
+    backgroundColor: "{colors.brume}"
+    textColor: "{colors.nuit}"
+    rounded: "{rounded.pastille}"
+    padding: "12px 24px"
+  bouton-depliant-hover:
+    backgroundColor: "{colors.filet}"
+    textColor: "{colors.nuit}"
+  tuile-brume:
+    backgroundColor: "{colors.brume}"
+    textColor: "{colors.nuit}"
+    rounded: "{rounded.tuile}"
+  tuile-nuit:
+    backgroundColor: "{colors.nuit}"
+    textColor: "{colors.blanc}"
+    rounded: "{rounded.tuile}"
+  tuile-marine:
+    backgroundColor: "{colors.marine}"
+    textColor: "{colors.blanc}"
+    rounded: "{rounded.tuile}"
+  tuile-formulaire:
+    backgroundColor: "{colors.blanc}"
+    textColor: "{colors.nuit}"
+    rounded: "{rounded.tuile}"
+    padding: "32px"
+  champ:
+    backgroundColor: "{colors.brume}"
+    textColor: "{colors.nuit}"
+    rounded: "{rounded.apercu}"
     padding: "10px 16px 12px"
-  panneau-chantier:
-    backgroundColor: "{colors.tole}"
-    textColor: "{colors.anthracite}"
-    rounded: "{rounded.none}"
-  panneau-chantier-entete:
-    backgroundColor: "{colors.anthracite}"
-    textColor: "{colors.tole}"
-    padding: "12px 20px"
-  cachet-client:
-    backgroundColor: "{colors.vinyle}"
-    textColor: "{colors.tole}"
-    typography: "{typography.label}"
-    padding: "6px 10px"
-  arret-tournee:
-    backgroundColor: "{colors.vinyle}"
-    textColor: "{colors.tole}"
-    rounded: "{rounded.full}"
-    size: "50px"
   nav:
-    backgroundColor: "{colors.carrosserie}"
-    textColor: "{colors.anthracite}"
-    height: "64px"
+    backgroundColor: "{colors.blanc}"
+    textColor: "{colors.nuit}"
+    height: "56px"
 ---
 
 # Design System: RD-Solutions
 
 ## Overview
 
-**Creative North Star: "Le lettrage d'utilitaire"**
+**Creative North Star: "La vitrine"**
 
-Le site se lit comme le flanc lettré d'une camionnette d'artisan : le nom en vinyle rouge géant, le métier, la zone, les prestations et le contact, lisibles à vingt mètres. Tout vient de cet objet : la carrosserie blanc cassé comme fond, le vinyle découpé pour les capitales larges et lourdes, la bande de livrée qui structure, les filets épais, le macaron cerclé. Chaque section reprend une pièce du véhicule ou de son métier : panneaux de chantier pour les réalisations, portes arrière pour les services, tournée numérotée pour la méthode, portière conducteur pour l'à-propos, bon de demande pour le contact.
+Le site est une vitrine : une phrase, une action, puis les sites livrés montrés en grand, un par tuile. La page est blanche ; ce qui s'y pose est une tuile pleine, brume, marine ou bleu nuit, aux coins de 16px, sans bordure. Chaque tuile de réalisation porte un nom, une ligne de statut, une phrase, un lien, et l'aperçu du site coupé par son bord bas, comme un objet posé derrière une vitre.
 
-La densité est celle d'un affichage, pas d'une brochure : peu de mots, très gros, posés à plat. Le système est plat et graphique, sans profondeur simulée ; la hiérarchie passe par la taille du lettrage, l'épaisseur des filets (3px anthracite) et l'aplat rouge. Thème clair seul : un véhicule se lit en plein jour (décision du 27/10/2026, pas de bascule de thème). Pas de 3D, pas de vidéo, pas de numéro de téléphone affiché pour l'instant.
+La densité est faible et l'air fait le travail : sections espacées de 80px sur mobile et de 128px au-delà, titres demi-gras serrés, texte secondaire en ardoise. Une seule famille de caractères, une seule famille de bleu-gris, aucune couleur d'accent : l'action se reconnaît à sa forme (une pastille bleu nuit), pas à une teinte. Thème clair seul, sans bascule. Ni 3D, ni vidéo, ni numéro de téléphone, ni prix affiché.
 
-Rejets confirmés : le portfolio de développeur (titre + photo + trois cartes, mode sombre technique), les ombres douces, les cartes arrondies, les dégradés.
+Rejets confirmés : le portfolio de développeur (photo, liste de technos, trois cartes d'icônes) et l'ancien monde « lettrage d'utilitaire » (rouge vermillon, capitales larges, filets épais), remplacé le 16/11/2026.
 
 **Key Characteristics:**
-- Une seule famille (Archivo variable) déclinée sur l'axe de largeur : large pour le lettrage, normale pour le texte, étroite pour les panneaux.
-- Vinyle rouge réservé au nom, à l'action et à la bande de livrée.
-- Filets anthracite de 3px partout, angles droits partout sauf trois exceptions nommées.
-- Statuts lisibles par la forme, jamais par la couleur seule.
-- Un seul mouvement signature : le film de pose qui se décolle une fois au chargement.
+- Page blanche, tuiles pleines brume, marine ou bleu nuit à coins de 16px, sans bordure ni ombre.
+- Une seule famille (Hanken Grotesk) : titres demi-gras serrés, texte normal.
+- Aucune couleur d'accent : cinq tons de bleu-gris, l'action est une pastille bleu nuit.
+- Les aperçus de sites sont les seules images de la page, et les seuls éléments à porter une ombre.
+- Filets fins de 1px pour les listes ; statut d'une réalisation toujours écrit en toutes lettres.
 
 ## Colors
 
-Une carrosserie claire, un vinyle rouge vermillon, un anthracite de pneu : la palette d'un utilitaire lettré, rien de plus.
+Une seule famille de bleu-gris, du blanc au bleu nuit, imposée par le client ; deux dérivés d'ardoise et un filet ont été ajoutés pour tenir le contraste.
 
 ### Primary
-- **Vinyle rouge** (vinyle) : le nom en lettrage géant, chaque bouton d'action, la bande de livrée, le filet vertical des prestations, les arrêts de la tournée, le cachet « Projet client », le « Un seul » du macaron et le fond entier de la zone contact. Contraste 4,73 sur carrosserie ; texte blanc sur vinyle 5,25.
-- **Vinyle foncé** (vinyle-fonce) : survol des boutons rouges et texte d'erreur du formulaire.
+- **Bleu nuit** (nuit) : texte courant, boutons en pastille, grande tuile de réalisation, tuile de contact, monogramme de l'icône. Blanc sur nuit : 15,6:1.
+- **Marine** (marine) : survol des boutons, liens d'action et liens de texte sur fond clair, tuiles de réalisation du damier, contour de focus, sélection, curseur de saisie. Blanc sur marine : 11:1.
 
 ### Neutral
-- **Anthracite** (anthracite) : texte courant, tous les filets et bordures, en-têtes des panneaux de chantier et du bon de demande, bande fine de la livrée, pied de page, bouton d'action dans la zone rouge. Contraste 14,6 sur carrosserie.
-- **Gris jante** (jante) : texte secondaire (chapôs de section, descriptions, libellés `dt` des panneaux, libellés des cases du formulaire). Contraste 6,0 sur carrosserie.
-- **Carrosserie** (carrosserie) : fond de page, barre de navigation, barre « Devis gratuit » mobile, fond du bon de demande, `theme-color` du navigateur.
-- **Tôle** (tole) : panneaux posés sur la carrosserie (panneaux de chantier, portes arrière, cadre du portrait, cases du formulaire) et fond plein des sections Méthode et FAQ ; aussi le blanc du texte sur rouge et sur anthracite.
+- **Blanc** (blanc) : fond de page, tuile du formulaire, barre du haut et barre d'action mobile (translucides), texte sur tuile sombre.
+- **Brume** (brume) : tuiles claires (réalisations, méthode, avis, repli sans portrait), champs du formulaire, bouton dépliant, survol du bouton de menu.
+- **Ardoise** (ardoise) : repères non textuels sur fond clair : signe plus de la FAQ, puces des listes légales, barre de défilement. 4,4:1 sur blanc, 3,95:1 sur brume : trop claire pour du petit texte.
+- **Ardoise texte** (ardoise-texte) : tout le texte secondaire sur fond clair (chapôs, descriptions, légendes, libellés de champ, liens de la barre du haut, pied de page). 6,2:1 sur blanc, 5,6:1 sur brume.
+- **Ardoise sur nuit** (ardoise-sur-nuit) : le même rôle sur tuile sombre. 7,4:1 sur nuit, 5,2:1 sur marine.
+- **Filet** (filet) : traits de 1px entre les lignes de liste, sous la barre du haut, sous l'aperçu du premier écran ; survol du bouton dépliant. Sur tuile sombre, le filet devient un blanc à 16 %.
 
 ### Named Rules
-**The Zone Vinyle Rule.** Une zone entièrement rouge se déclare par la classe `.vinyle`, qui remappe les rôles : texte et filets blancs, secondaire rosé, action anthracite, focus blanc. Les composants ne savent rien de leur fond ; on ne recolore jamais un composant à la main pour le poser sur le rouge.
+**The Sur-Nuit Rule.** Une tuile sombre se déclare par la classe `.sur-nuit`, qui passe le texte en blanc et remappe le ton secondaire, le filet, le focus et la sélection. Les composants ne savent rien de leur fond. Une tuile blanche posée dans une zone sombre (le formulaire) rétablit elle-même les valeurs claires.
 
-**The Vinyle Rare Rule.** Le rouge sert le nom, l'action et la livrée. Il ne sert jamais de décor de fond pour une carte ou un bloc de texte en dehors de la zone contact.
+**The Sans Accent Rule.** Aucune teinte hors de la famille bleu-gris. L'action se distingue par sa forme pleine en pastille, jamais par une couleur vive.
 
-**The Couleur Seule Rule.** Un statut ne repose jamais sur la couleur seule : la forme (aplat plein contre contour pointillé) porte la différence.
+**The Ardoise Repère Rule.** L'ardoise d'origine sert aux repères non textuels. Tout petit texte secondaire prend l'ardoise texte sur clair, l'ardoise sur nuit sur sombre.
+
+**The Statut Écrit Rule.** Le statut d'une réalisation (« projet client » ou « démonstration ») est écrit en toutes lettres sous le nom ; il n'est jamais porté par la couleur de la tuile.
 
 ## Typography
 
-**Display Font:** Archivo variable, axe `wdth` (avec ui-sans-serif, system-ui, sans-serif)
-**Body Font:** Archivo, largeur normale (100%)
-**Label Font:** Archivo étroit (75%)
+**Display Font:** Hanken Grotesk (avec ui-sans-serif, system-ui, sans-serif)
+**Body Font:** Hanken Grotesk
 
-**Character:** Une seule grotesque, trois largeurs : capitales larges et lourdes comme du vinyle découpé pour les titres, grotesque sobre pour lire, capitales étroites pour les mentions de panneau et de porte.
+**Character:** Une grotesque unique, calme et lisible. Les titres sont demi-gras, serrés et équilibrés sur leurs lignes, en casse normale ; le texte reste en graisse normale. La hiérarchie vient de la taille et de la graisse, jamais des capitales.
 
 ### Hierarchy
-- **Display** (900, clamp(3.4rem, 11.2vw, 9.6rem), interligne 0,9, capitales, largeur 125% dès 48rem et 112% en dessous) : le nom dans le premier écran, en vinyle rouge, sur deux lignes. Le métier dessous reprend le même lettrage en anthracite à clamp(1.5rem, 3vw, 2.6rem).
-- **Headline** (900, clamp(2.4rem, 6vw, 5rem), interligne 0,9, capitales, largeur 125%) : titres de section et titre des pages légales (en rouge sur celles-ci). Même lettrage pour la marque dans la navigation et le pied de page.
-- **Title** (800, clamp(1.6rem, 2.6vw, 2.2rem) pour les portes arrière, 1.125 à 1.25rem ailleurs, interligne 1, capitales, largeur 75%) : intitulés de service, d'arrêt, de valeur, nom sous le portrait, liste des prestations, email lettré du premier écran (en casse normale).
-- **Body** (400, 1.125rem, interligne 1.625, largeur 52 à 56ch) : chapôs et paragraphes ; les réponses de FAQ montent à 62ch.
-- **Label** (800, 0.875rem, capitales, largeur 75%) : libellés Pour / Besoin / Travaux / Par, cachets de statut, libellés des cases du formulaire.
+- **Display** (600, clamp(2.5rem, 6.6vw, 5.4rem), interligne 1,06, approche -0,025em, 14ch au plus) : la phrase du premier écran, centrée.
+- **Headline** (600, clamp(2rem, 4.6vw, 3.6rem), mêmes réglages) : titres de section centrés. Les titres de section en colonne descendent à clamp(2rem, 4.2vw, 3.2rem) ; celui du contact et celui des pages légales montent à 4rem.
+- **Title** (600, clamp(1.3rem, 2.2vw, 1.75rem) pour les prestations, 1.25rem pour les étapes et les engagements, clamp(1.8rem, 3.4vw, 2.9rem) pour le nom d'une grande tuile, 1.5rem pour une petite tuile et le menu mobile).
+- **Lead** (400, 1.125rem, ardoise texte, 40 à 52ch) : la phrase sous un titre de section. Celle du premier écran va de 1.1rem à 1.35rem.
+- **Body** (400, 1.0625rem, interligne 1,55, 44 à 62ch, 68ch pour les pages légales).
+- **Label** (600, 0.875rem) : libellés de champ ; les légendes d'image et le pied de page prennent la même taille en graisse normale. Marque dans la barre du haut : 700, 1.125rem, approche serrée.
+- **Chiffre** (600, chiffres tabulaires alignés) : numéros d'étape à deux chiffres (01 à 07).
 
 ### Named Rules
-**The Trois Largeurs Rule.** On ne charge pas de seconde famille : la variété vient de l'axe de largeur d'Archivo (125, 100, 75) et du poids (900, 800, 400-700).
+**The Une Famille Rule.** Une seule famille, Hanken Grotesk, pour le site comme pour l'image de partage. Trois graisses : 400 pour lire, 600 pour les titres, les boutons et les liens d'action, 700 pour la marque.
 
-**The Chiffre Épinglé Rule.** Les numéros d'arrêt sont en chiffres tabulaires et alignés (`tnum`, `lnum`). Aucun prix ni montant n'apparaît sur le site (décision du 28/10/2026).
-
-**The Deux-Points Rule.** En titre, une espace insécable précède le deux-points (« Au volant : moi »).
+**The Titre Rule.** Tout titre passe par l'utilitaire `titre` : demi-gras, approche -0,025em, interligne 1,06, lignes équilibrées. Pas de capitales, pas de graisse plus lourde.
 
 ## Layout
 
-Conteneur unique de 1360px centré, gouttières de 20px sur mobile et 32px dès 48rem. Les sections se succèdent bord à bord, séparées par un filet anthracite de 3px en haut, avec 80px de marge verticale sur mobile et 112px dès 48rem. L'alternance de fond carrosserie / tôle (Méthode, FAQ) et la zone rouge du contact rythment la page, jamais une ombre.
+Deux largeurs cohabitent. Les sections de texte tiennent dans un conteneur centré de 1296px, avec des gouttières de 20px sur mobile et de 48px dès 48rem. Les tuiles, elles, vont presque d'un bord à l'autre de la fenêtre, avec 12px de marge et 12px entre elles ; leur contenu se recentre sur 1200px. Les sections s'espacent de 80px sur mobile et de 128px dès 48rem, sans filet ni changement de fond entre elles.
 
-Le premier écran est une composition de flanc : nom à gauche et macaron à droite (macaron visible dès 64rem, à côté du bouton sur mobile), puis zone et prestations derrière un filet rouge de 8px, puis la bande de livrée pleine largeur (aplat rouge de 36px, 48px dès 48rem ; 6px de carrosserie ; bande anthracite de 8px), puis texte d'accroche, bouton et email lettré. Sur mobile, l'action passe avant les prestations.
+Le premier écran est centré : phrase, explication, bouton et lien, puis l'aperçu du premier projet client sur toute la largeur du conteneur (16/10, 16/8,5 dès 48rem), coins hauts arrondis, légende sous un filet. Les titres de Réalisations et Prestations sont centrés ; Méthode, À propos, FAQ et Contact se composent en deux colonnes 5/7 (4/7 pour la FAQ), dès 48rem ou 64rem selon la section, le titre restant collé en haut pendant la lecture dans Méthode et FAQ.
 
-Grilles : deux colonnes égales pour les réalisations et les portes arrière dès 48rem ; 5/7 pour à-propos et contact, 4/7 pour la FAQ dès 64rem ; tournée en sept colonnes dès 80rem, verticale en dessous. Sur mobile, une barre fixée en bas (bouton rouge « Devis gratuit » + lien « Écrire »), qui glisse en place une fois le premier écran passé et s'efface sur la section contact, pour ne jamais couvrir l'email lettré ni le formulaire ; le pied de page réserve la place en dessous (112px).
+Réalisations : une grande tuile sur deux colonnes, puis un damier de quatre tuiles en deux colonnes dès 48rem ; les autres se déplient en petites tuiles brume sur deux colonnes dès 40rem et trois dès 64rem. Dans chaque tuile, l'aperçu reste collé au bord bas quelle que soit la longueur du texte.
+
+Sur mobile, une barre d'action fixée en bas (bouton « Devis gratuit » et lien « Email ») glisse en place une fois le premier écran passé et s'efface sur la section contact ; le pied de page lui réserve 112px. Les ancres s'arrêtent 4,5rem sous le haut de la fenêtre pour dégager la barre collante.
 
 ## Elevation & Depth
 
-Système plat : aucune ombre portée, aucune élévation. La profondeur se lit par superposition d'aplats et de filets : une plaque tôle bordée de 3px anthracite posée sur la carrosserie, un en-tête anthracite plein en haut d'un panneau. La navigation collante se détache par son filet bas de 3px, pas par une ombre.
+Système plat. La profondeur vient de la superposition de tons : une tuile brume, marine ou nuit sur la page blanche, une tuile blanche sur la tuile nuit. Les deux barres collantes (haut et action mobile) sont blanches translucides (80 à 85 %) avec un flou d'arrière-plan et un filet de 1px ; c'est le seul usage du flou.
+
+### Shadow Vocabulary
+- **Aperçu du premier écran** (`box-shadow: 0 30px 80px -20px rgb(26 37 47 / 0.35)`) : sous la capture du site en vedette.
+- **Aperçu dans une tuile** (`box-shadow: 0 24px 60px -18px rgb(0 0 0 / 0.4)`) : sous la capture posée au bas d'une tuile de réalisation.
 
 ### Named Rules
-**The Plat-Vinyle Rule.** Pas d'ombre, pas de dégradé sur une surface, une carte ou un bouton. Seul le film de pose, qui imite un matériau translucide en train de se décoller, porte une ombre de bord et un liseré intérieur ; ils disparaissent avec lui.
+**The Ombre d'Aperçu Rule.** Seules les captures de sites portent une ombre : elle les détache comme un objet montré. Tuiles, boutons, champs et barres n'en portent jamais.
 
 ## Shapes
 
-Angles droits partout. Trois exceptions seulement, chacune tirée du véhicule : le macaron « Un seul interlocuteur » (cercle, bordure 5px anthracite), les arrêts de la tournée (cercles de 50px), le coin supérieur gauche du portrait arrondi à 72px comme une vitre de portière. Les bordures sont pleines et épaisses : 3px anthracite pour les contours, les filets de section et les règles de FAQ . Aucun filet fin : à l'intérieur d'une même plaque, les éléments se séparent par l'espacement ou par un aplat de carrosserie (pied des panneaux de chantier). Le pointillé de 2 à 3px signale ce qui n'est pas encore réel : la démonstration, le prochain panneau à venir.
+Tout est arrondi, à quatre rayons. Les tuiles et le portrait : 16px. Ce qui se pose dans une tuile (aperçu de site, coins hauts seulement ; champ de formulaire) : 12px. Les actions : pastille pleine (999px) pour les boutons, le bouton dépliant, le bouton de menu rond de 40px et le lien d'évitement. Le contour de focus : 2px marine décalé de 3px, coins de 4px, blanc sur tuile sombre.
+
+Aucune bordure sur une tuile. Les seuls traits sont des filets de 1px : entre les lignes d'une liste (prestations, étapes, engagements, FAQ, menu mobile), sous la barre du haut, au-dessus de la barre d'action, sous l'aperçu du premier écran. Les aperçus sont coupés par le bord bas de leur tuile. L'icône du site reprend la forme : monogramme « RD » blanc sur un carré bleu nuit aux coins arrondis.
 
 ## Components
 
 ### Buttons
-Des aplats nets, lettrés en gras, sans arrondi.
-- **Shape:** angles droits (0px).
-- **Primary:** fond vinyle, texte blanc gras, 16px x 28px en premier écran (14px x 24px ailleurs), flèche de 20px trait 2,5 à droite quand l'action engage.
-- **Hover / Focus:** survol en vinyle foncé (transition de couleur seule) ; focus clavier par un contour vinyle de 3px décalé de 3px (blanc en zone rouge).
-- **Zone vinyle:** dans la zone rouge, bouton anthracite à texte blanc, qui s'inverse en blanc / anthracite au survol.
+Une pastille pleine, calme, sans effet.
+- **Shape:** pastille (999px).
+- **Primary:** fond bleu nuit, texte blanc demi-gras, 0,8em x 1,45em, sans retour à la ligne ; flèche de 19px à droite sur le bouton d'envoi. Version compacte dans la barre du haut (0,5em x 1,1em, 0.9rem), pleine largeur dans le formulaire et la barre d'action mobile.
+- **Hover / Focus:** survol en marine (transition de fond 0,2 s, aucun déplacement) ; focus par le contour global. En cours d'envoi : opacité 70 %, curseur d'attente.
+- **Dépliant:** pastille brume à texte bleu nuit demi-gras et chevron qui se retourne à l'ouverture ; survol en filet. Ouvre le reste des réalisations.
+- Un utilitaire `bouton-clair` (pastille blanche pour fond sombre, survol brume) est défini dans la feuille de styles mais n'est employé par aucune surface livrée.
 
 ### Liens
-Texte anthracite gras souligné en vinyle (2 à 3px, décalage 0,2em), qui passe en vinyle au survol. L'email du premier écran est lettré à l'échelle d'un panneau (lettrage étroit en casse normale, clamp(1.5rem, 2.3vw, 2.1rem)).
+- **Lien d'action:** texte demi-gras marine (blanc sur tuile sombre), souligné au survol, suivi d'une flèche de 17px quand il mène ailleurs (flèche droite vers une ancre, flèche en diagonale vers un autre site).
+- **Lien de texte:** demi-gras marine, souligné (pages légales, mention sous le formulaire).
+- **Lien de barre et de pied:** ardoise texte, bleu nuit au survol.
 
-### Cachets de statut
-- **Projet client:** aplat vinyle, lettrage étroit blanc.
-- **Démonstration:** contour pointillé blanc de 2px, même lettrage, sans fond. La forme suffit à distinguer les deux.
+### Tuile de réalisation
+- **Corner Style:** 16px, contenu coupé au bord.
+- **Background:** bleu nuit pour la grande tuile, puis damier brume / marine ; brume pour les petites tuiles dépliées.
+- **Shadow Strategy:** aucune sur la tuile ; l'aperçu porte la sienne (voir Elevation & Depth).
+- **Border:** aucune.
+- **Contenu:** centré : nom en titre, ligne « catégorie · projet client » ou « démonstration » en ton secondaire, une phrase de 44ch au plus, lien « Voir le site », puis l'aperçu 16/10 (880px au plus, coins hauts de 12px) collé au bas.
+- **Internal Padding:** 40px en haut et 20px sur les côtés sur mobile, 64px et 48px dès 48rem ; 36px et 24px pour une petite tuile.
 
-### Panneau de chantier (réalisations)
-- **Corner Style:** angles droits.
-- **Background:** tôle, bordure 3px anthracite ; en-tête anthracite plein (« Chantier web » en lettrage étroit + cachet), capture 16/10 séparée par un filet de 3px.
-- **Shadow Strategy:** aucune (voir Elevation & Depth).
-- **Contenu:** liste de définitions Pour / Besoin / Travaux / Par, puis les éléments du site en mots de client et le lien « Voir [domaine] ».
-- **Suite:** un panneau pointillé de 3px « Le prochain panneau peut porter votre nom » avec un bouton rouge ferme la série.
+### Lignes à filets
+Prestations, étapes, engagements et questions sont des listes, pas des cartes : chaque ligne s'ouvre par un filet de 1px, avec 24 à 28px de marge verticale. Prestations : nom à gauche, bénéfice à droite (5/7). Étapes : numéro tabulaire à deux chiffres dans une colonne de 2,25rem, puis titre et texte. Les quatre points du contact s'ouvrent par une coche de 20px en ton secondaire.
 
-### Portes arrière (services)
-Une plaque tôle unique, bordée de 3px, coupée en deux portes par une jointure de 3px ; les deux portes partagent les mêmes rangées pour que leurs filets s'alignent. Une poignée (15 x 64px, bordure 3px, fond carrosserie) est posée sur la jointure dès 48rem. Chaque porte porte deux prestations, titre lettré et description, sans prix.
-
-### La tournée (méthode)
-Une route anthracite de 6px, horizontale dès 80rem, verticale en dessous ; sept arrêts circulaires de 50px (vinyle, bordure 3px anthracite, numéro blanc en lettrage tabulaire).
-
-### Portière conducteur (à propos)
-Portrait 4/5 dans un cadre tôle bordé de 3px, avec la vitre arrondie à 72px en haut à gauche ; légende avec le nom en lettrage étroit et la zone en gris jante.
-
-### Inputs / Fields (bon de demande)
-- **Style:** chaque champ est une case de carnet de bons : cellule tôle bordée de 3px anthracite, libellé en lettrage étroit gris jante en haut, saisie 1.125rem en dessous, sans contour propre. Le formulaire entier est une plaque carrosserie bordée de 3px avec un en-tête anthracite « Bon de demande ».
-- **Focus:** la bordure de la case passe en vinyle ; curseur de saisie vinyle.
-- **Error:** message en vinyle foncé gras, annoncé en `alert` ; la confirmation passe en `status`.
+### Inputs / Fields
+- **Style:** cellule brume aux coins de 12px, sans bordure ; libellé demi-gras de 0.875rem en ardoise texte au-dessus, saisie de 1.125rem en bleu nuit sur fond transparent. Le formulaire est une tuile blanche (16px, 20px de marge intérieure, 32px dès 48rem) posée sur la tuile nuit du contact.
+- **Focus:** anneau marine de 2px autour de la cellule ; curseur de saisie marine.
+- **Error / Disabled:** message demi-gras sous le bouton, annoncé en `alert` ; la confirmation passe en `status`.
 
 ### FAQ
-`details` natifs séparés par des règles de 3px anthracite, question en gras 800, signe plus vinyle qui tourne de 45° à l'ouverture.
+`details` natifs séparés par des filets de 1px ; question demi-grasse (1.125rem, 1.25rem dès 48rem), signe plus ardoise de 22px qui tourne de 45° à l'ouverture (0,2 s), réponse en ton secondaire sur 62ch.
 
 ### Navigation
-Plaque carrosserie collante de 64px, filet bas de 3px. Marque en lettrage à gauche, liens gras soulignés en vinyle au survol dès 64rem, bouton rouge « Devis gratuit » dès 40rem. Menu mobile : bouton carré bordé de 3px, liste en lettrage 1.5rem séparée par des filets fins. Les pages légales reprennent la plaque avec un simple lien « Retour au site ».
+Barre collante de 56px, blanche à 80 % avec flou d'arrière-plan, filet bas de 1px. Marque en gras à gauche ; ancres en ardoise texte (0.9rem) dès 64rem, bleu nuit au survol ; pastille « Devis gratuit » compacte dès 40rem. Sous 64rem, bouton de menu rond de 40px (survol brume) ; le menu s'ouvre sous la barre en liste de titres de 1.5rem séparés par des filets, et se ferme à Échap. Les pages légales gardent la barre, opaque, avec un seul lien « Retour au site ».
+
+### Barre d'action mobile
+Sous 48rem : barre fixée en bas, blanche à 85 % avec flou, filet haut de 1px ; bouton pastille pleine largeur et lien « Email ». Elle glisse en 0,3 s, sans transition sous mouvement réduit.
 
 ### Pied de page
-Aplat anthracite, marque en lettrage blanc, liens légaux soulignés en vinyle.
+Une ligne sur fond blanc, 0.875rem en ardoise texte : marque, zone, liens légaux soulignés au survol.
 
-### Film de pose (signature)
-Au chargement, un film de transfert translucide crème couvre le nom puis se décolle une fois de gauche vers la droite (1,1 s, cubic-bezier(0.16, 1, 0.3, 1), 0,35 s de délai), avec une ombre de bord qui suit la découpe. Le nom reste lisible à travers le film dès la première image. Mouvement réduit : pas de film, état final directement.
+### Image de partage
+1200 x 630, fond blanc : marque en gras, la phrase du premier écran en demi-gras bleu nuit, pied sous filet en ardoise texte avec le domaine en marine.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** poser chaque nouvelle surface comme une plaque tôle bordée de 3px anthracite sur la carrosserie, angles droits.
-- **Do** réserver le vinyle au nom, à l'action, à la bande de livrée et aux repères d'ordre (arrêts).
-- **Do** déclarer une zone rouge par `.vinyle` et laisser les rôles se remapper.
-- **Do** distinguer un statut par la forme (aplat plein contre pointillé), en plus de la couleur.
-- **Do** composer les titres en lettrage large 900 et les mentions en lettrage étroit 800, avec chiffres tabulaires pour tout montant ou numéro.
-- **Do** tirer chaque nouvelle section d'une pièce ou d'un document du métier (panneau, porte, bon, tournée).
-- **Do** garder le film de pose comme seul mouvement d'entrée, et son absence sous mouvement réduit.
+- **Do** poser chaque nouveau bloc fort comme une tuile pleine (brume, marine ou bleu nuit) aux coins de 16px, à 12px du bord de la fenêtre, sans bordure ni ombre.
+- **Do** déclarer une tuile sombre par `.sur-nuit` et laisser le ton secondaire, le filet et le focus se remapper.
+- **Do** composer tout titre avec `titre` (600, approche -0,025em, interligne 1,06), en casse normale.
+- **Do** prendre l'ardoise texte pour le texte secondaire sur clair et l'ardoise sur nuit sur sombre.
+- **Do** écrire le statut d'une réalisation en toutes lettres (« projet client », « démonstration »).
+- **Do** présenter une énumération en lignes séparées par un filet de 1px plutôt qu'en cartes.
+- **Do** garder les mouvements au changement de couleur, à la rotation d'un signe et au glissement de la barre d'action, tous coupés ou neutres sous mouvement réduit.
 
 ### Don't:
-- **Don't** ajouter d'ombre portée, de dégradé ou de flou sur une surface ou un bouton.
-- **Don't** arrondir un angle en dehors du macaron, des arrêts et de la vitre de portière.
-- **Don't** réintroduire de thème sombre, de bascule de thème, de 3D ou de vidéo.
+- **Don't** introduire de teinte hors de la famille bleu-gris, ni de couleur d'accent pour l'action.
+- **Don't** mettre d'ombre ailleurs que sous une capture de site, ni de dégradé sur une surface.
+- **Don't** border une tuile, ni épaissir un filet au-delà de 1px.
+- **Don't** composer de petit texte dans l'ardoise d'origine : elle n'atteint pas 4,5:1.
+- **Don't** charger une seconde famille de caractères, ni passer un titre en capitales.
 - **Don't** bâtir une section en grille de cartes à icône (le portfolio de développeur en trois cartes).
-- **Don't** poser de surtitre en petites capitales au-dessus d'un titre de section.
-- **Don't** charger une seconde famille de caractères.
-- **Don't** afficher de numéro de téléphone tant qu'il n'est pas fourni.
-
-## À compléter
-
-Éléments en attente, listés dans INFOS-A-FOURNIR.md : GitHub, LinkedIn, champs des mentions légales, régime de TVA pour les mentions légales, une réponse de FAQ, vrais témoignages (la section reste masquée tant qu'aucun avis n'est renseigné).
+- **Don't** réintroduire de thème sombre, de bascule de thème, de 3D ou de vidéo.
+- **Don't** afficher de numéro de téléphone, de prix ni de montant.

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { quoteHref, nav, site } from "@/lib/content";
 
 /*
-  Barre du haut : la plaque du véhicule, blanche, filet anthracite épais. Sur mobile, le menu
+  Barre du haut : fine, blanche et translucide, elle laisse la page passer dessous. Sur mobile, le menu
   s'ouvre en dessous et une barre « Devis gratuit » reste collée en bas de l'écran (voir CallBar).
 */
 export default function Navbar() {
@@ -18,48 +18,45 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b-[3px] border-anthracite bg-carrosserie">
-      <nav aria-label="Navigation principale" className="mx-auto flex h-16 max-w-[1360px] items-center justify-between gap-6 px-5 md:px-8">
-        <a href="#" className="lettrage text-xl text-anthracite md:text-2xl">
+    <header className="sticky top-0 z-50 border-b border-filet bg-white/80 backdrop-blur-lg backdrop-saturate-150">
+      <nav aria-label="Navigation principale" className="mx-auto flex h-14 max-w-[1296px] items-center justify-between gap-6 px-5 md:px-12">
+        <a href="#" className="text-lg font-bold tracking-tight">
           {site.brand}
         </a>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="hidden items-center gap-7 text-[0.9rem] lg:flex">
           {nav.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="py-2 font-semibold text-anthracite decoration-vinyle hover:underline">
+              <a href={l.href} className="py-2 text-muted transition-colors hover:text-nuit">
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
-          <a
-            href={quoteHref}
-            className="hidden bg-vinyle px-5 py-3 font-bold text-white transition-colors hover:bg-vinyle-fonce sm:block"
-          >
+        <div className="flex items-center gap-2">
+          <a href={quoteHref} className="bouton hidden px-[1.1em] py-[0.5em] text-[0.9rem] sm:inline-flex">
             Devis gratuit
           </a>
           <button
             type="button"
-            className="grid h-11 w-11 place-items-center border-[3px] border-anthracite text-anthracite lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full text-nuit transition-colors hover:bg-brume lg:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             onClick={() => setOpen((o) => !o)}
           >
-            {open ? <X size={20} strokeWidth={2.5} aria-hidden="true" /> : <Menu size={20} strokeWidth={2.5} aria-hidden="true" />}
+            {open ? <X size={20} strokeWidth={2} aria-hidden="true" /> : <Menu size={20} strokeWidth={2} aria-hidden="true" />}
           </button>
         </div>
       </nav>
 
       {open && (
-        <div id="menu-mobile" className="border-t-[3px] border-anthracite bg-carrosserie px-5 pb-6 pt-2 lg:hidden">
+        <div id="menu-mobile" className="border-t border-filet px-5 pb-6 pt-2 md:px-12 lg:hidden">
           <ul>
             {nav.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)} className="lettrage block py-4 text-2xl text-anthracite">
+              <li key={l.href} className="border-b border-filet">
+                <a href={l.href} onClick={() => setOpen(false)} className="titre block py-4 text-2xl">
                   {l.label}
                 </a>
               </li>

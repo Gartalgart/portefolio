@@ -4,8 +4,7 @@ import { quoteHref, quoteMailHref } from "@/lib/content";
 
 /*
   Sur téléphone, l'action reste à portée de pouce : une barre collée en bas de l'écran.
-  Elle n'apparaît qu'une fois le premier écran passé (il a déjà son bouton et l'email lettré,
-  qu'elle cacherait) et s'efface sur la section contact, où le formulaire prend le relais.
+  Elle n'apparaît qu'une fois le premier écran passé (il a déjà son bouton, qu'elle doublerait) et s'efface sur la section contact, où le formulaire prend le relais.
 */
 export default function CallBar() {
   const [show, setShow] = useState(false);
@@ -26,15 +25,15 @@ export default function CallBar() {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 grid grid-cols-[minmax(0,1fr)_auto] border-t-[3px] border-anthracite bg-carrosserie transition-transform duration-300 ease-out motion-reduce:transition-none md:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 border-t border-filet bg-white/85 px-3 py-2.5 backdrop-blur-lg transition-transform duration-300 ease-out motion-reduce:transition-none md:hidden ${
         show ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
       aria-hidden={!show}
     >
-      <a href={quoteHref} tabIndex={show ? 0 : -1} className="bg-vinyle px-5 py-4 text-center text-lg font-bold text-white">
+      <a href={quoteHref} tabIndex={show ? 0 : -1} className="bouton py-3.5 text-lg">
         Devis gratuit
       </a>
-      <a href={quoteMailHref} tabIndex={show ? 0 : -1} className="grid place-items-center px-5 font-bold text-anthracite underline decoration-vinyle">
+      <a href={quoteMailHref} tabIndex={show ? 0 : -1} className="lien px-4 py-3">
         Email
       </a>
     </div>

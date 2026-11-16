@@ -1,101 +1,52 @@
 import { ArrowRight } from "lucide-react";
-import { quoteHref, offers, site } from "@/lib/content";
+import Image from "next/image";
+import { quoteHref, projects, site } from "@/lib/content";
 
 /*
-  Premier écran : le flanc du véhicule. Le nom en lettrage rouge sur toute la largeur (film de pose
-  qui se décolle une fois), le métier et la zone, les prestations comme sur la porte arrière, le
-  macaron « un seul interlocuteur ». La bande de livrée, puis l'action et l'email lettrés à l'échelle d'un panneau.
-  Sur téléphone : nom, métier, zone, bouton et macaron, puis prestations. Tout est lisible sans script.
+  Premier écran : une phrase, une action, et un vrai site livré montré en grand. L'aperçu est le premier
+  projet client de la liste ; les réalisations qui suivent reprennent à partir du deuxième.
 */
-function Macaron({ className }: { className: string }) {
-  return (
-    <p className={`shrink-0 place-content-center rounded-full border-[5px] border-anthracite text-center ${className}`}>
-      <span className="lettrage-etroit block text-[1.6rem] leading-none text-vinyle lg:text-[2.05rem]">Un seul</span>
-      <span className="mt-1 text-sm font-bold leading-tight lg:text-base">
-        interlocuteur,
-        <br />
-        du devis au suivi
-      </span>
-    </p>
-  );
-}
-
-// Sans propriété display : chaque bouton choisit la sienne (inline-flex ou hidden md:inline-flex).
-const cta = "items-center gap-3 whitespace-nowrap bg-vinyle py-4 font-bold text-white transition-colors hover:bg-vinyle-fonce";
-
 export default function Hero() {
-  // « RD- » puis « Solutions » : la marque lettrée sur deux lignes, coupée après le trait d'union.
-  const [first, last] = site.brand.split(/(?<=-)/);
+  const vedette = projects[0];
   return (
-    <section aria-labelledby="titre">
-      <div className="mx-auto w-full max-w-[1360px] px-5 pb-8 pt-8 md:px-8 md:pb-9 md:pt-10">
-        <div className="flex items-start justify-between gap-10">
-          <h1 id="titre" className="lettrage text-[clamp(2.2rem,11vw,5.2rem)] lg:text-[clamp(5.2rem,8.8vw,8.4rem)]">
-            <span className="relative inline-block">
-              <span className="block text-vinyle">
-                {first}
-                <br />
-                {last}
-              </span>
-              <span className="film" aria-hidden="true" />
-            </span>
-            <span className="lettrage mt-5 block text-[clamp(1.5rem,3vw,2.6rem)] text-anthracite md:mt-7">Création de sites internet</span>
-          </h1>
-          <Macaron className="mt-4 hidden h-44 w-44 lg:grid" />
-        </div>
-
-        <div className="mt-4 grid gap-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10">
-          <p className="text-base font-semibold uppercase tracking-[0.02em] text-muted sm:text-lg sm:tracking-[0.04em] md:text-xl">{site.location}</p>
-
-          {/* Téléphone : l'action avant les prestations, avec le macaron à côté. */}
-          <div className="flex items-center justify-between gap-4 md:hidden">
-            <a href={quoteHref} className={`${cta} inline-flex px-5 text-base`}>
-              Devis gratuit
-              <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />
-            </a>
-            <Macaron className="grid h-[8.5rem] w-[8.5rem] px-3" />
-          </div>
-
-          {/* Porte arrière : la liste des prestations, lettrée. */}
-          <div className="flex gap-4">
-            <span className="w-2 shrink-0 bg-vinyle" aria-hidden="true" />
-            <ul
-              aria-label="Prestations"
-              className="lettrage-etroit grid grid-cols-2 gap-x-6 gap-y-1 text-[clamp(1.35rem,2.2vw,1.9rem)] text-anthracite"
-            >
-              {offers.map((o) => (
-                <li key={o}>{o}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+    <section aria-labelledby="titre" className="mx-auto max-w-[1296px] px-5 pt-14 text-center md:px-12 md:pt-24">
+      <h1 id="titre" className="titre mx-auto max-w-[14ch] text-[clamp(2.5rem,6.6vw,5.4rem)]">
+        Un site qui fait venir vos clients.
+      </h1>
+      <p className="mx-auto mt-6 max-w-[46ch] text-pretty text-[clamp(1.1rem,1.6vw,1.35rem)] text-muted">
+        {site.brand} crée votre site, le rend visible sur Google et en assure le suivi. Un seul interlocuteur, du devis à la
+        maintenance.
+      </p>
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-3.5">
+        <a href={quoteHref} className="bouton">
+          Demander un devis gratuit
+        </a>
+        <a href="#projets" className="lien">
+          Voir les réalisations
+          <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
+        </a>
       </div>
 
-      {/* Bande de livrée. */}
-      <div aria-hidden="true">
-        <div className="h-9 bg-vinyle md:h-12" />
-        <div className="mt-1.5 h-2 bg-anthracite" />
-      </div>
-
-      <div className="mx-auto grid w-full max-w-[1360px] items-center gap-6 px-5 py-8 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10 md:px-8 md:py-9">
-        <p className="max-w-[52ch] text-pretty text-lg leading-relaxed md:text-xl">
-          {site.brand} crée votre site, le rend visible sur Google et en assure le suivi. Un seul interlocuteur, du devis à la
-          maintenance.
-        </p>
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-          <a href={quoteHref} className={`${cta} hidden px-7 text-lg md:inline-flex`}>
-            Demander un devis gratuit
-            <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />
+      <figure className="mt-12 md:mt-20">
+        <a href={vedette.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
+          <Image
+            src={vedette.image}
+            alt=""
+            width={1280}
+            height={800}
+            priority
+            sizes="(min-width: 1296px) 1200px, 100vw"
+            className="aspect-[16/10] w-full rounded-t-tuile object-cover object-top shadow-[0_30px_80px_-20px_rgb(26_37_47/0.35)] md:aspect-[16/8.5]"
+          />
+        </a>
+        <figcaption className="border-t border-filet py-3.5 text-sm text-muted">
+          {vedette.name}, {vedette.category.toLowerCase()} · projet client ·{" "}
+          <a href={vedette.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-marine hover:underline">
+            {vedette.host}
+            <span className="sr-only"> (nouvel onglet)</span>
           </a>
-          {/* L'email lettré comme sur un utilitaire : la deuxième inscription après le nom. */}
-          <a
-            href={`mailto:${site.email}`}
-            className="lettrage-etroit py-1 text-[clamp(1.5rem,2.3vw,2.1rem)] normal-case text-anthracite underline decoration-vinyle decoration-[3px] underline-offset-[0.18em] hover:text-vinyle"
-          >
-            {site.email}
-          </a>
-        </div>
-      </div>
+        </figcaption>
+      </figure>
     </section>
   );
 }

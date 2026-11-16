@@ -1,48 +1,29 @@
 import { services } from "@/lib/content";
 
 /*
-  Services : les deux portes arrière du véhicule, séparées par la jointure centrale et sa poignée.
-  Les deux portes partagent les mêmes rangées, pour que leurs filets s'alignent. Sur téléphone,
-  la porte de gauche puis celle de droite, séparées par un filet épais.
+  Prestations : quatre lignes séparées par un filet, le nom à gauche, ce que le client y gagne à droite.
+  Pas de cartes : la liste se lit d'un trait.
 */
-// Ordre de lecture sur grand écran : rangée 1 (0, 2), rangée 2 (1, 3).
-const mdOrder = ["md:order-1", "md:order-3", "md:order-2", "md:order-4"];
-
 export default function Services() {
   return (
-    <section id="services" aria-labelledby="services-titre" className="border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[1360px]">
-        <h2 id="services-titre" className="lettrage text-balance text-[clamp(2.4rem,6vw,5rem)]">
+    <section id="services" aria-labelledby="services-titre" className="mx-auto max-w-[1296px] px-5 md:px-12">
+      <div className="pb-8 pt-20 text-center md:pb-12 md:pt-32">
+        <h2 id="services-titre" className="titre text-[clamp(2rem,4.6vw,3.6rem)]">
           Prestations
         </h2>
-        <p className="mt-5 max-w-[52ch] text-pretty text-lg leading-relaxed text-muted">
+        <p className="mx-auto mt-4 max-w-[50ch] text-pretty text-lg text-muted">
           Quatre prestations, un prix annoncé avant de commencer, et la même personne pour chacune.
         </p>
-
-        <ul className="relative mt-12 grid border-[3px] border-anthracite bg-tole md:mt-16 md:grid-cols-2">
-          {services.map((s, i) => {
-            const left = i < 2;
-            const secondRow = i === 1 || i === 3;
-            // Entre les deux portes, la jointure épaisse ; à l'intérieur d'une porte, l'espacement suffit.
-            const mobileTop = i === 2 ? "border-t-[3px] border-t-anthracite" : "";
-            const mdTop = "md:border-t-0";
-            return (
-              <li
-                key={s.title}
-                className={`px-6 py-8 md:px-10 ${secondRow ? "md:pb-10 md:pt-4" : "md:pb-4 md:pt-10"} ${mobileTop} ${mdTop} ${left ? "md:border-r-[3px] md:border-r-anthracite" : ""} ${mdOrder[i]}`}
-              >
-                <h3 className="lettrage-etroit text-[clamp(1.6rem,2.6vw,2.2rem)]">{s.title}</h3>
-                <p className="mt-4 max-w-[48ch] leading-relaxed text-muted">{s.text}</p>
-              </li>
-            );
-          })}
-          {/* Poignée de porte, posée sur la jointure centrale. */}
-          <li
-            aria-hidden="true"
-            className="absolute left-1/2 top-1/2 hidden h-16 w-[15px] -translate-x-1/2 -translate-y-1/2 border-[3px] border-anthracite bg-carrosserie md:block"
-          />
-        </ul>
       </div>
+
+      <ul className="border-b border-filet">
+        {services.map((s) => (
+          <li key={s.title} className="grid gap-x-12 gap-y-2 border-t border-filet py-7 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-baseline">
+            <h3 className="titre text-[clamp(1.3rem,2.2vw,1.75rem)]">{s.title}</h3>
+            <p className="max-w-[56ch] text-pretty text-muted">{s.text}</p>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

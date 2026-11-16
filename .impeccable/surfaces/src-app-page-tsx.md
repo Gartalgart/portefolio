@@ -9,20 +9,20 @@ related_targets: []
 
 Page d'accueil de rd-solutions.fr (`src/app/page.tsx`), mode Persuade. Pages légales alignées sur le même monde.
 
-Visiteur : artisan, commerçant, association ou mairie, souvent sur téléphone entre deux rendez-vous. En cinq secondes : qui, quoi, où, comment joindre. Action : réserver un appel ou écrire, visible dans le premier écran. Preuves : 2 clients réels, 2 démonstrations étiquetées, un seul interlocuteur, deux régions. Rien d'inventé.
+Visiteur : artisan, commerçant, association ou mairie, souvent sur téléphone entre deux rendez-vous. En cinq secondes : quoi, pour qui, comment demander un devis. Action : demander un devis gratuit (formulaire ou email), visible dans le premier écran. Preuves : 2 clients réels, 12 démonstrations étiquetées, un seul interlocuteur, deux régions. Rien d'inventé.
 
-Décisions de l'utilisateur (27/10/2026) : refonte complète, rien de l'ancien visuel ; pas de bascule de thème (thème clair seul) ; pas de numéro de téléphone pour l'instant ; 3D, vidéo et avant/après retirés.
+Décisions de l'utilisateur (16/11/2026) : refonte minimaliste « type Apple » avec une palette imposée (#FFFFFF, #F1F3F5, #6C7A89, #2C3E50, #1A252F) ; maquette A « Vitrine » choisie parmi trois ; le site parle au nom de RD-Solutions, sans « je ». Toujours valables : thème clair seul, pas de numéro de téléphone, aucun prix affiché, pas de 3D ni de vidéo.
 
 ## Direction contract
 
-THESIS: Le site est le flanc lettré d'une camionnette d'artisan : nom, métier, zone, prestations et contact lisibles à vingt mètres. Il refuse le portfolio de développeur (titre + photo + trois cartes, mode sombre technique).
+THESIS: Le site est une vitrine : une phrase, une action, puis les sites livrés montrés en grand, un par tuile. Il refuse le portfolio de développeur (photo, liste de technos, trois cartes d'icônes) et l'ancien lettrage d'utilitaire.
 
-OWN-WORLD: Carrosserie blanc cassé, vinyle rouge vermillon pour le nom et l'action, anthracite pour le texte, gris jante pour les mentions secondaires. Capitales larges et lourdes façon vinyle découpé pour les titres, grotesque sobre pour le texte. Bande rouge horizontale qui structure, filets épais, macaron cerclé. Pas d'ombres douces, pas de cartes arrondies, pas de dégradés.
+OWN-WORLD: Page blanche, tuiles brume (#F1F3F5), bleu nuit (#1A252F) et marine (#2C3E50) à coins de 16 px, sans bordure ni ombre sur les tuiles. Ardoise (#6C7A89) pour les repères, une variante foncée (#55626F) pour le petit texte. Hanken Grotesk demi-gras serré pour les titres, normal pour le texte. Boutons en pastille bleu nuit, liens demi-gras à flèche, filets fins gris. Seuls les aperçus de sites portent une ombre.
 
-STORY: Le visiteur comprend qu'un artisan du web, Rémy Denimal, crée et suit des sites pour les gens comme lui, près de chez lui, avec un devis clair avant de commencer. Il voit de vrais chantiers livrés, puis réserve un appel.
+STORY: Le visiteur comprend que RD-Solutions crée et suit des sites pour des gens comme lui, voit de vrais sites livrés, apprend qu'une seule personne s'occupe de tout, puis demande un devis gratuit.
 
-FIRST VIEWPORT: Flanc du véhicule. En haut à gauche, RÉMY DENIMAL en lettrage rouge géant sur deux lignes, sous lui « Création de sites internet » puis la zone. À droite, colonne de prestations derrière un filet rouge vertical. Bande rouge pleine largeur au tiers bas. Sous la bande : bouton « Réserver un appel » et email à gauche, macaron « Un seul interlocuteur » à droite. Aucun prix affiché (décision du 28/10/2026). Mobile : nom, métier, zone, bouton, puis prestations ; barre d'appel collée en bas.
+FIRST VIEWPORT: Barre fine translucide (marque, ancres, pastille « Devis gratuit »). Centré : « Un site qui fait venir vos clients. » en très grand, une phrase d'explication, le bouton « Demander un devis gratuit » et le lien « Voir les réalisations ». Dessous, l'aperçu du site Secur-Feu sur toute la largeur, coins hauts arrondis, légende sous filet. Mobile : même ordre, barre d'action collée en bas après le premier écran.
 
-FORM: Lettrage d'utilitaire, candidat 1 de la liste classée (choix IMPECCABLE'S PICK par l'utilisateur). Réalisations en panneaux de chantier, services en portes arrière, méthode en tournée numérotée, à propos en portière conducteur, contact en bon de demande. Signature : le film de pose se décolle une fois au chargement et révèle le nom ; mouvement réduit = état final. Apports retenus : ticket d'origine sur chaque preuve ; statuts lisibles par la forme ; chiffres tabulaires épinglés ; portrait cadré grand ; module unique tiré de la hauteur de lettre. seed:9119165208ca51a5
+FORM: Maquette A « Vitrine », choisie par l'utilisateur parmi trois maquettes HTML (Vitrine, Mosaïque, Typographique). Réalisations en grandes tuiles pleines (une tuile nuit large, puis damier brume / marine), le reste dépliable en petites tuiles brume ; prestations en lignes à filets ; méthode en tuile brume à sept étapes numérotées ; à propos avec portrait ; FAQ en accordéon ; contact en tuile bleu nuit avec formulaire blanc. seed: none (unavailable)
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

@@ -1,131 +1,98 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
-import { quoteHref, projects, site } from "@/lib/content";
+import { projects } from "@/lib/content";
 
 /*
-  Réalisations : un panneau de chantier par site. Le statut se lit par la forme du cachet
-  (plein = projet client, pointillé = démonstration), jamais par la couleur seule.
-  Les six premiers panneaux sont affichés, les autres se déplient : la page reste courte sur téléphone.
+  Réalisations : de grandes tuiles pleines, une couleur de fond chacune, l'aperçu du site coupé par le bas
+  de la tuile. Le premier projet est déjà montré dans le premier écran : la liste reprend au deuxième.
+  Cinq tuiles sont affichées, les autres se déplient en plus petit : la page reste courte sur téléphone.
+  Le statut (projet client ou démonstration) est toujours écrit en toutes lettres, jamais porté par la couleur.
 */
-const FEATURED = 6;
-const grid = "grid gap-8 md:grid-cols-2 md:gap-10 xl:grid-cols-3";
+const FEATURED = 5;
+// Fond des cinq tuiles en vedette : une grande tuile nuit, puis un damier brume / marine.
+const fonds = ["nuit", "brume", "marine", "marine", "brume"] as const;
+const fondClasse = { nuit: "sur-nuit bg-nuit", marine: "sur-nuit bg-marine", brume: "bg-brume" };
 
-function Cachet({ client }: { client: boolean }) {
-  return client ? (
-    <span className="lettrage-etroit inline-block bg-vinyle px-2.5 py-1.5 text-sm text-white">Projet client</span>
-  ) : (
-    <span className="lettrage-etroit inline-block border-2 border-dashed border-white px-2.5 py-1 text-sm text-white">Démonstration</span>
-  );
-}
-
-function Panneau({ p }: { p: (typeof projects)[number] }) {
+function Tuile({ p, fond, petite = false }: { p: (typeof projects)[number]; fond: keyof typeof fondClasse; petite?: boolean }) {
   return (
-    <li>
-      <article aria-labelledby={`chantier-${p.host}`} className="flex h-full flex-col border-[3px] border-anthracite bg-tole">
-        <header className="flex items-center justify-between gap-4 bg-anthracite px-5 py-3 text-white">
-          <span className="lettrage-etroit text-lg tracking-[0.06em]">Chantier web</span>
-          <Cachet client={p.client} />
-        </header>
-
-        <a href={p.url} target="_blank" rel="noopener noreferrer" className="group block border-b-[3px] border-anthracite" tabIndex={-1} aria-hidden="true">
-          <Image
-            src={p.image}
-            alt=""
-            width={1280}
-            height={800}
-            sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
-            className="aspect-[16/10] w-full object-cover object-top transition-[filter] duration-300 group-hover:brightness-95"
-          />
-        </a>
-
-        <dl className="grid flex-1 grid-cols-[auto_minmax(0,1fr)] content-start gap-x-5 gap-y-3 px-5 py-6 md:px-6">
-          <dt className="lettrage-etroit pt-0.5 text-sm text-muted">Pour</dt>
-          <dd>
-            <h3 id={`chantier-${p.host}`} className="text-xl font-extrabold">
-              {p.name}
-            </h3>
-            <span className="text-muted">
-              {p.category}
-              {!p.client && " · client fictif"}
-            </span>
-          </dd>
-          {/* Une démonstration part d'un scénario inventé, pas du besoin d'un vrai client : le libellé le dit. */}
-          <dt className="lettrage-etroit pt-0.5 text-sm text-muted">{p.client ? "Besoin" : "Scénario"}</dt>
-          <dd className="leading-relaxed">{p.problem}</dd>
-          <dt className="lettrage-etroit pt-0.5 text-sm text-muted">Travaux</dt>
-          <dd className="leading-relaxed">{p.solution}</dd>
-          <dt className="lettrage-etroit pt-0.5 text-sm text-muted">Par</dt>
-          <dd>{site.brand}</dd>
-        </dl>
-
-        <footer className="flex flex-wrap items-center justify-between gap-3 bg-carrosserie px-5 py-4 md:px-6">
-          <ul className="flex flex-wrap gap-x-3 gap-y-1 text-sm font-semibold text-muted" aria-label="Ce que contient le site">
-            {p.tags.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-          <a
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 py-2 font-bold text-anthracite underline decoration-vinyle hover:text-vinyle"
-          >
-            Voir {p.host}
-            <ArrowUpRight size={18} strokeWidth={2.5} aria-hidden="true" />
-            <span className="sr-only"> (nouvel onglet)</span>
-          </a>
-        </footer>
-      </article>
-    </li>
+    <article
+      aria-labelledby={`projet-${p.host}`}
+      className={`flex h-full flex-col items-center overflow-hidden rounded-tuile text-center ${fondClasse[fond]} ${
+        petite ? "px-6 pt-9" : "px-5 pt-10 md:px-12 md:pt-16"
+      }`}
+    >
+      <h3 id={`projet-${p.host}`} className={`titre ${petite ? "text-2xl" : "text-[clamp(1.8rem,3.4vw,2.9rem)]"}`}>
+        {p.name}
+      </h3>
+      <p className={`mt-2 text-muted ${petite ? "text-[0.95rem]" : "text-[1.05rem]"}`}>
+        {p.category} · {p.client ? "projet client" : "démonstration"}
+      </p>
+      <p className={`mt-3.5 max-w-[44ch] text-pretty ${petite ? "text-[0.95rem]" : ""}`}>{p.solution}</p>
+      <a href={p.url} target="_blank" rel="noopener noreferrer" className="lien mt-4">
+        Voir le site
+        <span className="sr-only"> {p.name} (nouvel onglet)</span>
+        <ArrowUpRight size={17} strokeWidth={2.2} aria-hidden="true" />
+      </a>
+      {/* L'aperçu reste collé au bas de la tuile, quelle que soit la longueur du texte au-dessus. */}
+      <div className={`mt-auto flex w-full justify-center ${petite ? "pt-7" : "pt-8 md:pt-12"}`}>
+        <Image
+          src={p.image}
+          alt=""
+          width={1280}
+          height={800}
+          sizes={petite ? "(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw" : "(min-width: 880px) 880px, 100vw"}
+          className={`aspect-[16/10] w-full rounded-t-xl object-cover object-top shadow-[0_24px_60px_-18px_rgb(0_0_0/0.4)] ${
+            petite ? "" : "max-w-[880px]"
+          }`}
+        />
+      </div>
+    </article>
   );
 }
 
 export default function Projects() {
   const clients = projects.filter((p) => p.client).length;
   const demos = projects.length - clients;
-  const first = projects.slice(0, FEATURED);
-  const rest = projects.slice(FEATURED);
+  const suite = projects.slice(1);
+  const first = suite.slice(0, FEATURED);
+  const rest = suite.slice(FEATURED);
 
   return (
-    <section id="projets" aria-labelledby="projets-titre" className="border-t-[3px] border-anthracite px-5 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[1360px]">
-        {/* Titre d'un seul mot, insécable : il prend toute la largeur, le texte passe dessous (comme Services et Méthode). */}
-        <h2 id="projets-titre" className="lettrage text-[clamp(2rem,6vw,5rem)]">
+    <section id="projets" aria-labelledby="projets-titre">
+      <div className="mx-auto max-w-[1296px] px-5 pb-8 pt-20 text-center md:px-12 md:pb-12 md:pt-32">
+        <h2 id="projets-titre" className="titre text-[clamp(2rem,4.6vw,3.6rem)]">
           Réalisations
         </h2>
-        <p className="mt-5 max-w-[52ch] text-pretty text-lg leading-relaxed text-muted">
+        <p className="mx-auto mt-4 max-w-[52ch] text-pretty text-lg text-muted">
           {projects.length} sites et applications, à ouvrir et à tester : {clients} projets clients et {demos} démonstrations. Une
-          démonstration est un site complet, construit autour d&apos;un client fictif pour montrer le savoir-faire de {site.brand} ; chaque
-          panneau le signale.
-        </p>
-
-        <ul className={`mt-12 md:mt-16 ${grid}`}>
-          {first.map((p) => (
-            <Panneau key={p.name} p={p} />
-          ))}
-        </ul>
-
-        {rest.length > 0 && (
-          <details className="group mt-8 md:mt-10">
-            <summary className="inline-flex cursor-pointer items-center gap-3 border-[3px] border-anthracite bg-tole px-6 py-3.5 font-bold text-anthracite transition-colors hover:bg-anthracite hover:text-white">
-              <span className="group-open:hidden">Voir les {rest.length} autres chantiers</span>
-              <span className="hidden group-open:inline">Replier les {rest.length} autres chantiers</span>
-            </summary>
-            <ul className={`mt-8 md:mt-10 ${grid}`}>
-              {rest.map((p) => (
-                <Panneau key={p.name} p={p} />
-              ))}
-            </ul>
-          </details>
-        )}
-
-        <p className="mt-12 flex flex-wrap items-center justify-between gap-6 border-[3px] border-dashed border-anthracite px-6 py-6 md:px-8">
-          <span className="lettrage text-[clamp(1.4rem,3vw,2.2rem)]">Le prochain panneau peut porter votre nom.</span>
-          <a href={quoteHref} className="bg-vinyle px-6 py-3.5 font-bold text-white transition-colors hover:bg-vinyle-fonce">
-            Demander un devis gratuit
-          </a>
+          démonstration est un site complet, construit autour d&apos;un client fictif ; chaque tuile le signale.
         </p>
       </div>
+
+      <ul className="grid gap-3 px-3 md:grid-cols-2">
+        {first.map((p, i) => (
+          <li key={p.name} className={i === 0 ? "md:col-span-2" : ""}>
+            <Tuile p={p} fond={fonds[i]} />
+          </li>
+        ))}
+      </ul>
+
+      {rest.length > 0 && (
+        <details className="group px-3">
+          <summary className="mx-auto mt-8 flex w-fit cursor-pointer items-center gap-2 rounded-full bg-brume px-6 py-3 font-semibold transition-colors hover:bg-filet">
+            <span className="group-open:hidden">Voir les {rest.length} autres réalisations</span>
+            <span className="hidden group-open:inline">Replier les {rest.length} autres réalisations</span>
+            <ChevronDown size={18} strokeWidth={2.2} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+          </summary>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((p) => (
+              <li key={p.name}>
+                <Tuile p={p} fond="brume" petite />
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
     </section>
   );
 }
