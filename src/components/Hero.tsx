@@ -27,19 +27,36 @@ export default function Hero() {
         </a>
       </div>
 
-      <figure className="mt-12 md:mt-20">
-        <a href={vedette.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
+      {/*
+        L'aperçu est présenté dans une fenêtre de navigateur, entière et plus étroite que la page : sa barre
+        d'adresse le sépare de la navigation du site, et on voit tout de suite que c'est un autre site, montré en exemple.
+      */}
+      <figure className="mx-auto mt-12 max-w-[1040px] md:mt-20">
+        <a
+          href={vedette.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabIndex={-1}
+          aria-hidden="true"
+          className="block overflow-hidden rounded-tuile shadow-apercu"
+        >
+          <span className="flex h-9 items-center gap-1.5 bg-brume px-4 md:h-10">
+            <span className="h-2.5 w-2.5 rounded-full bg-ardoise/40" />
+            <span className="h-2.5 w-2.5 rounded-full bg-ardoise/40" />
+            <span className="h-2.5 w-2.5 rounded-full bg-ardoise/40" />
+            <span className="mx-auto -translate-x-5 rounded-full bg-blanc px-5 py-0.5 text-xs text-muted md:px-10">{vedette.host}</span>
+          </span>
           <Image
             src={vedette.image}
             alt=""
             width={1280}
             height={800}
             priority
-            sizes="(min-width: 1296px) 1200px, 100vw"
-            className="aspect-[16/10] w-full rounded-t-tuile object-cover object-top shadow-apercu md:aspect-[16/8.5]"
+            sizes="(min-width: 1088px) 1040px, 100vw"
+            className="aspect-[16/10] w-full object-cover object-top"
           />
         </a>
-        <figcaption className="border-t border-filet py-3.5 text-sm text-muted">
+        <figcaption className="py-4 text-sm text-muted">
           {vedette.name}, {vedette.category.toLowerCase()} · projet client ·{" "}
           <a href={vedette.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-marine hover:underline">
             {vedette.host}

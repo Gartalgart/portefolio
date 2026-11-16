@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, Check, Mail } from "lucide-react";
+import { ArrowRight, Check, CircleAlert, CircleCheck, Mail } from "lucide-react";
 import { useActionState, useEffect, useRef } from "react";
 import { site, socials } from "@/lib/content";
 import { sendContact, type ContactState } from "@/app/actions";
@@ -109,11 +109,32 @@ export default function Contact() {
                   Confidentialité
                 </a>
               </p>
-              {/* Une erreur est annoncée tout de suite (alert), la confirmation sans interrompre (status). */}
-              <p role={state.status === "error" ? "alert" : "status"} className="min-h-6 font-semibold">
-                {state.status === "ok" && "Merci, votre demande est bien partie. Une réponse vous est envoyée rapidement."}
-                {state.status === "error" && state.message}
-              </p>
+              {/*
+                Résultat de l'envoi, juste sous le bouton : un encadré vert si la demande est partie, rouge sinon,
+                avec une icône et un titre (la couleur ne porte jamais l'information seule).
+                Une erreur est annoncée tout de suite (alert), la confirmation sans interrompre (status).
+                Le conteneur reste dans la page même vide, pour que les lecteurs d'écran annoncent le message à son arrivée.
+              */}
+              <div role={state.status === "error" ? "alert" : "status"}>
+                {state.status === "ok" && !pending && (
+                  <p className="flex gap-3 rounded-xl bg-succes-fond p-4 text-succes">
+                    <CircleCheck size={22} strokeWidth={2.2} className="mt-0.5 shrink-0" aria-hidden="true" />
+                    <span>
+                      <strong className="block font-semibold">Demande envoyée</strong>
+                      Merci, votre demande est bien partie. Une réponse vous est envoyée rapidement.
+                    </span>
+                  </p>
+                )}
+                {state.status === "error" && !pending && (
+                  <p className="flex gap-3 rounded-xl bg-erreur-fond p-4 text-erreur">
+                    <CircleAlert size={22} strokeWidth={2.2} className="mt-0.5 shrink-0" aria-hidden="true" />
+                    <span>
+                      <strong className="block font-semibold">Demande non envoyée</strong>
+                      {state.message}
+                    </span>
+                  </p>
+                )}
+              </div>
             </div>
           </form>
         </div>

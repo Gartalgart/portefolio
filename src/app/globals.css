@@ -16,6 +16,12 @@
   --ardoise-sur-nuit: #a9b4bf;
   --filet: #dde1e5;
 
+  /* États du formulaire : les deux seules couleurs hors palette, toujours doublées d'une icône et d'un texte. */
+  --succes: #1c5b3a;
+  --succes-fond: #e6f2ea;
+  --erreur: #8f1d17;
+  --erreur-fond: #fbeceb;
+
   --muted: var(--ardoise-texte);
   --line: var(--filet);
   color-scheme: light;
@@ -45,6 +51,10 @@
   --color-nuit: var(--nuit);
   --color-muted: var(--muted);
   --color-filet: var(--line);
+  --color-succes: var(--succes);
+  --color-succes-fond: var(--succes-fond);
+  --color-erreur: var(--erreur);
+  --color-erreur-fond: var(--erreur-fond);
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
   --radius-tuile: 16px;
 }

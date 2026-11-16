@@ -144,7 +144,9 @@ Une seule famille de bleu-gris, du blanc au bleu nuit, imposée par le client ; 
 ### Named Rules
 **The Sur-Nuit Rule.** Une tuile sombre se déclare par la classe `.sur-nuit`, qui passe le texte en blanc et remappe le ton secondaire, le filet, le focus et la sélection. Les composants ne savent rien de leur fond. Une tuile blanche posée dans une zone sombre (le formulaire) rétablit elle-même les valeurs claires.
 
-**The Sans Accent Rule.** Aucune teinte hors de la famille bleu-gris. L'action se distingue par sa forme pleine en pastille, jamais par une couleur vive.
+**The Sans Accent Rule.** Aucune teinte hors de la famille bleu-gris. L'action se distingue par sa forme pleine en pastille, jamais par une couleur vive. Seule exception : le résultat d'envoi du formulaire, en encadré vert (`succes` #1c5b3a sur `succes-fond` #e6f2ea) ou rouge (`erreur` #8f1d17 sur `erreur-fond` #fbeceb), toujours doublé d'une icône et d'un titre.
+
+**Fenêtre d'aperçu.** Dans le premier écran, le site montré en exemple est présenté dans une fenêtre de navigateur (barre brume, trois points, adresse du site), entière, large de 1040px au plus, coins de 16px et ombre d'aperçu : elle le sépare de la navigation du site.
 
 **The Ardoise Repère Rule.** L'ardoise d'origine sert aux repères non textuels. Tout petit texte secondaire prend l'ardoise texte sur clair, l'ardoise sur nuit sur sombre.
 

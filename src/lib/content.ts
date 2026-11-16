@@ -27,7 +27,7 @@ export const legalPages = [
   { href: "/confidentialite", label: "Confidentialité" },
 ];
 export const legal = {
-  updated: "27 octobre 2026",
+  updated: "16 novembre 2026",
   publisher: site.name, // éditeur et directeur de la publication
   // Micro-entrepreneur (confirmé le 10/11/2026) : la mention « EI » suit le nom dans les mentions légales.
   status: "Entrepreneur individuel (EI), sous le régime de la micro-entreprise",

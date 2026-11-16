@@ -32,6 +32,21 @@ export default function Confidentialite() {
           Le message est acheminé par email via le prestataire {legal.mailer.name} (
           <a href={legal.mailer.url}>politique de confidentialité</a>), puis reçu et lu par {legal.publisher} uniquement.
         </p>
+        <p>
+          Pour empêcher les envois répétés par des robots, l&apos;adresse IP de l&apos;expéditeur est comparée aux envois des dix
+          dernières minutes. Elle n&apos;est gardée qu&apos;en mémoire, quelques minutes, et n&apos;est ni enregistrée ni associée à
+          votre demande. Base légale : l&apos;intérêt légitime à protéger le formulaire contre les abus (article 6.1.f du RGPD).
+        </p>
+      </section>
+
+      <section aria-labelledby="transferts">
+        <h2 id="transferts">Transfert hors de l&apos;Union européenne</h2>
+        <p>
+          Les deux prestataires techniques du site, {legal.host.name} (hébergement) et {legal.mailer.name} (acheminement des
+          emails), sont des sociétés américaines : votre demande peut être traitée aux États-Unis. Ces deux sociétés déclarent
+          adhérer au cadre de protection des données UE–États-Unis (Data Privacy Framework) et prévoient les clauses contractuelles
+          types de la Commission européenne.
+        </p>
       </section>
 
       <section aria-labelledby="duree">
