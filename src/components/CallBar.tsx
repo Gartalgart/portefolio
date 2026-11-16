@@ -25,7 +25,7 @@ export default function CallBar() {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 border-t border-filet bg-white/85 px-3 py-2.5 backdrop-blur-lg transition-transform duration-300 ease-out motion-reduce:transition-none md:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 border-t border-filet bg-blanc/85 px-3 py-2.5 backdrop-blur-lg transition-transform duration-300 ease-out motion-reduce:transition-none md:hidden ${
         show ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
       aria-hidden={!show}

@@ -18,9 +18,9 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-filet bg-white/80 backdrop-blur-lg backdrop-saturate-150">
+    <header className="sticky top-0 z-50 border-b border-filet bg-blanc/80 backdrop-blur-lg backdrop-saturate-150">
       <nav aria-label="Navigation principale" className="mx-auto flex h-14 max-w-[1296px] items-center justify-between gap-6 px-5 md:px-12">
-        <a href="#" className="text-lg font-bold tracking-tight">
+        <a href="#" className="inline-flex min-h-11 items-center text-lg font-bold tracking-tight">
           {site.brand}
         </a>
 
@@ -40,7 +40,7 @@ export default function Navbar() {
           </a>
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-full text-nuit transition-colors hover:bg-brume lg:hidden"
+            className="-mr-2 grid h-11 w-11 place-items-center rounded-full text-nuit transition-colors hover:bg-brume lg:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}

@@ -13,7 +13,15 @@ const FEATURED = 5;
 const fonds = ["nuit", "brume", "marine", "marine", "brume"] as const;
 const fondClasse = { nuit: "sur-nuit bg-nuit", marine: "sur-nuit bg-marine", brume: "bg-brume" };
 
-function Tuile({ p, fond, petite = false }: { p: (typeof projects)[number]; fond: keyof typeof fondClasse; petite?: boolean }) {
+// Largeur affichée de l'aperçu selon la tuile, pour que le navigateur ne charge pas une image plus grande que nécessaire.
+const tailles = {
+  large: "(min-width: 928px) 880px, 100vw",
+  moitie: "(min-width: 768px) 50vw, 100vw",
+  petite: "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+};
+
+function Tuile({ p, fond, taille }: { p: (typeof projects)[number]; fond: keyof typeof fondClasse; taille: keyof typeof tailles }) {
+  const petite = taille === "petite";
   return (
     <article
       aria-labelledby={`projet-${p.host}`}
@@ -24,24 +32,24 @@ function Tuile({ p, fond, petite = false }: { p: (typeof projects)[number]; fond
       <h3 id={`projet-${p.host}`} className={`titre ${petite ? "text-2xl" : "text-[clamp(1.8rem,3.4vw,2.9rem)]"}`}>
         {p.name}
       </h3>
-      <p className={`mt-2 text-muted ${petite ? "text-[0.95rem]" : "text-[1.05rem]"}`}>
+      <p className={`mt-2 text-muted ${petite ? "text-sm" : ""}`}>
         {p.category} · {p.client ? "projet client" : "démonstration"}
       </p>
-      <p className={`mt-3.5 max-w-[44ch] text-pretty ${petite ? "text-[0.95rem]" : ""}`}>{p.solution}</p>
-      <a href={p.url} target="_blank" rel="noopener noreferrer" className="lien mt-4">
+      <p className={`mt-3.5 max-w-[44ch] text-pretty ${petite ? "text-sm" : ""}`}>{p.solution}</p>
+      <a href={p.url} target="_blank" rel="noopener noreferrer" className="lien mt-1.5">
         Voir le site
         <span className="sr-only"> {p.name} (nouvel onglet)</span>
         <ArrowUpRight size={17} strokeWidth={2.2} aria-hidden="true" />
       </a>
       {/* L'aperçu reste collé au bas de la tuile, quelle que soit la longueur du texte au-dessus. */}
-      <div className={`mt-auto flex w-full justify-center ${petite ? "pt-7" : "pt-8 md:pt-12"}`}>
+      <div className={`mt-auto flex w-full justify-center ${petite ? "pt-5" : "pt-6 md:pt-10"}`}>
         <Image
           src={p.image}
           alt=""
           width={1280}
           height={800}
-          sizes={petite ? "(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw" : "(min-width: 880px) 880px, 100vw"}
-          className={`aspect-[16/10] w-full rounded-t-xl object-cover object-top shadow-[0_24px_60px_-18px_rgb(0_0_0/0.4)] ${
+          sizes={tailles[taille]}
+          className={`aspect-[16/10] w-full rounded-t-xl object-cover object-top shadow-apercu ${
             petite ? "" : "max-w-[880px]"
           }`}
         />
@@ -72,7 +80,7 @@ export default function Projects() {
       <ul className="grid gap-3 px-3 md:grid-cols-2">
         {first.map((p, i) => (
           <li key={p.name} className={i === 0 ? "md:col-span-2" : ""}>
-            <Tuile p={p} fond={fonds[i]} />
+            <Tuile p={p} fond={fonds[i]} taille={i === 0 ? "large" : "moitie"} />
           </li>
         ))}
       </ul>
@@ -87,7 +95,7 @@ export default function Projects() {
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((p) => (
               <li key={p.name}>
-                <Tuile p={p} fond="brume" petite />
+                <Tuile p={p} fond="brume" taille="petite" />
               </li>
             ))}
           </ul>

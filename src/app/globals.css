@@ -28,7 +28,16 @@
   color: var(--blanc);
 }
 
+/* Îlot clair posé dans une zone sombre (le formulaire blanc dans la tuile contact) : il reprend les tons de la page. */
+.sur-clair {
+  --muted: var(--ardoise-texte);
+  --line: var(--filet);
+  color: var(--nuit);
+}
+
 @theme inline {
+  /* La seule ombre du site : elle décolle les aperçus de sites de leur fond. */
+  --shadow-apercu: 0 24px 60px -18px rgb(26 37 47 / 0.38);
   --color-blanc: var(--blanc);
   --color-brume: var(--brume);
   --color-ardoise: var(--ardoise);
@@ -56,10 +65,12 @@ body {
 }
 :focus-visible { outline: 2px solid var(--marine); outline-offset: 3px; border-radius: 4px; }
 .sur-nuit :focus-visible { outline-color: var(--blanc); }
+.sur-clair :focus-visible { outline-color: var(--marine); }
 input, textarea { caret-color: var(--marine); }
 a { text-underline-offset: 0.2em; }
 ::selection { background: var(--marine); color: var(--blanc); }
 .sur-nuit ::selection { background: var(--blanc); color: var(--nuit); }
+.sur-clair ::selection { background: var(--marine); color: var(--blanc); }
 @utility tabular { font-variant-numeric: tabular-nums lining-nums; }
 
 /* Titres : demi-gras, serrés, équilibrés sur leurs lignes. */
@@ -90,15 +101,17 @@ a { text-underline-offset: 0.2em; }
   color: var(--nuit);
   &:hover { background: var(--brume); }
 }
-/* Lien d'action : texte demi-gras, souligné au survol, flèche à la suite. */
+/* Lien d'action : texte demi-gras, souligné au survol, flèche à la suite. Haut de 44 px pour le pouce. */
 @utility lien {
   display: inline-flex;
   align-items: center;
   gap: 0.35em;
+  min-height: 2.75rem;
   font-weight: 600;
   color: var(--marine);
   &:hover { text-decoration: underline; }
   .sur-nuit & { color: var(--blanc); }
+  .sur-clair & { color: var(--marine); }
 }
 
 details > summary { list-style: none; }

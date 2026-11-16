@@ -1,4 +1,5 @@
 "use server";
+import { headers } from "next/headers";
 import { Resend } from "resend";
 import { site } from "@/lib/content";
 
@@ -13,6 +14,28 @@ const MIN_FILL_MS = 3000;
 const LINK = /https?:\/\/|www\./i;
 
 const text = (v: FormDataEntryValue | null, max: number) => String(v ?? "").trim().slice(0, max);
+
+/*
+  Limite d'envois : trois demandes par adresse IP toutes les dix minutes. Le compteur vit dans la mémoire
+  de l'instance du serveur : il freine une rafale, mais il repart de zéro à chaque nouvelle instance.
+  Une limite stricte demanderait un stockage partagé.
+*/
+const MAX_SENDS = 3;
+const WINDOW_MS = 10 * 60 * 1000;
+const sends = new Map<string, number[]>();
+
+function tooMany(ip: string) {
+  const now = Date.now();
+  const recent = (sends.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  if (recent.length >= MAX_SENDS) {
+    sends.set(ip, recent);
+    return true;
+  }
+  sends.set(ip, [...recent, now]);
+  // La table ne grossit pas sans fin : les adresses sans envoi récent sont oubliées.
+  if (sends.size > 500) for (const [k, v] of sends) if (v.every((t) => now - t >= WINDOW_MS)) sends.delete(k);
+  return false;
+}
 
 export async function sendContact(_prev: ContactState, formData: FormData): Promise<ContactState> {
   // Champ piège invisible : les robots le remplissent, pas les visiteurs.
@@ -41,6 +64,12 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
       values,
       message: "Merci de retirer les adresses web (https://…, www.…) de votre message : le nom du site suffit.",
     };
+  }
+
+  // Vérifiée en dernier : seules les demandes valides, prêtes à partir, sont comptées.
+  const ip = (await headers()).get("x-forwarded-for")?.split(",")[0].trim() || "inconnue";
+  if (tooMany(ip)) {
+    return { status: "error", values, message: `Plusieurs demandes viennent d'être envoyées. Réessayez dans quelques minutes, ou écrivez à ${site.email}.` };
   }
 
   const { error } = await resend.emails.send({

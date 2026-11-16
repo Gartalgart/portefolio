@@ -11,7 +11,7 @@ export default function Footer() {
         <ul className="flex gap-6">
           {legalPages.map((p) => (
             <li key={p.href}>
-              <Link href={p.href} className="inline-block py-2 hover:text-nuit hover:underline">
+              <Link href={p.href} className="inline-flex min-h-11 items-center hover:text-nuit hover:underline">
                 {p.label}
               </Link>
             </li>

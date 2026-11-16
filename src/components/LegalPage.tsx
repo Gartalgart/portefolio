@@ -13,10 +13,10 @@ export default function LegalPage({ title, intro, children }: { title: string; i
     <>
       <header className="border-b border-filet">
         <nav aria-label="Retour" className="mx-auto flex h-14 max-w-[1296px] items-center justify-between px-5 md:px-12">
-          <Link href="/" className="text-lg font-bold tracking-tight">
+          <Link href="/" className="inline-flex min-h-11 items-center text-lg font-bold tracking-tight">
             {site.brand}
           </Link>
-          <Link href="/" className="lien text-[0.95rem]">
+          <Link href="/" className="lien text-sm">
             <ArrowLeft size={17} strokeWidth={2.2} aria-hidden="true" /> Retour au site
           </Link>
         </nav>

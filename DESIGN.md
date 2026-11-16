@@ -186,8 +186,7 @@ Sur mobile, une barre d'action fixée en bas (bouton « Devis gratuit » et lien
 Système plat. La profondeur vient de la superposition de tons : une tuile brume, marine ou nuit sur la page blanche, une tuile blanche sur la tuile nuit. Les deux barres collantes (haut et action mobile) sont blanches translucides (80 à 85 %) avec un flou d'arrière-plan et un filet de 1px ; c'est le seul usage du flou.
 
 ### Shadow Vocabulary
-- **Aperçu du premier écran** (`box-shadow: 0 30px 80px -20px rgb(26 37 47 / 0.35)`) : sous la capture du site en vedette.
-- **Aperçu dans une tuile** (`box-shadow: 0 24px 60px -18px rgb(0 0 0 / 0.4)`) : sous la capture posée au bas d'une tuile de réalisation.
+- **Aperçu** (`shadow-apercu`, `box-shadow: 0 24px 60px -18px rgb(26 37 47 / 0.38)`) : la seule ombre du site, sous chaque capture de site (premier écran et tuiles de réalisation).
 
 ### Named Rules
 **The Ombre d'Aperçu Rule.** Seules les captures de sites portent une ombre : elle les détache comme un objet montré. Tuiles, boutons, champs et barres n'en portent jamais.

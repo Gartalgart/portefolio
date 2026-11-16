@@ -23,8 +23,7 @@
       "chiffre": { "displayName": "Numéro d'étape", "purpose": "Numéros tabulaires à deux chiffres de la méthode." }
     },
     "shadows": [
-      { "name": "apercu-premier-ecran", "value": "0 30px 80px -20px rgb(26 37 47 / 0.35)", "purpose": "Sous la capture du site en vedette dans le premier écran." },
-      { "name": "apercu-tuile", "value": "0 24px 60px -18px rgb(0 0 0 / 0.4)", "purpose": "Sous la capture posée au bas d'une tuile de réalisation." }
+      { "name": "apercu", "value": "0 24px 60px -18px rgb(26 37 47 / 0.38)", "purpose": "La seule ombre du site, sous chaque capture de site (premier écran et tuiles de réalisation)." }
     ],
     "motion": [
       { "name": "bouton-survol", "value": "background-color 0.2s ease", "purpose": "Survol des boutons : changement de fond seul, aucun déplacement." },
@@ -87,7 +86,7 @@
       "refersTo": "tuile-brume",
       "description": "Tuile claire : réalisations du damier, petites tuiles dépliées, méthode, avis.",
       "html": "<article class=\"ds-tuile-brume\"><h3 class=\"ds-tuile-brume-titre\">Maison Léa Coiffure</h3><p class=\"ds-tuile-brume-statut\">Salon de coiffure · démonstration</p></article>",
-      "css": ".ds-tuile-brume { border-radius: 16px; padding: 36px 24px; background: var(--brume, #f1f3f5); color: var(--nuit, #1a252f); text-align: center; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-tuile-brume-titre { margin: 0; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; } .ds-tuile-brume-statut { margin: 8px 0 0; font-size: 0.95rem; line-height: 1.55; color: var(--ardoise-texte, #55626f); }"
+      "css": ".ds-tuile-brume { border-radius: 16px; padding: 36px 24px; background: var(--brume, #f1f3f5); color: var(--nuit, #1a252f); text-align: center; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-tuile-brume-titre { margin: 0; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; } .ds-tuile-brume-statut { margin: 8px 0 0; font-size: 0.875rem; line-height: 1.55; color: var(--ardoise-texte, #55626f); }"
     },
     {
       "name": "Lignes à filets",

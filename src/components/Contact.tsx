@@ -53,15 +53,15 @@ export default function Contact() {
               ))}
             </ul>
 
-            <ul className="mt-10 space-y-2">
+            <ul className="mt-8">
               <li>
-                <a href={`mailto:${site.email}`} className="lien gap-2.5 py-1 text-lg">
+                <a href={`mailto:${site.email}`} className="lien gap-2.5 text-lg">
                   <Mail size={19} strokeWidth={2.2} aria-hidden="true" /> {site.email}
                 </a>
               </li>
               {socials.map((s) => (
                 <li key={s.label}>
-                  <a href={s.href} target="_blank" rel="noopener noreferrer" className="lien py-1">
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className="lien">
                     {s.label}
                     <span className="sr-only"> (nouvel onglet)</span>
                   </a>
@@ -74,7 +74,7 @@ export default function Contact() {
           <form
             action={send}
             aria-label="Demande de devis"
-            className="self-start rounded-tuile bg-white p-5 text-nuit [--line:var(--filet)] [--muted:var(--ardoise-texte)] md:p-8"
+            className="sur-clair self-start rounded-tuile bg-blanc p-5 md:p-8"
           >
             <div className="grid grid-cols-[minmax(0,1fr)] gap-3">
               <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />

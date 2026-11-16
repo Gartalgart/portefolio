@@ -17,7 +17,7 @@ export default function Hero() {
         {site.brand} crée votre site, le rend visible sur Google et en assure le suivi. Un seul interlocuteur, du devis à la
         maintenance.
       </p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-3.5">
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
         <a href={quoteHref} className="bouton">
           Demander un devis gratuit
         </a>
@@ -36,7 +36,7 @@ export default function Hero() {
             height={800}
             priority
             sizes="(min-width: 1296px) 1200px, 100vw"
-            className="aspect-[16/10] w-full rounded-t-tuile object-cover object-top shadow-[0_30px_80px_-20px_rgb(26_37_47/0.35)] md:aspect-[16/8.5]"
+            className="aspect-[16/10] w-full rounded-t-tuile object-cover object-top shadow-apercu md:aspect-[16/8.5]"
           />
         </a>
         <figcaption className="border-t border-filet py-3.5 text-sm text-muted">
