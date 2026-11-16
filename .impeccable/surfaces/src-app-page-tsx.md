@@ -21,7 +21,7 @@ OWN-WORLD: Page blanche, tuiles brume (#F1F3F5), bleu nuit (#1A252F) et marine (
 
 STORY: Le visiteur comprend que RD-Solutions crée et suit des sites pour des gens comme lui, voit de vrais sites livrés, apprend qu'une seule personne s'occupe de tout, puis demande un devis gratuit.
 
-FIRST VIEWPORT: Barre fine translucide (marque, ancres, pastille « Devis gratuit »). Centré : « Un site qui fait venir vos clients. » en très grand, une phrase d'explication, le bouton « Demander un devis gratuit » et le lien « Voir les réalisations ». Dessous, l'aperçu du site Secur-Feu sur toute la largeur, coins hauts arrondis, légende sous filet. Mobile : même ordre, barre d'action collée en bas après le premier écran.
+FIRST VIEWPORT: Barre fine translucide (marque, ancres, pastille « Devis gratuit »). Centré : « Un site qui fait venir vos clients. » en très grand, une phrase d'explication, le bouton « Demander un devis gratuit » et le lien « Voir les réalisations ». Ce bloc est centré dans la hauteur de la fenêtre et l'occupe seul (décision de l'utilisateur, 16/11/2026 : rien ne doit dépasser du bas de l'écran). L'aperçu du site Secur-Feu vient juste après, dans une fenêtre de navigateur de 1040 px au plus, avec sa légende. Mobile : même ordre, barre d'action collée en bas après le premier écran.
 
 FORM: Maquette A « Vitrine », choisie par l'utilisateur parmi trois maquettes HTML (Vitrine, Mosaïque, Typographique). Réalisations en grandes tuiles pleines (une tuile nuit large, puis damier brume / marine), le reste dépliable en petites tuiles brume ; prestations en lignes à filets ; méthode en tuile brume à sept étapes numérotées ; à propos avec portrait ; FAQ en accordéon ; contact en tuile bleu nuit avec formulaire blanc. seed: none (unavailable)
 

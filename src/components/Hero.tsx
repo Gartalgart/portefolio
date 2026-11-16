@@ -9,29 +9,35 @@ import { quoteHref, projects, site } from "@/lib/content";
 export default function Hero() {
   const vedette = projects[0];
   return (
-    <section aria-labelledby="titre" className="mx-auto max-w-[1296px] px-5 pt-14 text-center md:px-12 md:pt-24">
-      <h1 id="titre" className="titre mx-auto max-w-[14ch] text-[clamp(2.5rem,6.6vw,5.4rem)]">
-        Un site qui fait venir vos clients.
-      </h1>
-      <p className="mx-auto mt-6 max-w-[46ch] text-pretty text-[clamp(1.1rem,1.6vw,1.35rem)] text-muted">
-        {site.brand} crée votre site, le rend visible sur Google et en assure le suivi. Un seul interlocuteur, du devis à la
-        maintenance.
-      </p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
-        <a href={quoteHref} className="bouton">
-          Demander un devis gratuit
-        </a>
-        <a href="#projets" className="lien">
-          Voir les réalisations
-          <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
-        </a>
+    <section aria-labelledby="titre" className="mx-auto max-w-[1296px] px-5 text-center md:px-12">
+      {/*
+        Le premier écran ne contient que la phrase et l'action, centrées dans la hauteur de la fenêtre (moins la barre
+        du haut) : l'aperçu du site client commence juste après, jamais coupé par le bas de l'écran à l'arrivée.
+      */}
+      <div className="flex min-h-[calc(100svh-3.5rem)] flex-col items-center justify-center py-14">
+        <h1 id="titre" className="titre mx-auto max-w-[14ch] text-[clamp(2.5rem,6.6vw,5.4rem)]">
+          Un site qui fait venir vos clients.
+        </h1>
+        <p className="mx-auto mt-6 max-w-[46ch] text-pretty text-[clamp(1.1rem,1.6vw,1.35rem)] text-muted">
+          {site.brand} crée votre site, le rend visible sur Google et en assure le suivi. Un seul interlocuteur, du devis à la
+          maintenance.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
+          <a href={quoteHref} className="bouton">
+            Demander un devis gratuit
+          </a>
+          <a href="#projets" className="lien">
+            Voir les réalisations
+            <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
+          </a>
+        </div>
       </div>
 
       {/*
         L'aperçu est présenté dans une fenêtre de navigateur, entière et plus étroite que la page : sa barre
         d'adresse le sépare de la navigation du site, et on voit tout de suite que c'est un autre site, montré en exemple.
       */}
-      <figure className="mx-auto mt-12 max-w-[1040px] md:mt-20">
+      <figure className="mx-auto mt-8 max-w-[1040px]">
         <a
           href={vedette.url}
           target="_blank"
