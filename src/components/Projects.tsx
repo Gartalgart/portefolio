@@ -1,6 +1,8 @@
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { projects } from "@/lib/content";
+import { projectHref } from "@/lib/pages";
 
 /*
   Réalisations : de grandes tuiles pleines, une couleur de fond chacune, l'aperçu du site coupé par le bas
@@ -20,7 +22,9 @@ const tailles = {
   petite: "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
 };
 
-function Tuile({ p, fond, taille }: { p: (typeof projects)[number]; fond: keyof typeof fondClasse; taille: keyof typeof tailles }) {
+export type Project = (typeof projects)[number];
+
+export function Tuile({ p, fond, taille }: { p: Project; fond: keyof typeof fondClasse; taille: keyof typeof tailles }) {
   const petite = taille === "petite";
   return (
     <article
@@ -36,11 +40,18 @@ function Tuile({ p, fond, taille }: { p: (typeof projects)[number]; fond: keyof 
         {p.category} · {p.client ? "projet client" : "démonstration"}
       </p>
       <p className={`mt-3.5 max-w-[44ch] text-pretty ${petite ? "text-sm" : ""}`}>{p.solution}</p>
-      <a href={p.url} target="_blank" rel="noopener noreferrer" className="lien mt-1.5">
-        Voir le site
-        <span className="sr-only"> {p.name} (nouvel onglet)</span>
-        <ArrowUpRight size={17} strokeWidth={2.2} aria-hidden="true" />
-      </a>
+      {/* Deux liens : le site lui-même (nouvel onglet) et sa page de détail, qui explique le besoin et la réponse. */}
+      <div className="mt-1.5 flex flex-wrap items-center justify-center gap-x-6">
+        <a href={p.url} target="_blank" rel="noopener noreferrer" className="lien">
+          Voir le site
+          <span className="sr-only"> {p.name} (nouvel onglet)</span>
+          <ArrowUpRight size={17} strokeWidth={2.2} aria-hidden="true" />
+        </a>
+        <Link href={projectHref(p.slug)} className="lien">
+          Le projet en détail
+          <span className="sr-only"> : {p.name}</span>
+        </Link>
+      </div>
       {/* L'aperçu reste collé au bas de la tuile, quelle que soit la longueur du texte au-dessus. */}
       <div className={`mt-auto flex w-full justify-center ${petite ? "pt-5" : "pt-6 md:pt-10"}`}>
         <Image

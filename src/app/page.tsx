@@ -19,7 +19,7 @@ export default function Home() {
       >
         Aller au contenu
       </a>
-      <Navbar />
+      <Navbar home />
       <main id="main">
         <Hero />
         <Projects />

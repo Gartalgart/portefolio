@@ -7,8 +7,10 @@ import { quoteHref, nav, site } from "@/lib/content";
   Barre du haut : fine, blanche et translucide, elle laisse la page passer dessous. Sur mobile, le menu
   s'ouvre en dessous et une barre « Devis gratuit » reste collée en bas de l'écran (voir CallBar).
 */
-export default function Navbar() {
+export default function Navbar({ home = false }: { home?: boolean }) {
   const [open, setOpen] = useState(false);
+  // Hors de l'accueil, les sections du menu se trouvent sur l'accueil : l'ancre est précédée de « / ».
+  const to = (hash: string) => (home ? hash : `/${hash}`);
 
   useEffect(() => {
     if (!open) return;
@@ -20,14 +22,14 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-filet bg-blanc/80 backdrop-blur-lg backdrop-saturate-150">
       <nav aria-label="Navigation principale" className="mx-auto flex h-14 max-w-[1296px] items-center justify-between gap-6 px-5 md:px-12">
-        <a href="#" className="inline-flex min-h-11 items-center text-lg font-bold tracking-tight">
+        <a href={home ? "#" : "/"} className="inline-flex min-h-11 items-center text-lg font-bold tracking-tight">
           {site.brand}
         </a>
 
         <ul className="hidden items-center gap-7 text-[0.9rem] lg:flex">
           {nav.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="py-2 text-muted transition-colors hover:text-nuit">
+              <a href={to(l.href)} className="py-2 text-muted transition-colors hover:text-nuit">
                 {l.label}
               </a>
             </li>
@@ -56,7 +58,7 @@ export default function Navbar() {
           <ul>
             {nav.map((l) => (
               <li key={l.href} className="border-b border-filet">
-                <a href={l.href} onClick={() => setOpen(false)} className="titre block py-4 text-2xl">
+                <a href={to(l.href)} onClick={() => setOpen(false)} className="titre block py-4 text-2xl">
                   {l.label}
                 </a>
               </li>

@@ -1,4 +1,7 @@
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { services } from "@/lib/content";
+import { metiers } from "@/lib/pages";
 
 /*
   Prestations : quatre lignes séparées par un filet, le nom à gauche, ce que le client y gagne à droite.
@@ -20,10 +23,33 @@ export default function Services() {
         {services.map((s) => (
           <li key={s.title} className="grid gap-x-12 gap-y-2 border-t border-filet py-7 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-baseline">
             <h3 className="titre text-[clamp(1.3rem,2.2vw,1.75rem)]">{s.title}</h3>
-            <p className="max-w-[56ch] text-pretty text-muted">{s.text}</p>
+            <div>
+              <p className="max-w-[56ch] text-pretty text-muted">{s.text}</p>
+              <Link href={s.href} className="lien mt-1">
+                En savoir plus
+                <span className="sr-only"> : {s.title}</span>
+                <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
+              </Link>
+            </div>
           </li>
         ))}
       </ul>
+
+      {/* Une page par type de client : ce qu'il lui faut, avec des exemples de son métier. */}
+      <nav aria-labelledby="pour-qui-titre" className="flex flex-wrap items-baseline gap-x-8 pt-5">
+        <h3 id="pour-qui-titre" className="font-semibold">
+          Selon votre activité
+        </h3>
+        <ul className="flex flex-wrap gap-x-8">
+          {metiers.map((m) => (
+            <li key={m.slug}>
+              <Link href={`/${m.slug}`} className="lien">
+                {m.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </section>
   );
 }

@@ -1,7 +1,10 @@
 import { Plus } from "lucide-react";
 import { faq } from "@/lib/content";
 
-export default function Faq() {
+type Item = { q: string; a: string };
+
+// Sans `items`, ce sont les questions générales de l'accueil ; une page dédiée passe les siennes.
+export default function Faq({ items = faq, lead = "Ce que les clients demandent avant de se lancer." }: { items?: Item[]; lead?: string }) {
   return (
     <section id="faq" aria-labelledby="faq-titre" className="mx-auto max-w-[1296px] px-5 pb-20 md:px-12 md:pb-32">
       <div className="grid gap-x-20 gap-y-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)]">
@@ -9,10 +12,10 @@ export default function Faq() {
           <h2 id="faq-titre" className="titre text-[clamp(2rem,4.2vw,3.2rem)]">
             Questions fréquentes
           </h2>
-          <p className="mt-4 max-w-[40ch] text-lg text-muted">Ce que les clients demandent avant de se lancer.</p>
+          <p className="mt-4 max-w-[40ch] text-lg text-muted">{lead}</p>
         </div>
         <div className="border-t border-filet">
-          {faq.map((f) => (
+          {items.map((f) => (
             <details key={f.q} className="group border-b border-filet">
               <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 text-lg font-semibold md:text-xl">
                 {f.q}

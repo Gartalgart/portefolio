@@ -69,30 +69,39 @@ export const nav = [
 // Ce qui est écrit sur la porte arrière, en abrégé, dans le premier écran.
 export const offers = ["Sites vitrines", "Applications", "Refontes", "Maintenance"];
 
+// `href` mène à la page dédiée de la prestation (textes dans src/lib/pages.ts).
 export const services = [
   {
     title: "Un site qui fait venir les clients",
+    href: "/creation-site-vitrine",
     text: "Rapide, clair et bien référencé localement : vos horaires, vos prestations et un bouton d'appel visibles en deux secondes.",
   },
   {
     title: "Application web sur-mesure",
+    href: "/application-web-sur-mesure",
     text: "Réservation, devis en ligne, espace adhérents, back-office : des outils adaptés à votre activité plutôt qu'un abonnement de plus.",
   },
   {
     title: "Refonte, performance et SEO",
+    href: "/refonte-site-internet",
     text: "Votre site est lent, daté ou introuvable ? Il est repris, modernisé et rendu accessible, adapté au mobile et mieux placé sur Google.",
   },
   {
     title: "Accompagnement et maintenance",
+    href: "/maintenance-site-internet",
     text: "Hébergement, mises à jour, petites évolutions : un interlocuteur unique qui répond, sans jargon.",
   },
 ];
 
 export const audiences = ["artisans", "commerçants", "TPE/PME", "associations", "mairies et collectivités"];
 
+// `slug` est l'adresse de la page de détail (/realisations/<slug>), `headline` son titre : le métier d'abord,
+// parce que c'est lui que les gens cherchent (« site internet pour un salon de coiffure »), pas le nom du client.
 export const projects = [
   {
     name: "Secur-Feu",
+    slug: "secur-feu",
+    headline: "Site vitrine pour une entreprise de sécurité incendie",
     category: "Sécurité incendie",
     client: true,
     url: "https://secur-feu.com",
@@ -104,6 +113,8 @@ export const projects = [
   },
   {
     name: "Save Toiture",
+    slug: "save-toiture",
+    headline: "Site internet pour un artisan couvreur",
     category: "Étanchéité et toiture",
     client: true,
     url: "https://save-toiture.vercel.app/",
@@ -115,6 +126,8 @@ export const projects = [
   },
   {
     name: "Maison Léa Coiffure",
+    slug: "maison-lea-coiffure",
+    headline: "Site internet pour un salon de coiffure",
     category: "Salon de coiffure",
     client: false,
     url: "https://maison-lea-coiffure.vercel.app/",
@@ -126,6 +139,8 @@ export const projects = [
   },
   {
     name: "Braise",
+    slug: "braise",
+    headline: "Site internet pour un restaurant",
     category: "Restaurant",
     client: false,
     url: "https://braise-restaurant-plum.vercel.app/",
@@ -138,6 +153,8 @@ export const projects = [
   // Démonstrations livrées le 6/11/2026 (sites-portfolio/_agence/RECAPITULATIF.md). Les clients sont fictifs.
   {
     name: "Maison de Santé des Tilleuls",
+    slug: "maison-de-sante-des-tilleuls",
+    headline: "Site internet pour un cabinet médical",
     category: "Cabinet médical",
     client: false,
     url: "https://cabinet-medical-theta.vercel.app/fr",
@@ -149,6 +166,8 @@ export const projects = [
   },
   {
     name: "Kaolin",
+    slug: "kaolin",
+    headline: "Boutique en ligne pour une céramiste",
     category: "Boutique de céramique",
     client: false,
     url: "https://kaolin-ceramique.vercel.app/",
@@ -160,6 +179,8 @@ export const projects = [
   },
   {
     name: "Rustine",
+    slug: "rustine",
+    headline: "Site internet pour une association",
     category: "Association de quartier",
     client: false,
     url: "https://rustine-repair-cafe.vercel.app/",
@@ -171,6 +192,8 @@ export const projects = [
   },
   {
     name: "Matos",
+    slug: "matos",
+    headline: "Plateforme de location de matériel entre artisans",
     category: "Location de matériel entre artisans",
     client: false,
     url: "https://matos-location.vercel.app/",
@@ -182,6 +205,8 @@ export const projects = [
   },
   {
     name: "Camille Roux",
+    slug: "camille-roux",
+    headline: "Site internet pour une photographe",
     category: "Photographe",
     client: false,
     url: "https://portfolio-photographe-gilt.vercel.app/",
@@ -193,6 +218,8 @@ export const projects = [
   },
   {
     name: "Relevé",
+    slug: "releve",
+    headline: "Tableau de bord sur-mesure pour une PME",
     category: "Tableau de bord pour PME",
     client: false,
     url: "https://releve-dashboard.vercel.app/",
@@ -204,6 +231,8 @@ export const projects = [
   },
   {
     name: "Binôme",
+    slug: "binome",
+    headline: "Application web collaborative pour une petite équipe",
     category: "Application collaborative",
     client: false,
     url: "https://binome-rd.vercel.app/",
@@ -215,6 +244,8 @@ export const projects = [
   },
   {
     name: "Allure",
+    slug: "allure",
+    headline: "Application mobile de suivi d'entraînement",
     category: "Application mobile",
     client: false,
     url: "https://allure-training.vercel.app/",
@@ -226,6 +257,8 @@ export const projects = [
   },
   {
     name: "Rebord",
+    slug: "rebord",
+    headline: "Boutique en ligne pour un magasin de plantes",
     category: "Boutique de plantes",
     client: false,
     url: "https://rebord.vercel.app/",
@@ -237,6 +270,8 @@ export const projects = [
   },
   {
     name: "Yummy Nouilles",
+    slug: "yummy-nouilles",
+    headline: "Site internet pour un restaurant à plusieurs adresses",
     category: "Restaurant de ramen",
     client: false,
     url: "https://yummy-nouilles-omega.vercel.app/",
