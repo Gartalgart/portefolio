@@ -1,27 +1,26 @@
 import { testimonials } from "@/lib/content";
-import SectionHead from "./SectionHead";
 
 // N'affiche rien tant qu'aucun vrai avis n'est renseigné dans content.ts.
 export default function Testimonials() {
   if (testimonials.length === 0) return null;
   return (
-    <section aria-labelledby="avis-titre" className="px-4 py-24 md:px-6 md:py-32">
-      <div className="mx-auto max-w-[1320px]">
-        <SectionHead id="avis-titre" title="Ils m'ont fait confiance" />
-        <ul className="grid gap-4 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <li key={t.author}>
-              <figure className="flex h-full flex-col rounded-2xl border border-line bg-surface p-7">
-                <blockquote className="flex-1 leading-relaxed">« {t.quote} »</blockquote>
-                <figcaption className="mt-6 border-t border-line pt-4 text-sm">
-                  <span className="block font-medium">{t.author}</span>
-                  <span className="text-muted">{t.role}</span>
-                </figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <section aria-labelledby="avis-titre" className="mx-auto max-w-[1296px] px-5 pb-20 md:px-12 md:pb-32">
+      <h2 id="avis-titre" className="titre text-center text-[clamp(2rem,4.6vw,3.6rem)]">
+        Ils le disent
+      </h2>
+      <ul className="mt-10 grid gap-3 md:mt-14 md:grid-cols-2">
+        {testimonials.map((t) => (
+          <li key={t.author}>
+            <figure className="flex h-full flex-col rounded-tuile bg-brume p-8 md:p-10">
+              <blockquote className="text-pretty text-xl leading-relaxed">« {t.quote} »</blockquote>
+              <figcaption className="mt-auto pt-8">
+                <span className="block font-semibold">{t.author}</span>
+                <span className="text-muted">{t.role}</span>
+              </figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

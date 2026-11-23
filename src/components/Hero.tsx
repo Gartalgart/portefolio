@@ -1,104 +1,75 @@
-"use client";
-import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useRef, useState } from "react";
-import { heroSteps, site } from "@/lib/content";
-import ShopVideo from "./ShopVideo";
+import Image from "next/image";
+import { quoteHref, projects, site } from "@/lib/content";
 
 /*
-  Hero raconté au scroll : le visiteur fait défiler, la boutique filmée s'allume puis se remplit
-  (Invisible → Trouvé → Choisi → Contacté). En mouvement réduit, l'état final est affiché d'emblée.
+  Premier écran : une phrase, une action, et un vrai site livré montré en grand. L'aperçu est le premier
+  projet client de la liste ; les réalisations qui suivent reprennent à partir du deuxième.
 */
 export default function Hero() {
-  const reduce = useReducedMotion();
-  const track = useRef<HTMLDivElement>(null);
-  const [scrolled, setScrolled] = useState(0);
-  const { scrollYProgress } = useScroll({ target: track, offset: ["start start", "end end"] });
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => setScrolled(Math.min(heroSteps.length - 1, Math.floor(v * heroSteps.length))));
-
-  const step = reduce ? heroSteps.length - 1 : scrolled;
-  const last = step === heroSteps.length - 1;
-
+  const vedette = projects[0];
   return (
-    <section aria-labelledby="hero-titre" className="night relative">
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:grid lg:h-[340svh] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 motion-reduce:lg:h-auto">
-        <div className="pb-6 pt-32 lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:pb-0 lg:pt-16">
-          <h2 id="hero-titre" className="display text-[clamp(3rem,5.6vw,5.25rem)]">
-            Votre activité existe.
-            <span className="outline-text block text-fg">
-              Sur internet, elle est éteinte.
-            </span>
-          </h2>
-
-          <p className="mt-7 max-w-[46ch] text-pretty text-lg leading-relaxed text-muted">
-            Je crée votre site, je le rends visible sur Google et je m&apos;en occupe ensuite. Le but : que ceux qui vous cherchent vous
-            trouvent, puis qu&apos;ils vous appellent.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-fg transition hover:brightness-110"
-            >
-              Discuter de votre projet
-              <ArrowRight size={18} className="transition group-hover:translate-x-0.5" aria-hidden="true" />
-            </a>
-            <a
-              href="#projets"
-              className="inline-flex items-center justify-center rounded-full border border-line-strong px-7 py-3.5 font-semibold transition hover:bg-surface-2"
-            >
-              Voir mes réalisations
-            </a>
-          </div>
-
-          <p className="mt-7 text-sm text-muted">
-            {site.name} · développeur web freelance · {site.location}
-          </p>
-        </div>
-
-        <div ref={track} className="h-[240svh] lg:h-auto motion-reduce:h-auto">
-          <div className="sticky top-0 flex h-svh flex-col justify-center gap-10 pt-16 motion-reduce:static motion-reduce:h-auto motion-reduce:pb-24 motion-reduce:pt-6">
-            <div className="flex items-start gap-4">
-              <div className="min-w-0 flex-1">
-                <ShopVideo progress={scrollYProgress} className="aspect-[4/3] sm:aspect-video" />
-              </div>
-              {!reduce && (
-                <ol className="hidden flex-col gap-2 pt-10 sm:flex" aria-hidden="true">
-                  {heroSteps.map((w, i) => (
-                    <li
-                      key={w}
-                      className="w-1 rounded-full bg-fg transition-all duration-500"
-                      style={{ height: i === step ? 28 : 6, opacity: i === step ? 1 : 0.3 }}
-                    />
-                  ))}
-                </ol>
-              )}
-            </div>
-
-            <p className="sr-only">{heroSteps.join(" ")}</p>
-            <div className="relative h-[clamp(4.5rem,11vw,8.5rem)] overflow-hidden" aria-hidden="true">
-              <AnimatePresence mode="popLayout" initial={false}>
-                <motion.p
-                  key={heroSteps[step]}
-                  className={`display absolute inset-x-0 top-0 whitespace-nowrap text-[clamp(4rem,10vw,8rem)] ${last ? "text-link" : "outline-text"}`}
-                  style={last ? undefined : { ["--stroke" as string]: "var(--muted)" }}
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "-100%", opacity: 0 }}
-                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  {heroSteps[step]}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-
-            <p className="-mt-6 text-xs text-muted">
-              {step === 0 && !reduce ? "Faites défiler pour allumer la boutique. " : ""}Images d&apos;illustration générées par IA.
-            </p>
-          </div>
+    <section aria-labelledby="titre" className="mx-auto max-w-[1296px] px-5 text-center md:px-12">
+      {/*
+        Le premier écran ne contient que la phrase et l'action, centrées dans la hauteur de la fenêtre (moins la barre
+        du haut) : l'aperçu du site client commence juste après, jamais coupé par le bas de l'écran à l'arrivée.
+      */}
+      <div className="flex min-h-[calc(100svh-3.5rem)] flex-col items-center justify-center py-14">
+        <h1 id="titre" className="titre mx-auto max-w-[14ch] text-[clamp(2.5rem,6.6vw,5.4rem)]">
+          Un site qui fait venir vos clients.
+        </h1>
+        <p className="mx-auto mt-6 max-w-[46ch] text-pretty text-[clamp(1.1rem,1.6vw,1.35rem)] text-muted">
+          {site.brand} crée votre site, le rend visible sur Google et en assure le suivi. Un seul interlocuteur, du devis à la
+          maintenance.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
+          <a href={quoteHref} className="bouton">
+            Demander un devis gratuit
+          </a>
+          <a href="#projets" className="lien">
+            Voir les réalisations
+            <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
+          </a>
         </div>
       </div>
+
+      {/*
+        L'aperçu est présenté dans une fenêtre de navigateur, entière et plus étroite que la page : sa barre
+        d'adresse le sépare de la navigation du site, et on voit tout de suite que c'est un autre site, montré en exemple.
+      */}
+      <figure className="mx-auto mt-8 max-w-[1040px]">
+        <a
+          href={vedette.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabIndex={-1}
+          aria-hidden="true"
+          className="block overflow-hidden rounded-tuile shadow-apercu"
+        >
+          <span className="flex h-9 items-center gap-1.5 bg-brume px-4 md:h-10">
+            <span className="h-2.5 w-2.5 rounded-full bg-ardoise/40" />
+            <span className="h-2.5 w-2.5 rounded-full bg-ardoise/40" />
+            <span className="h-2.5 w-2.5 rounded-full bg-ardoise/40" />
+            <span className="mx-auto -translate-x-5 rounded-full bg-blanc px-5 py-0.5 text-xs text-muted md:px-10">{vedette.host}</span>
+          </span>
+          <Image
+            src={vedette.image}
+            alt=""
+            width={1280}
+            height={800}
+            priority
+            sizes="(min-width: 1088px) 1040px, 100vw"
+            className="aspect-[16/10] w-full object-cover object-top"
+          />
+        </a>
+        <figcaption className="py-4 text-sm text-muted">
+          {vedette.name}, {vedette.category.toLowerCase()} · projet client ·{" "}
+          <a href={vedette.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-marine hover:underline">
+            {vedette.host}
+            <span className="sr-only"> (nouvel onglet)</span>
+          </a>
+        </figcaption>
+      </figure>
     </section>
   );
 }

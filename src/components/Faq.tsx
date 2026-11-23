@@ -1,24 +1,27 @@
 import { Plus } from "lucide-react";
 import { faq } from "@/lib/content";
 
-export default function Faq() {
+type Item = { q: string; a: string };
+
+// Sans `items`, ce sont les questions générales de l'accueil ; une page dédiée passe les siennes.
+export default function Faq({ items = faq, lead = "Ce que les clients demandent avant de se lancer." }: { items?: Item[]; lead?: string }) {
   return (
-    <section id="faq" aria-labelledby="faq-titre" className="px-5 py-24 md:px-8 md:py-32">
-      <div className="mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-20">
+    <section id="faq" aria-labelledby="faq-titre" className="mx-auto max-w-[1296px] px-5 pb-20 md:px-12 md:pb-32">
+      <div className="grid gap-x-20 gap-y-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)]">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <h2 id="faq-titre" className="display text-balance text-[clamp(2.5rem,5vw,4.5rem)]">
+          <h2 id="faq-titre" className="titre text-[clamp(2rem,4.2vw,3.2rem)]">
             Questions fréquentes
           </h2>
-          <p className="mt-5 max-w-[40ch] text-lg text-muted">Les réponses aux questions qu&apos;on me pose le plus.</p>
+          <p className="mt-4 max-w-[40ch] text-lg text-muted">{lead}</p>
         </div>
-        <div className="space-y-3">
-          {faq.map((f) => (
-            <details key={f.q} className="paper group">
-              <summary className="flex cursor-pointer items-center justify-between gap-6 rounded-[4px] px-6 py-5 text-lg font-bold tracking-[-0.01em]">
+        <div className="border-t border-filet">
+          {items.map((f) => (
+            <details key={f.q} className="group border-b border-filet">
+              <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 text-lg font-semibold md:text-xl">
                 {f.q}
-                <Plus size={20} className="shrink-0 text-link transition group-open:rotate-45" aria-hidden="true" />
+                <Plus size={22} strokeWidth={2} className="shrink-0 text-ardoise transition-transform duration-200 group-open:rotate-45" aria-hidden="true" />
               </summary>
-              <p className="max-w-[62ch] px-6 pb-6 leading-relaxed text-muted">{f.a}</p>
+              <p className="max-w-[62ch] text-pretty pb-6 text-muted">{f.a}</p>
             </details>
           ))}
         </div>

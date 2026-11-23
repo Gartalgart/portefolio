@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T12:00:00Z",
+  "title": "Design System: RD-Solutions",
+  "extensions": {
+    "colorMeta": {
+      "nuit": { "role": "primary", "displayName": "Bleu nuit", "canonical": "#1a252f", "tonalRamp": ["#0d1319", "#1a252f", "#2f4152", "#486178", "#6c869d", "#9bafc0", "#cbd6df", "#eef2f5"] },
+      "marine": { "role": "primary", "displayName": "Marine", "canonical": "#2c3e50", "tonalRamp": ["#111a23", "#1e2b39", "#2c3e50", "#44607a", "#6a87a2", "#9ab0c4", "#cad6e1", "#eef2f6"] },
+      "ardoise": { "role": "neutral", "displayName": "Ardoise", "canonical": "#6c7a89", "tonalRamp": ["#1c2228", "#333d47", "#4b5865", "#6c7a89", "#8e9aa7", "#b1bac4", "#d4dae0", "#f0f2f4"] },
+      "ardoise-texte": { "role": "neutral", "displayName": "Ardoise texte", "canonical": "#55626f", "tonalRamp": ["#1a2026", "#2e3740", "#414c57", "#55626f", "#7b8793", "#a3adb7", "#ccd3d9", "#eff1f3"] },
+      "ardoise-sur-nuit": { "role": "neutral", "displayName": "Ardoise sur nuit", "canonical": "#a9b4bf", "tonalRamp": ["#1e242a", "#39434d", "#566370", "#778492", "#a9b4bf", "#c3cbd3", "#dde2e6", "#f3f5f6"] },
+      "filet": { "role": "neutral", "displayName": "Filet", "canonical": "#dde1e5", "tonalRamp": ["#20252a", "#3d454d", "#5c6670", "#7f8a94", "#a5aeb6", "#c4cad0", "#dde1e5", "#f4f5f7"] },
+      "brume": { "role": "neutral", "displayName": "Brume", "canonical": "#f1f3f5", "tonalRamp": ["#22272c", "#414a53", "#626d78", "#87929c", "#aeb6be", "#d0d6db", "#f1f3f5", "#f9fafb"] },
+      "blanc": { "role": "neutral", "displayName": "Blanc", "canonical": "#ffffff", "tonalRamp": ["#333333", "#555555", "#777777", "#999999", "#bbbbbb", "#dddddd", "#f2f2f2", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Phrase du premier écran", "purpose": "Le h1 centré de l'accueil, 14ch au plus." },
+      "headline": { "displayName": "Titre de section", "purpose": "Titres centrés ; clamp(2rem, 4.2vw, 3.2rem) en colonne, jusqu'à 4rem pour le contact et les pages légales." },
+      "title": { "displayName": "Intitulé", "purpose": "Prestations, étapes, engagements, noms de tuile, menu mobile." },
+      "lead": { "displayName": "Chapô", "purpose": "La phrase en ardoise texte sous un titre de section, 40 à 52ch." },
+      "body": { "displayName": "Texte", "purpose": "Texte courant, 44 à 62ch, 68ch sur les pages légales." },
+      "label": { "displayName": "Libellé", "purpose": "Libellés de champ ; légendes et pied de page à la même taille en graisse normale." },
+      "chiffre": { "displayName": "Numéro d'étape", "purpose": "Numéros tabulaires à deux chiffres de la méthode." }
+    },
+    "shadows": [
+      { "name": "apercu", "value": "0 24px 60px -18px rgb(26 37 47 / 0.38)", "purpose": "La seule ombre du site, sous chaque capture de site (premier écran et tuiles de réalisation)." }
+    ],
+    "motion": [
+      { "name": "bouton-survol", "value": "background-color 0.2s ease", "purpose": "Survol des boutons : changement de fond seul, aucun déplacement." },
+      { "name": "transition-couleur", "value": "color/background-color 150ms", "purpose": "Survol des liens de barre, du bouton de menu et du bouton dépliant." },
+      { "name": "signe-ouverture", "value": "transform 200ms", "purpose": "Le plus de la FAQ tourne de 45°, le chevron du bouton dépliant de 180°." },
+      { "name": "barre-action", "value": "transform 300ms ease-out", "purpose": "La barre d'action mobile glisse depuis le bas ; sans transition sous prefers-reduced-motion." },
+      { "name": "defilement", "value": "scroll-behavior: smooth", "purpose": "Défilement doux vers les ancres ; automatique sous prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "40rem" },
+      { "name": "md", "value": "48rem" },
+      { "name": "lg", "value": "64rem" }
+    ],
+    "focus": { "value": "outline: 2px solid var(--marine); outline-offset: 3px; border-radius: 4px", "surNuit": "outline-color: var(--blanc)" },
+    "surNuit": {
+      "selector": ".sur-nuit",
+      "remap": { "color": "var(--blanc)", "--muted": "var(--ardoise-sur-nuit)", "--line": "rgb(255 255 255 / 0.16)" }
+    },
+    "translucence": [
+      { "name": "barre-haut", "value": "background: rgb(255 255 255 / 0.8); backdrop-filter: blur(16px) saturate(1.5)", "purpose": "Barre de navigation collante." },
+      { "name": "barre-action", "value": "background: rgb(255 255 255 / 0.85); backdrop-filter: blur(16px)", "purpose": "Barre d'action mobile fixée en bas." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton",
+      "kind": "button",
+      "refersTo": "bouton",
+      "description": "Toute action : pastille pleine bleu nuit, marine au survol.",
+      "html": "<a class=\"ds-bouton\" href=\"#\">Demander un devis gratuit</a>",
+      "css": ".ds-bouton { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; padding: 0.8em 1.45em; border-radius: 999px; background: var(--nuit, #1a252f); color: var(--blanc, #ffffff); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; font-weight: 600; white-space: nowrap; text-decoration: none; transition: background-color 0.2s ease; } .ds-bouton:hover { background: var(--marine, #2c3e50); } .ds-bouton:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; }"
+    },
+    {
+      "name": "Bouton dépliant",
+      "kind": "button",
+      "refersTo": "bouton-depliant",
+      "description": "Ouvre le reste des réalisations : pastille brume, chevron qui se retourne.",
+      "html": "<details class=\"ds-depliant\"><summary>Voir les 8 autres réalisations <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></summary></details>",
+      "css": ".ds-depliant > summary { list-style: none; display: flex; width: fit-content; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; background: var(--brume, #f1f3f5); color: var(--nuit, #1a252f); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-weight: 600; cursor: pointer; transition: background-color 150ms; } .ds-depliant > summary::-webkit-details-marker { display: none; } .ds-depliant > summary:hover { background: var(--filet, #dde1e5); } .ds-depliant > summary svg { transition: transform 200ms; } .ds-depliant[open] > summary svg { transform: rotate(180deg); } .ds-depliant > summary:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; }"
+    },
+    {
+      "name": "Lien d'action",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Action secondaire : texte demi-gras marine, souligné au survol, flèche à la suite.",
+      "html": "<a class=\"ds-lien\" href=\"#\">Voir les réalisations <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-lien { display: inline-flex; align-items: center; gap: 0.35em; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; font-weight: 600; color: var(--marine, #2c3e50); text-decoration: none; text-underline-offset: 0.2em; } .ds-lien:hover { text-decoration: underline; } .ds-lien:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Tuile de réalisation (nuit)",
+      "kind": "card",
+      "refersTo": "tuile-nuit",
+      "description": "Un site livré montré en grand : nom, statut écrit, une phrase, un lien, l'aperçu coupé par le bas.",
+      "html": "<article class=\"ds-tuile ds-tuile-nuit\"><h3 class=\"ds-tuile-titre\">Save Toiture</h3><p class=\"ds-tuile-statut\">Couvreur · projet client</p><p class=\"ds-tuile-texte\">Un site clair qui présente les travaux et permet de demander un devis.</p><a class=\"ds-tuile-lien\" href=\"#\">Voir le site <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a><div class=\"ds-tuile-apercu\"></div></article>",
+      "css": ".ds-tuile { display: flex; flex-direction: column; align-items: center; overflow: hidden; border-radius: 16px; padding: 64px 48px 0; text-align: center; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.55; } .ds-tuile-nuit { background: var(--nuit, #1a252f); color: var(--blanc, #ffffff); } .ds-tuile-titre { margin: 0; font-size: clamp(1.8rem, 3.4vw, 2.9rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; text-wrap: balance; } .ds-tuile-statut { margin: 8px 0 0; font-size: 1.05rem; color: var(--ardoise-sur-nuit, #a9b4bf); } .ds-tuile-texte { margin: 14px 0 0; max-width: 44ch; } .ds-tuile-lien { display: inline-flex; align-items: center; gap: 0.35em; margin-top: 16px; font-weight: 600; color: var(--blanc, #ffffff); text-decoration: none; text-underline-offset: 0.2em; } .ds-tuile-lien:hover { text-decoration: underline; } .ds-tuile-lien:focus-visible { outline: 2px solid var(--blanc, #ffffff); outline-offset: 3px; border-radius: 4px; } .ds-tuile-apercu { width: 100%; max-width: 880px; aspect-ratio: 16 / 10; margin-top: 48px; border-radius: 12px 12px 0 0; background: var(--brume, #f1f3f5); box-shadow: 0 24px 60px -18px rgb(0 0 0 / 0.4); }"
+    },
+    {
+      "name": "Tuile brume",
+      "kind": "card",
+      "refersTo": "tuile-brume",
+      "description": "Tuile claire : réalisations du damier, petites tuiles dépliées, méthode, avis.",
+      "html": "<article class=\"ds-tuile-brume\"><h3 class=\"ds-tuile-brume-titre\">Maison Léa Coiffure</h3><p class=\"ds-tuile-brume-statut\">Salon de coiffure · démonstration</p></article>",
+      "css": ".ds-tuile-brume { border-radius: 16px; padding: 36px 24px; background: var(--brume, #f1f3f5); color: var(--nuit, #1a252f); text-align: center; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-tuile-brume-titre { margin: 0; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; } .ds-tuile-brume-statut { margin: 8px 0 0; font-size: 0.875rem; line-height: 1.55; color: var(--ardoise-texte, #55626f); }"
+    },
+    {
+      "name": "Lignes à filets",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Prestations et étapes en liste : un filet de 1px ouvre chaque ligne, numéro tabulaire pour les étapes.",
+      "html": "<ol class=\"ds-lignes\"><li><span class=\"ds-lignes-num\">01</span><div><h3>Votre demande</h3><p>Vous décrivez votre activité et ce que vous attendez du site.</p></div></li><li><span class=\"ds-lignes-num\">02</span><div><h3>Le devis gratuit</h3><p>Le prix est annoncé avant de commencer.</p></div></li></ol>",
+      "css": ".ds-lignes { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--filet, #dde1e5); color: var(--nuit, #1a252f); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.55; } .ds-lignes li { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 16px; padding: 24px 0; border-top: 1px solid var(--filet, #dde1e5); } .ds-lignes-num { padding-top: 2px; font-weight: 600; font-variant-numeric: tabular-nums lining-nums; color: var(--ardoise-texte, #55626f); } .ds-lignes h3 { margin: 0; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; } .ds-lignes p { margin: 6px 0 0; max-width: 52ch; color: var(--ardoise-texte, #55626f); }"
+    },
+    {
+      "name": "Champ",
+      "kind": "input",
+      "refersTo": "champ",
+      "description": "Champ du formulaire : cellule brume, libellé au-dessus, anneau marine à la saisie.",
+      "html": "<label class=\"ds-champ\"><span class=\"ds-champ-libelle\">Nom</span><input class=\"ds-champ-saisie\" placeholder=\"Votre nom\"></label>",
+      "css": ".ds-champ { display: block; max-width: 360px; border-radius: 12px; padding: 10px 16px 12px; background: var(--brume, #f1f3f5); box-shadow: 0 0 0 1px transparent; transition: box-shadow 150ms; font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-champ:focus-within { box-shadow: 0 0 0 2px var(--marine, #2c3e50); } .ds-champ-libelle { display: block; font-size: 0.875rem; font-weight: 600; color: var(--ardoise-texte, #55626f); } .ds-champ-saisie { margin-top: 4px; width: 100%; padding: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 1.125rem; color: var(--nuit, #1a252f); caret-color: var(--marine, #2c3e50); }"
+    },
+    {
+      "name": "Question de FAQ",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Accordéon natif entre filets de 1px, signe plus ardoise qui tourne à l'ouverture.",
+      "html": "<details class=\"ds-faq\"><summary>Combien coûte un site ? <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg></summary><p>Le prix est annoncé dans le devis gratuit, avant de commencer.</p></details>",
+      "css": ".ds-faq { border-top: 1px solid var(--filet, #dde1e5); border-bottom: 1px solid var(--filet, #dde1e5); color: var(--nuit, #1a252f); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-faq > summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 0; font-size: 1.25rem; font-weight: 600; cursor: pointer; } .ds-faq > summary::-webkit-details-marker { display: none; } .ds-faq > summary svg { flex-shrink: 0; color: var(--ardoise, #6c7a89); transition: transform 200ms; } .ds-faq[open] > summary svg { transform: rotate(45deg); } .ds-faq > summary:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; border-radius: 4px; } .ds-faq p { margin: 0; max-width: 62ch; padding-bottom: 24px; font-size: 1.0625rem; line-height: 1.55; color: var(--ardoise-texte, #55626f); }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Barre collante fine, blanche translucide, filet bas de 1px, pastille compacte à droite.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-marque\" href=\"#\">RD-Solutions</a><ul class=\"ds-nav-liens\"><li><a href=\"#\">Réalisations</a></li><li><a href=\"#\">Prestations</a></li><li><a href=\"#\">Contact</a></li></ul><a class=\"ds-nav-bouton\" href=\"#\">Devis gratuit</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 56px; padding: 0 48px; background: rgb(255 255 255 / 0.8); backdrop-filter: blur(16px) saturate(1.5); border-bottom: 1px solid var(--filet, #dde1e5); font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif; } .ds-nav-marque { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.025em; color: var(--nuit, #1a252f); text-decoration: none; } .ds-nav-liens { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 0.9rem; } .ds-nav-liens a { padding: 8px 0; color: var(--ardoise-texte, #55626f); text-decoration: none; transition: color 150ms; } .ds-nav-liens a:hover { color: var(--nuit, #1a252f); } .ds-nav-bouton { display: inline-flex; align-items: center; padding: 0.5em 1.1em; border-radius: 999px; background: var(--nuit, #1a252f); color: var(--blanc, #ffffff); font-size: 0.9rem; font-weight: 600; white-space: nowrap; text-decoration: none; transition: background-color 0.2s ease; } .ds-nav-bouton:hover { background: var(--marine, #2c3e50); } .ds-nav a:focus-visible { outline: 2px solid var(--marine, #2c3e50); outline-offset: 3px; border-radius: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La vitrine",
+    "overview": "Le site est une vitrine : une phrase, une action, puis les sites livrés montrés en grand, un par tuile. La page est blanche ; ce qui s'y pose est une tuile pleine, brume, marine ou bleu nuit, aux coins de 16px, sans bordure. Chaque tuile de réalisation porte un nom, une ligne de statut, une phrase, un lien, et l'aperçu du site coupé par son bord bas, comme un objet posé derrière une vitre.\n\nLa densité est faible et l'air fait le travail : sections espacées de 80px sur mobile et de 128px au-delà, titres demi-gras serrés, texte secondaire en ardoise. Une seule famille de caractères, une seule famille de bleu-gris, aucune couleur d'accent : l'action se reconnaît à sa forme (une pastille bleu nuit), pas à une teinte. Thème clair seul, sans bascule. Ni 3D, ni vidéo, ni numéro de téléphone, ni prix affiché.\n\nRejets confirmés : le portfolio de développeur (photo, liste de technos, trois cartes d'icônes) et l'ancien monde « lettrage d'utilitaire » (rouge vermillon, capitales larges, filets épais), remplacé le 16/11/2026.",
+    "keyCharacteristics": [
+      "Page blanche, tuiles pleines brume, marine ou bleu nuit à coins de 16px, sans bordure ni ombre.",
+      "Une seule famille (Hanken Grotesk) : titres demi-gras serrés, texte normal.",
+      "Aucune couleur d'accent : cinq tons de bleu-gris, l'action est une pastille bleu nuit.",
+      "Les aperçus de sites sont les seules images de la page, et les seuls éléments à porter une ombre.",
+      "Filets fins de 1px pour les listes ; statut d'une réalisation toujours écrit en toutes lettres."
+    ],
+    "rules": [
+      { "name": "The Sur-Nuit Rule", "body": "Une tuile sombre se déclare par la classe `.sur-nuit`, qui passe le texte en blanc et remappe le ton secondaire, le filet, le focus et la sélection. Les composants ne savent rien de leur fond. Une tuile blanche posée dans une zone sombre (le formulaire) rétablit elle-même les valeurs claires.", "section": "colors" },
+      { "name": "The Sans Accent Rule", "body": "Aucune teinte hors de la famille bleu-gris. L'action se distingue par sa forme pleine en pastille, jamais par une couleur vive.", "section": "colors" },
+      { "name": "The Ardoise Repère Rule", "body": "L'ardoise d'origine sert aux repères non textuels. Tout petit texte secondaire prend l'ardoise texte sur clair, l'ardoise sur nuit sur sombre.", "section": "colors" },
+      { "name": "The Statut Écrit Rule", "body": "Le statut d'une réalisation (« projet client » ou « démonstration ») est écrit en toutes lettres sous le nom ; il n'est jamais porté par la couleur de la tuile.", "section": "colors" },
+      { "name": "The Une Famille Rule", "body": "Une seule famille, Hanken Grotesk, pour le site comme pour l'image de partage. Trois graisses : 400 pour lire, 600 pour les titres, les boutons et les liens d'action, 700 pour la marque.", "section": "typography" },
+      { "name": "The Titre Rule", "body": "Tout titre passe par l'utilitaire `titre` : demi-gras, approche -0,025em, interligne 1,06, lignes équilibrées. Pas de capitales, pas de graisse plus lourde.", "section": "typography" },
+      { "name": "The Ombre d'Aperçu Rule", "body": "Seules les captures de sites portent une ombre : elle les détache comme un objet montré. Tuiles, boutons, champs et barres n'en portent jamais.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do poser chaque nouveau bloc fort comme une tuile pleine (brume, marine ou bleu nuit) aux coins de 16px, à 12px du bord de la fenêtre, sans bordure ni ombre.",
+      "Do déclarer une tuile sombre par `.sur-nuit` et laisser le ton secondaire, le filet et le focus se remapper.",
+      "Do composer tout titre avec `titre` (600, approche -0,025em, interligne 1,06), en casse normale.",
+      "Do prendre l'ardoise texte pour le texte secondaire sur clair et l'ardoise sur nuit sur sombre.",
+      "Do écrire le statut d'une réalisation en toutes lettres (« projet client », « démonstration »).",
+      "Do présenter une énumération en lignes séparées par un filet de 1px plutôt qu'en cartes.",
+      "Do garder les mouvements au changement de couleur, à la rotation d'un signe et au glissement de la barre d'action, tous coupés ou neutres sous mouvement réduit."
+    ],
+    "donts": [
+      "Don't introduire de teinte hors de la famille bleu-gris, ni de couleur d'accent pour l'action.",
+      "Don't mettre d'ombre ailleurs que sous une capture de site, ni de dégradé sur une surface.",
+      "Don't border une tuile, ni épaissir un filet au-delà de 1px.",
+      "Don't composer de petit texte dans l'ardoise d'origine : elle n'atteint pas 4,5:1.",
+      "Don't charger une seconde famille de caractères, ni passer un titre en capitales.",
+      "Don't bâtir une section en grille de cartes à icône (le portfolio de développeur en trois cartes).",
+      "Don't réintroduire de thème sombre, de bascule de thème, de 3D ou de vidéo.",
+      "Don't afficher de numéro de téléphone, de prix ni de montant."
+    ]
+  }
+}

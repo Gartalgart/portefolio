@@ -9,3 +9,16 @@ assets/3d/*.blend1
 
 .vercel
 .env*
+
+# Traces du serveur Playwright MCP
+.playwright-mcp
+
+# Impeccable : maquettes de décision et captures de revue (travail local)
+.impeccable/mocks
+.impeccable/review
+.impeccable/build
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+
+# Taste Skill : captures et rapports d'inspection (travail local)
+.taste-skill

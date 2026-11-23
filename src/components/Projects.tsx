@@ -1,148 +1,117 @@
-"use client";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Play, Undo2 } from "lucide-react";
-import { useRef, useState } from "react";
-import { bookingHref, projects } from "@/lib/content";
-import BrowserWindow from "./BrowserWindow";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { projects } from "@/lib/content";
+import { projectHref } from "@/lib/pages";
 
-type Project = (typeof projects)[number];
+/*
+  Réalisations : de grandes tuiles pleines, une couleur de fond chacune, l'aperçu du site coupé par le bas
+  de la tuile. Le premier projet est déjà montré dans le premier écran : la liste reprend au deuxième.
+  Cinq tuiles sont affichées, les autres se déplient en plus petit : la page reste courte sur téléphone.
+  Le statut (projet client ou démonstration) est toujours écrit en toutes lettres, jamais porté par la couleur.
+*/
+const FEATURED = 5;
+// Fond des cinq tuiles en vedette : une grande tuile nuit, puis un damier brume / marine.
+const fonds = ["nuit", "brume", "marine", "marine", "brume"] as const;
+const fondClasse = { nuit: "sur-nuit bg-nuit", marine: "sur-nuit bg-marine", brume: "bg-brume" };
 
-const card = "flex w-[min(86vw,620px)] shrink-0 snap-start flex-col rounded-2xl p-5 text-white md:p-7";
+// Largeur affichée de l'aperçu selon la tuile, pour que le navigateur ne charge pas une image plus grande que nécessaire.
+const tailles = {
+  large: "(min-width: 928px) 880px, 100vw",
+  moitie: "(min-width: 768px) 50vw, 100vw",
+  petite: "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+};
 
-function Vitrine({ p }: { p: Project }) {
-  const [live, setLive] = useState(false);
+export type Project = (typeof projects)[number];
 
+export function Tuile({ p, fond, taille }: { p: Project; fond: keyof typeof fondClasse; taille: keyof typeof tailles }) {
+  const petite = taille === "petite";
   return (
-    <article className={card} style={{ background: p.color }} aria-labelledby={`projet-${p.host}`}>
-      <div className="flex items-start justify-between gap-4">
-        <h3 id={`projet-${p.host}`} className="display text-[clamp(2.25rem,4vw,3.25rem)]">
-          {p.name}
-        </h3>
-        <span className={p.client ? "tag mt-1 shrink-0" : "mt-1 shrink-0 rounded-[3px] border border-white/60 px-2 py-0.5 text-xs font-bold"}>
-          {p.client ? "Projet client" : "Démonstration"}
-        </span>
-      </div>
-
-      <div className="mt-5">
-        <BrowserWindow host={p.host} className="night">
-          {live ? (
-            <iframe
-              src={p.url}
-              title={`Site ${p.name} en direct`}
-              loading="lazy"
-              sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-              className="absolute inset-0 h-full w-full bg-white"
-            />
-          ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={p.image}
-              alt={`Aperçu du site ${p.name}`}
-              loading="lazy"
-              width={1200}
-              height={750}
-              className="absolute inset-0 h-full w-full object-cover object-top"
-            />
-          )}
-          {p.live && (
-            <button
-              type="button"
-              onClick={() => setLive((v) => !v)}
-              className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0c1a3a] shadow-lg transition hover:bg-tag"
-            >
-              {live ? <Undo2 size={15} aria-hidden="true" /> : <Play size={15} aria-hidden="true" />}
-              {live ? "Revenir à l'image" : "Tester en direct"}
-              <span className="sr-only"> le site {p.name}</span>
-            </button>
-          )}
-        </BrowserWindow>
-      </div>
-
-      <dl className="mt-6 grid gap-4 leading-snug sm:grid-cols-2">
-        <div>
-          <dt className="text-sm font-bold">Le besoin</dt>
-          <dd className="mt-1">{p.problem}</dd>
-        </div>
-        <div>
-          <dt className="text-sm font-bold">Ce que j&apos;ai mis en place</dt>
-          <dd className="mt-1">{p.solution}</dd>
-        </div>
-      </dl>
-
-      <div className="mt-auto flex flex-wrap items-end justify-between gap-4 pt-6">
-        <p className="text-sm font-semibold">
-          {p.category} · {p.tags.join(" · ")}
-        </p>
-        <a
-          href={p.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full border border-white/70 px-4 py-2 text-sm font-semibold transition hover:bg-white hover:text-[#0c1a3a]"
-        >
-          {p.host}
-          <span className="sr-only"> (nouvel onglet)</span>
-          <ArrowUpRight size={15} aria-hidden="true" />
+    <article
+      aria-labelledby={`projet-${p.host}`}
+      className={`flex h-full flex-col items-center overflow-hidden rounded-tuile text-center ${fondClasse[fond]} ${
+        petite ? "px-6 pt-9" : "px-5 pt-10 md:px-12 md:pt-16"
+      }`}
+    >
+      <h3 id={`projet-${p.host}`} className={`titre ${petite ? "text-2xl" : "text-[clamp(1.8rem,3.4vw,2.9rem)]"}`}>
+        {p.name}
+      </h3>
+      <p className={`mt-2 text-muted ${petite ? "text-sm" : ""}`}>
+        {p.category} · {p.client ? "projet client" : "démonstration"}
+      </p>
+      <p className={`mt-3.5 max-w-[44ch] text-pretty ${petite ? "text-sm" : ""}`}>{p.solution}</p>
+      {/* Deux liens : le site lui-même (nouvel onglet) et sa page de détail, qui explique le besoin et la réponse. */}
+      <div className="mt-1.5 flex flex-wrap items-center justify-center gap-x-6">
+        <a href={p.url} target="_blank" rel="noopener noreferrer" className="lien">
+          Voir le site
+          <span className="sr-only"> {p.name} (nouvel onglet)</span>
+          <ArrowUpRight size={17} strokeWidth={2.2} aria-hidden="true" />
         </a>
+        <Link href={projectHref(p.slug)} className="lien">
+          Le projet en détail
+          <span className="sr-only"> : {p.name}</span>
+        </Link>
+      </div>
+      {/* L'aperçu reste collé au bas de la tuile, quelle que soit la longueur du texte au-dessus. */}
+      <div className={`mt-auto flex w-full justify-center ${petite ? "pt-5" : "pt-6 md:pt-10"}`}>
+        <Image
+          src={p.image}
+          alt=""
+          width={1280}
+          height={800}
+          sizes={tailles[taille]}
+          className={`aspect-[16/10] w-full rounded-t-xl object-cover object-top shadow-apercu ${
+            petite ? "" : "max-w-[880px]"
+          }`}
+        />
       </div>
     </article>
   );
 }
 
 export default function Projects() {
-  const rail = useRef<HTMLUListElement>(null);
-  const move = (dir: 1 | -1) => {
-    const el = rail.current;
-    if (!el) return;
-    const first = el.querySelector("li");
-    el.scrollBy({ left: dir * ((first?.clientWidth ?? 600) + 20), behavior: "smooth" });
-  };
+  const clients = projects.filter((p) => p.client).length;
+  const demos = projects.length - clients;
+  const suite = projects.slice(1);
+  const first = suite.slice(0, FEATURED);
+  const rest = suite.slice(FEATURED);
 
   return (
-    <section id="projets" aria-labelledby="projets-titre" className="py-24 md:py-32">
-      <div className="mx-auto flex max-w-[1320px] flex-wrap items-end justify-between gap-6 px-5 md:px-8">
-        <div className="max-w-3xl">
-          <h2 id="projets-titre" className="display text-balance text-[clamp(2.5rem,5vw,4.5rem)]">
-            Quatre vitrines que j&apos;ai montées.
-          </h2>
-          <p className="mt-5 max-w-[56ch] text-pretty text-lg text-muted">
-            Le besoin de départ, ce que j&apos;ai mis en place, et le vrai site à essayer. Chaque vitrine indique s&apos;il s&apos;agit
-            d&apos;un client ou d&apos;une démonstration.
-          </p>
-        </div>
-        <div className="flex gap-2">
-          <button type="button" onClick={() => move(-1)} aria-label="Vitrine précédente" className="grid h-12 w-12 place-items-center rounded-full border border-line-strong transition hover:bg-fg hover:text-bg">
-            <ArrowLeft size={18} aria-hidden="true" />
-          </button>
-          <button type="button" onClick={() => move(1)} aria-label="Vitrine suivante" className="grid h-12 w-12 place-items-center rounded-full border border-line-strong transition hover:bg-fg hover:text-bg">
-            <ArrowRight size={18} aria-hidden="true" />
-          </button>
-        </div>
+    <section id="projets" aria-labelledby="projets-titre">
+      <div className="mx-auto max-w-[1296px] px-5 pb-8 pt-20 text-center md:px-12 md:pb-12 md:pt-32">
+        <h2 id="projets-titre" className="titre text-[clamp(2rem,4.6vw,3.6rem)]">
+          Réalisations
+        </h2>
+        <p className="mx-auto mt-4 max-w-[52ch] text-pretty text-lg text-muted">
+          {projects.length} sites et applications, à ouvrir et à tester : {clients} projets clients et {demos} démonstrations. Une
+          démonstration est un site complet, construit autour d&apos;un client fictif ; chaque tuile le signale.
+        </p>
       </div>
 
-      {/* relative : les textes sr-only (position absolue) des cartes restent dans la galerie au lieu d'élargir la page. */}
-      <ul
-        ref={rail}
-        className="rail relative mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(1.25rem,calc((100vw_-_1320px)/2_+_2rem))] pb-4 [scroll-padding-inline:max(1.25rem,calc((100vw_-_1320px)/2_+_2rem))]"
-      >
-        {projects.map((p) => (
-          <li key={p.name} className="flex">
-            <Vitrine p={p} />
+      <ul className="grid gap-3 px-3 md:grid-cols-2">
+        {first.map((p, i) => (
+          <li key={p.name} className={i === 0 ? "md:col-span-2" : ""}>
+            <Tuile p={p} fond={fonds[i]} taille={i === 0 ? "large" : "moitie"} />
           </li>
         ))}
-        <li className="flex">
-          <article className={`${card} night items-center justify-center gap-8 text-center`} aria-labelledby="projet-suivant">
-            <div className="paper -rotate-2 px-8 py-7 text-fg [--surface:#fbf8f1] [--fg:#0c1a3a] [--muted:#4a5672]">
-              <p id="projet-suivant" className="display text-4xl">Emplacement disponible</p>
-              <p className="mt-2 text-sm font-semibold text-primary">La prochaine vitrine, c&apos;est la vôtre.</p>
-            </div>
-            <a
-              href={bookingHref}
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-fg transition hover:brightness-110"
-            >
-              Réserver un appel <ArrowRight size={16} aria-hidden="true" />
-            </a>
-          </article>
-        </li>
       </ul>
+
+      {rest.length > 0 && (
+        <details className="group px-3">
+          <summary className="mx-auto mt-8 flex w-fit cursor-pointer items-center gap-2 rounded-full bg-brume px-6 py-3 font-semibold transition-colors hover:bg-filet">
+            <span className="group-open:hidden">Voir les {rest.length} autres réalisations</span>
+            <span className="hidden group-open:inline">Replier les {rest.length} autres réalisations</span>
+            <ChevronDown size={18} strokeWidth={2.2} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+          </summary>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((p) => (
+              <li key={p.name}>
+                <Tuile p={p} fond="brume" taille="petite" />
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
     </section>
   );
 }
